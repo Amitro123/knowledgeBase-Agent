@@ -1,0 +1,63 @@
+name: "Capture & enrich links"
+
+on:
+  schedule:
+    # Every 15 minutes
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (print only, no commit)"
+        required: false
+        default: "false"
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to push resources.json back
+
+    steps:
+      # ── 1. Checkout this repo ────────────────────────────────────────────
+      - name: Checkout knowledgeBase-Agent
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Checkout obsidian-vault into ./vault ──────────────────────────
+      - name: Checkout obsidian-vault
+        uses: actions/checkout@v4
+        with:
+          repository: Amitro123/obsidian-vault
+          token: ${{ secrets.VAULT_READ_TOKEN }}
+          path: vault
+
+      # ── 3. Set up Python ─────────────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      # ── 4. Run capture script ────────────────────────────────────────────
+      - name: Run capture.py
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          INBOX_GLOB: "vault/Shared/AmitRobot/*.md"
+        run: python scripts/capture.py
+
+      # ── 5. Commit & push if resources.json changed ───────────────────────
+      - name: Commit updated resources.json
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/resources.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update resources.json [skip ci]"
+            git push
+          fi
