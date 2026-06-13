@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": 1,
+    "url": "https://openrouter.ai",
+    "title": "OpenRouter.ai - Unified API for AI Models",
+    "summary": "OpenRouter provides a single API to access various AI models, simplifying integration and offering cost-effective solutions for developers.",
+    "category": "tool",
+    "tags": [
+      "api",
+      "llm",
+      "platform",
+      "ai",
+      "developer"
+    ],
+    "source_file": "learning/OpenRouter.ai_-_Unified_API_for_AI_Models.md",
+    "created": "2026-06-13",
+    "added_at": "2026-06-13"
+  }
+]
