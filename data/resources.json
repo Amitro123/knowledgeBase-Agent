@@ -15,5 +15,1390 @@
     "source_file": "learning/OpenRouter.ai_-_Unified_API_for_AI_Models.md",
     "created": "2026-06-13",
     "added_at": "2026-06-13"
+  },
+  {
+    "id": 2,
+    "url": "https://www.dailydoseofds.com/a-beginner-friendly-and-comprehensive-deep-dive-on-vector-databases/",
+    "title": "Deep Dive on Vector Databases",
+    "summary": "מדריך מקיף וידידותי למתחילים על בסיסי נתונים וקטוריים.",
+    "category": "reference",
+    "tags": [
+      "vector_db",
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 3,
+    "url": "https://github.com/microsoft/rag-time",
+    "title": "Microsoft RAG-Time",
+    "summary": "פריימוורק ודוגמאות RAG מבית Microsoft.",
+    "category": "tool",
+    "tags": [
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 4,
+    "url": "https://www.leanware.co/insights/langgraph-rag-agentic",
+    "title": "LangGraph RAG Agentic",
+    "summary": "בניית RAG אג'נטי עם LangGraph.",
+    "category": "reference",
+    "tags": [
+      "rag",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 5,
+    "url": "https://www.decodingai.com/p/tool-calling-from-scratch-to-production",
+    "title": "Tool Calling from Scratch to Production",
+    "summary": "מימוש Tool Calling מאפס עד פרודקשן.",
+    "category": "reference",
+    "tags": [
+      "tool_calling",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 6,
+    "url": "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html",
+    "title": "Microsoft Multi-Agent Reference Architecture",
+    "summary": "ארכיטקטורת ייחוס לתכנון מערכות מרובות-סוכנים.",
+    "category": "reference",
+    "tags": [
+      "agents",
+      "architecture"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 7,
+    "url": "https://resources.leadgenman.com/",
+    "title": "LeadGenMan Resources",
+    "summary": "כלים ומשאבים לייצור לידים.",
+    "category": "tool",
+    "tags": [
+      "lead_gen"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 8,
+    "url": "https://apix-drive.com/en/help/how-to-connect-firecrawl-as-search",
+    "title": "Connect FireCrawl as Search",
+    "summary": "מדריך לחיבור FireCrawl כמנוע חיפוש.",
+    "category": "reference",
+    "tags": [
+      "web_scraping",
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 9,
+    "url": "https://huggingface.co/docs/trl/unsloth_integration",
+    "title": "Unsloth Integration (TRL)",
+    "summary": "כיצד לאמן מודלים עם Unsloth.",
+    "category": "reference",
+    "tags": [
+      "training_and_fine-tuning"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 10,
+    "url": "https://lnkd.in/esF52fm5",
+    "title": "How ChatGPT Generates Responses (Transformers)",
+    "summary": "הסבר שלב-אחר-שלב על התהליך הפנימי שבו LLM מייצר תשובה, מטוקניזציה ועד הפלט, מבוסס ארכיטקטורת Transformer. מאת Anurag Karuparti.",
+    "category": "news",
+    "tags": [
+      "llm_fundamentals"
+    ],
+    "source_file": "",
+    "created": "2025-12-10",
+    "added_at": "2025-12-10"
+  },
+  {
+    "id": 11,
+    "url": "https://lnkd.in/dnt-ngJp",
+    "title": "Build an AI Agent Call Center from Scratch",
+    "summary": "קורס מעשי בן 4 שבועות לבניית מוקד שיחות מבוסס סוכן AI: אודיו בזמן אמת, אחזור עם Superlinked ו-Qdrant, STT/TTS ופריסה עם Twilio. מאת Miguel Otero Pedrido.",
+    "category": "tutorial",
+    "tags": [
+      "agents",
+      "voice_ai"
+    ],
+    "source_file": "",
+    "created": "2025-12-10",
+    "added_at": "2025-12-10"
+  },
+  {
+    "id": 12,
+    "url": "https://redis.io/blog/build-faster-ai-memory-with-cognee-and-redis/",
+    "title": "Build Faster AI Memory with Cognee and Redis",
+    "summary": "בניית זיכרון מהיר ל-AI עם Cognee ו-Redis.",
+    "category": "reference",
+    "tags": [
+      "memory"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 13,
+    "url": "https://theneuralmaze.substack.com/p/building-reliable-llm-batch-processing",
+    "title": "Building Reliable LLM Batch Processing Systems",
+    "summary": "בניית מערכות עיבוד אצווה אמינות ל-LLM.",
+    "category": "reference",
+    "tags": [
+      "infra_and_serving",
+      "llm_fundamentals"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 14,
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7404499240854544384",
+    "title": "DevOps Automation Service ($100k)",
+    "summary": "פוסט על שירותי אוטומציית DevOps. מאת Akshay Pachaar.",
+    "category": "news",
+    "tags": [
+      "automation"
+    ],
+    "source_file": "",
+    "created": "2025-12-10",
+    "added_at": "2025-12-10"
+  },
+  {
+    "id": 15,
+    "url": "https://lnkd.in/ds_SzEUH",
+    "title": "Hiring AI/ML Engineers — Lessons",
+    "summary": "תובנות מגיוס מהנדסי AI/ML. מאת Shantanu Ladhwe.",
+    "category": "news",
+    "tags": [
+      "llm_fundamentals"
+    ],
+    "source_file": "",
+    "created": "2025-12-10",
+    "added_at": "2025-12-10"
+  },
+  {
+    "id": 16,
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7432001407060242433",
+    "title": "AI Metrics",
+    "summary": "פוסט על מטריקות AI.",
+    "category": "news",
+    "tags": [
+      "evaluation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 17,
+    "url": "https://www.linkedin.com/posts/buzagloidan_activity-7416033637629927424-iYok",
+    "title": "Choosing the LLM Stack",
+    "summary": "בחירת ה-stack בבניית אפליקציות מבוססות LLM כהחלטה אסטרטגית ולא רק טכנית. מאת Idan Buzaglo.",
+    "category": "news",
+    "tags": [
+      "llm_fundamentals",
+      "architecture"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 18,
+    "url": "https://www.linkedin.com/posts/osherove_reposwarm-give-ai-agents-context-across-activity-7374297774332272640-OynJ",
+    "title": "RepoSwarm — Context Across Repos",
+    "summary": "מתן הקשר לסוכני AI על פני ריפוזיטוריז. מאת Roy Osherove.",
+    "category": "news",
+    "tags": [
+      "agents",
+      "context_engineering"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 19,
+    "url": "https://huggingface.co/blog/ngxson/make-your-own-rag",
+    "title": "Make Your Own RAG",
+    "summary": "מדריך לבניית RAG משלך.",
+    "category": "reference",
+    "tags": [
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 20,
+    "url": "https://rag.productcompass.pm/",
+    "title": "RAG — Product Compass",
+    "summary": "משאב ללימוד RAG.",
+    "category": "reference",
+    "tags": [
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 21,
+    "url": "https://app.pinecone.io/",
+    "title": "Pinecone",
+    "summary": "בסיס נתונים וקטורי מנוהל.",
+    "category": "tool",
+    "tags": [
+      "vector_db",
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 22,
+    "url": "https://python.langchain.com/docs/tutorials/rag/",
+    "title": "LangChain RAG Tutorial",
+    "summary": "בניית אפליקציית RAG עם LangChain.",
+    "category": "reference",
+    "tags": [
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 23,
+    "url": "https://github.com/upstash/context7",
+    "title": "context7",
+    "summary": "שרת MCP שמספק תיעוד עדכני של ספריות ל-LLM.",
+    "category": "tool",
+    "tags": [
+      "mcp",
+      "documentation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 24,
+    "url": "https://github.com/microsoft/markitdown",
+    "title": "markitdown",
+    "summary": "המרת מסמכים ל-Markdown לשימוש עם LLM.",
+    "category": "tool",
+    "tags": [
+      "document_processing"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 25,
+    "url": "https://github.com/strands-agents/tools",
+    "title": "strands-agents/tools",
+    "summary": "גישה מודל-מונחית לבניית סוכני AI בכמה שורות קוד.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "tool_calling"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 26,
+    "url": "https://github.com/dmlc/xgboost",
+    "title": "xgboost",
+    "summary": "ספריית gradient boosting מבוזרת ומותאמת.",
+    "category": "tool",
+    "tags": [
+      "classic_ml"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 27,
+    "url": "https://github.com/catboost/catboost",
+    "title": "catboost",
+    "summary": "מודלי CatBoost לפרודקשן.",
+    "category": "tool",
+    "tags": [
+      "classic_ml"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 28,
+    "url": "https://github.com/microsoft/LightGBM",
+    "title": "LightGBM",
+    "summary": "פריימוורק gradient boosting מבוסס עצים.",
+    "category": "tool",
+    "tags": [
+      "classic_ml"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 29,
+    "url": "https://github.com/confident-ai/deepeval",
+    "title": "deepeval",
+    "summary": "פריימוורק להערכת LLM.",
+    "category": "tool",
+    "tags": [
+      "evaluation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 30,
+    "url": "https://github.com/Iwlj4s/FastAPIPreset",
+    "title": "FastAPIPreset",
+    "summary": "תבנית להתחלה מהירה של פרויקט FastAPI.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 31,
+    "url": "https://github.com/yichuan-w/LEANN",
+    "title": "LEANN",
+    "summary": "אינדקס וקטורי קטן במיוחד — RAG על הכל.",
+    "category": "tool",
+    "tags": [
+      "vector_db",
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 32,
+    "url": "https://github.com/BrainBlend-AI/atomic-agents",
+    "title": "atomic-agents",
+    "summary": "פריימוורק קליל לבניית סוכני LLM.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 33,
+    "url": "https://github.com/tensorlakeai/tensorlake",
+    "title": "tensorlake",
+    "summary": "API להזרקת מסמכים ופלטפורמה serverless לבניית צינורות עיבוד נתונים.",
+    "category": "tool",
+    "tags": [
+      "document_processing",
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 34,
+    "url": "https://github.com/github/spec-kit",
+    "title": "spec-kit",
+    "summary": "ערכת spec מבית GitHub.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 35,
+    "url": "https://github.com/langchain-ai/deepagents",
+    "title": "deepagents",
+    "summary": "סוכנים עמוקים מבית LangChain.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 36,
+    "url": "https://github.com/qualifire-dev/rogue",
+    "title": "rogue",
+    "summary": "כלי איכות לסוכנים.",
+    "category": "tool",
+    "tags": [
+      "evaluation",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 37,
+    "url": "https://github.com/johannschopplich/toon",
+    "title": "toon",
+    "summary": "כלים ליצירה ועבודה עם embeddings וקטוריים.",
+    "category": "tool",
+    "tags": [
+      "embeddings"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 38,
+    "url": "https://github.com/vllm-project/vllm",
+    "title": "vllm",
+    "summary": "מנוע serving קוד-פתוח ל-LLM.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 39,
+    "url": "https://github.com/xpander-ai/xpander.ai",
+    "title": "xpander.ai",
+    "summary": "כלי להרחבת יכולות AI.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 40,
+    "url": "https://github.com/pipeshub-ai/pipeshub-ai",
+    "title": "pipeshub-ai",
+    "summary": "כלי פלטפורמת AI/ML.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 41,
+    "url": "https://github.com/davidkimai/Context-Engineering",
+    "title": "Context-Engineering",
+    "summary": "משאבים ל-Context Engineering.",
+    "category": "tool",
+    "tags": [
+      "context_engineering"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 42,
+    "url": "https://github.com/emcie-co/parlant",
+    "title": "parlant",
+    "summary": "ספריית Python ליצירה ובדיקה של סוכני LLM.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "evaluation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 43,
+    "url": "https://github.com/pixeltable/pixeltable",
+    "title": "pixeltable",
+    "summary": "מערכת ניהול נתונים serverless מהירה ל-LLM.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving",
+      "document_processing"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 44,
+    "url": "https://github.com/GibsonAI/memori",
+    "title": "memori",
+    "summary": "פריימוורק לבניית מערכות מודעות-זיכרון מבוססות LLM.",
+    "category": "tool",
+    "tags": [
+      "memory"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 45,
+    "url": "https://github.com/neural-maze/agent-api-cookiecutter",
+    "title": "agent-api-cookiecutter",
+    "summary": "תבנית cookiecutter להתחלה מהירה של פרויקטי Agent API.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 46,
+    "url": "https://github.com/milvus-io/milvus",
+    "title": "milvus",
+    "summary": "בסיס נתונים וקטורי לחיפוש embeddings בקנה מידה עצום.",
+    "category": "tool",
+    "tags": [
+      "vector_db"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 47,
+    "url": "https://github.com/chiphuyen/aie-book",
+    "title": "aie-book",
+    "summary": "ספר: תכנון ובניית מערכות מבוססות AI (Chip Huyen).",
+    "category": "reference",
+    "tags": [
+      "llm_fundamentals",
+      "architecture"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 48,
+    "url": "https://github.com/LMCache/LMCache",
+    "title": "LMCache",
+    "summary": "פתרון caching רב-שלבי ל-inference של LLM.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 49,
+    "url": "https://github.com/patchy631/ai-engineering-hub",
+    "title": "ai-engineering-hub",
+    "summary": "משאבים ודוגמאות להנדסת AI.",
+    "category": "tool",
+    "tags": [
+      "llm_fundamentals",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 50,
+    "url": "https://github.com/airweave-ai/airweave",
+    "title": "airweave",
+    "summary": "פריימוורק לבנייה והרצה של זרימות עבודה מבוססות AI.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 51,
+    "url": "https://github.com/mindsdb/mindsdb",
+    "title": "mindsdb",
+    "summary": "פלטפורמה לשימוש, ניהול ופריסה של AI גנרטיבי.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 52,
+    "url": "https://github.com/bitswired/kiru",
+    "title": "kiru",
+    "summary": "ספריית Python לבנייה ופריסה של צינורות LLM לפרודקשן.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 53,
+    "url": "https://github.com/kayba-ai/agentic-context-engine",
+    "title": "agentic-context-engine",
+    "summary": "מנוע הקשר אג'נטי.",
+    "category": "tool",
+    "tags": [
+      "context_engineering",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 54,
+    "url": "https://github.com/gyoridavid/ai_agents_az",
+    "title": "ai_agents_az",
+    "summary": "משאבי סוכני AI ולמידת מכונה.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 55,
+    "url": "https://github.com/patchy631/ai-engineering-hub/tree/main/web-browsing-agent",
+    "title": "web-browsing-agent",
+    "summary": "משאבים לסוכן גלישה באינטרנט.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "web_scraping"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 56,
+    "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+    "title": "500-AI-Agents-Projects",
+    "summary": "אוסף של 500 פרויקטי סוכני AI.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 57,
+    "url": "https://github.com/rasbt/llms-from-scratch",
+    "title": "llms-from-scratch",
+    "summary": "מימוש LLM מאפס (Sebastian Raschka).",
+    "category": "tool",
+    "tags": [
+      "llm_fundamentals",
+      "training_and_fine-tuning"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 58,
+    "url": "https://github.com/maximhq/bifrost",
+    "title": "bifrost",
+    "summary": "AI Gateway / LLM Proxy מהיר במיוחד שנכתב ב-Go.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 59,
+    "url": "https://github.com/coleam00/habit-tracker/tree/workshop",
+    "title": "habit-tracker (workshop)",
+    "summary": "וורקשופ בניית אפליקציית מעקב הרגלים.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 60,
+    "url": "https://github.com/topoteretes/cognee",
+    "title": "cognee",
+    "summary": "שכבת זיכרון/ידע לסוכני AI.",
+    "category": "tool",
+    "tags": [
+      "memory",
+      "knowledge_graphs"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 61,
+    "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
+    "title": "Agentic AI Crash Course",
+    "summary": "קורס חינמי מקוצר על AI אג'נטי.",
+    "category": "tutorial",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 62,
+    "url": "https://github.com/jd/tenacity",
+    "title": "tenacity",
+    "summary": "ספריית retry ל-Python.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 63,
+    "url": "https://github.com/vudovn/antigravity-kit",
+    "title": "antigravity-kit",
+    "summary": "ערכת antigravity skills.",
+    "category": "tool",
+    "tags": [
+      "skills"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 64,
+    "url": "https://github.com/instructkr/claw-code",
+    "title": "Claw-Code",
+    "summary": "מימוש Python של יכולות computer-use / קידוד אג'נטי בסגנון Claude. שימושי למשימות קידוד אוטונומיות.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "2026-05-02",
+    "added_at": "2026-05-02"
+  },
+  {
+    "id": 65,
+    "url": "https://github.com/baldiga/Hebrew-writer",
+    "title": "Hebrew-writer",
+    "summary": "כישור כתיבה עברי-נייטיב ל-Claude Code עם מערכת 7 שכבות וזיהוי תבניות. שימושי לתיקון בעיות RTL/LTR.",
+    "category": "tool",
+    "tags": [
+      "skills",
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "2026-05-04",
+    "added_at": "2026-05-04"
+  },
+  {
+    "id": 66,
+    "url": "https://github.com/OpenDCAI/DataFlow",
+    "title": "DataFlow",
+    "summary": "מנוע זרימת נתונים.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving",
+      "document_processing"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 67,
+    "url": "https://github.com/codejunkie99/agentic-stack",
+    "title": "agentic-stack",
+    "summary": "ארכיטקטורת סוכן AI ניידת, תאימות בין-פלטפורמית עם כלי קידוד AI (Claude Code, Cursor, Hermes).",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "architecture"
+    ],
+    "source_file": "",
+    "created": "2026-05-23",
+    "added_at": "2026-05-23"
+  },
+  {
+    "id": 68,
+    "url": "https://github.com/cocoindex-io/cocoindex",
+    "title": "cocoindex",
+    "summary": "מנוע אינקרמנטלי לסוכני AI ארוכי טווח ששומרים הקשר לאורך זמן.",
+    "category": "tool",
+    "tags": [
+      "context_engineering",
+      "memory"
+    ],
+    "source_file": "",
+    "created": "2026-05-23",
+    "added_at": "2026-05-23"
+  },
+  {
+    "id": 69,
+    "url": "https://github.com/googleworkspace/cli",
+    "title": "googleworkspace/cli",
+    "summary": "CLI ל-Google Workspace.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 70,
+    "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
+    "title": "Airtop — LinkedIn Lead Gen from Commenters",
+    "summary": "תבנית לייצור לידים מ-LinkedIn מתוך מגיבים לפוסט.",
+    "category": "tool",
+    "tags": [
+      "lead_gen",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 71,
+    "url": "https://www.linkedin.com/company/airwallex/",
+    "title": "Airwallex AI Finance Agents",
+    "summary": "חברת פינטק המפתחת סוכני AI לאוטומציה מלאה של זרימות עבודה פיננסיות. מאת Divyanshi Sharma.",
+    "category": "news",
+    "tags": [
+      "automation",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "2025-12-10",
+    "added_at": "2025-12-10"
+  },
+  {
+    "id": 72,
+    "url": "https://www.getagentcraft.com/",
+    "title": "AgentCraft — RTS Agent Orchestration",
+    "summary": "תזמור סוכני AI בממשק בסגנון משחק RTS. התקנה עם npx idosal/agentcraft.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "2026-05-04",
+    "added_at": "2026-05-04"
+  },
+  {
+    "id": 73,
+    "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+    "title": "Google Workspace MCP Configuration",
+    "summary": "מדריך רשמי של Google להגדרת שרתי MCP לאינטגרציות Workspace. קריטי לאינטגרציות MCP עתידיות.",
+    "category": "reference",
+    "tags": [
+      "mcp"
+    ],
+    "source_file": "",
+    "created": "2026-05-02",
+    "added_at": "2026-05-02"
+  },
+  {
+    "id": 74,
+    "url": "https://github.com/getzep/graphiti",
+    "title": "graphiti",
+    "summary": "פריימוורק לבנייה ושאילתה של גרפי ידע מודעי-זמן, מותאם לסוכני AI בסביבות דינמיות.",
+    "category": "tool",
+    "tags": [
+      "knowledge_graphs",
+      "memory"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 75,
+    "url": "https://github.com/apify/mcpc",
+    "title": "mcpc",
+    "summary": "לקוח CLI אוניברסלי ל-MCP: סשנים מתמשכים, stdio/HTTP, OAuth 2.1, משימות, פלט JSON ו-proxy לסנדבוקסים.",
+    "category": "tool",
+    "tags": [
+      "mcp"
+    ],
+    "source_file": "",
+    "created": "2026-05-23",
+    "added_at": "2026-05-23"
+  },
+  {
+    "id": 76,
+    "url": "https://reflex.dev/",
+    "title": "Reflex",
+    "summary": "בניית אפליקציות ווב ב-Python טהור.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 77,
+    "url": "https://bhindi.io/c/new",
+    "title": "Bhindi (agentTool)",
+    "summary": "יצירת סוכנים ללא קוד.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 78,
+    "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch",
+    "title": "Monarch (Lightning AI)",
+    "summary": "אימון אינטראקטיבי של מודל Llama בקנה מידה גדול.",
+    "category": "tool",
+    "tags": [
+      "training_and_fine-tuning"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 79,
+    "url": "https://www.assemblyai.com/",
+    "title": "AssemblyAI",
+    "summary": "הדרך הטובה ביותר לבנות אפליקציות Voice AI.",
+    "category": "tool",
+    "tags": [
+      "voice_ai"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 80,
+    "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch",
+    "title": "Build Your Own ChatGPT (Lightning AI)",
+    "summary": "בניית ChatGPT משלך מאפס.",
+    "category": "tutorial",
+    "tags": [
+      "llm_fundamentals",
+      "training_and_fine-tuning"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 81,
+    "url": "https://gamma.app/",
+    "title": "Gamma",
+    "summary": "יצירת מצגות ומסמכים יפים ומרתקים.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 82,
+    "url": "https://blog.apify.com/how-to-build-an-ai-agent/",
+    "title": "How to Build an AI Agent (Apify)",
+    "summary": "מדריך לבניית סוכן AI.",
+    "category": "reference",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 83,
+    "url": "https://huggingface.co/spaces/mteb/leaderboard",
+    "title": "MTEB Leaderboard",
+    "summary": "טבלת דירוג Massive Text Embedding Benchmark.",
+    "category": "other",
+    "tags": [
+      "embeddings",
+      "evaluation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 84,
+    "url": "https://www.firecrawl.dev/",
+    "title": "FireCrawl",
+    "summary": "חילוץ מידע רלוונטי מאתרים עבור RAG.",
+    "category": "tool",
+    "tags": [
+      "web_scraping",
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 85,
+    "url": "https://alterbase.co/",
+    "title": "Alterbase",
+    "summary": "ניהול ידע מבוסס AI.",
+    "category": "tool",
+    "tags": [
+      "memory",
+      "knowledge_graphs"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 86,
+    "url": "https://mstone.ai/",
+    "title": "Mstone AI",
+    "summary": "פלטפורמת LLM ops ו-observability.",
+    "category": "tool",
+    "tags": [
+      "evaluation",
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 87,
+    "url": "https://chat.inceptionlabs.ai/",
+    "title": "InceptionLabs Chat",
+    "summary": "סביבת פיתוח AI Chat/Agent.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 88,
+    "url": "https://sota.rival.tech/",
+    "title": "Rival Tech SOTA Leaderboard",
+    "summary": "טבלת דירוג למודלים מובילים (SOTA).",
+    "category": "other",
+    "tags": [
+      "evaluation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 89,
+    "url": "https://llmlayer.ai/",
+    "title": "LLMLayer",
+    "summary": "בנייה ופריסה של LLM בקלות.",
+    "category": "tool",
+    "tags": [
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 90,
+    "url": "https://blink.new/",
+    "title": "Blink",
+    "summary": "כלי בנייה (ראו סרטון הדגמה ביוטיוב).",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 91,
+    "url": "https://reevo.ai/",
+    "title": "Reevo AI",
+    "summary": "סוכן AI אוטומטי למשימות ספציפיות.",
+    "category": "tool",
+    "tags": [
+      "agents",
+      "automation"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 92,
+    "url": "https://kapso.ai",
+    "title": "Kapso",
+    "summary": "פלטפורמת AI (Kapso).",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 93,
+    "url": "https://mlflow.org/docs/latest/genai/tracing/",
+    "title": "MLflow GenAI Tracing",
+    "summary": "תיעוד tracing ל-GenAI ב-MLflow.",
+    "category": "reference",
+    "tags": [
+      "evaluation",
+      "infra_and_serving"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 94,
+    "url": "https://github.com/omegis/Hostinger-PHP-Guide",
+    "title": "Hostinger PHP Guide",
+    "summary": "מדריך PHP ל-Hostinger.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 95,
+    "url": "https://www.genspark.ai/",
+    "title": "Genspark",
+    "summary": "סוכן AI כללי.",
+    "category": "tool",
+    "tags": [
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 96,
+    "url": "https://github.com/huggingface/skills",
+    "title": "HuggingFace Skills",
+    "summary": "אוסף skills מבית HuggingFace.",
+    "category": "tool",
+    "tags": [
+      "skills"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 97,
+    "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
+    "title": "Delegating Access to AI Workloads (Teleport RFD)",
+    "summary": "מסמך RFD על האצלת גישה ל-workloads של AI.",
+    "category": "reference",
+    "tags": [
+      "security"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 98,
+    "url": "https://github.com/alexgreensh/token-optimizer",
+    "title": "token-optimizer",
+    "summary": "כלי לאופטימיזציית טוקנים.",
+    "category": "tool",
+    "tags": [
+      "context_engineering",
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 99,
+    "url": "https://github.com/tzachbon/claude-model-advisor",
+    "title": "claude-model-advisor",
+    "summary": "יועץ לבחירת מודל Claude.",
+    "category": "tool",
+    "tags": [
+      "frontend_and_dev"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 100,
+    "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
+    "title": "Always-On Memory Agent (Gemini)",
+    "summary": "סוכן זיכרון תמידי לסוכני Gemini.",
+    "category": "tool",
+    "tags": [
+      "memory",
+      "agents"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 101,
+    "url": "https://github.com/yvgude/lean-ctx",
+    "title": "lean-ctx",
+    "summary": "מנהל הקשר אג'נטי קליל ל-LLM, מותאם לניהול חלונות טוקנים במשימות ארוכות.",
+    "category": "tool",
+    "tags": [
+      "memory",
+      "context_engineering"
+    ],
+    "source_file": "",
+    "created": "2026-05-23",
+    "added_at": "2026-05-23"
+  },
+  {
+    "id": 102,
+    "url": "https://drive.google.com/file/d/1JW6Q_wwvBjMz9xzOtTldFfPiF7BrdEeQ/view",
+    "title": "Drive Resource (Learning)",
+    "summary": "מסמך/משאב משותף ב-Google Drive.",
+    "category": "other",
+    "tags": [
+      "llm_fundamentals"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 103,
+    "url": "https://drive.google.com/file/d/1-z9OJ_b6LCwv-U9go-o9T-GDainDafMP/view",
+    "title": "Drive Resource (RAG)",
+    "summary": "מסמך/משאב משותף ב-Google Drive בנושא RAG.",
+    "category": "other",
+    "tags": [
+      "rag"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
+  },
+  {
+    "id": 104,
+    "url": "https://share.google/oo97pDATYI4Nu08im",
+    "title": "Shared Google Link",
+    "summary": "קישור שיתוף של Google (תוכן/מצגת).",
+    "category": "other",
+    "tags": [
+      "llm_fundamentals"
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13"
   }
 ]
