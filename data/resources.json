@@ -1450,5 +1450,22 @@
     "source_file": "Debug-Browser-Tool-Chrome-Fix.md",
     "created": "",
     "added_at": "2026-06-20"
+  },
+  {
+    "id": 109,
+    "url": "https://github.com/InsForge/InsForge",
+    "title": "InsForge",
+    "summary": "InsForge",
+    "category": "uncategorised",
+    "tags": [
+      "open-source",
+      "backend",
+      "agentic",
+      "tool",
+      "ai"
+    ],
+    "source_file": "InsForge.md",
+    "created": "2026-06-20",
+    "added_at": "2026-06-20"
   }
 ]
