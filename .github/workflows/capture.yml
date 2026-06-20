@@ -20,13 +20,13 @@ jobs:
     steps:
       # ── 1. Checkout this repo ────────────────────────────────────────────
       - name: Checkout knowledgeBase-Agent
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # ── 2. Checkout obsidian-vault into ./vault ──────────────────────────
       - name: Checkout obsidian-vault
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: Amitro123/obsidian-vault
           token: ${{ secrets.VAULT_READ_TOKEN }}
@@ -34,7 +34,7 @@ jobs:
 
       # ── 3. Set up Python ─────────────────────────────────────────────────
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
