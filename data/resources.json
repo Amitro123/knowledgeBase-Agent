@@ -1413,5 +1413,42 @@
     "source": "github.com",
     "date": "2026-06-13",
     "status": "To review"
+  },
+  {
+    "id": 106,
+    "url": "https://docs.google.com/document/d/1wnkbBioxhA4vLIS7I8-SLp0iQPJc56VsAg34goiUc7w/edit",
+    "title": "מפגש 4: AI כשותף חכם - כלים מתקדמים ומסכמים",
+    "summary": "מפגש 4: AI כשותף חכם - כלים מתקדמים ומסכמים",
+    "category": "uncategorised",
+    "tags": [
+      "workshop/ai",
+      "session/4",
+      "community/halas"
+    ],
+    "source_file": "AI Workshop - Session 4.md",
+    "created": "2026-05-02",
+    "added_at": "2026-06-20"
+  },
+  {
+    "id": 107,
+    "url": "https://www.m8tly.ai/blog",
+    "title": "CronJob-m8tly-Blog-Summary",
+    "summary": "CronJob-m8tly-Blog-Summary",
+    "category": "uncategorised",
+    "tags": [],
+    "source_file": "CronJob-m8tly-Blog-Summary.md",
+    "created": "",
+    "added_at": "2026-06-20"
+  },
+  {
+    "id": 108,
+    "url": "https://example.com/",
+    "title": "Debug-Browser-Tool-Chrome-Fix",
+    "summary": "Debug-Browser-Tool-Chrome-Fix",
+    "category": "uncategorised",
+    "tags": [],
+    "source_file": "Debug-Browser-Tool-Chrome-Fix.md",
+    "created": "",
+    "added_at": "2026-06-20"
   }
 ]
