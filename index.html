@@ -888,20 +888,21 @@
         const catColor = CATEGORY_COLORS[cat] || '#52d9a0';
         nodes.push({
           id: cid,
-          label: CATEGORY_LABELS_GRAPH[cat] || cat,
+          label: '  ' + (CATEGORY_LABELS_GRAPH[cat] || cat) + '  ',
           group: 'category',
           shape: 'diamond',
-          size: 28 + Math.min(count, 30) * 0.8,
-          mass: 3 + count * 0.15,
+          size: 36 + Math.min(count, 30) * 1,
+          mass: 4 + count * 0.2,
           color: { background: catColor, border: catColor + '88', highlight: { background: catColor, border: '#fff8' } },
-          font: { color: '#e8eaf6', size: 16, face: 'Heebo, sans-serif', strokeWidth: 3, strokeColor: '#0d0f17cc' },
+          font: { color: '#ffffff', size: 40, face: 'Heebo, sans-serif', strokeWidth: 5, strokeColor: '#0d0f17', bold: true, background: 'rgba(13,15,23,0.7)' },
         });
       });
 
       tagSet.forEach((count, tNorm) => {
         const tid = 't_' + tNorm;
         graphNodeMap[tid] = { type: 'tag', data: { name: tNorm, count } };
-        const sz = 10 + Math.min(count, 20) * 1.5;
+        const sz = 14 + Math.min(count, 20) * 1.8;
+        const fontSize = 24 + Math.min(count, 10) * 2;
         nodes.push({
           id: tid,
           label: tNorm,
@@ -910,7 +911,7 @@
           size: sz,
           mass: 1.5 + count * 0.1,
           color: { background: '#5b8dee', border: '#7eadff', highlight: { background: '#8dbcff', border: '#b0d4ff' } },
-          font: { color: '#a8b4d0', size: 13, face: 'Heebo, sans-serif', strokeWidth: 2, strokeColor: '#0d0f17bb' },
+          font: { color: '#c8d4f0', size: fontSize, face: 'Heebo, sans-serif', strokeWidth: 4, strokeColor: '#0d0f17', background: 'rgba(13,15,23,0.55)' },
         });
       });
 
@@ -925,10 +926,10 @@
           _fullLabel: truncLabel(r.title || r.url, 32),
           group: 'resource',
           shape: 'dot',
-          size: 9,
+          size: 10,
           mass: 1,
           color: { background: '#7c6af7', border: '#9b8aff55', highlight: { background: '#a897ff', border: '#c5bbff' } },
-          font: { color: '#e8eaf600', size: 11, face: 'Heebo, sans-serif', strokeWidth: 2, strokeColor: '#0d0f17bb' },
+          font: { color: '#e8eaf600', size: 18, face: 'Heebo, sans-serif', strokeWidth: 3, strokeColor: '#0d0f17', background: 'rgba(13,15,23,0.6)' },
         });
 
         edges.push({
@@ -957,14 +958,14 @@
     }
 
     function updateResourceLabelsForZoom() {
-      const showLabels = graphCurrentScale > 1.4;
+      const showLabels = graphCurrentScale > 1.2;
       const updates = [];
       graphData.nodes.forEach(node => {
         if (node.group !== 'resource') return;
         const wantLabel = showLabels ? (node._fullLabel || '') : '';
         const wantColor = showLabels ? '#d0d4e8' : '#e8eaf600';
         if (node.label !== wantLabel) {
-          updates.push({ id: node.id, label: wantLabel, font: { color: wantColor, size: 11, face: 'Heebo, sans-serif', strokeWidth: 2, strokeColor: '#0d0f17bb' } });
+          updates.push({ id: node.id, label: wantLabel, font: { color: wantColor, size: 18, face: 'Heebo, sans-serif', strokeWidth: 3, strokeColor: '#0d0f17', background: 'rgba(13,15,23,0.6)' } });
         }
       });
       if (updates.length) graphData.nodes.update(updates);
@@ -980,14 +981,14 @@
         physics: {
           solver: 'forceAtlas2Based',
           forceAtlas2Based: {
-            gravitationalConstant: -80,
-            centralGravity: 0.006,
-            springLength: 160,
-            springConstant: 0.03,
+            gravitationalConstant: -120,
+            centralGravity: 0.005,
+            springLength: 200,
+            springConstant: 0.025,
             damping: 0.45,
-            avoidOverlap: 0.4,
+            avoidOverlap: 0.5,
           },
-          stabilization: { iterations: 250, fit: true },
+          stabilization: { iterations: 280, fit: true },
           maxVelocity: 25,
         },
         interaction: {
@@ -1063,11 +1064,11 @@
     function showHoveredResourceLabel(nodeId, show) {
       const node = graphData.nodes.get(nodeId);
       if (!node || node.group !== 'resource') return;
-      if (graphCurrentScale > 1.4) return;
+      if (graphCurrentScale > 1.2) return;
       graphData.nodes.update({
         id: nodeId,
         label: show ? (node._fullLabel || '') : '',
-        font: { color: show ? '#e8eaf6' : '#e8eaf600', size: 11, face: 'Heebo, sans-serif', strokeWidth: 2, strokeColor: '#0d0f17bb' },
+        font: { color: show ? '#e8eaf6' : '#e8eaf600', size: 18, face: 'Heebo, sans-serif', strokeWidth: 3, strokeColor: '#0d0f17', background: show ? 'rgba(13,15,23,0.7)' : 'transparent' },
       });
     }
 
@@ -1128,9 +1129,12 @@
         const isHL = highlightSet.has(id);
         const info = graphNodeMap[id];
         const isResource = info && info.type === 'resource';
+        const isTag = info && info.type === 'tag';
+        const isCat = info && info.type === 'category';
+        const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
         let fontColor;
         if (isHL) {
-          fontColor = (info && info.type === 'tag') ? '#c0ccee' : '#e8eaf6';
+          fontColor = isCat ? '#ffffff' : (isTag ? '#c8d4f0' : '#e8eaf6');
         } else {
           fontColor = '#e8eaf608';
         }
@@ -1139,10 +1143,11 @@
           opacity: isHL ? 1 : 0.08,
           font: {
             color: fontColor,
-            size: isResource ? 11 : (info?.type === 'category' ? 16 : 13),
+            size: fontSize,
             face: 'Heebo, sans-serif',
-            strokeWidth: isHL ? 2 : 0,
-            strokeColor: '#0d0f17bb',
+            strokeWidth: isHL ? (isCat ? 5 : 3) : 0,
+            strokeColor: '#0d0f17',
+            background: isHL ? (isCat ? 'rgba(13,15,23,0.7)' : 'rgba(13,15,23,0.55)') : 'transparent',
           },
           label: (isResource && isHL && !graphData.nodes.get(id).label) ? (graphData.nodes.get(id)._fullLabel || '') : graphData.nodes.get(id).label,
         };
@@ -1159,22 +1164,24 @@
     }
 
     function resetHighlight() {
-      const showLabels = graphCurrentScale > 1.4;
+      const showLabels = graphCurrentScale > 1.2;
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
         const isResource = info && info.type === 'resource';
         const isTag = info && info.type === 'tag';
         const isCat = info && info.type === 'category';
+        const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
         return {
           id,
           opacity: 1,
           label: isResource ? (showLabels ? (graphData.nodes.get(id)._fullLabel || '') : '') : graphData.nodes.get(id).label,
           font: {
-            color: isResource ? (showLabels ? '#d0d4e8' : '#e8eaf600') : (isTag ? '#a8b4d0' : '#e8eaf6'),
-            size: isResource ? 11 : (isCat ? 16 : 13),
+            color: isResource ? (showLabels ? '#d0d4e8' : '#e8eaf600') : (isTag ? '#c8d4f0' : '#ffffff'),
+            size: fontSize,
             face: 'Heebo, sans-serif',
-            strokeWidth: isResource && !showLabels ? 0 : 2,
-            strokeColor: '#0d0f17bb',
+            strokeWidth: isResource && !showLabels ? 0 : (isCat ? 5 : 4),
+            strokeColor: '#0d0f17',
+            background: isResource && !showLabels ? 'transparent' : (isCat ? 'rgba(13,15,23,0.7)' : 'rgba(13,15,23,0.55)'),
           },
         };
       });
@@ -1283,11 +1290,14 @@
         const isVis = visibleSet.has(id);
         const info = graphNodeMap[id];
         const isResource = info && info.type === 'resource';
+        const isTag = info && info.type === 'tag';
+        const isCat = info && info.type === 'category';
+        const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
         let label = graphData.nodes.get(id).label;
         let fontColor;
 
         if (isVis) {
-          fontColor = isResource ? (showResourceLabels ? '#d0d4e8' : '#e8eaf600') : (info?.type === 'tag' ? '#a8b4d0' : '#e8eaf6');
+          fontColor = isResource ? (showResourceLabels ? '#d0d4e8' : '#e8eaf600') : (isTag ? '#c8d4f0' : '#ffffff');
           if (isResource && showResourceLabels) label = graphData.nodes.get(id)._fullLabel || '';
           else if (isResource && !showResourceLabels) label = '';
         } else {
@@ -1301,10 +1311,11 @@
           label,
           font: {
             color: fontColor,
-            size: isResource ? 11 : (info?.type === 'category' ? 16 : 13),
+            size: fontSize,
             face: 'Heebo, sans-serif',
-            strokeWidth: isVis ? 2 : 0,
-            strokeColor: '#0d0f17bb',
+            strokeWidth: isVis ? (isCat ? 5 : 3) : 0,
+            strokeColor: '#0d0f17',
+            background: isVis ? (isCat ? 'rgba(13,15,23,0.7)' : (isResource && !showResourceLabels ? 'transparent' : 'rgba(13,15,23,0.55)')) : 'transparent',
           },
         };
       });
