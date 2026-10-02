@@ -211,6 +211,22 @@
   },
   {
     "id": 15,
+    "url": "https://huggingface.co/spaces/FineEnvs/multi-harness-rl",
+    "title": "FineEnvs / Adithya S Kolavi et al. (Hugging Face, Liquid AI)",
+    "summary": "The ultimate guide to multi-harness RL: אותו מודל מתנהג אחרת בכל agent harness. המדריך מראה איך לאמן מודלים פתוחים ב-RL בתוך harnesses אמיתיים (Claude Code, Codex, OpenCode) כדי לשפר אותם בכולם.",
+    "category": "research",
+    "tags": [
+      "learning",
+      "research",
+      "trends"
+    ],
+    "source_file": "",
+    "created": "2026-10-03",
+    "added_at": "2026-10-03",
+    "notes": "פורסם 1 באוקטובר 2026. פרקים: מבוא, יסודות, למה multi-harness, OpenEnv, אימון, מסקנות. כלים: GRPO, Harbor, TRL, OpenEnv. מקור: https://github.com/adithya-s-k/FineEnvs (תחת content/articles/multi-harness-rl). Space על Hugging Face, לא ריפו בפני עצמו."
+  },
+  {
+    "id": 16,
     "url": "https://www.linkedin.com/feed/update/urn:li:activity:7432001407060242433/",
     "title": "LinkedIn Post",
     "summary": "מדדים ומטריקות להערכת ביצועים של מערכות AI",
@@ -225,7 +241,7 @@
     "notes": ""
   },
   {
-    "id": 16,
+    "id": 17,
     "url": "https://www.linkedin.com/posts/buzagloidan_%D7%9B%D7%A9%D7%91%D7%95%D7%A0%D7%99%D7%9D-%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%95%D7%AA-%D7%9E%D7%91%D7%95%D7%A1%D7%A1%D7%95%D7%AA-llm-%D7%91%D7%97%D7%99%D7%A8%D7%AA-%D7%94-stack...",
     "title": "Idan Buzaglo",
     "summary": "בחירת Tech Stack לאפליקציות מבוססות LLM כהחלטה אסטרטגית וטכנולוגית",
@@ -240,7 +256,7 @@
     "notes": ""
   },
   {
-    "id": 17,
+    "id": 18,
     "url": "https://www.linkedin.com/posts/osherove_reposwarm-give-ai-agents-context-across-activity-7374297774332272640-OynJ",
     "title": "Roy Osherove (Reposwarm)",
     "summary": "Reposwarm - מתן קונטקסט רוחבי לסוכני AI על פני מספר מאגרי קוד",
@@ -255,7 +271,7 @@
     "notes": ""
   },
   {
-    "id": 18,
+    "id": 19,
     "url": "https://huggingface.co/blog/ngxson/make-your-own-rag",
     "title": "ngxson / Hugging Face",
     "summary": "learn about RAG",
@@ -270,7 +286,7 @@
     "notes": ""
   },
   {
-    "id": 19,
+    "id": 20,
     "url": "https://rag.productcompass.pm/",
     "title": "Product Compass (Paweł Huryn)",
     "summary": "Comprehensive visual guide and handbook for RAG architectures and retrieval strategies",
@@ -285,7 +301,7 @@
     "notes": ""
   },
   {
-    "id": 20,
+    "id": 21,
     "url": "https://app.pinecone.io/",
     "title": "Pinecone",
     "summary": "Managed vector database for semantic search and AI applications",
@@ -300,7 +316,7 @@
     "notes": ""
   },
   {
-    "id": 21,
+    "id": 22,
     "url": "https://drive.google.com/file/d/1-z9OJ_b6LCwv-U9go-o9T-GDainDafMP/view",
     "title": "Drive File (RAG Guide)",
     "summary": "Shared guide and presentation on RAG architectures",
@@ -315,7 +331,7 @@
     "notes": ""
   },
   {
-    "id": 22,
+    "id": 23,
     "url": "https://python.langchain.com/docs/tutorials/rag/",
     "title": "LangChain",
     "summary": "Build a Retrieval Augmented Generation (RAG) App",
@@ -330,7 +346,7 @@
     "notes": ""
   },
   {
-    "id": 23,
+    "id": 24,
     "url": "https://github.com/upstash/context7",
     "title": "context7",
     "summary": "In-memory key/value store",
@@ -345,7 +361,7 @@
     "notes": ""
   },
   {
-    "id": 24,
+    "id": 25,
     "url": "https://github.com/microsoft/markitdown",
     "title": "markitdown",
     "summary": "Markdown for use with LLMs and related text analysis pipelines.",
@@ -360,7 +376,7 @@
     "notes": ""
   },
   {
-    "id": 25,
+    "id": 26,
     "url": "https://github.com/strands-agents/tools",
     "title": "tools",
     "summary": "A model-driven approach to building AI agents in just a few lines of code.",
@@ -375,7 +391,7 @@
     "notes": ""
   },
   {
-    "id": 26,
+    "id": 27,
     "url": "https://github.com/dmlc/xgboost",
     "title": "xgboost",
     "summary": "Optimized distributed gradient boosting library.",
@@ -390,7 +406,7 @@
     "notes": ""
   },
   {
-    "id": 27,
+    "id": 28,
     "url": "https://github.com/catboost/catboost",
     "title": "catboost",
     "summary": "CatBoost models in production",
@@ -405,7 +421,7 @@
     "notes": ""
   },
   {
-    "id": 28,
+    "id": 29,
     "url": "https://github.com/microsoft/LightGBM",
     "title": "LightGBM",
     "summary": "Gradient boosting framework that uses tree-based learning algorithms.",
@@ -420,7 +436,7 @@
     "notes": ""
   },
   {
-    "id": 29,
+    "id": 30,
     "url": "https://github.com/confident-ai/deepeval",
     "title": "deepeval",
     "summary": "The LLM Evaluation Framework.",
@@ -435,7 +451,7 @@
     "notes": ""
   },
   {
-    "id": 30,
+    "id": 31,
     "url": "https://github.com/Iwlj4s/FastAPIPreset",
     "title": "FastAPIPreset",
     "summary": "A preset for quickly starting a FastAPI project.",
@@ -450,7 +466,7 @@
     "notes": ""
   },
   {
-    "id": 31,
+    "id": 32,
     "url": "https://github.com/yichuan-w/LEANN",
     "title": "LEANN",
     "summary": "The smallest vector index in the world. RAG Everything with LEANN!",
@@ -465,7 +481,7 @@
     "notes": ""
   },
   {
-    "id": 32,
+    "id": 33,
     "url": "https://github.com/BrainBlend-AI/atomic-agents",
     "title": "atomic-agents",
     "summary": "Lightweight framework for building LLM agents.",
@@ -480,7 +496,7 @@
     "notes": ""
   },
   {
-    "id": 33,
+    "id": 34,
     "url": "https://github.com/tensorlakeai/tensorlake",
     "title": "tensorlake",
     "summary": "Document Ingestion API and serverless platform for building data processing and orchestration APIs.",
@@ -495,7 +511,7 @@
     "notes": ""
   },
   {
-    "id": 34,
+    "id": 35,
     "url": "https://github.com/github/spec-kit",
     "title": "spec-kit",
     "summary": "A spec kit for Github.",
@@ -510,7 +526,7 @@
     "notes": ""
   },
   {
-    "id": 35,
+    "id": 36,
     "url": "https://github.com/langchain-ai/deepagents.git",
     "title": "deepagents",
     "summary": "Deep agents and machine learning.",
@@ -525,7 +541,7 @@
     "notes": ""
   },
   {
-    "id": 36,
+    "id": 37,
     "url": "https://github.com/qualifire-dev/rogue.git",
     "title": "rogue",
     "summary": "A quality agent tool.",
@@ -540,7 +556,7 @@
     "notes": ""
   },
   {
-    "id": 37,
+    "id": 38,
     "url": "https://github.com/johannschopplich/toon?utm_source=tldrai",
     "title": "toon",
     "summary": "Tools for creating and working with vector embeddings.",
@@ -555,7 +571,7 @@
     "notes": ""
   },
   {
-    "id": 38,
+    "id": 39,
     "url": "https://github.com/vllm-project/vllm",
     "title": "vllm",
     "summary": "An open-source LLM serving engine.",
@@ -570,7 +586,7 @@
     "notes": ""
   },
   {
-    "id": 39,
+    "id": 40,
     "url": "https://github.com/xpander-ai/xpander.ai",
     "title": "xpander.ai",
     "summary": "A tool for expanding AI capabilities.",
@@ -585,7 +601,7 @@
     "notes": ""
   },
   {
-    "id": 40,
+    "id": 41,
     "url": "https://github.com/pipeshub-ai/pipeshub-ai",
     "title": "pipeshub-ai",
     "summary": "AI/ML platform tools.",
@@ -600,7 +616,7 @@
     "notes": ""
   },
   {
-    "id": 41,
+    "id": 42,
     "url": "https://github.com/davidkimai/Context-Engineering",
     "title": "Context-Engineering",
     "summary": "Resources for Context Engineering.",
@@ -615,7 +631,7 @@
     "notes": ""
   },
   {
-    "id": 42,
+    "id": 43,
     "url": "https://github.com/emcie-co/parlant",
     "title": "parlant",
     "summary": "A Python library for creating and testing LLM agents.",
@@ -630,7 +646,7 @@
     "notes": ""
   },
   {
-    "id": 43,
+    "id": 44,
     "url": "https://github.com/pixeltable/pixeltable",
     "title": "pixeltable",
     "summary": "A fast, easy-to-use, serverless data management system for LLMs.",
@@ -645,7 +661,7 @@
     "notes": ""
   },
   {
-    "id": 44,
+    "id": 45,
     "url": "https://github.com/GibsonAI/memori",
     "title": "memori",
     "summary": "A framework for building LLM-powered memory-aware systems.",
@@ -660,7 +676,7 @@
     "notes": ""
   },
   {
-    "id": 45,
+    "id": 46,
     "url": "https://github.com/neural-maze/agent-api-cookiecutter",
     "title": "agent-api-cookiecutter",
     "summary": "A cookiecutter template for quickly starting agent API projects.",
@@ -675,7 +691,7 @@
     "notes": ""
   },
   {
-    "id": 46,
+    "id": 47,
     "url": "https://github.com/milvus-io/milvus",
     "title": "milvus",
     "summary": "A vector database for massive-scale vector embedding search.",
@@ -690,7 +706,7 @@
     "notes": ""
   },
   {
-    "id": 47,
+    "id": 48,
     "url": "https://github.com/chiphuyen/aie-book",
     "title": "aie-book",
     "summary": "Book: Designing and building AI-powered systems.",
@@ -705,7 +721,7 @@
     "notes": ""
   },
   {
-    "id": 48,
+    "id": 49,
     "url": "https://github.com/LMCache/LMCache",
     "title": "LMCache",
     "summary": "A multi-stage caching solution for LLM inference.",
@@ -720,7 +736,7 @@
     "notes": ""
   },
   {
-    "id": 49,
+    "id": 50,
     "url": "https://github.com/patchy631/ai-engineering-hub",
     "title": "ai-engineering-hub",
     "summary": "Resources and examples for AI engineering.",
@@ -735,7 +751,7 @@
     "notes": ""
   },
   {
-    "id": 50,
+    "id": 51,
     "url": "https://github.com/airweave-ai/airweave",
     "title": "airweave",
     "summary": "A framework for building and running AI workflows.",
@@ -750,7 +766,7 @@
     "notes": ""
   },
   {
-    "id": 51,
+    "id": 52,
     "url": "https://github.com/microsoft/markitdown.git",
     "title": "markitdown",
     "summary": "Markdown for use with LLMs and related text analysis pipelines.",
@@ -765,7 +781,7 @@
     "notes": ""
   },
   {
-    "id": 52,
+    "id": 53,
     "url": "https://github.com/mindsdb/mindsdb?tab=readme-ov-file",
     "title": "mindsdb",
     "summary": "The platform for you to easily use, manage and deploy generative AI.",
@@ -780,7 +796,7 @@
     "notes": ""
   },
   {
-    "id": 53,
+    "id": 54,
     "url": "https://github.com/bitswired/kiru",
     "title": "kiru",
     "summary": "Python library for building and deploying production-ready LLM pipelines.",
@@ -795,7 +811,7 @@
     "notes": ""
   },
   {
-    "id": 54,
+    "id": 55,
     "url": "https://github.com/kayba-ai/agentic-context-engine?tab=readme-ov-file#-the-seahorse-emoji-challenge",
     "title": "agentic-context-engine",
     "summary": "An agentic context engine framework.",
@@ -810,7 +826,7 @@
     "notes": ""
   },
   {
-    "id": 55,
+    "id": 56,
     "url": "https://github.com/gyoridavid/ai_agents_az.git",
     "title": "ai_agents_az",
     "summary": "AI agents and machine learning resources.",
@@ -825,7 +841,7 @@
     "notes": ""
   },
   {
-    "id": 56,
+    "id": 57,
     "url": "https://github.com/patchy631/ai-engineering-hub/tree/main/web-browsing-agent",
     "title": "web-browsing-agent",
     "summary": "Resources for a web-browsing agent.",
@@ -840,7 +856,7 @@
     "notes": ""
   },
   {
-    "id": 57,
+    "id": 58,
     "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
     "title": "500-AI-Agents-Projects",
     "summary": "Collection of AI agent projects.",
@@ -855,7 +871,7 @@
     "notes": ""
   },
   {
-    "id": 58,
+    "id": 59,
     "url": "https://github.com/rasbt/llms-from-scratch",
     "title": "llms-from-scratch",
     "summary": "Implementing LLMs from scratch.",
@@ -870,7 +886,7 @@
     "notes": ""
   },
   {
-    "id": 59,
+    "id": 60,
     "url": "https://github.com/maximhq/bifrost",
     "title": "https://github.com/maximhq/bifrost",
     "summary": "Bifrost הוא AI Gateway (או LLM Proxy) מהיר במיוחד שנכתב ב-Go.",
@@ -885,7 +901,7 @@
     "notes": ""
   },
   {
-    "id": 60,
+    "id": 61,
     "url": "https://github.com/coleam00/habit-tracker/tree/workshop",
     "title": "https://github.com/coleam00/habit-tracker/tree/workshop",
     "summary": "",
@@ -900,7 +916,7 @@
     "notes": ""
   },
   {
-    "id": 61,
+    "id": 62,
     "url": "https://github.com/topoteretes/cognee",
     "title": "https://github.com/topoteretes/cognee",
     "summary": "",
@@ -915,7 +931,7 @@
     "notes": ""
   },
   {
-    "id": 62,
+    "id": 63,
     "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
     "title": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
     "summary": "",
@@ -930,7 +946,7 @@
     "notes": ""
   },
   {
-    "id": 63,
+    "id": 64,
     "url": "https://github.com/jd/tenacity",
     "title": "https://github.com/jd/tenacity",
     "summary": "Retrying library for Python",
@@ -945,7 +961,7 @@
     "notes": ""
   },
   {
-    "id": 64,
+    "id": 65,
     "url": "https://github.com/vudovn/antigravity-kit",
     "title": "antigravity skills",
     "summary": "",
@@ -960,7 +976,7 @@
     "notes": ""
   },
   {
-    "id": 65,
+    "id": 66,
     "url": "https://github.com/instructkr/claw-code",
     "title": "Claw-Code",
     "summary": "A Python implementation of Claude's computer use / agentic coding capabilities, enabling LLMs to interact with environments.",
@@ -975,7 +991,7 @@
     "notes": "Useful for autonomous coding tasks and research into Claude-style agency."
   },
   {
-    "id": 66,
+    "id": 67,
     "url": "https://github.com/baldiga/Hebrew-writer",
     "title": "GitHub - baldiga/hebrew-writer",
     "summary": "The first Hebrew-native writing skill for Claude Code. Passes all AI detectors. Fools native Israelis. 7-layer system with 55+ pattern detection, Israeli voice injection, and voice cloning. - baldiga/hebrew-writer",
@@ -990,7 +1006,7 @@
     "notes": "Useful for fixing RTL/LTR issues in coding projects"
   },
   {
-    "id": 67,
+    "id": 68,
     "url": "https://github.com/OpenDCAI/DataFlow",
     "title": "https://github.com/OpenDCAI/DataFlow",
     "summary": "",
@@ -1005,7 +1021,7 @@
     "notes": ""
   },
   {
-    "id": 68,
+    "id": 69,
     "url": "https://github.com/codejunkie99/agentic-stack",
     "title": "agentic-stack / codejunkie99",
     "summary": "Portable AI agent architecture, cross-platform compatibility with various AI coding tools (Claude Code, Cursor, Hermes).",
@@ -1020,7 +1036,7 @@
     "notes": "מבנה סוכן AI נייד, תאימות בין-פלטפורמית עם מגוון כלי קידוד AI. רלוונטי לארכיטקטורות סוכנים."
   },
   {
-    "id": 69,
+    "id": 70,
     "url": "https://github.com/cocoindex-io/cocoindex",
     "title": "cocoindex / cocoindex-io",
     "summary": "Incremental engine for long horizon agents.",
@@ -1035,7 +1051,7 @@
     "notes": "מנוע אינקרמנטלי לסוכני AI ארוכי טווח. רלוונטי לבניית מערכות AI מורכבות יותר שצריכות לשמור הקשר ולהסתגל לאורך זמן."
   },
   {
-    "id": 70,
+    "id": 71,
     "url": "https://github.com/googleworkspace/cli",
     "title": "https://github.com/googleworkspace/cli",
     "summary": "",
@@ -1050,7 +1066,7 @@
     "notes": ""
   },
   {
-    "id": 71,
+    "id": 72,
     "url": "https://github.com/HarnessRouter/harnessrouter",
     "title": "HarnessRouter / harnessrouter",
     "summary": "שכבת תשתית self-hosted שמאחדת harnesses של סוכנים (Codex, Claude Code, Hermes, PI, DSH ועוד) תחת API אחד תואם OpenAI Responses, עם sessions, streaming, קבצים, ביטול וטיפול בכשלים. מממש את UHP.",
@@ -1065,7 +1081,7 @@
     "notes": "רכיבים: Console (:3000) + Gateway (:8080, Responses API) + Runner (:8081) בקונטיינר Docker אחד; volume /data למסד, קבצים, secrets ו-workspaces. פרוטוקול: Unified Harness Protocol (UHP) + תאימות OpenAI Responses. צריך: Docker ~4GB דיסק + API key של ספק מודלים. רישיון: Apache-2.0 (Community Edition). אתר: https://harnessrouter.ai/ · שפה: Python · ~2.8k stars."
   },
   {
-    "id": 72,
+    "id": 73,
     "url": "https://leads.sh/l/mx8bwy6kiuia/amit-rosen-331732140",
     "title": "Leads.sh",
     "summary": "LinkedIn lead generation and automated outreach funnel",
@@ -1080,7 +1096,7 @@
     "notes": ""
   },
   {
-    "id": 73,
+    "id": 74,
     "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
     "title": "Airtop.ai",
     "summary": "Browser automation template to extract leads from LinkedIn post commenters",
@@ -1095,7 +1111,7 @@
     "notes": ""
   },
   {
-    "id": 74,
+    "id": 75,
     "url": "https://www.linkedin.com/company/airwallex/",
     "title": "Divyanshi Sharma",
     "summary": "Airwallex, a fintech company, is developing multiple AI agents to fully automate end-to-end financial workflows such as invoicing and treasury operations. The post also highlights its existing strengths, including a global payment network, multi-currency accounts, and AI-powered finance automation.",
@@ -1110,7 +1126,7 @@
     "notes": ""
   },
   {
-    "id": 75,
+    "id": 76,
     "url": "https://www.getagentcraft.com/",
     "title": "AgentCraft — RTS interface for agent orchestration",
     "summary": "Orchestrate your AI agents with an RTS game interface. Install with npx idosal/agentcraft.",
@@ -1125,7 +1141,7 @@
     "notes": "Self-hosted AI agent infrastructure platform"
   },
   {
-    "id": 76,
+    "id": 77,
     "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
     "title": "Google Workspace MCP Configuration",
     "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
@@ -1140,7 +1156,7 @@
     "notes": "Critical for future MCP integrations with Google Workspace."
   },
   {
-    "id": 77,
+    "id": 78,
     "url": "https://github.com/getzep/graphiti",
     "title": "Zep (Graphiti)",
     "summary": "Graphiti is a framework for building and querying temporally-aware knowledge graphs, specifically tailored for AI agents operating in dynamic environments.",
@@ -1155,7 +1171,7 @@
     "notes": ""
   },
   {
-    "id": 78,
+    "id": 79,
     "url": "https://github.com/apify/mcpc",
     "title": "mcpc / apify",
     "summary": "A universal CLI client for MCP. mcpc supports persistent sessions, stdio/HTTP, OAuth 2.1, tasks, JSON output for code mode, proxy for AI sandboxes, x402, and more.",
@@ -1170,7 +1186,7 @@
     "notes": "כלי CLI אוניברסלי ל-MCP. תומך בסשנים מתמשכים, משימות, פלט JSON למצב קוד וסנדבוקס ל-AI."
   },
   {
-    "id": 79,
+    "id": 80,
     "url": "https://reflex.dev/",
     "title": "Reflex",
     "summary": "Build web apps in pure Python.",
@@ -1185,7 +1201,7 @@
     "notes": ""
   },
   {
-    "id": 80,
+    "id": 81,
     "url": "https://bhindi.io/c/new",
     "title": "agentTool",
     "summary": "No-code agent creation.",
@@ -1200,7 +1216,7 @@
     "notes": ""
   },
   {
-    "id": 81,
+    "id": 82,
     "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Monarch",
     "summary": "אימון אינטראקטיבי של מודל Llama",
@@ -1215,7 +1231,7 @@
     "notes": ""
   },
   {
-    "id": 82,
+    "id": 83,
     "url": "https://www.assemblyai.com/",
     "title": "assemblyai",
     "summary": "The best way to build Voice AI apps",
@@ -1230,7 +1246,7 @@
     "notes": ""
   },
   {
-    "id": 83,
+    "id": 84,
     "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Build your own ChatGPT from scratch",
     "summary": "Build your own ChatGPT from scratch",
@@ -1245,7 +1261,7 @@
     "notes": ""
   },
   {
-    "id": 84,
+    "id": 85,
     "url": "https://gamma.app/",
     "title": "Gamma",
     "summary": "Create beautiful and engaging presentations and documents.",
@@ -1260,7 +1276,7 @@
     "notes": ""
   },
   {
-    "id": 85,
+    "id": 86,
     "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
     "title": "Apify (AI Agent Blog)",
     "summary": "Guide on how to build an AI agent.",
@@ -1275,7 +1291,7 @@
     "notes": ""
   },
   {
-    "id": 86,
+    "id": 87,
     "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
     "title": "MTEB Leaderboard",
     "summary": "Massive Text Embedding Benchmark leaderboard.",
@@ -1290,7 +1306,7 @@
     "notes": ""
   },
   {
-    "id": 87,
+    "id": 88,
     "url": "https://www.firecrawl.dev/",
     "title": "FireCrawl",
     "summary": "extract relevant information for RAG from websites",
@@ -1305,7 +1321,7 @@
     "notes": ""
   },
   {
-    "id": 88,
+    "id": 89,
     "url": "https://alterbase.co/",
     "title": "Alterbase",
     "summary": "AI-powered knowledge management.",
@@ -1320,7 +1336,7 @@
     "notes": ""
   },
   {
-    "id": 89,
+    "id": 90,
     "url": "https://mstone.ai/",
     "title": "Mstone AI",
     "summary": "LLM operations and observability platform.",
@@ -1335,7 +1351,7 @@
     "notes": ""
   },
   {
-    "id": 90,
+    "id": 91,
     "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
     "title": "InceptionLabs Chat",
     "summary": "AI Chat/Agent development environment.",
@@ -1350,7 +1366,7 @@
     "notes": ""
   },
   {
-    "id": 91,
+    "id": 92,
     "url": "https://sota.rival.tech/",
     "title": "Rival Tech SOTA",
     "summary": "Leaderboard for State-of-the-Art models.",
@@ -1365,7 +1381,7 @@
     "notes": ""
   },
   {
-    "id": 92,
+    "id": 93,
     "url": "https://llmlayer.ai/",
     "title": "LLMLayer",
     "summary": "Build and deploy LLMs with ease.",
@@ -1380,7 +1396,7 @@
     "notes": ""
   },
   {
-    "id": 93,
+    "id": 94,
     "url": "https://blink.new/",
     "title": "Blink (New)",
     "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
@@ -1395,7 +1411,7 @@
     "notes": ""
   },
   {
-    "id": 94,
+    "id": 95,
     "url": "https://reevo.ai/",
     "title": "Reevo AI",
     "summary": "Automated AI agent for specific tasks.",
@@ -1410,7 +1426,7 @@
     "notes": ""
   },
   {
-    "id": 95,
+    "id": 96,
     "url": "https://kapso.ai",
     "title": "https://kapso.ai",
     "summary": "",
@@ -1424,7 +1440,7 @@
     "notes": ""
   },
   {
-    "id": 96,
+    "id": 97,
     "url": "https://mlflow.org/docs/latest/genai/tracing/",
     "title": "https://mlflow.org/docs/latest/genai/tracing/",
     "summary": "",
@@ -1439,7 +1455,7 @@
     "notes": ""
   },
   {
-    "id": 97,
+    "id": 98,
     "url": "https://github.com/omegis/Hostinger-PHP-Guide",
     "title": "https://github.com/omegis/Hostinger-PHP-Guide",
     "summary": "",
@@ -1454,7 +1470,7 @@
     "notes": ""
   },
   {
-    "id": 98,
+    "id": 99,
     "url": "https://www.genspark.ai/",
     "title": "https://www.genspark.ai/",
     "summary": "",
@@ -1469,7 +1485,7 @@
     "notes": ""
   },
   {
-    "id": 99,
+    "id": 100,
     "url": "https://github.com/huggingface/skills",
     "title": "Hugging Face (skills)",
     "summary": "Agent skills and tool repository for LLMs and smolagents",
@@ -1484,7 +1500,7 @@
     "notes": ""
   },
   {
-    "id": 100,
+    "id": 101,
     "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
     "title": "Teleport (Gravitational) / RFD 0238",
     "summary": "Delegating Access to AI Workloads - architecture proposal for secure infrastructure access for AI agents",
@@ -1499,7 +1515,7 @@
     "notes": "Delegating Access to AI Workloads"
   },
   {
-    "id": 101,
+    "id": 102,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
@@ -1514,7 +1530,7 @@
     "notes": ""
   },
   {
-    "id": 102,
+    "id": 103,
     "url": "https://github.com/tzachbon/claude-model-advisor",
     "title": "Tzach Bonfil / claude-model-advisor",
     "summary": "Tool to recommend the right Claude model based on requirements and budget",
@@ -1529,7 +1545,7 @@
     "notes": ""
   },
   {
-    "id": 103,
+    "id": 104,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -1544,7 +1560,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 104,
+    "id": 105,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
