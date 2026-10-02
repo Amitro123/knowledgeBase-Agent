@@ -253,6 +253,17 @@
 
     .card:hover .tag { border-color: var(--border-hover); color: var(--text); }
 
+    .card-notes {
+      font-size: .8rem; color: var(--text-dim); line-height: 1.5;
+      background: var(--bg3); border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      border-right: 3px solid var(--accent);
+    }
+
     .card-footer {
       display: flex; justify-content: space-between; align-items: center;
       font-size: .75rem; color: var(--text-dimmer);
@@ -475,6 +486,7 @@
         items = items.filter(r =>
           (r.title || '').toLowerCase().includes(q) ||
           (r.summary || '').toLowerCase().includes(q) ||
+          (r.notes || '').toLowerCase().includes(q) ||
           (r.url || '').toLowerCase().includes(q) ||
           (r.tags || []).some(t => t.toLowerCase().includes(q))
         );
@@ -535,6 +547,7 @@
             <span class="category-badge ${cat}">${escHtml(cat)}</span>
           </div>
           ${r.summary ? `<div class="card-summary">${escHtml(r.summary)}</div>` : ''}
+          ${r.notes ? `<div class="card-notes">${escHtml(r.notes)}</div>` : ''}
           ${tags ? `<div class="card-tags">${tags}</div>` : ''}
           <div class="card-footer">
             <span class="card-url">${escHtml(domain)}</span>
