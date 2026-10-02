@@ -534,6 +534,33 @@
 
     #graph-detail .detail-link:hover { opacity: .85; }
 
+    /* ── Mobile bottom-sheet drag handle ────────────────────────────── */
+    .detail-drag-handle {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .detail-drag-handle {
+        display: block;
+        width: 36px; height: 4px;
+        background: var(--text-dimmer);
+        border-radius: 2px;
+        margin: 0 auto 10px;
+      }
+    }
+
+    /* ── Graph hint overlay ──────────────────────────────────────────── */
+    .graph-hint {
+      position: absolute; bottom: 14px; right: 14px; z-index: 5;
+      background: rgba(13,15,23,.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: .76rem; color: var(--text-dim);
+      pointer-events: none;
+      transition: opacity .4s;
+    }
+
     #graph-detail .detail-neighbors {
       margin-top: 12px; padding-top: 10px;
       border-top: 1px solid var(--border);
@@ -558,15 +585,76 @@
     #graph-detail .detail-neighbors li:hover { color: var(--accent); }
 
     @media (max-width: 600px) {
-      header { padding: 36px 0 28px; }
+      .wrapper { padding: 0 12px; }
+      header { padding: 28px 0 18px; }
       .header-inner { flex-direction: column; align-items: flex-start; }
       .header-stats { gap: 16px; }
+      .controls { padding: 16px 0 12px; gap: 8px; }
+      .search-wrap { flex: 1 1 100%; }
+      .view-toggle { order: -1; }
+      .filters { gap: 6px; }
+      .filter-btn { padding: 6px 12px; font-size: .78rem; }
       #cards-grid { grid-template-columns: 1fr; }
-      #graph-wrapper { height: 60vh; min-height: 320px; }
-      #graph-detail { width: 280px; padding: 14px; }
-      .graph-legend { font-size: .7rem; padding: 8px 10px; }
-      .graph-zoom-hint { font-size: .66rem; padding: 5px 12px; }
-      #graph-tooltip { max-width: 260px; }
+      /* Graph fills viewport below controls */
+      #graph-wrapper {
+        height: calc(100vh - 200px);
+        min-height: 340px;
+        border-radius: var(--radius-sm);
+        border: none;
+      }
+
+      /* Legend: compact row layout at bottom-left */
+      .graph-legend {
+        top: auto; bottom: 10px; left: 10px;
+        font-size: .68rem; padding: 6px 10px;
+        flex-direction: row; flex-wrap: wrap; gap: 4px 10px;
+        background: rgba(13,15,23,.92);
+        max-width: 220px;
+      }
+
+      /* Desktop zoom-hint shrinks on mobile */
+      .graph-zoom-hint { font-size: .66rem; padding: 5px 12px; display: none; }
+
+      /* Tooltip narrower on mobile */
+      #graph-tooltip { max-width: 260px; display: none !important; }
+
+      /* Detail panel: full-width bottom sheet */
+      #graph-detail {
+        position: absolute;
+        top: auto !important; bottom: 0; right: 0; left: 0;
+        width: 100% !important; max-width: 100% !important;
+        max-height: 55vh;
+        border-radius: var(--radius) var(--radius) 0 0;
+        padding: 16px 16px 20px;
+        box-shadow: 0 -4px 24px rgba(0,0,0,.5);
+        overscroll-behavior: contain;
+      }
+      #graph-detail .detail-close {
+        top: 8px; left: 8px; right: auto;
+        font-size: 1.3rem; padding: 6px 10px;
+        z-index: 1;
+      }
+
+      /* Hide sort in graph view */
+      .toolbar.graph-mode { display: none !important; }
+
+      /* Mobile hub-mode hint */
+      .graph-hint {
+        font-size: .72rem; padding: 5px 10px;
+        bottom: 10px; right: 10px;
+      }
+
+      /* Bigger tap targets for neighbor list on mobile */
+      #graph-detail .detail-neighbors li {
+        padding: 8px 4px;
+        border-bottom: 1px solid var(--border);
+        font-size: .85rem;
+      }
+
+      #graph-detail .detail-link {
+        display: block; text-align: center;
+        padding: 12px 18px; font-size: .9rem;
+      }
     }
   </style>
 </head>
@@ -652,7 +740,9 @@
         <div class="legend-item"><div class="legend-dot diamond" style="background:#52d9a0"></div><span>קטגוריה</span></div>
       </div>
       <div class="graph-zoom-hint" id="graph-zoom-hint">גלגל לזום · לחץ על צומת לפרטים · גרור לסובב</div>
+      <div class="graph-hint" id="graph-hint"></div>
       <div id="graph-detail">
+        <div class="detail-drag-handle" aria-hidden="true"></div>
         <button class="detail-close" aria-label="סגור">✕</button>
         <div id="graph-detail-content"></div>
       </div>
@@ -679,6 +769,12 @@
     let graphNetwork = null;
     let graphData = { nodes: null, edges: null };
     let graphNodeMap = {};
+
+    function isMobile() { return window.innerWidth <= 600; }
+
+    // Hub-mode: on mobile, resource nodes are hidden until a hub (tag/category) is tapped
+    let mobileHubMode = true;
+    let focusedHub = null;
 
     // ── Fetch resources.json ─────────────────────────────────────────────
     async function loadResources() {
@@ -975,46 +1071,69 @@
       const container = document.getElementById('graph-container');
       if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
 
+      const mobile = isMobile();
+
       const options = {
-        nodes: { borderWidth: 1.5, shadow: { enabled: true, color: 'rgba(0,0,0,.25)', size: 8, x: 0, y: 2 } },
-        edges: { smooth: { type: 'continuous', roundness: 0.25 }, selectionWidth: 2, hoverWidth: 1.5 },
+        nodes: { borderWidth: 1.5, shadow: { enabled: !mobile, color: 'rgba(0,0,0,.25)', size: 8, x: 0, y: 2 } },
+        edges: { smooth: { type: 'continuous', roundness: 0.25 }, selectionWidth: 2, hoverWidth: mobile ? 0 : 1.5 },
         physics: {
           solver: 'forceAtlas2Based',
-          forceAtlas2Based: {
-            gravitationalConstant: -120,
-            centralGravity: 0.005,
-            springLength: 200,
-            springConstant: 0.025,
-            damping: 0.45,
-            avoidOverlap: 0.5,
-          },
-          stabilization: { iterations: 280, fit: true },
-          maxVelocity: 25,
+          forceAtlas2Based: mobile
+            ? { gravitationalConstant: -30, centralGravity: 0.015, springLength: 70, springConstant: 0.06, damping: 0.5 }
+            : { gravitationalConstant: -120, centralGravity: 0.005, springLength: 200, springConstant: 0.025, damping: 0.45, avoidOverlap: 0.5 },
+          stabilization: { iterations: mobile ? 120 : 280, fit: true },
+          maxVelocity: mobile ? 20 : 25,
         },
         interaction: {
-          hover: true,
-          tooltipDelay: 0,
+          hover: !mobile,
+          tooltipDelay: mobile ? 300 : 0,
           zoomView: true,
           dragView: true,
           multiselect: false,
           navigationButtons: false,
+          zoomSpeed: mobile ? 0.6 : 1,
+          dragNodes: true,
         },
         layout: { improvedLayout: false },
       };
 
       graphNetwork = new vis.Network(container, graphData, options);
 
+      if (mobile) {
+        mobileHubMode = true;
+        focusedHub = null;
+        applyMobileHubMode();
+        showGraphHint('לחץ על צומת קטגוריה/תגית לפרטים');
+      } else {
+        showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+      }
+
       graphNetwork.on('click', function (params) {
         if (params.nodes.length > 0) {
           const nodeId = params.nodes[0];
           graphSelectedNode = nodeId;
+          const info = graphNodeMap[nodeId];
+
+          if (mobile && mobileHubMode && info && (info.type === 'tag' || info.type === 'category')) {
+            focusedHub = nodeId;
+            expandHub(nodeId);
+            showGraphDetail(nodeId);
+            return;
+          }
+
           showGraphDetail(nodeId);
           highlightNeighbors(nodeId);
         } else {
           graphSelectedNode = null;
           hideGraphDetail();
-          if (!graphIsFiltered) resetHighlight();
-          else applyGraphFilter();
+          if (mobile && focusedHub) {
+            focusedHub = null;
+            applyMobileHubMode();
+          } else if (!graphIsFiltered) {
+            resetHighlight();
+          } else {
+            applyGraphFilter();
+          }
         }
       });
 
@@ -1117,6 +1236,93 @@
       document.getElementById('graph-tooltip').style.display = 'none';
     }
 
+    function showGraphHint(text) {
+      const hint = document.getElementById('graph-hint');
+      if (!hint) return;
+      hint.textContent = text;
+      hint.style.opacity = '1';
+      clearTimeout(hint._timer);
+      hint._timer = setTimeout(() => { hint.style.opacity = '0'; }, 5000);
+    }
+
+    /** Mobile hub mode: hide resource nodes, show only tag+category hubs with labels */
+    function applyMobileHubMode() {
+      if (!graphData.nodes) return;
+      const nodeUpdates = graphData.nodes.getIds().map(id => {
+        const info = graphNodeMap[id];
+        if (!info) return { id };
+        if (info.type === 'resource') {
+          return { id, hidden: true };
+        }
+        const isCategory = info.type === 'category';
+        return {
+          id,
+          hidden: false,
+          opacity: 1,
+          size: isCategory ? 26 : 14,
+          font: {
+            color: '#e8eaf6',
+            size: isCategory ? 14 : 11,
+            face: 'Heebo, sans-serif',
+          },
+        };
+      });
+      graphData.nodes.update(nodeUpdates);
+
+      const edgeUpdates = graphData.edges.getIds().map(id => ({ id, hidden: true }));
+      graphData.edges.update(edgeUpdates);
+
+      if (graphNetwork) {
+        graphNetwork.fit({ animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
+      }
+    }
+
+    /** Expand a hub node: show its resource neighbors and edges */
+    function expandHub(hubId) {
+      const neighbors = graphNetwork.getConnectedNodes(hubId);
+      const connectedEdges = graphNetwork.getConnectedEdges(hubId);
+      const neighborSet = new Set([hubId, ...neighbors]);
+
+      const nodeUpdates = graphData.nodes.getIds().map(id => {
+        const info = graphNodeMap[id];
+        if (!info) return { id };
+        if (neighborSet.has(id)) {
+          const isHub = info.type === 'tag' || info.type === 'category';
+          return {
+            id,
+            hidden: false,
+            opacity: 1,
+            size: id === hubId ? 28 : (isHub ? 16 : 10),
+            font: {
+              color: '#e8eaf6',
+              size: id === hubId ? 14 : (isHub ? 12 : 10),
+              face: 'Heebo, sans-serif',
+            },
+          };
+        }
+        if (info.type === 'resource') {
+          return { id, hidden: true };
+        }
+        return { id, hidden: false, opacity: 0.25, font: { color: '#e8eaf640' } };
+      });
+      graphData.nodes.update(nodeUpdates);
+
+      const connectedEdgeSet = new Set(connectedEdges);
+      const edgeUpdates = graphData.edges.getIds().map(id => ({
+        id,
+        hidden: !connectedEdgeSet.has(id),
+        opacity: connectedEdgeSet.has(id) ? 0.8 : 0.05,
+      }));
+      graphData.edges.update(edgeUpdates);
+
+      graphNetwork.focus(hubId, {
+        scale: 1.0,
+        animation: { duration: 400, easingFunction: 'easeInOutQuad' },
+      });
+
+      showGraphHint('לחץ על משאב לפרטים · לחץ על רקע לחזור');
+    }
+
     function highlightNeighbors(nodeId) {
       const connectedNodes = graphNetwork.getConnectedNodes(nodeId);
       const connectedEdges = graphNetwork.getConnectedEdges(nodeId);
@@ -1164,6 +1370,11 @@
     }
 
     function resetHighlight() {
+      if (isMobile() && mobileHubMode) {
+        applyMobileHubMode();
+        return;
+      }
+
       const showLabels = graphCurrentScale > 1.2;
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
@@ -1173,6 +1384,7 @@
         const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
         return {
           id,
+          hidden: false,
           opacity: 1,
           label: isResource ? (showLabels ? (graphData.nodes.get(id)._fullLabel || '') : '') : graphData.nodes.get(id).label,
           font: {
@@ -1188,7 +1400,7 @@
 
       const edgeUpdates = graphData.edges.getIds().map(id => {
         const edge = graphData.edges.get(id);
-        return { id, opacity: 1, width: edge._type === 'cat' ? 1 : 0.5 };
+        return { id, hidden: false, opacity: 1, width: edge._type === 'cat' ? 1 : 0.5 };
       });
 
       graphData.nodes.update(nodeUpdates);
@@ -1201,6 +1413,7 @@
 
       const panel = document.getElementById('graph-detail');
       const content = document.getElementById('graph-detail-content');
+      const mobile = isMobile();
 
       const neighbors = graphNetwork.getConnectedNodes(nodeId);
       const neighborHtml = neighbors.map(nid => {
@@ -1243,12 +1456,21 @@
 
       panel.style.display = 'block';
 
+      if (mobile) {
+        panel.scrollTop = 0;
+      }
+
       content.querySelectorAll('.detail-neighbors li[data-nid]').forEach(li => {
         li.addEventListener('click', () => {
           const nid = li.dataset.nid;
           graphSelectedNode = nid;
+          const nInfo = graphNodeMap[nid];
+          if (mobile && nInfo && nInfo.type === 'resource' && mobileHubMode) {
+            showGraphDetail(nid);
+            return;
+          }
           graphNetwork.selectNodes([nid]);
-          graphNetwork.focus(nid, { scale: 1.5, animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+          graphNetwork.focus(nid, { scale: mobile ? 0.9 : 1.5, animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
           showGraphDetail(nid);
           highlightNeighbors(nid);
         });
@@ -1339,6 +1561,9 @@
     function renderGraph() {
       if (!graphNetwork) initGraph();
       applyGraphFilter();
+      if (isMobile() && mobileHubMode && !focusedHub) {
+        applyMobileHubMode();
+      }
     }
 
     // ── View switching ───────────────────────────────────────────────────
@@ -1359,6 +1584,7 @@
         graphWrapper.style.display = 'none';
         cardsGrid.style.display = '';
         toolbar.style.display = '';
+        toolbar.classList.remove('graph-mode');
         emptyState.style.display = '';
         hideGraphDetail();
         renderCards();
@@ -1366,7 +1592,13 @@
         cardsGrid.style.display = 'none';
         emptyState.style.display = 'none';
         toolbar.style.display = 'flex';
+        toolbar.classList.add('graph-mode');
         graphWrapper.style.display = 'block';
+
+        if (isMobile()) {
+          mobileHubMode = true;
+          focusedHub = null;
+        }
         renderGraph();
       }
     }
@@ -1400,6 +1632,19 @@
     document.querySelector('#graph-detail .detail-close').addEventListener('click', () => {
       hideGraphDetail();
       resetHighlight();
+    });
+
+    // ── Reinit graph on orientation / resize change ─────────────────────
+    let _lastMobile = isMobile();
+    window.addEventListener('resize', () => {
+      const mobile = isMobile();
+      if (mobile !== _lastMobile && activeView === 'graph' && graphNetwork) {
+        _lastMobile = mobile;
+        graphNetwork.destroy();
+        graphNetwork = null;
+        renderGraph();
+      }
+      _lastMobile = mobile;
     });
 
     // ── Init ─────────────────────────────────────────────────────────────
