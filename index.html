@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
   <style>
     /* ── Reset & Tokens ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -313,11 +314,168 @@
     footer a:hover { text-decoration: underline; }
 
     /* ── Responsive ──────────────────────────────────────────────────── */
+    /* ── View toggle ─────────────────────────────────────────────────── */
+    .view-toggle {
+      display: flex; gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+
+    .view-btn {
+      padding: 7px 18px;
+      border: none; border-radius: 6px;
+      background: transparent;
+      color: var(--text-dim);
+      font-size: .84rem; font-family: inherit;
+      cursor: pointer;
+      transition: all .18s;
+      white-space: nowrap;
+    }
+
+    .view-btn:hover { color: var(--text); }
+    .view-btn.active {
+      background: var(--accent);
+      color: #fff; font-weight: 600;
+    }
+
+    /* ── Graph container ─────────────────────────────────────────────── */
+    #graph-container {
+      display: none;
+      width: 100%;
+      height: 70vh;
+      min-height: 400px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg2);
+      position: relative;
+    }
+
+    #graph-container canvas { border-radius: var(--radius); }
+
+    /* ── Graph legend ────────────────────────────────────────────────── */
+    .graph-legend {
+      position: absolute; top: 12px; left: 12px; z-index: 5;
+      background: rgba(13,15,23,.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex; flex-direction: column; gap: 6px;
+      font-size: .76rem; color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    .legend-item {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .legend-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Detail panel (graph) ────────────────────────────────────────── */
+    #graph-detail {
+      display: none;
+      position: absolute; top: 12px; right: 12px; z-index: 10;
+      width: 320px; max-width: calc(100% - 24px);
+      max-height: calc(100% - 24px);
+      overflow-y: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    #graph-detail .detail-close {
+      position: absolute; top: 10px; left: 10px;
+      background: none; border: none;
+      color: var(--text-dim); font-size: 1.1rem;
+      cursor: pointer; line-height: 1;
+    }
+
+    #graph-detail .detail-close:hover { color: var(--text); }
+
+    #graph-detail .detail-type {
+      font-size: .7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 2px 8px; border-radius: 999px;
+      display: inline-block; margin-bottom: 8px;
+    }
+
+    #graph-detail .detail-type.resource { background: rgba(124,106,247,.18); color: var(--accent); }
+    #graph-detail .detail-type.tag      { background: rgba(91,141,238,.18); color: var(--accent2); }
+    #graph-detail .detail-type.category { background: rgba(82,217,160,.15); color: var(--green); }
+
+    #graph-detail h3 {
+      font-size: 1.05rem; font-weight: 600; margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    #graph-detail .detail-summary {
+      font-size: .86rem; color: var(--text-dim); line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    #graph-detail .detail-meta {
+      font-size: .78rem; color: var(--text-dimmer);
+      margin-bottom: 6px;
+    }
+
+    #graph-detail .detail-tags {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      margin: 8px 0;
+    }
+
+    #graph-detail .detail-tags .tag {
+      font-size: .72rem; padding: 3px 9px; border-radius: 999px;
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+
+    #graph-detail .detail-link {
+      display: inline-block; margin-top: 10px;
+      padding: 8px 18px; border-radius: var(--radius-sm);
+      background: var(--accent); color: #fff;
+      text-decoration: none; font-size: .84rem; font-weight: 500;
+      transition: opacity .15s;
+    }
+
+    #graph-detail .detail-link:hover { opacity: .85; }
+
+    #graph-detail .detail-neighbors {
+      margin-top: 12px; padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: .8rem; color: var(--text-dim);
+    }
+
+    #graph-detail .detail-neighbors h4 {
+      font-size: .78rem; font-weight: 600; color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    #graph-detail .detail-neighbors ul {
+      list-style: none; padding: 0;
+    }
+
+    #graph-detail .detail-neighbors li {
+      padding: 3px 0;
+      cursor: pointer;
+      transition: color .15s;
+    }
+
+    #graph-detail .detail-neighbors li:hover { color: var(--accent); }
+
     @media (max-width: 600px) {
       header { padding: 36px 0 28px; }
       .header-inner { flex-direction: column; align-items: flex-start; }
       .header-stats { gap: 16px; }
       #cards-grid { grid-template-columns: 1fr; }
+      #graph-container { height: 55vh; min-height: 300px; }
+      #graph-detail { width: 260px; padding: 14px; }
+      .graph-legend { font-size: .7rem; padding: 8px 10px; }
     }
   </style>
 </head>
@@ -362,6 +520,10 @@
         />
         <span class="search-icon">🔍</span>
       </div>
+      <div class="view-toggle" role="tablist" aria-label="תצוגה">
+        <button class="view-btn active" data-view="cards" role="tab" aria-selected="true">📇 כרטיסים</button>
+        <button class="view-btn" data-view="graph" role="tab" aria-selected="false">🕸️ גרף</button>
+      </div>
       <div class="filters" id="filters-bar" role="group" aria-label="סינון לפי קטגוריה">
         <button class="filter-btn active" data-cat="all" id="filter-all">הכל</button>
       </div>
@@ -390,6 +552,19 @@
       <p>נסה מילת חיפוש אחרת או הסר את הסינון</p>
     </div>
 
+    <!-- Graph view -->
+    <div id="graph-container">
+      <div class="graph-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#7c6af7"></div><span>משאב</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5b8dee"></div><span>תגית</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#52d9a0"></div><span>קטגוריה</span></div>
+      </div>
+      <div id="graph-detail">
+        <button class="detail-close" aria-label="סגור">✕</button>
+        <div id="graph-detail-content"></div>
+      </div>
+    </div>
+
   </div><!-- /wrapper -->
 
   <footer>
@@ -406,6 +581,10 @@
     let activeCategory = 'all';
     let sortOrder = 'newest';
     let searchQuery = '';
+    let activeView = 'cards';
+    let graphNetwork = null;
+    let graphData = { nodes: null, edges: null };
+    let graphNodeMap = {};
 
     // ── Fetch resources.json ─────────────────────────────────────────────
     async function loadResources() {
@@ -424,7 +603,6 @@
 
     // ── Build category filter buttons ────────────────────────────────────
     function initUI() {
-      // Stats
       document.getElementById('total-count').textContent = allResources.length;
 
       const cats = [...new Set(allResources.map(r => r.category || 'other'))];
@@ -438,7 +616,6 @@
           latest.added_at ? latest.added_at.slice(5) : '—';
       }
 
-      // Filter buttons
       const bar = document.getElementById('filters-bar');
       const CATEGORY_LABELS = {
         tutorial: '📚 מדריכים',
@@ -461,6 +638,7 @@
         bar.appendChild(btn);
       });
 
+      buildGraphData();
       render();
     }
 
@@ -504,8 +682,17 @@
       return items;
     }
 
-    // ── Render cards ─────────────────────────────────────────────────────
+    // ── Render (dispatches to cards or graph) ────────────────────────────
     function render() {
+      if (activeView === 'cards') {
+        renderCards();
+      } else {
+        renderGraph();
+      }
+    }
+
+    // ── Render cards ─────────────────────────────────────────────────────
+    function renderCards() {
       const items = getFiltered();
       const grid = document.getElementById('cards-grid');
       const empty = document.getElementById('empty-state');
@@ -558,6 +745,314 @@
       });
     }
 
+    // ═══════════════════════════════════════════════════════════════════
+    // ── Graph logic ──────────────────────────────────────────────────
+    // ═══════════════════════════════════════════════════════════════════
+
+    const CATEGORY_COLORS = {
+      tutorial:      '#52d9a0',
+      tool:          '#7c6af7',
+      research:      '#5b8dee',
+      news:          '#f7c948',
+      reference:     '#f97a6c',
+      community:     '#52d9a0',
+      other:         '#8892b0',
+      uncategorised: '#8892b0',
+    };
+
+    function buildGraphData() {
+      const nodes = [];
+      const edges = [];
+      graphNodeMap = {};
+
+      const tagSet = new Set();
+      const catSet = new Set();
+
+      allResources.forEach((r, i) => {
+        const rid = 'r_' + i;
+        const cat = r.category || 'other';
+        graphNodeMap[rid] = { type: 'resource', data: r };
+
+        nodes.push({
+          id: rid,
+          label: truncLabel(r.title || r.url, 28),
+          title: r.title || r.url,
+          group: 'resource',
+          shape: 'dot',
+          size: 12,
+          color: { background: '#7c6af7', border: '#9b8aff', highlight: { background: '#a897ff', border: '#c5bbff' } },
+          font: { color: '#e8eaf6', size: 11, face: 'Heebo, sans-serif' },
+        });
+
+        if (!catSet.has(cat)) {
+          catSet.add(cat);
+          const cid = 'c_' + cat;
+          graphNodeMap[cid] = { type: 'category', data: { name: cat } };
+          nodes.push({
+            id: cid,
+            label: cat,
+            group: 'category',
+            shape: 'diamond',
+            size: 22,
+            color: { background: CATEGORY_COLORS[cat] || '#52d9a0', border: '#fff3', highlight: { background: '#52d9a0', border: '#fff5' } },
+            font: { color: '#e8eaf6', size: 13, face: 'Heebo, sans-serif', bold: { color: '#e8eaf6' } },
+          });
+        }
+
+        edges.push({ from: rid, to: 'c_' + cat, color: { color: '#2d335280', highlight: '#52d9a080' }, width: 1 });
+
+        (r.tags || []).forEach(t => {
+          const tNorm = t.toLowerCase().trim();
+          if (!tNorm) return;
+          const tid = 't_' + tNorm;
+
+          if (!tagSet.has(tNorm)) {
+            tagSet.add(tNorm);
+            graphNodeMap[tid] = { type: 'tag', data: { name: tNorm } };
+            nodes.push({
+              id: tid,
+              label: tNorm,
+              group: 'tag',
+              shape: 'dot',
+              size: 8,
+              color: { background: '#5b8dee', border: '#7eadff', highlight: { background: '#8dbcff', border: '#b0d4ff' } },
+              font: { color: '#8892b0', size: 10, face: 'Heebo, sans-serif' },
+            });
+          }
+
+          edges.push({ from: rid, to: tid, color: { color: '#2d335260', highlight: '#5b8dee80' }, width: 0.6 });
+        });
+      });
+
+      graphData.nodes = new vis.DataSet(nodes);
+      graphData.edges = new vis.DataSet(edges);
+    }
+
+    function truncLabel(s, max) {
+      return s && s.length > max ? s.slice(0, max - 1) + '…' : s || '';
+    }
+
+    function initGraph() {
+      const container = document.getElementById('graph-container');
+      if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
+
+      const options = {
+        nodes: { borderWidth: 1.5, shadow: { enabled: true, color: 'rgba(0,0,0,.3)', size: 6, x: 0, y: 2 } },
+        edges: { smooth: { type: 'continuous', roundness: 0.3 }, selectionWidth: 2 },
+        physics: {
+          solver: 'forceAtlas2Based',
+          forceAtlas2Based: { gravitationalConstant: -40, centralGravity: 0.008, springLength: 100, springConstant: 0.04, damping: 0.4 },
+          stabilization: { iterations: 180, fit: true },
+          maxVelocity: 30,
+        },
+        interaction: {
+          hover: true,
+          tooltipDelay: 200,
+          zoomView: true,
+          dragView: true,
+          multiselect: false,
+          navigationButtons: false,
+        },
+        layout: { improvedLayout: true },
+      };
+
+      graphNetwork = new vis.Network(container, graphData, options);
+
+      graphNetwork.on('click', function (params) {
+        if (params.nodes.length > 0) {
+          const nodeId = params.nodes[0];
+          showGraphDetail(nodeId);
+          highlightNeighbors(nodeId);
+        } else {
+          hideGraphDetail();
+          resetHighlight();
+        }
+      });
+
+      graphNetwork.on('doubleClick', function (params) {
+        if (params.nodes.length > 0) {
+          const nodeId = params.nodes[0];
+          const info = graphNodeMap[nodeId];
+          if (info && info.type === 'resource' && info.data.url) {
+            window.open(info.data.url, '_blank', 'noopener');
+          }
+        }
+      });
+    }
+
+    function highlightNeighbors(nodeId) {
+      const connectedNodes = graphNetwork.getConnectedNodes(nodeId);
+      const connectedEdges = graphNetwork.getConnectedEdges(nodeId);
+      const allNodeIds = graphData.nodes.getIds();
+      const allEdgeIds = graphData.edges.getIds();
+
+      const highlightSet = new Set([nodeId, ...connectedNodes]);
+
+      const nodeUpdates = allNodeIds.map(id => ({
+        id,
+        opacity: highlightSet.has(id) ? 1 : 0.12,
+        font: { color: highlightSet.has(id) ? '#e8eaf6' : '#e8eaf620' },
+      }));
+
+      const edgeUpdates = allEdgeIds.map(id => ({
+        id,
+        opacity: connectedEdges.includes(id) ? 1 : 0.06,
+      }));
+
+      graphData.nodes.update(nodeUpdates);
+      graphData.edges.update(edgeUpdates);
+    }
+
+    function resetHighlight() {
+      const nodeUpdates = graphData.nodes.getIds().map(id => {
+        const info = graphNodeMap[id];
+        return {
+          id,
+          opacity: 1,
+          font: { color: info && info.type === 'tag' ? '#8892b0' : '#e8eaf6' },
+        };
+      });
+
+      const edgeUpdates = graphData.edges.getIds().map(id => ({ id, opacity: 1 }));
+
+      graphData.nodes.update(nodeUpdates);
+      graphData.edges.update(edgeUpdates);
+    }
+
+    function showGraphDetail(nodeId) {
+      const info = graphNodeMap[nodeId];
+      if (!info) return;
+
+      const panel = document.getElementById('graph-detail');
+      const content = document.getElementById('graph-detail-content');
+
+      const neighbors = graphNetwork.getConnectedNodes(nodeId);
+      const neighborHtml = neighbors.map(nid => {
+        const nInfo = graphNodeMap[nid];
+        if (!nInfo) return '';
+        const label = nInfo.type === 'resource' ? (nInfo.data.title || nInfo.data.url) :
+                      nInfo.data.name || nid;
+        return `<li data-nid="${escHtml(nid)}">${escHtml(label)}</li>`;
+      }).join('');
+
+      if (info.type === 'resource') {
+        const r = info.data;
+        const tags = (r.tags || []).map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
+        content.innerHTML = `
+          <div class="detail-type resource">משאב</div>
+          <h3>${escHtml(r.title || r.url)}</h3>
+          ${r.summary ? `<div class="detail-summary">${escHtml(r.summary)}</div>` : ''}
+          ${r.category ? `<div class="detail-meta">קטגוריה: ${escHtml(r.category)}</div>` : ''}
+          ${r.added_at ? `<div class="detail-meta">נוסף: ${escHtml(r.added_at)}</div>` : ''}
+          ${tags ? `<div class="detail-tags">${tags}</div>` : ''}
+          ${r.url ? `<a class="detail-link" href="${escHtml(r.url)}" target="_blank" rel="noopener">פתח קישור ↗</a>` : ''}
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>קשרים (${neighbors.length})</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+      } else if (info.type === 'tag') {
+        content.innerHTML = `
+          <div class="detail-type tag">תגית</div>
+          <h3>${escHtml(info.data.name)}</h3>
+          <div class="detail-summary">${neighbors.length} משאבים מקושרים</div>
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>משאבים</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+      } else if (info.type === 'category') {
+        content.innerHTML = `
+          <div class="detail-type category">קטגוריה</div>
+          <h3>${escHtml(info.data.name)}</h3>
+          <div class="detail-summary">${neighbors.length} משאבים</div>
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>משאבים</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+      }
+
+      panel.style.display = 'block';
+
+      content.querySelectorAll('.detail-neighbors li[data-nid]').forEach(li => {
+        li.addEventListener('click', () => {
+          const nid = li.dataset.nid;
+          graphNetwork.selectNodes([nid]);
+          graphNetwork.focus(nid, { scale: 1.2, animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+          showGraphDetail(nid);
+          highlightNeighbors(nid);
+        });
+      });
+    }
+
+    function hideGraphDetail() {
+      document.getElementById('graph-detail').style.display = 'none';
+    }
+
+    function applyGraphFilter() {
+      const filteredItems = getFiltered();
+      const filteredIds = new Set(filteredItems.map((r, i) => {
+        const idx = allResources.indexOf(r);
+        return 'r_' + (idx >= 0 ? idx : i);
+      }));
+      const count = document.getElementById('results-count');
+
+      if (filteredItems.length === allResources.length && !searchQuery) {
+        resetHighlight();
+        count.textContent = `${graphData.nodes.length} צמתים`;
+        return;
+      }
+
+      const connectedTags = new Set();
+      const connectedCats = new Set();
+      filteredItems.forEach(r => {
+        connectedCats.add('c_' + (r.category || 'other'));
+        (r.tags || []).forEach(t => connectedTags.add('t_' + t.toLowerCase().trim()));
+      });
+
+      const visibleSet = new Set([...filteredIds, ...connectedTags, ...connectedCats]);
+
+      const nodeUpdates = graphData.nodes.getIds().map(id => ({
+        id,
+        opacity: visibleSet.has(id) ? 1 : 0.07,
+        font: { color: visibleSet.has(id) ? (graphNodeMap[id]?.type === 'tag' ? '#8892b0' : '#e8eaf6') : '#e8eaf610' },
+      }));
+
+      const edgeUpdates = graphData.edges.getIds().map(id => {
+        const edge = graphData.edges.get(id);
+        const show = filteredIds.has(edge.from) || filteredIds.has(edge.to);
+        return { id, opacity: show ? 0.8 : 0.03 };
+      });
+
+      graphData.nodes.update(nodeUpdates);
+      graphData.edges.update(edgeUpdates);
+      count.textContent = `${filteredItems.length} משאבים (מסוננים)`;
+    }
+
+    function renderGraph() {
+      if (!graphNetwork) initGraph();
+      applyGraphFilter();
+    }
+
+    // ── View switching ───────────────────────────────────────────────────
+    function switchView(view) {
+      activeView = view;
+      const cardsGrid = document.getElementById('cards-grid');
+      const graphContainer = document.getElementById('graph-container');
+      const toolbar = document.querySelector('.toolbar');
+      const emptyState = document.getElementById('empty-state');
+
+      document.querySelectorAll('.view-btn').forEach(b => {
+        const isActive = b.dataset.view === view;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive);
+      });
+
+      if (view === 'cards') {
+        graphContainer.style.display = 'none';
+        cardsGrid.style.display = '';
+        toolbar.style.display = '';
+        emptyState.style.display = '';
+        hideGraphDetail();
+        renderCards();
+      } else {
+        cardsGrid.style.display = 'none';
+        emptyState.style.display = 'none';
+        toolbar.style.display = 'flex';
+        graphContainer.style.display = 'block';
+        renderGraph();
+      }
+    }
+
     // ── Utils ────────────────────────────────────────────────────────────
     function escHtml(s) {
       return String(s)
@@ -578,6 +1073,15 @@
     document.getElementById('sort-select').addEventListener('change', e => {
       sortOrder = e.target.value;
       render();
+    });
+
+    document.querySelectorAll('.view-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchView(btn.dataset.view));
+    });
+
+    document.querySelector('#graph-detail .detail-close').addEventListener('click', () => {
+      hideGraphDetail();
+      resetHighlight();
     });
 
     // ── Init ─────────────────────────────────────────────────────────────
