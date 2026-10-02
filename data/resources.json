@@ -1082,6 +1082,22 @@
   },
   {
     "id": 73,
+    "url": "https://github.com/microsoft/waza",
+    "title": "Microsoft / waza",
+    "summary": "CLI ב-Go להערכת Agent Skills: פיגום eval suites, הרצת benchmarks, והשוואת תוצאות בין מודלים.",
+    "category": "tool",
+    "tags": [
+      "repos-in-github",
+      "skills",
+      "tool"
+    ],
+    "source_file": "",
+    "created": "2026-10-03",
+    "added_at": "2026-10-03",
+    "notes": "~1.4k stars. התקנה: curl install.sh | bash, או הרחבה של Azure Developer CLI (azd waza). פקודות: init, new skill, run, check, compare, grade, adversarial, tokens. Executor ברירת מחדל: GitHub Copilot CLI (copilot-sdk). Docs: https://microsoft.github.io/waza/. שפה: Go (החל מ-v0.4; Python ישן עד v0.3.2)."
+  },
+  {
+    "id": 74,
     "url": "https://leads.sh/l/mx8bwy6kiuia/amit-rosen-331732140",
     "title": "Leads.sh",
     "summary": "LinkedIn lead generation and automated outreach funnel",
@@ -1096,7 +1112,7 @@
     "notes": ""
   },
   {
-    "id": 74,
+    "id": 75,
     "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
     "title": "Airtop.ai",
     "summary": "Browser automation template to extract leads from LinkedIn post commenters",
@@ -1111,7 +1127,7 @@
     "notes": ""
   },
   {
-    "id": 75,
+    "id": 76,
     "url": "https://www.linkedin.com/company/airwallex/",
     "title": "Divyanshi Sharma",
     "summary": "Airwallex, a fintech company, is developing multiple AI agents to fully automate end-to-end financial workflows such as invoicing and treasury operations. The post also highlights its existing strengths, including a global payment network, multi-currency accounts, and AI-powered finance automation.",
@@ -1126,7 +1142,7 @@
     "notes": ""
   },
   {
-    "id": 76,
+    "id": 77,
     "url": "https://www.getagentcraft.com/",
     "title": "AgentCraft — RTS interface for agent orchestration",
     "summary": "Orchestrate your AI agents with an RTS game interface. Install with npx idosal/agentcraft.",
@@ -1141,7 +1157,7 @@
     "notes": "Self-hosted AI agent infrastructure platform"
   },
   {
-    "id": 77,
+    "id": 78,
     "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
     "title": "Google Workspace MCP Configuration",
     "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
@@ -1156,7 +1172,7 @@
     "notes": "Critical for future MCP integrations with Google Workspace."
   },
   {
-    "id": 78,
+    "id": 79,
     "url": "https://github.com/getzep/graphiti",
     "title": "Zep (Graphiti)",
     "summary": "Graphiti is a framework for building and querying temporally-aware knowledge graphs, specifically tailored for AI agents operating in dynamic environments.",
@@ -1171,7 +1187,7 @@
     "notes": ""
   },
   {
-    "id": 79,
+    "id": 80,
     "url": "https://github.com/apify/mcpc",
     "title": "mcpc / apify",
     "summary": "A universal CLI client for MCP. mcpc supports persistent sessions, stdio/HTTP, OAuth 2.1, tasks, JSON output for code mode, proxy for AI sandboxes, x402, and more.",
@@ -1186,7 +1202,7 @@
     "notes": "כלי CLI אוניברסלי ל-MCP. תומך בסשנים מתמשכים, משימות, פלט JSON למצב קוד וסנדבוקס ל-AI."
   },
   {
-    "id": 80,
+    "id": 81,
     "url": "https://reflex.dev/",
     "title": "Reflex",
     "summary": "Build web apps in pure Python.",
@@ -1201,7 +1217,7 @@
     "notes": ""
   },
   {
-    "id": 81,
+    "id": 82,
     "url": "https://bhindi.io/c/new",
     "title": "agentTool",
     "summary": "No-code agent creation.",
@@ -1216,7 +1232,7 @@
     "notes": ""
   },
   {
-    "id": 82,
+    "id": 83,
     "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Monarch",
     "summary": "אימון אינטראקטיבי של מודל Llama",
@@ -1231,7 +1247,7 @@
     "notes": ""
   },
   {
-    "id": 83,
+    "id": 84,
     "url": "https://www.assemblyai.com/",
     "title": "assemblyai",
     "summary": "The best way to build Voice AI apps",
@@ -1246,7 +1262,7 @@
     "notes": ""
   },
   {
-    "id": 84,
+    "id": 85,
     "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Build your own ChatGPT from scratch",
     "summary": "Build your own ChatGPT from scratch",
@@ -1261,7 +1277,7 @@
     "notes": ""
   },
   {
-    "id": 85,
+    "id": 86,
     "url": "https://gamma.app/",
     "title": "Gamma",
     "summary": "Create beautiful and engaging presentations and documents.",
@@ -1276,7 +1292,7 @@
     "notes": ""
   },
   {
-    "id": 86,
+    "id": 87,
     "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
     "title": "Apify (AI Agent Blog)",
     "summary": "Guide on how to build an AI agent.",
@@ -1291,7 +1307,7 @@
     "notes": ""
   },
   {
-    "id": 87,
+    "id": 88,
     "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
     "title": "MTEB Leaderboard",
     "summary": "Massive Text Embedding Benchmark leaderboard.",
@@ -1306,7 +1322,7 @@
     "notes": ""
   },
   {
-    "id": 88,
+    "id": 89,
     "url": "https://www.firecrawl.dev/",
     "title": "FireCrawl",
     "summary": "extract relevant information for RAG from websites",
@@ -1321,7 +1337,7 @@
     "notes": ""
   },
   {
-    "id": 89,
+    "id": 90,
     "url": "https://alterbase.co/",
     "title": "Alterbase",
     "summary": "AI-powered knowledge management.",
@@ -1336,7 +1352,7 @@
     "notes": ""
   },
   {
-    "id": 90,
+    "id": 91,
     "url": "https://mstone.ai/",
     "title": "Mstone AI",
     "summary": "LLM operations and observability platform.",
@@ -1351,7 +1367,7 @@
     "notes": ""
   },
   {
-    "id": 91,
+    "id": 92,
     "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
     "title": "InceptionLabs Chat",
     "summary": "AI Chat/Agent development environment.",
@@ -1366,7 +1382,7 @@
     "notes": ""
   },
   {
-    "id": 92,
+    "id": 93,
     "url": "https://sota.rival.tech/",
     "title": "Rival Tech SOTA",
     "summary": "Leaderboard for State-of-the-Art models.",
@@ -1381,7 +1397,7 @@
     "notes": ""
   },
   {
-    "id": 93,
+    "id": 94,
     "url": "https://llmlayer.ai/",
     "title": "LLMLayer",
     "summary": "Build and deploy LLMs with ease.",
@@ -1396,7 +1412,7 @@
     "notes": ""
   },
   {
-    "id": 94,
+    "id": 95,
     "url": "https://blink.new/",
     "title": "Blink (New)",
     "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
@@ -1411,7 +1427,7 @@
     "notes": ""
   },
   {
-    "id": 95,
+    "id": 96,
     "url": "https://reevo.ai/",
     "title": "Reevo AI",
     "summary": "Automated AI agent for specific tasks.",
@@ -1426,7 +1442,7 @@
     "notes": ""
   },
   {
-    "id": 96,
+    "id": 97,
     "url": "https://kapso.ai",
     "title": "https://kapso.ai",
     "summary": "",
@@ -1440,7 +1456,7 @@
     "notes": ""
   },
   {
-    "id": 97,
+    "id": 98,
     "url": "https://mlflow.org/docs/latest/genai/tracing/",
     "title": "https://mlflow.org/docs/latest/genai/tracing/",
     "summary": "",
@@ -1455,7 +1471,7 @@
     "notes": ""
   },
   {
-    "id": 98,
+    "id": 99,
     "url": "https://github.com/omegis/Hostinger-PHP-Guide",
     "title": "https://github.com/omegis/Hostinger-PHP-Guide",
     "summary": "",
@@ -1470,7 +1486,7 @@
     "notes": ""
   },
   {
-    "id": 99,
+    "id": 100,
     "url": "https://www.genspark.ai/",
     "title": "https://www.genspark.ai/",
     "summary": "",
@@ -1485,7 +1501,7 @@
     "notes": ""
   },
   {
-    "id": 100,
+    "id": 101,
     "url": "https://github.com/huggingface/skills",
     "title": "Hugging Face (skills)",
     "summary": "Agent skills and tool repository for LLMs and smolagents",
@@ -1500,7 +1516,7 @@
     "notes": ""
   },
   {
-    "id": 101,
+    "id": 102,
     "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
     "title": "Teleport (Gravitational) / RFD 0238",
     "summary": "Delegating Access to AI Workloads - architecture proposal for secure infrastructure access for AI agents",
@@ -1515,7 +1531,7 @@
     "notes": "Delegating Access to AI Workloads"
   },
   {
-    "id": 102,
+    "id": 103,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
@@ -1530,7 +1546,7 @@
     "notes": ""
   },
   {
-    "id": 103,
+    "id": 104,
     "url": "https://github.com/tzachbon/claude-model-advisor",
     "title": "Tzach Bonfil / claude-model-advisor",
     "summary": "Tool to recommend the right Claude model based on requirements and budget",
@@ -1545,7 +1561,7 @@
     "notes": ""
   },
   {
-    "id": 104,
+    "id": 105,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -1560,7 +1576,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 105,
+    "id": 106,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
