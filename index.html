@@ -226,8 +226,11 @@
     }
 
     #graph-container {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
 
     #graph-hint {
@@ -729,6 +732,7 @@
       if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
 
       const options = {
+        autoResize: true,
         nodes: {
           borderWidth: 1.5,
           shadow: { enabled: true, color: 'rgba(0,0,0,.3)', size: 6, x: 0, y: 2 },
@@ -765,6 +769,14 @@
 
       graphNetwork = new vis.Network(container, graphData, options);
 
+      // Force vis-network to remeasure the container
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      if (w > 0 && h > 0) {
+        graphNetwork.setSize(w + 'px', h + 'px');
+        graphNetwork.redraw();
+      }
+
       graphNetwork.on('click', onGraphClick);
       graphNetwork.on('selectNode', function (params) {
         if (params.nodes.length > 0 && params.nodes[0] !== selectedNodeId) {
@@ -779,17 +791,28 @@
       graphNetwork.on('zoom', onZoom);
       graphNetwork.on('stabilizationIterationsDone', () => {
         graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
-        // Force redraw after stabilization so canvas coordinates stay in sync
-        setTimeout(() => graphNetwork.redraw(), 100);
+        // Re-sync canvas size after stabilization
+        const cw = container.clientWidth;
+        const ch = container.clientHeight;
+        if (cw > 0 && ch > 0) {
+          graphNetwork.setSize(cw + 'px', ch + 'px');
+          graphNetwork.redraw();
+        }
       });
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
     }
 
-    // Keep vis-network in sync when the window resizes
-    window.addEventListener('resize', () => {
-      if (graphNetwork) graphNetwork.redraw();
-    });
+    // Keep vis-network canvas in sync with container size
+    {
+      const obs = new ResizeObserver(() => {
+        if (!graphNetwork) return;
+        const c = document.getElementById('graph-container');
+        graphNetwork.setSize(c.clientWidth + 'px', c.clientHeight + 'px');
+        graphNetwork.redraw();
+      });
+      obs.observe(document.getElementById('graph-area'));
+    }
 
     // ── Graph events ────────────────────────────────────────────
     function onGraphClick(params) {
