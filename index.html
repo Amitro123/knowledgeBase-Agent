@@ -86,8 +86,10 @@
     #main-layout {
       display: grid;
       grid-template-columns: var(--sidebar-w) 1fr var(--detail-w);
+      grid-template-rows: 1fr;
       height: calc(100vh - var(--header-h));
       height: calc(100dvh - var(--header-h));
+      overflow: hidden;
     }
 
     /* ── Left sidebar ────────────────────────────────────────── */
@@ -95,6 +97,7 @@
       background: var(--bg-panel);
       border-right: 1px solid var(--border);
       overflow-y: auto;
+      min-height: 0;
       padding: 14px 12px;
       display: flex;
       flex-direction: column;
@@ -223,6 +226,7 @@
       position: relative;
       background: var(--bg);
       overflow: hidden;
+      min-height: 0;
     }
 
     #graph-container {
@@ -254,6 +258,7 @@
       background: var(--bg-panel);
       border-left: 1px solid var(--border);
       overflow-y: auto;
+      min-height: 0;
       padding: 16px 14px;
       font-size: .82rem;
     }
@@ -769,14 +774,6 @@
 
       graphNetwork = new vis.Network(container, graphData, options);
 
-      // Force vis-network to remeasure the container
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      if (w > 0 && h > 0) {
-        graphNetwork.setSize(w + 'px', h + 'px');
-        graphNetwork.redraw();
-      }
-
       graphNetwork.on('click', onGraphClick);
       graphNetwork.on('selectNode', function (params) {
         if (params.nodes.length > 0 && params.nodes[0] !== selectedNodeId) {
@@ -791,28 +788,15 @@
       graphNetwork.on('zoom', onZoom);
       graphNetwork.on('stabilizationIterationsDone', () => {
         graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
-        // Re-sync canvas size after stabilization
-        const cw = container.clientWidth;
-        const ch = container.clientHeight;
-        if (cw > 0 && ch > 0) {
-          graphNetwork.setSize(cw + 'px', ch + 'px');
-          graphNetwork.redraw();
-        }
       });
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
     }
 
     // Keep vis-network canvas in sync with container size
-    {
-      const obs = new ResizeObserver(() => {
-        if (!graphNetwork) return;
-        const c = document.getElementById('graph-container');
-        graphNetwork.setSize(c.clientWidth + 'px', c.clientHeight + 'px');
-        graphNetwork.redraw();
-      });
-      obs.observe(document.getElementById('graph-area'));
-    }
+    new ResizeObserver(() => {
+      if (graphNetwork) graphNetwork.redraw();
+    }).observe(document.getElementById('graph-area'));
 
     // ── Graph events ────────────────────────────────────────────
     function onGraphClick(params) {
