@@ -1121,6 +1121,14 @@
       const opts = { animation: { duration, easingFunction: 'easeInOutQuad' } };
       if (graphViewMode === 'hubs' && !focusedHub) {
         opts.nodes = graphData.nodes.getIds().filter(isHubNode);
+      } else if (graphViewMode === 'hubs' && focusedHub) {
+        const neighbors = graphNetwork.getConnectedNodes(focusedHub);
+        opts.nodes = [focusedHub, ...neighbors];
+      } else {
+        opts.nodes = graphData.nodes.getIds().filter(id => {
+          const n = graphData.nodes.get(id);
+          return n && n.hidden !== true;
+        });
       }
       graphNetwork.fit(opts);
     }
