@@ -551,7 +551,7 @@
 
     /* ── Graph hint overlay ──────────────────────────────────────────── */
     .graph-hint {
-      position: absolute; bottom: 14px; right: 14px; z-index: 5;
+      position: absolute; bottom: 54px; right: 14px; z-index: 5;
       background: rgba(13,15,23,.85);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -559,6 +559,38 @@
       font-size: .76rem; color: var(--text-dim);
       pointer-events: none;
       transition: opacity .4s;
+    }
+
+    /* ── Graph mode toggle (Hubs / All) ──────────────────────────────── */
+    .graph-mode-toggle {
+      position: absolute; bottom: 16px; right: 14px;
+      z-index: 6;
+      display: none; gap: 2px;
+      background: rgba(30,34,53,.95);
+      border: 1px solid var(--border-hover);
+      border-radius: 999px;
+      padding: 3px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(0,0,0,.5), 0 0 0 1px rgba(124,106,247,.12);
+    }
+
+    .graph-mode-btn {
+      padding: 6px 18px;
+      border: none; border-radius: 999px;
+      background: transparent;
+      color: var(--text);
+      font-size: .8rem; font-family: inherit;
+      cursor: pointer;
+      transition: all .18s;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .graph-mode-btn:hover { color: #fff; background: rgba(124,106,247,.15); }
+    .graph-mode-btn.active {
+      background: var(--accent);
+      color: #fff; font-weight: 600;
+      box-shadow: 0 0 8px rgba(124,106,247,.4);
     }
 
     #graph-detail .detail-neighbors {
@@ -641,8 +673,11 @@
       /* Mobile hub-mode hint */
       .graph-hint {
         font-size: .72rem; padding: 5px 10px;
-        bottom: 10px; right: 10px;
+        bottom: 48px; right: 10px;
       }
+
+      .graph-mode-toggle { bottom: 12px; right: 10px; }
+      .graph-mode-btn { padding: 4px 12px; font-size: .72rem; }
 
       /* Bigger tap targets for neighbor list on mobile */
       #graph-detail .detail-neighbors li {
@@ -741,6 +776,10 @@
       </div>
       <div class="graph-zoom-hint" id="graph-zoom-hint">גלגל לזום · לחץ על צומת לפרטים · גרור לסובב</div>
       <div class="graph-hint" id="graph-hint"></div>
+      <div class="graph-mode-toggle" id="graph-mode-toggle">
+        <button class="graph-mode-btn" data-gmode="hubs">מרכזים</button>
+        <button class="graph-mode-btn active" data-gmode="all">הכל</button>
+      </div>
       <div id="graph-detail">
         <div class="detail-drag-handle" aria-hidden="true"></div>
         <button class="detail-close" aria-label="סגור">✕</button>
@@ -772,8 +811,7 @@
 
     function isMobile() { return window.innerWidth <= 600; }
 
-    // Hub-mode: on mobile, resource nodes are hidden until a hub (tag/category) is tapped
-    let mobileHubMode = true;
+    let graphViewMode = 'all'; // 'hubs' or 'all'
     let focusedHub = null;
 
     // ── Fetch resources.json ─────────────────────────────────────────────
@@ -1099,11 +1137,11 @@
 
       graphNetwork = new vis.Network(container, graphData, options);
 
-      if (mobile) {
-        mobileHubMode = true;
-        focusedHub = null;
-        applyMobileHubMode();
-        showGraphHint('לחץ על צומת קטגוריה/תגית לפרטים');
+      focusedHub = null;
+      updateGraphModeToggle();
+      if (graphViewMode === 'hubs') {
+        applyHubMode();
+        showGraphHint(mobile ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
       } else {
         showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
       }
@@ -1114,7 +1152,7 @@
           graphSelectedNode = nodeId;
           const info = graphNodeMap[nodeId];
 
-          if (mobile && mobileHubMode && info && (info.type === 'tag' || info.type === 'category')) {
+          if (graphViewMode === 'hubs' && !focusedHub && info && (info.type === 'tag' || info.type === 'category')) {
             focusedHub = nodeId;
             expandHub(nodeId);
             showGraphDetail(nodeId);
@@ -1126,9 +1164,9 @@
         } else {
           graphSelectedNode = null;
           hideGraphDetail();
-          if (mobile && focusedHub) {
+          if (graphViewMode === 'hubs' && focusedHub) {
             focusedHub = null;
-            applyMobileHubMode();
+            applyHubMode();
           } else if (!graphIsFiltered) {
             resetHighlight();
           } else {
@@ -1245,9 +1283,9 @@
       hint._timer = setTimeout(() => { hint.style.opacity = '0'; }, 5000);
     }
 
-    /** Mobile hub mode: hide resource nodes, show only tag+category hubs with labels */
-    function applyMobileHubMode() {
+    function applyHubMode() {
       if (!graphData.nodes) return;
+      const mobile = isMobile();
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
         if (!info) return { id };
@@ -1255,15 +1293,26 @@
           return { id, hidden: true };
         }
         const isCategory = info.type === 'category';
+        const catColor = isCategory ? (CATEGORY_COLORS[info.data.name] || '#52d9a0') : '#5b8dee';
+        const countBoost = Math.min((info.data.count || 0), 15);
         return {
           id,
           hidden: false,
           opacity: 1,
-          size: isCategory ? 26 : 14,
+          borderWidth: 1.5,
+          size: isCategory
+            ? (mobile ? 26 : 38 + countBoost)
+            : (mobile ? 14 : 20 + countBoost * 1.2),
+          color: { background: catColor, border: catColor + '88', highlight: { background: catColor, border: '#fff8' } },
           font: {
             color: '#e8eaf6',
-            size: isCategory ? 14 : 11,
+            size: isCategory
+              ? (mobile ? 14 : 30)
+              : (mobile ? 11 : 18 + Math.min((info.data.count || 0), 10) * 1.2),
             face: 'Heebo, sans-serif',
+            strokeWidth: mobile ? 0 : 4,
+            strokeColor: '#0d0f17',
+            background: mobile ? 'transparent' : 'rgba(13,15,23,0.55)',
           },
         };
       });
@@ -1277,50 +1326,94 @@
       }
     }
 
-    /** Expand a hub node: show its resource neighbors and edges */
+    function updateGraphModeToggle() {
+      const toggle = document.getElementById('graph-mode-toggle');
+      if (!toggle) return;
+      toggle.style.display = 'flex';
+      toggle.querySelectorAll('.graph-mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.gmode === graphViewMode);
+      });
+    }
+
+    function setGraphViewMode(mode) {
+      if (mode === graphViewMode) return;
+      graphViewMode = mode;
+      focusedHub = null;
+      graphSelectedNode = null;
+      hideGraphDetail();
+      updateGraphModeToggle();
+
+      if (mode === 'hubs') {
+        applyHubMode();
+        showGraphHint(isMobile() ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+      } else {
+        resetHighlight();
+        showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+      }
+    }
+
     function expandHub(hubId) {
       const neighbors = graphNetwork.getConnectedNodes(hubId);
       const connectedEdges = graphNetwork.getConnectedEdges(hubId);
       const neighborSet = new Set([hubId, ...neighbors]);
+      const mobile = isMobile();
+      const hubInfo = graphNodeMap[hubId];
+      const hubColor = hubInfo && hubInfo.type === 'category'
+        ? (CATEGORY_COLORS[hubInfo.data.name] || '#52d9a0') : '#5b8dee';
 
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
         if (!info) return { id };
         if (neighborSet.has(id)) {
           const isHub = info.type === 'tag' || info.type === 'category';
+          const isSelected = id === hubId;
+          const isResource = info.type === 'resource';
+          const node = graphData.nodes.get(id);
           return {
             id,
             hidden: false,
             opacity: 1,
-            size: id === hubId ? 28 : (isHub ? 16 : 10),
+            size: isSelected ? (mobile ? 28 : 44) : (isHub ? (mobile ? 16 : 26) : (mobile ? 10 : 14)),
+            borderWidth: isSelected ? 3 : 1.5,
+            color: isSelected
+              ? { background: hubColor, border: '#ffffff', highlight: { background: hubColor, border: '#ffffff' } }
+              : undefined,
+            label: isResource ? (node._fullLabel || '') : node.label,
             font: {
               color: '#e8eaf6',
-              size: id === hubId ? 14 : (isHub ? 12 : 10),
+              size: isSelected ? (mobile ? 14 : 26) : (isHub ? (mobile ? 12 : 18) : (mobile ? 10 : 15)),
               face: 'Heebo, sans-serif',
+              strokeWidth: mobile ? 0 : 3,
+              strokeColor: '#0d0f17',
+              background: mobile ? 'transparent' : 'rgba(13,15,23,0.55)',
             },
           };
         }
         if (info.type === 'resource') {
           return { id, hidden: true };
         }
-        return { id, hidden: false, opacity: 0.25, font: { color: '#e8eaf640' } };
+        return { id, hidden: false, opacity: 0.12, font: { color: '#e8eaf615' } };
       });
       graphData.nodes.update(nodeUpdates);
 
       const connectedEdgeSet = new Set(connectedEdges);
-      const edgeUpdates = graphData.edges.getIds().map(id => ({
-        id,
-        hidden: !connectedEdgeSet.has(id),
-        opacity: connectedEdgeSet.has(id) ? 0.8 : 0.05,
-      }));
+      const edgeUpdates = graphData.edges.getIds().map(id => {
+        const isConn = connectedEdgeSet.has(id);
+        return {
+          id,
+          hidden: !isConn,
+          opacity: isConn ? 0.85 : 0.03,
+          width: isConn ? 2 : 0.3,
+        };
+      });
       graphData.edges.update(edgeUpdates);
 
       graphNetwork.focus(hubId, {
-        scale: 1.0,
+        scale: mobile ? 1.0 : 1.2,
         animation: { duration: 400, easingFunction: 'easeInOutQuad' },
       });
 
-      showGraphHint('לחץ על משאב לפרטים · לחץ על רקע לחזור');
+      showGraphHint(mobile ? 'לחץ על משאב לפרטים · לחץ על רקע לחזור' : 'לחץ על משאב לפרטים · רקע לחזור');
     }
 
     function highlightNeighbors(nodeId) {
@@ -1330,48 +1423,80 @@
       const allEdgeIds = graphData.edges.getIds();
 
       const highlightSet = new Set([nodeId, ...connectedNodes]);
+      const selectedInfo = graphNodeMap[nodeId];
 
       const nodeUpdates = allNodeIds.map(id => {
         const isHL = highlightSet.has(id);
+        const isSelected = id === nodeId;
         const info = graphNodeMap[id];
         const isResource = info && info.type === 'resource';
         const isTag = info && info.type === 'tag';
         const isCat = info && info.type === 'category';
-        const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
-        let fontColor;
-        if (isHL) {
-          fontColor = isCat ? '#ffffff' : (isTag ? '#c8d4f0' : '#e8eaf6');
-        } else {
-          fontColor = '#e8eaf608';
+        const node = graphData.nodes.get(id);
+        const baseFontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
+        const baseSize = isResource ? 10 : (isCat ? (36 + Math.min((info?.data?.count || 0), 30)) : (14 + Math.min((info?.data?.count || 0), 20) * 1.8));
+
+        if (!isHL) {
+          return {
+            id,
+            opacity: 0.05,
+            size: baseSize,
+            borderWidth: 1.5,
+            label: isResource ? '' : node.label,
+            font: { color: '#e8eaf605', size: baseFontSize, face: 'Heebo, sans-serif', strokeWidth: 0, strokeColor: '#0d0f17', background: 'transparent' },
+          };
         }
-        return {
+
+        const sizeBoost = isSelected ? 1.35 : 1;
+        let fontColor = isCat ? '#ffffff' : (isTag ? '#c8d4f0' : '#e8eaf6');
+        let label = node.label;
+        if (isResource && isHL) label = node._fullLabel || '';
+
+        const update = {
           id,
-          opacity: isHL ? 1 : 0.08,
+          opacity: 1,
+          size: Math.round(baseSize * sizeBoost),
+          borderWidth: isSelected ? 3.5 : 1.5,
+          label,
           font: {
             color: fontColor,
-            size: fontSize,
+            size: isSelected ? Math.round(baseFontSize * 1.1) : baseFontSize,
             face: 'Heebo, sans-serif',
             strokeWidth: isHL ? (isCat ? 5 : 3) : 0,
             strokeColor: '#0d0f17',
             background: isHL ? (isCat ? 'rgba(13,15,23,0.7)' : 'rgba(13,15,23,0.55)') : 'transparent',
+            bold: isSelected,
           },
-          label: (isResource && isHL && !graphData.nodes.get(id).label) ? (graphData.nodes.get(id)._fullLabel || '') : graphData.nodes.get(id).label,
         };
+
+        if (isSelected) {
+          const nodeColor = isResource ? '#a897ff' : (isCat ? (CATEGORY_COLORS[info.data.name] || '#52d9a0') : '#8dbcff');
+          update.color = { background: nodeColor, border: '#ffffff', highlight: { background: nodeColor, border: '#ffffff' } };
+        }
+
+        return update;
       });
 
-      const edgeUpdates = allEdgeIds.map(id => ({
-        id,
-        opacity: connectedEdges.includes(id) ? 1 : 0.03,
-        width: connectedEdges.includes(id) ? 2 : 0.5,
-      }));
+      const edgeUpdates = allEdgeIds.map(id => {
+        const isConn = connectedEdges.includes(id);
+        const edge = graphData.edges.get(id);
+        return {
+          id,
+          opacity: isConn ? 1 : 0.02,
+          width: isConn ? 2.5 : 0.3,
+          color: isConn
+            ? { color: edge._type === 'cat' ? '#52d9a0bb' : '#5b8deebb', highlight: edge._type === 'cat' ? '#52d9a0' : '#5b8dee' }
+            : edge.color,
+        };
+      });
 
       graphData.nodes.update(nodeUpdates);
       graphData.edges.update(edgeUpdates);
     }
 
     function resetHighlight() {
-      if (isMobile() && mobileHubMode) {
-        applyMobileHubMode();
+      if (graphViewMode === 'hubs' && !focusedHub) {
+        applyHubMode();
         return;
       }
 
@@ -1382,10 +1507,19 @@
         const isTag = info && info.type === 'tag';
         const isCat = info && info.type === 'category';
         const fontSize = isResource ? 18 : (isCat ? 40 : (24 + Math.min((info?.data?.count || 0), 10) * 2));
+        const baseSize = isResource ? 10 : (isCat ? (36 + Math.min((info?.data?.count || 0), 30)) : (14 + Math.min((info?.data?.count || 0), 20) * 1.8));
+        const catColor = isCat ? (CATEGORY_COLORS[info.data.name] || '#52d9a0') : '#5b8dee';
         return {
           id,
           hidden: false,
           opacity: 1,
+          size: baseSize,
+          borderWidth: 1.5,
+          color: isResource
+            ? { background: '#7c6af7', border: '#9b8aff55', highlight: { background: '#a897ff', border: '#c5bbff' } }
+            : (isCat
+              ? { background: catColor, border: catColor + '88', highlight: { background: catColor, border: '#fff8' } }
+              : { background: '#5b8dee', border: '#7eadff', highlight: { background: '#8dbcff', border: '#b0d4ff' } }),
           label: isResource ? (showLabels ? (graphData.nodes.get(id)._fullLabel || '') : '') : graphData.nodes.get(id).label,
           font: {
             color: isResource ? (showLabels ? '#d0d4e8' : '#e8eaf600') : (isTag ? '#c8d4f0' : '#ffffff'),
@@ -1394,13 +1528,22 @@
             strokeWidth: isResource && !showLabels ? 0 : (isCat ? 5 : 4),
             strokeColor: '#0d0f17',
             background: isResource && !showLabels ? 'transparent' : (isCat ? 'rgba(13,15,23,0.7)' : 'rgba(13,15,23,0.55)'),
+            bold: false,
           },
         };
       });
 
       const edgeUpdates = graphData.edges.getIds().map(id => {
         const edge = graphData.edges.get(id);
-        return { id, hidden: false, opacity: 1, width: edge._type === 'cat' ? 1 : 0.5 };
+        return {
+          id,
+          hidden: false,
+          opacity: 1,
+          width: edge._type === 'cat' ? 1 : 0.5,
+          color: edge._type === 'cat'
+            ? { color: '#2d335240', highlight: '#52d9a0aa', hover: '#52d9a080' }
+            : { color: '#2d335230', highlight: '#5b8deeaa', hover: '#5b8dee80' },
+        };
       });
 
       graphData.nodes.update(nodeUpdates);
@@ -1465,7 +1608,7 @@
           const nid = li.dataset.nid;
           graphSelectedNode = nid;
           const nInfo = graphNodeMap[nid];
-          if (mobile && nInfo && nInfo.type === 'resource' && mobileHubMode) {
+          if (graphViewMode === 'hubs' && nInfo && nInfo.type === 'resource') {
             showGraphDetail(nid);
             return;
           }
@@ -1561,8 +1704,8 @@
     function renderGraph() {
       if (!graphNetwork) initGraph();
       applyGraphFilter();
-      if (isMobile() && mobileHubMode && !focusedHub) {
-        applyMobileHubMode();
+      if (graphViewMode === 'hubs' && !focusedHub) {
+        applyHubMode();
       }
     }
 
@@ -1595,10 +1738,10 @@
         toolbar.classList.add('graph-mode');
         graphWrapper.style.display = 'block';
 
-        if (isMobile()) {
-          mobileHubMode = true;
-          focusedHub = null;
+        if (!graphNetwork) {
+          graphViewMode = isMobile() ? 'hubs' : 'all';
         }
+        focusedHub = null;
         renderGraph();
       }
     }
@@ -1631,7 +1774,12 @@
 
     document.querySelector('#graph-detail .detail-close').addEventListener('click', () => {
       hideGraphDetail();
+      graphSelectedNode = null;
       resetHighlight();
+    });
+
+    document.querySelectorAll('.graph-mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => setGraphViewMode(btn.dataset.gmode));
     });
 
     // ── Reinit graph on orientation / resize change ─────────────────────
@@ -1640,6 +1788,7 @@
       const mobile = isMobile();
       if (mobile !== _lastMobile && activeView === 'graph' && graphNetwork) {
         _lastMobile = mobile;
+        graphViewMode = mobile ? 'hubs' : 'all';
         graphNetwork.destroy();
         graphNetwork = null;
         renderGraph();
