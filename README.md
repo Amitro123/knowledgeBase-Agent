@@ -10,6 +10,12 @@ The site includes an interactive graph that shows how resources, tags, and categ
 
 ![Graph view showing resources, tags, and categories in cluster mode](docs/graph.png)
 
+## End-to-End Flow
+
+![Process flow: repo URL → Sheet card → sync action → site graph → MCP query](docs/flow.png)
+
+You share a GitHub URL, and a card is added to the Google Sheet (each tab becomes a tag). A GitHub Action syncs the sheet to `data/resources.json`, GitHub Pages renders the interactive graph, and the read-only MCP server lets an agent query the knowledge base. The sheet stays the source of truth.
+
 ## How It Works
 
 ```
