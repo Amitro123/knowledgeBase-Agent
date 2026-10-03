@@ -21,6 +21,10 @@ Thumbs.db
 # Logs
 *.log
 
+# MCP runtime data (not tracked — regenerated at runtime)
+data/kb_log.jsonl
+data/inbox.jsonl
+
 # Editor
 .vscode/
 .idea/
