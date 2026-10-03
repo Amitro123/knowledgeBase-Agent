@@ -733,7 +733,6 @@
       const container = document.getElementById('graph-container');
       if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
 
-      // Set explicit pixel dimensions so vis-network's canvas matches
       container.style.width = area.clientWidth + 'px';
       container.style.height = area.clientHeight + 'px';
 
@@ -775,15 +774,58 @@
 
       graphNetwork = new vis.Network(container, graphData, options);
 
-      graphNetwork.on('click', onGraphClick);
-      graphNetwork.on('selectNode', function (params) {
-        if (params.nodes.length > 0 && params.nodes[0] !== selectedNodeId) {
-          onGraphClick(params);
+      // Fix vis-network canvas/display dimension mismatch by forcing
+      // pixelRatio=1 so canvas internal resolution equals display size.
+      try {
+        if (graphNetwork.canvas) {
+          graphNetwork.canvas.pixelRatio = 1;
+          graphNetwork.canvas._getPixelRatio = () => 1;
+          graphNetwork.canvas.setSize(
+            area.clientWidth + 'px',
+            area.clientHeight + 'px'
+          );
+        }
+      } catch(e) { /* fall through to DOM handler below */ }
+
+      // Fallback: DOM-level click handler that converts coordinates
+      // manually, bypassing vis-network's broken hit detection.
+      container.addEventListener('click', function clickFallback(e) {
+        if (!graphNetwork) return;
+        const visCanvas = container.querySelector('canvas');
+        if (!visCanvas) return;
+
+        const rect = visCanvas.getBoundingClientRect();
+        const domX = e.clientX - rect.left;
+        const domY = e.clientY - rect.top;
+
+        const vp = graphNetwork.getViewPosition();
+        const sc = graphNetwork.getScale();
+        const gx = vp.x + (domX - rect.width / 2) / sc;
+        const gy = vp.y + (domY - rect.height / 2) / sc;
+
+        const positions = graphNetwork.getPositions();
+        let best = null, bestDist = Infinity;
+        for (const id of Object.keys(positions)) {
+          const nd = graphData.nodes.get(id);
+          if (nd && nd.hidden) continue;
+          const p = positions[id];
+          const d = Math.hypot(p.x - gx, p.y - gy);
+          const hitR = (nd?.size || 10) * 1.8;
+          if (d < hitR && d < bestDist) { best = id; bestDist = d; }
+        }
+
+        if (best && best !== selectedNodeId) {
+          selectedNodeId = best;
+          graphNetwork.selectNodes([best]);
+          highlightNeighbors(best);
+          showDetail(best);
+        } else if (!best) {
+          selectedNodeId = null;
+          resetHighlight();
+          hideDetail();
         }
       });
-      graphNetwork.on('deselectNode', function () {
-        if (selectedNodeId) { selectedNodeId = null; resetHighlight(); hideDetail(); }
-      });
+
       graphNetwork.on('hoverNode', onHoverNode);
       graphNetwork.on('blurNode', onBlurNode);
       graphNetwork.on('zoom', onZoom);
@@ -808,18 +850,6 @@
     }).observe(document.getElementById('graph-area'));
 
     // ── Graph events ────────────────────────────────────────────
-    function onGraphClick(params) {
-      if (params.nodes.length > 0) {
-        const nodeId = params.nodes[0];
-        selectedNodeId = nodeId;
-        highlightNeighbors(nodeId);
-        showDetail(nodeId);
-      } else {
-        selectedNodeId = null;
-        resetHighlight();
-        hideDetail();
-      }
-    }
 
     function onHoverNode(params) {
       hoveredNodeId = params.node;
