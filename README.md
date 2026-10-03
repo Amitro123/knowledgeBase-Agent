@@ -1,81 +1,101 @@
-# 🧠 KnowledgeBase Agent
+# KnowledgeBase Agent
 
-מאגר ידע אישי לקישורי AI — מסונכרן אוטומטית מ-Google Sheets.
+A personal technical-link knowledge base for AI resources — tools, research papers, tutorials, news, and references — synced automatically from a Google Sheet.
 
-## איך זה עובד
+**Live site:** <https://amitro123.github.io/knowledgeBase-Agent/>
+
+## Graph View
+
+The site includes an interactive graph that shows how resources, tags, and categories relate to each other. Switch between Clusters, Network, and Hierarchy modes.
+
+![Graph view showing resources, tags, and categories in cluster mode](docs/graph.png)
+
+## How It Works
 
 ```
-Google Sheets (source of truth)
-  ↓  (GitHub Action — every 30 min / manual trigger)
-scripts/sync_sheets.py
+Google Sheet (source of truth)
+  ↓  GitHub Action (every 30 min / manual trigger)
+  ↓  scripts/sync_sheets.py
   ↓
 data/resources.json
   ↓
-index.html (GitHub Pages) ← פרונט עם חיפוש + סינון
+index.html (GitHub Pages) — search, filter, cards & graph
 ```
 
-### תהליך העדכון
+1. **Edit the Google Sheet** — add or update rows in any tab (each tab becomes a tag).
+2. **GitHub Action** runs every 30 minutes (or manually from the Actions tab) and syncs everything to `data/resources.json`.
+3. **GitHub Pages** renders the data automatically — no build step needed.
 
-1. **ערוך ב-Google Sheets** — הוסף או עדכן שורות בכל טאב (כל טאב = נושא / bucket).
-2. **GitHub Action** רץ כל 30 דקות (או ידנית מ-Actions tab) וסנכרן את הכל ל-`data/resources.json`.
-3. **GitHub Pages** מציג את הנתונים אוטומטית.
+## Sheet Structure
 
-## מבנה הגיליון (Google Sheets)
+| Column           | JSON Field           | Description               |
+| ---------------- | -------------------- | ------------------------- |
+| Date             | `created` / `added_at` | Date added              |
+| Link             | `url`                | Link to the resource      |
+| Name/Author      | `title`              | Resource name or author   |
+| Function/Summary | `summary`            | Short description         |
+| Category         | `category`           | tool, tutorial, reference, news, etc. |
+| Review/Notes     | `notes`              | Detailed notes            |
 
-| עמודה | שדה ב-JSON | תיאור |
-|-------|-----------|-------|
-| Date | `created` / `added_at` | תאריך הוספה |
-| Link | `url` | קישור למשאב |
-| Name/Author | `title` | שם המשאב / המחבר |
-| Function/Summary | `summary` | תיאור קצר |
-| Category | `category` | קטגוריה (tool, tutorial, reference, news, …) |
-| Review/Notes | `notes` | הערות מפורטות |
+The tab name (e.g. "RAG", "MCP", "Security") becomes a tag on every resource in that tab.
 
-שם הטאב (למשל "RAG", "MCP", "Security") הופך לתגית על כל משאב בטאב.
-
-## מבנה הקוד
+## Project Layout
 
 ```
 ├── .github/workflows/
-│   └── sync-sheets.yml          ← GitHub Action (Sheets → JSON)
-├── data/resources.json          ← מסד הנתונים (מנוהל אוטומטית)
+│   └── sync-sheets.yml            ← GitHub Action (Sheet → JSON)
+├── data/resources.json            ← Auto-managed data file
 ├── scripts/
-│   ├── sync_sheets.py           ← סקריפט סנכרון מ-Sheets
-│   ├── requirements-sheets.txt  ← תלויות Python לסנכרון
-│   ├── test_sync_sheets.py      ← בדיקות יחידה למיפוי
-│   ├── capture.py               ← (legacy) סקריפט העשרה מ-Obsidian
-│   └── requirements.txt         ← (legacy) תלויות ל-capture.py
-├── inbox/_TEMPLATE.md           ← (legacy) תבנית לפתקי Hermes
-└── index.html                   ← פרונט (GitHub Pages)
+│   ├── sync_sheets.py             ← Sync script (Sheet → JSON)
+│   ├── requirements-sheets.txt    ← Python dependencies for sync
+│   ├── test_sync_sheets.py        ← Unit tests for field mapping
+│   ├── mcp_server.py              ← Read-only MCP server (optional)
+│   ├── requirements-mcp.txt       ← Dependencies for MCP server
+│   ├── test_mcp_server.py         ← MCP server tests
+│   ├── capture.py                 ← (legacy) Obsidian enrichment script
+│   └── requirements.txt           ← (legacy) Dependencies for capture.py
+├── inbox/_TEMPLATE.md             ← (legacy) Hermes note template
+└── index.html                     ← Front-end (GitHub Pages)
 ```
 
-## Setup — הגדרת הסנכרון
+## MCP Server
 
-### 1. יצירת Service Account ב-Google Cloud
+A read-only MCP server (`scripts/mcp_server.py`) exposes `data/resources.json` as tools for Claude / Cursor:
 
-1. היכנס ל-[Google Cloud Console](https://console.cloud.google.com/).
-2. צור פרויקט חדש (או השתמש בקיים).
-3. הפעל את **Google Sheets API** (APIs & Services → Enable APIs).
-4. צור Service Account (IAM & Admin → Service Accounts → Create).
-5. צור מפתח JSON (Keys → Add Key → JSON) — הורד את הקובץ.
+- `query_kb(question)` — keyword-search resources
+- `get_resource(resource_id)` — fetch one resource by ID
+- `search_tags(question)` — search the tag index
+- `get_tag(tag)` — list resources carrying a given tag
 
-### 2. שיתוף הגיליון עם ה-Service Account
+The server never writes data. Run it via stdio or set `MCP_TRANSPORT=streamable-http` for HTTP.
 
-פתח את [הגיליון](https://docs.google.com/spreadsheets/d/1wWktmD3QEHIlV9ct_NH_i0UQ5ceyxMrMTTidihBmoSU/edit)
-ושתף אותו (Share) עם כתובת המייל של ה-Service Account (למשל
-`my-sa@my-project.iam.gserviceaccount.com`) — הרשאת **Viewer** מספיקה.
+## Setup — Sync Configuration
 
-### 3. הוספת Secret ל-GitHub
+### 1. Create a Google Cloud Service Account
 
-1. בריפו → Settings → Secrets and variables → Actions → New repository secret.
-2. שם: `GOOGLE_SERVICE_ACCOUNT_JSON`
-3. ערך: הדביקו את **כל תוכן** קובץ ה-JSON של ה-Service Account.
+1. Go to [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a new project (or use an existing one).
+3. Enable the **Google Sheets API** (APIs & Services → Enable APIs).
+4. Create a Service Account (IAM & Admin → Service Accounts → Create).
+5. Create a JSON key (Keys → Add Key → JSON) and download it.
 
-### 4. הרצה ידנית (אופציונלי)
+### 2. Share the Sheet with the Service Account
 
-בכרטיסיית Actions → "Sync Google Sheets → resources.json" → Run workflow.
+Open the [spreadsheet](https://docs.google.com/spreadsheets/d/1wWktmD3QEHIlV9ct_NH_i0UQ5ceyxMrMTTidihBmoSU/edit)
+and share it with the Service Account email (e.g.
+`my-sa@my-project.iam.gserviceaccount.com`) — **Viewer** access is enough.
 
-## הרצה מקומית
+### 3. Add the Secret to GitHub
+
+1. In the repo → Settings → Secrets and variables → Actions → New repository secret.
+2. Name: `GOOGLE_SERVICE_ACCOUNT_JSON`
+3. Value: paste the **entire contents** of the Service Account JSON key file.
+
+### 4. Manual Run (Optional)
+
+In the Actions tab → "Sync Google Sheets → resources.json" → Run workflow.
+
+## Local Development
 
 ```bash
 export GOOGLE_SERVICE_ACCOUNT_JSON='{ ... }'
@@ -83,39 +103,22 @@ pip install -r scripts/requirements-sheets.txt
 python scripts/sync_sheets.py
 ```
 
-## בדיקות
+## Tests
 
 ```bash
 pip install pytest
 pytest scripts/test_sync_sheets.py -v
 ```
 
-## Secrets נדרשים
+## Required Secrets
 
-| Secret | תיאור |
-|--------|-------|
-| `GOOGLE_SERVICE_ACCOUNT_JSON` | מפתח Service Account JSON לקריאת הגיליון |
+| Secret                         | Description                                        |
+| ------------------------------ | -------------------------------------------------- |
+| `GOOGLE_SERVICE_ACCOUNT_JSON`  | Service Account JSON key for reading the spreadsheet |
 
 ## GitHub Pages
 
-הפרונט זמין בכתובת: `https://amitro123.github.io/knowledgeBase-Agent/`
-
-## תצוגת גרף (Graph View)
-
-בנוסף לתצוגת הכרטיסים הקיימת, ניתן לעבור ל**תצוגת גרף** דרך כפתור **🕸️ גרף** בסרגל הבקרה.
-
-הגרף מציג את הקשרים בין שלושה סוגי צמתים:
-- **משאב** (סגול, עיגול) — כל ערך מ-`resources.json`
-- **תגית** (כחול, עיגול קטן) — מתוך מערך `tags` של כל משאב
-- **קטגוריה** (ירוק, מעוין) — מתוך שדה `category`
-
-**אינטראקציה:**
-- **לחיצה** על צומת → הדגשת שכנים + פאנל פרטים (סיכום, תגיות, קישור)
-- **לחיצה כפולה** על משאב → פתיחת הקישור בלשונית חדשה
-- **חיפוש/סינון** עובדים גם בתצוגת הגרף (צמתים לא רלוונטיים מעומעמים)
-- **גרירה + זום** נתמכים (כולל מובייל)
-
-הגרף נבנה מ-`data/resources.json` בצד הלקוח בלבד, ללא שינוי בצינור Google Sheets → Action → JSON.
+The front-end is available at: <https://amitro123.github.io/knowledgeBase-Agent/>
 
 ---
 
@@ -128,13 +131,13 @@ OpenRouter) and appended to `data/resources.json`.
 
 This path is still present in the repo (`scripts/capture.py`,
 `scripts/requirements.txt`, `inbox/_TEMPLATE.md`) but is no longer the
-primary data source.  Google Sheets is now the source of truth.
+primary data source. Google Sheets is now the source of truth.
 
 ### Legacy Secrets (only needed for Obsidian capture)
 
-| Secret | תיאור |
-|--------|-------|
-| `OPENROUTER_API_KEY` | מפתח OpenRouter |
-| `VAULT_READ_TOKEN` | GitHub PAT לקריאה מ-obsidian-vault (private) |
+| Secret              | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| `OPENROUTER_API_KEY`| OpenRouter API key                               |
+| `VAULT_READ_TOKEN`  | GitHub PAT for reading from obsidian-vault (private) |
 
 </details>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מאגר ידע AI — Amitro</title>
-  <meta name="description" content="מאגר קישורי AI אישי — כלים, מחקר, מדריכים ועוד, מעובד ומועשר בעזרת Claude." />
+  <title>AI Knowledge Base — Amitro</title>
+  <meta name="description" content="A personal AI link knowledge base — tools, research, tutorials, and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -38,7 +38,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Heebo', 'Inter', sans-serif;
+      font-family: 'Inter', 'Heebo', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -262,7 +262,7 @@
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      border-right: 3px solid var(--accent);
+      border-left: 3px solid var(--accent);
     }
 
     .card-footer {
@@ -451,7 +451,7 @@
       backdrop-filter: blur(8px);
       box-shadow: 0 8px 32px rgba(0,0,0,.5);
       line-height: 1.5;
-      direction: rtl;
+      direction: ltr;
     }
 
     #graph-tooltip .tt-type {
@@ -525,7 +525,7 @@
     .gf-count {
       font-size: .72rem; color: var(--accent2);
       white-space: nowrap;
-      margin-right: auto;
+      margin-left: auto;
     }
 
     .gf-reset-btn {
@@ -566,7 +566,7 @@
     }
 
     #graph-detail .detail-close {
-      position: absolute; top: 10px; left: 10px;
+      position: absolute; top: 10px; right: 10px;
       background: none; border: none;
       color: var(--text-dim); font-size: 1.1rem;
       cursor: pointer; line-height: 1;
@@ -599,7 +599,7 @@
       font-size: .8rem; color: var(--text-dim); line-height: 1.5;
       background: var(--bg3); border-radius: var(--radius-sm);
       padding: 8px 12px; margin-bottom: 10px;
-      border-right: 3px solid var(--accent);
+      border-left: 3px solid var(--accent);
       display: -webkit-box; -webkit-line-clamp: 4;
       -webkit-box-orient: vertical; overflow: hidden;
     }
@@ -819,7 +819,7 @@
         overscroll-behavior: contain;
       }
       #graph-detail .detail-close {
-        top: 8px; left: 8px; right: auto;
+        top: 8px; right: 8px;
         font-size: 1.3rem; padding: 6px 10px;
         z-index: 1;
       }
@@ -873,22 +873,22 @@
         <div class="logo">
           <div class="logo-icon">🧠</div>
           <div class="logo-text">
-            <h1>מאגר ידע AI</h1>
-            <p>קישורים, כלים ומחקר — מועשרים בעזרת Claude</p>
+            <h1>AI Knowledge Base</h1>
+            <p>Links, tools & research — enriched with Claude</p>
           </div>
         </div>
         <div class="header-stats">
           <div class="stat">
             <div class="stat-num" id="total-count">—</div>
-            <div class="stat-label">משאבים</div>
+            <div class="stat-label">Resources</div>
           </div>
           <div class="stat">
             <div class="stat-num" id="categories-count">—</div>
-            <div class="stat-label">קטגוריות</div>
+            <div class="stat-label">Categories</div>
           </div>
           <div class="stat">
             <div class="stat-num" id="last-updated">—</div>
-            <div class="stat-label">עדכון אחרון</div>
+            <div class="stat-label">Last Updated</div>
           </div>
         </div>
       </div>
@@ -900,27 +900,27 @@
         <input
           type="search"
           id="search-input"
-          placeholder="חפש לפי שם, תגית, URL..."
-          aria-label="חיפוש"
+          placeholder="Search by name, tag, URL…"
+          aria-label="Search"
         />
         <span class="search-icon">🔍</span>
       </div>
-      <div class="view-toggle" role="tablist" aria-label="תצוגה">
-        <button class="view-btn active" data-view="cards" role="tab" aria-selected="true">📇 כרטיסים</button>
-        <button class="view-btn" data-view="graph" role="tab" aria-selected="false">🕸️ גרף</button>
+      <div class="view-toggle" role="tablist" aria-label="View mode">
+        <button class="view-btn active" data-view="cards" role="tab" aria-selected="true">Cards</button>
+        <button class="view-btn" data-view="graph" role="tab" aria-selected="false">Graph</button>
       </div>
-      <div class="filters" id="filters-bar" role="group" aria-label="סינון לפי קטגוריה">
-        <button class="filter-btn active" data-cat="all" id="filter-all">הכל</button>
+      <div class="filters" id="filters-bar" role="group" aria-label="Filter by category">
+        <button class="filter-btn active" data-cat="all" id="filter-all">All</button>
       </div>
     </div>
 
     <!-- Toolbar -->
     <div class="toolbar">
       <span id="results-count"></span>
-      <select id="sort-select" aria-label="מיון">
-        <option value="newest">חדש → ישן</option>
-        <option value="oldest">ישן → חדש</option>
-        <option value="alpha">א–ת</option>
+      <select id="sort-select" aria-label="Sort order">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="alpha">A–Z</option>
       </select>
     </div>
 
@@ -928,69 +928,69 @@
     <div id="loading"><div class="spinner"></div></div>
 
     <!-- Cards -->
-    <div id="cards-grid" role="list" aria-label="רשימת משאבים"></div>
+    <div id="cards-grid" role="list" aria-label="Resource list"></div>
 
     <!-- Empty state -->
     <div id="empty-state" role="status">
       <div class="empty-icon">🔍</div>
-      <h3>לא נמצאו תוצאות</h3>
-      <p>נסה מילת חיפוש אחרת או הסר את הסינון</p>
+      <h3>No results found</h3>
+      <p>Try a different search term or clear the filter</p>
     </div>
 
     <!-- Graph view -->
     <div id="graph-wrapper">
       <div id="graph-container"></div>
       <div class="graph-legend" id="graph-legend">
-        <div class="legend-title">מקרא</div>
+        <div class="legend-title">Legend</div>
         <div class="legend-section">
-          <div class="legend-section-label">צמתים</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#7c6af7"></div><span>● משאב — גודל לפי מספר קשרים</span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#5b8dee"></div><span>● תגית — גודל לפי כמות משאבים</span></div>
-          <div class="legend-item"><div class="legend-dot diamond" style="background:#52d9a0"></div><span>◆ קטגוריה</span></div>
+          <div class="legend-section-label">Nodes</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#7c6af7"></div><span>Resource — sized by connections</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#5b8dee"></div><span>Tag — sized by resource count</span></div>
+          <div class="legend-item"><div class="legend-dot diamond" style="background:#52d9a0"></div><span>Category</span></div>
         </div>
         <div class="legend-section">
-          <div class="legend-section-label">קשרים</div>
-          <div class="legend-item"><div class="legend-line" style="background:#52d9a0"></div><span>שייך לקטגוריה</span></div>
-          <div class="legend-item"><div class="legend-line dashed" style="background:#5b8dee"></div><span>תגית משותפת</span></div>
+          <div class="legend-section-label">Edges</div>
+          <div class="legend-item"><div class="legend-line" style="background:#52d9a0"></div><span>Belongs to category</span></div>
+          <div class="legend-item"><div class="legend-line dashed" style="background:#5b8dee"></div><span>Shared tag</span></div>
         </div>
-        <button class="legend-toggle" id="legend-toggle" aria-label="סגור מקרא">▲</button>
+        <button class="legend-toggle" id="legend-toggle" aria-label="Toggle legend">▲</button>
       </div>
       <div class="graph-controls" id="graph-controls">
-        <button class="graph-ctrl-btn" id="gc-zoom-in" title="התקרב">＋</button>
-        <button class="graph-ctrl-btn" id="gc-zoom-out" title="התרחק">－</button>
+        <button class="graph-ctrl-btn" id="gc-zoom-in" title="Zoom in">＋</button>
+        <button class="graph-ctrl-btn" id="gc-zoom-out" title="Zoom out">－</button>
         <div class="graph-ctrl-sep"></div>
-        <button class="graph-ctrl-btn" id="gc-fit" title="התאם לתצוגה">⊡</button>
-        <button class="graph-ctrl-btn" id="gc-reset" title="אפס תצוגה">↻</button>
-        <button class="graph-ctrl-btn" id="gc-center" title="מרכז על בחירה" disabled>◎</button>
+        <button class="graph-ctrl-btn" id="gc-fit" title="Fit to view">⊡</button>
+        <button class="graph-ctrl-btn" id="gc-reset" title="Reset view">↻</button>
+        <button class="graph-ctrl-btn" id="gc-center" title="Center on selection" disabled>◎</button>
       </div>
-      <div class="graph-zoom-hint" id="graph-zoom-hint">גלגל לזום · לחץ על צומת לפרטים · גרור לסובב</div>
+      <div class="graph-zoom-hint" id="graph-zoom-hint">Scroll to zoom · Click a node for details · Drag to pan</div>
       <div class="graph-hint" id="graph-hint"></div>
       <div class="graph-filter-bar" id="graph-filter-bar">
-        <span class="gf-label">סינון:</span>
-        <select class="gf-select" id="gf-category" aria-label="סינון לפי קטגוריה">
-          <option value="all">כל הקטגוריות</option>
+        <span class="gf-label">Filter:</span>
+        <select class="gf-select" id="gf-category" aria-label="Filter by category">
+          <option value="all">All Categories</option>
         </select>
-        <select class="gf-select" id="gf-type" aria-label="סינון לפי סוג">
-          <option value="all">כל הסוגים</option>
-          <option value="resource">משאבים</option>
-          <option value="tag">תגיות</option>
-          <option value="category">קטגוריות</option>
+        <select class="gf-select" id="gf-type" aria-label="Filter by type">
+          <option value="all">All Types</option>
+          <option value="resource">Resources</option>
+          <option value="tag">Tags</option>
+          <option value="category">Categories</option>
         </select>
-        <select class="gf-select" id="gf-tag" aria-label="סינון לפי תגית">
-          <option value="all">כל התגיות</option>
+        <select class="gf-select" id="gf-tag" aria-label="Filter by tag">
+          <option value="all">All Tags</option>
         </select>
         <span class="gf-count" id="gf-count"></span>
-        <button class="gf-reset-btn" id="gf-reset">איפוס</button>
+        <button class="gf-reset-btn" id="gf-reset">Reset</button>
       </div>
       <div class="graph-mode-toggle" id="graph-mode-toggle">
-        <button class="graph-mode-btn active" data-gmode="hubs">אשכולות</button>
-        <button class="graph-mode-btn" data-gmode="all">רשת</button>
-        <button class="graph-mode-btn" data-gmode="hierarchy">היררכיה</button>
+        <button class="graph-mode-btn active" data-gmode="hubs">Clusters</button>
+        <button class="graph-mode-btn" data-gmode="all">Network</button>
+        <button class="graph-mode-btn" data-gmode="hierarchy">Hierarchy</button>
       </div>
       <canvas id="graph-minimap" width="160" height="120"></canvas>
       <div id="graph-detail">
         <div class="detail-drag-handle" aria-hidden="true"></div>
-        <button class="detail-close" aria-label="סגור">✕</button>
+        <button class="detail-close" aria-label="Close">✕</button>
         <div id="graph-detail-content"></div>
       </div>
     </div>
@@ -1000,9 +1000,9 @@
 
   <footer>
     <div class="wrapper">
-      עודכן אוטומטית ע"י
+      Auto-updated by
       <a href="https://github.com/Amitro123/knowledgeBase-Agent" target="_blank" rel="noopener">KnowledgeBase Agent</a>
-      · מופעל ע"י GitHub Actions + OpenRouter
+      · Powered by GitHub Actions + OpenRouter
     </div>
   </footer>
 
@@ -1054,14 +1054,14 @@
 
       const bar = document.getElementById('filters-bar');
       const CATEGORY_LABELS = {
-        tutorial: '📚 מדריכים',
-        tool: '🛠 כלים',
-        research: '🔬 מחקר',
-        news: '📰 חדשות',
-        reference: '📖 עזר',
-        community: '👥 קהילה',
-        other: '📌 אחר',
-        uncategorised: '❓ לא מסווג',
+        tutorial: 'Tutorials',
+        tool: 'Tools',
+        research: 'Research',
+        news: 'News',
+        reference: 'Reference',
+        community: 'Community',
+        other: 'Other',
+        uncategorised: 'Uncategorised',
       };
 
       cats.sort().forEach(cat => {
@@ -1113,7 +1113,7 @@
       } else if (sortOrder === 'oldest') {
         items.sort((a, b) => (a.added_at || '') > (b.added_at || '') ? 1 : -1);
       } else {
-        items.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'he'));
+        items.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'en'));
       }
 
       return items;
@@ -1140,13 +1140,13 @@
       if (items.length === 0) {
         grid.style.display = 'none';
         empty.style.display = 'flex';
-        count.textContent = 'אין תוצאות';
+        count.textContent = 'No results';
         return;
       }
 
       grid.style.display = 'grid';
       empty.style.display = 'none';
-      count.textContent = `${items.length} משאבים`;
+      count.textContent = `${items.length} resources`;
 
       items.forEach(r => {
         const card = document.createElement('a');
@@ -1198,9 +1198,9 @@
     };
 
     const CATEGORY_LABELS_GRAPH = {
-      tutorial: 'מדריכים', tool: 'כלים', research: 'מחקר',
-      news: 'חדשות', reference: 'עזר', community: 'קהילה',
-      other: 'אחר', uncategorised: 'לא מסווג',
+      tutorial: 'Tutorials', tool: 'Tools', research: 'Research',
+      news: 'News', reference: 'Reference', community: 'Community',
+      other: 'Other', uncategorised: 'Uncategorised',
     };
 
     let graphCurrentScale = 1;
@@ -1303,8 +1303,8 @@
       const catSelect = document.getElementById('gf-category');
       const tagSelect = document.getElementById('gf-tag');
 
-      catSelect.innerHTML = '<option value="all">כל הקטגוריות</option>';
-      tagSelect.innerHTML = '<option value="all">כל התגיות</option>';
+      catSelect.innerHTML = '<option value="all">All Categories</option>';
+      tagSelect.innerHTML = '<option value="all">All Tags</option>';
 
       const cats = [...new Set(allResources.map(r => r.category || 'other'))].sort();
       cats.forEach(cat => {
@@ -1394,7 +1394,7 @@
       });
 
       document.getElementById('gf-count').textContent =
-        `${visibleIds.size} מתוך ${totalNodes} צמתים`;
+        `${visibleIds.size} of ${totalNodes} nodes`;
 
       fitGraphView(300);
     }
@@ -1480,12 +1480,12 @@
       updateGraphModeToggle();
       if (graphViewMode === 'hubs') {
         setTimeout(() => applyHubMode(), 50);
-        showGraphHint(mobile ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+        showGraphHint(mobile ? 'Tap a category/tag node for details' : 'Click a hub to expand resources');
       } else if (graphViewMode === 'hierarchy') {
         setTimeout(() => applyHierarchyMode(), 50);
-        showGraphHint('תצוגת היררכיה: קטגוריה → תגית → משאב');
+        showGraphHint('Hierarchy view: Category → Tag → Resource');
       } else {
-        showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+        showGraphHint('Scroll to zoom · Click a node for details · Drag to pan');
       }
 
       graphNetwork.on('click', function (params) {
@@ -1587,18 +1587,18 @@
       if (info.type === 'resource') {
         const r = info.data;
         const tags = (r.tags || []).slice(0, 4).map(t => `<span>${escHtml(t)}</span>`).join('');
-        html = `<div class="tt-type resource">משאב</div>
+        html = `<div class="tt-type resource">Resource</div>
           <div class="tt-title">${escHtml(r.title || r.url)}</div>
           ${r.summary ? `<div class="tt-summary">${escHtml(r.summary)}</div>` : ''}
           ${tags ? `<div class="tt-tags">${tags}</div>` : ''}`;
       } else if (info.type === 'tag') {
-        html = `<div class="tt-type tag">תגית</div>
+        html = `<div class="tt-type tag">Tag</div>
           <div class="tt-title">${escHtml(info.data.name)}</div>
-          <div class="tt-count">${info.data.count} משאבים מקושרים</div>`;
+          <div class="tt-count">${info.data.count} linked resources</div>`;
       } else if (info.type === 'category') {
-        html = `<div class="tt-type category">קטגוריה</div>
+        html = `<div class="tt-type category">Category</div>
           <div class="tt-title">${escHtml(CATEGORY_LABELS_GRAPH[info.data.name] || info.data.name)}</div>
-          <div class="tt-count">${info.data.count} משאבים</div>`;
+          <div class="tt-count">${info.data.count} resources</div>`;
       }
 
       tt.innerHTML = html;
@@ -1693,7 +1693,7 @@
 
       if (mode === 'hierarchy') {
         applyHierarchyMode();
-        showGraphHint('תצוגת היררכיה: קטגוריה → תגית → משאב');
+        showGraphHint('Hierarchy view: Category → Tag → Resource');
       } else {
         if (graphNetwork) {
           graphNetwork.destroy();
@@ -1701,9 +1701,9 @@
         }
         initGraph();
         if (mode === 'hubs') {
-          showGraphHint(isMobile() ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+          showGraphHint(isMobile() ? 'Tap a category/tag node for details' : 'Click a hub to expand resources');
         } else {
-          showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+          showGraphHint('Scroll to zoom · Click a node for details · Drag to pan');
         }
       }
       updateMinimap();
@@ -1885,7 +1885,7 @@
         animation: { duration: 400, easingFunction: 'easeInOutQuad' },
       });
 
-      showGraphHint(mobile ? 'לחץ על משאב לפרטים · לחץ על רקע לחזור' : 'לחץ על משאב לפרטים · רקע לחזור');
+      showGraphHint(mobile ? 'Tap a resource for details · Tap background to go back' : 'Click a resource for details · Background to go back');
     }
 
     function highlightNeighbors(nodeId) {
@@ -2045,30 +2045,30 @@
         const r = info.data;
         const tags = (r.tags || []).map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
         content.innerHTML = `
-          <div class="detail-type resource">משאב</div>
+          <div class="detail-type resource">Resource</div>
           <h3>${escHtml(r.title || r.url)}</h3>
           ${r.summary ? `<div class="detail-summary">${escHtml(r.summary)}</div>` : ''}
           ${r.notes ? `<div class="detail-notes">${escHtml(r.notes)}</div>` : ''}
-          ${r.category ? `<div class="detail-meta">קטגוריה: ${escHtml(CATEGORY_LABELS_GRAPH[r.category] || r.category)}</div>` : ''}
-          <div class="detail-meta">חיבורים: ${neighbors.length}</div>
-          ${r.added_at ? `<div class="detail-meta">נוסף: ${escHtml(r.added_at)}</div>` : ''}
+          ${r.category ? `<div class="detail-meta">Category: ${escHtml(CATEGORY_LABELS_GRAPH[r.category] || r.category)}</div>` : ''}
+          <div class="detail-meta">Connections: ${neighbors.length}</div>
+          ${r.added_at ? `<div class="detail-meta">Added: ${escHtml(r.added_at)}</div>` : ''}
           ${tags ? `<div class="detail-tags">${tags}</div>` : ''}
-          ${r.url ? `<a class="detail-link" href="${escHtml(r.url)}" target="_blank" rel="noopener">פתח קישור ↗</a>` : ''}
-          ${neighborHtml ? `<div class="detail-neighbors"><h4>קשרים (${neighbors.length})</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+          ${r.url ? `<a class="detail-link" href="${escHtml(r.url)}" target="_blank" rel="noopener">Open link ↗</a>` : ''}
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>Connections (${neighbors.length})</h4><ul>${neighborHtml}</ul></div>` : ''}`;
       } else if (info.type === 'tag') {
         const resourceNeighbors = neighbors.filter(nid => graphNodeMap[nid]?.type === 'resource');
         content.innerHTML = `
-          <div class="detail-type tag">תגית</div>
+          <div class="detail-type tag">Tag</div>
           <h3>${escHtml(info.data.name)}</h3>
-          <div class="detail-summary">${resourceNeighbors.length} משאבים מקושרים</div>
-          ${neighborHtml ? `<div class="detail-neighbors"><h4>משאבים</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+          <div class="detail-summary">${resourceNeighbors.length} linked resources</div>
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>Resources</h4><ul>${neighborHtml}</ul></div>` : ''}`;
       } else if (info.type === 'category') {
         const resourceNeighbors = neighbors.filter(nid => graphNodeMap[nid]?.type === 'resource');
         content.innerHTML = `
-          <div class="detail-type category">קטגוריה</div>
+          <div class="detail-type category">Category</div>
           <h3>${escHtml(CATEGORY_LABELS_GRAPH[info.data.name] || info.data.name)}</h3>
-          <div class="detail-summary">${resourceNeighbors.length} משאבים</div>
-          ${neighborHtml ? `<div class="detail-neighbors"><h4>משאבים</h4><ul>${neighborHtml}</ul></div>` : ''}`;
+          <div class="detail-summary">${resourceNeighbors.length} resources</div>
+          ${neighborHtml ? `<div class="detail-neighbors"><h4>Resources</h4><ul>${neighborHtml}</ul></div>` : ''}`;
       }
 
       panel.style.display = 'block';
@@ -2100,25 +2100,25 @@
       if (!fromInfo || !toInfo) return '';
 
       if (fromInfo.type === 'resource' && toInfo.type === 'category') {
-        return 'שייך לקטגוריה';
+        return 'Belongs to category';
       }
       if (fromInfo.type === 'category' && toInfo.type === 'resource') {
-        return 'שייך לקטגוריה';
+        return 'Belongs to category';
       }
       if (fromInfo.type === 'resource' && toInfo.type === 'tag') {
-        return 'תגית משותפת: ' + toInfo.data.name;
+        return 'Shared tag: ' + toInfo.data.name;
       }
       if (fromInfo.type === 'tag' && toInfo.type === 'resource') {
-        return 'תגית משותפת: ' + fromInfo.data.name;
+        return 'Shared tag: ' + fromInfo.data.name;
       }
       if (fromInfo.type === 'tag' && toInfo.type === 'tag') {
-        return 'תגיות קשורות';
+        return 'Related tags';
       }
       if (fromInfo.type === 'category' && toInfo.type === 'tag') {
-        return 'תגית בקטגוריה';
+        return 'Tag in category';
       }
       if (fromInfo.type === 'tag' && toInfo.type === 'category') {
-        return 'תגית בקטגוריה';
+        return 'Tag in category';
       }
       return '';
     }
@@ -2139,7 +2139,7 @@
 
       if (!graphIsFiltered) {
         resetHighlight();
-        count.textContent = `${graphData.nodes.getIds().length} צמתים`;
+        count.textContent = `${graphData.nodes.getIds().length} nodes`;
         fitGraphView(400);
         return;
       }
@@ -2196,7 +2196,7 @@
 
       graphData.nodes.update(nodeUpdates);
       graphData.edges.update(edgeUpdates);
-      count.textContent = `${filteredItems.length} משאבים (מסוננים)`;
+      count.textContent = `${filteredItems.length} resources (filtered)`;
 
       const visibleNodeIds = [...visibleSet];
       if (visibleNodeIds.length > 0 && visibleNodeIds.length < graphData.nodes.length) {
