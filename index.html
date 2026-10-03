@@ -629,7 +629,8 @@
       #cards-grid { grid-template-columns: 1fr; }
       /* Graph fills viewport below controls */
       #graph-wrapper {
-        height: calc(100vh - 200px);
+        height: calc(100vh - 24px);
+        height: calc(100dvh - 24px);
         min-height: 340px;
         border-radius: var(--radius-sm);
         border: none;
@@ -1105,6 +1106,33 @@
       if (updates.length) graphData.nodes.update(updates);
     }
 
+    // Hubs = categories plus tags shared by 2+ resources; single-use tags
+    // and resources are hidden in hubs mode so the overview stays readable.
+    function isHubNode(id) {
+      const info = graphNodeMap[id];
+      if (!info) return false;
+      return info.type === 'category' || (info.type === 'tag' && (info.data.count || 0) >= 2);
+    }
+
+    // In hubs mode the resource nodes are hidden but still take part in
+    // physics, so a plain fit() zooms out to fit them too. Fit only hubs.
+    function fitGraphView(duration = 400) {
+      if (!graphNetwork) return;
+      const opts = { animation: { duration, easingFunction: 'easeInOutQuad' } };
+      if (graphViewMode === 'hubs' && !focusedHub) {
+        opts.nodes = graphData.nodes.getIds().filter(isHubNode);
+      } else if (graphViewMode === 'hubs' && focusedHub) {
+        const neighbors = graphNetwork.getConnectedNodes(focusedHub);
+        opts.nodes = [focusedHub, ...neighbors];
+      } else {
+        opts.nodes = graphData.nodes.getIds().filter(id => {
+          const n = graphData.nodes.get(id);
+          return n && n.hidden !== true;
+        });
+      }
+      graphNetwork.fit(opts);
+    }
+
     function initGraph() {
       const container = document.getElementById('graph-container');
       if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
@@ -1112,12 +1140,12 @@
       const mobile = isMobile();
 
       const options = {
-        nodes: { borderWidth: 1.5, shadow: { enabled: !mobile, color: 'rgba(0,0,0,.25)', size: 8, x: 0, y: 2 } },
+        nodes: { borderWidth: 1.5, scaling: { label: { drawThreshold: 3 } }, shadow: { enabled: !mobile, color: 'rgba(0,0,0,.25)', size: 8, x: 0, y: 2 } },
         edges: { smooth: { type: 'continuous', roundness: 0.25 }, selectionWidth: 2, hoverWidth: mobile ? 0 : 1.5 },
         physics: {
           solver: 'forceAtlas2Based',
           forceAtlas2Based: mobile
-            ? { gravitationalConstant: -30, centralGravity: 0.015, springLength: 70, springConstant: 0.06, damping: 0.5 }
+            ? { gravitationalConstant: -30, centralGravity: 0.04, springLength: 70, springConstant: 0.06, damping: 0.5 }
             : { gravitationalConstant: -120, centralGravity: 0.005, springLength: 200, springConstant: 0.025, damping: 0.45, avoidOverlap: 0.5 },
           stabilization: { iterations: mobile ? 120 : 280, fit: true },
           maxVelocity: mobile ? 20 : 25,
@@ -1210,7 +1238,7 @@
       });
 
       graphNetwork.on('stabilizationIterationsDone', function () {
-        graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+        fitGraphView(400);
       });
 
       container.addEventListener('mousemove', function (e) {
@@ -1289,7 +1317,7 @@
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
         if (!info) return { id };
-        if (info.type === 'resource') {
+        if (!isHubNode(id)) {
           return { id, hidden: true };
         }
         const isCategory = info.type === 'category';
@@ -1301,16 +1329,16 @@
           opacity: 1,
           borderWidth: 1.5,
           size: isCategory
-            ? (mobile ? 26 : 38 + countBoost)
-            : (mobile ? 14 : 20 + countBoost * 1.2),
+            ? (mobile ? 44 : 38 + countBoost)
+            : (mobile ? 22 : 20 + countBoost * 1.2),
           color: { background: catColor, border: catColor + '88', highlight: { background: catColor, border: '#fff8' } },
           font: {
             color: '#e8eaf6',
             size: isCategory
-              ? (mobile ? 14 : 30)
-              : (mobile ? 11 : 18 + Math.min((info.data.count || 0), 10) * 1.2),
+              ? (mobile ? 46 : 30)
+              : (mobile ? 28 : 18 + Math.min((info.data.count || 0), 10) * 1.2),
             face: 'Heebo, sans-serif',
-            strokeWidth: mobile ? 0 : 4,
+            strokeWidth: 4,
             strokeColor: '#0d0f17',
             background: mobile ? 'transparent' : 'rgba(13,15,23,0.55)',
           },
@@ -1321,9 +1349,7 @@
       const edgeUpdates = graphData.edges.getIds().map(id => ({ id, hidden: true }));
       graphData.edges.update(edgeUpdates);
 
-      if (graphNetwork) {
-        graphNetwork.fit({ animation: { duration: 300, easingFunction: 'easeInOutQuad' } });
-      }
+      fitGraphView(300);
     }
 
     function updateGraphModeToggle() {
@@ -1389,7 +1415,7 @@
             },
           };
         }
-        if (info.type === 'resource') {
+        if (!isHubNode(id)) {
           return { id, hidden: true };
         }
         return { id, hidden: false, opacity: 0.12, font: { color: '#e8eaf615' } };
@@ -1637,7 +1663,7 @@
       if (!graphIsFiltered) {
         resetHighlight();
         count.textContent = `${graphData.nodes.getIds().length} צמתים`;
-        graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+        fitGraphView(400);
         return;
       }
 
@@ -1743,6 +1769,9 @@
         }
         focusedHub = null;
         renderGraph();
+        if (isMobile()) {
+          graphWrapper.scrollIntoView({ block: 'start' });
+        }
       }
     }
 
