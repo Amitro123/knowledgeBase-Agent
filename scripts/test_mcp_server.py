@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""Tests for the MCP knowledge-base server (scripts/mcp_server.py)."""
+"""Tests for the read-only MCP knowledge-base server (scripts/mcp_server.py)."""
 
 import importlib.util
 import json
-import os
-import tempfile
 from pathlib import Path
 
 import pytest
 
 # ---------------------------------------------------------------------------
-# Fixture: load the module with paths pointed at a temp dir
+# Fixture: load the module with RESOURCES_FILE pointed at a temp dir
 # ---------------------------------------------------------------------------
 
 @pytest.fixture()
@@ -24,25 +22,24 @@ def kb(tmp_path):
     spec.loader.exec_module(mod)
 
     (tmp_path / "data").mkdir()
-    (tmp_path / "wiki").mkdir()
     seed = [
         {
             "id": 1,
             "url": "https://example.com/alpha",
-            "title": "Alpha Resource",
-            "summary": "First resource about RAG",
+            "title": "Alpha Resource about RAG",
+            "summary": "First resource about retrieval augmented generation",
             "category": "tool",
             "tags": ["rag", "vector-db"],
             "source_file": "",
             "created": "2026-01-01",
             "added_at": "2026-01-01",
-            "notes": "Good overview",
+            "notes": "Good overview of RAG techniques",
         },
         {
             "id": 2,
             "url": "https://example.com/beta",
-            "title": "Beta Resource",
-            "summary": "Second resource about agents",
+            "title": "Beta Agent Framework",
+            "summary": "Second resource about building agents",
             "category": "research",
             "tags": ["agents", "llm"],
             "source_file": "",
@@ -53,13 +50,25 @@ def kb(tmp_path):
         {
             "id": 3,
             "url": "https://example.com/gamma",
-            "title": "",
-            "summary": "",
-            "category": "other",
-            "tags": [],
+            "title": "Gamma MCP Guide",
+            "summary": "Model Context Protocol tutorial in Hebrew",
+            "category": "tutorial",
+            "tags": ["mcp", "agents"],
             "source_file": "",
-            "created": "",
+            "created": "2026-03-01",
             "added_at": "2026-03-01",
+            "notes": "מדריך מקיף בעברית",
+        },
+        {
+            "id": 4,
+            "url": "https://example.com/delta",
+            "title": "Delta Vector DB",
+            "summary": "Vector database comparison",
+            "category": "tool",
+            "tags": ["vector-db", "rag"],
+            "source_file": "",
+            "created": "2026-04-01",
+            "added_at": "2026-04-01",
             "notes": "",
         },
     ]
@@ -67,124 +76,52 @@ def kb(tmp_path):
         json.dumps(seed, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    mod.REPO_ROOT = tmp_path
+    mod.ROOT = tmp_path
     mod.RESOURCES_FILE = tmp_path / "data" / "resources.json"
-    mod.INBOX_FILE = tmp_path / "data" / "inbox.jsonl"
-    mod.LOG_FILE = tmp_path / "data" / "kb_log.jsonl"
-    mod.WIKI_DIR = tmp_path / "wiki"
 
     return mod
 
 
 # ---------------------------------------------------------------------------
-# query
+# query_kb
 # ---------------------------------------------------------------------------
 
-class TestQuery:
+class TestQueryKb:
     def test_text_search(self, kb):
-        result = kb.query(text="RAG")
+        result = kb.query_kb(question="RAG")
         assert "Alpha Resource" in result
-        assert "Beta Resource" not in result
+        assert "id=1" in result
 
-    def test_tag_filter(self, kb):
-        result = kb.query(tag="agents")
-        assert "Beta Resource" in result
-        assert "Alpha Resource" not in result
-
-    def test_category_filter(self, kb):
-        result = kb.query(category="tool")
-        assert "Alpha Resource" in result
-        assert "Beta Resource" not in result
+    def test_hebrew_search(self, kb):
+        result = kb.query_kb(question="עברית")
+        assert "Gamma" in result
 
     def test_no_results(self, kb):
-        result = kb.query(text="nonexistent-xyz")
-        assert "No matching" in result
+        result = kb.query_kb(question="nonexistent-xyz-topic")
+        assert "No resources found" in result
 
-    def test_combined_filters(self, kb):
-        result = kb.query(text="resource", category="research")
-        assert "Beta Resource" in result
-        assert "Alpha Resource" not in result
+    def test_empty_question(self, kb):
+        result = kb.query_kb(question="")
+        assert "Error" in result
 
+    def test_stop_words_only(self, kb):
+        result = kb.query_kb(question="the is of")
+        assert "stop words" in result
 
-# ---------------------------------------------------------------------------
-# ingest
-# ---------------------------------------------------------------------------
+    def test_top_match_full_detail(self, kb):
+        result = kb.query_kb(question="RAG retrieval")
+        assert "Top match" in result
+        assert "url:" in result
+        assert "category:" in result
 
-class TestIngest:
-    def test_new_resource(self, kb):
-        result = kb.ingest(
-            url="https://example.com/new",
-            title="New Thing",
-            summary="A new resource",
-            tags=["test"],
-        )
-        assert "Ingested" in result
-        assert "id=4" in result
-        resources = json.loads(kb.RESOURCES_FILE.read_text())
-        assert any(r["url"] == "https://example.com/new" for r in resources)
+    def test_bidirectional_match(self, kb):
+        """A query keyword containing a tag word (or vice-versa) should match."""
+        result = kb.query_kb(question="vector-databases")
+        assert "vector-db" in result or "Vector" in result
 
-    def test_duplicate_rejected(self, kb):
-        result = kb.ingest(url="https://example.com/alpha")
-        assert "Already exists" in result
-
-    def test_empty_url_rejected(self, kb):
-        result = kb.ingest(url="")
-        assert "ERROR" in result
-
-    def test_inbox_written(self, kb):
-        kb.ingest(url="https://example.com/inbox-test", title="Inbox Test")
-        assert kb.INBOX_FILE.exists()
-        lines = kb.INBOX_FILE.read_text().strip().split("\n")
-        record = json.loads(lines[-1])
-        assert record["action"] == "ingest"
-        assert record["entry"]["url"] == "https://example.com/inbox-test"
-
-
-# ---------------------------------------------------------------------------
-# lint
-# ---------------------------------------------------------------------------
-
-class TestLint:
-    def test_finds_issues(self, kb):
-        result = kb.lint()
-        assert "issue" in result.lower()
-        assert "id=3" in result
-
-    def test_clean_kb(self, kb):
-        clean = [
-            {
-                "id": 1,
-                "url": "https://example.com/clean",
-                "title": "Clean Resource",
-                "summary": "Has everything",
-                "category": "tool",
-                "tags": ["test"],
-                "source_file": "",
-                "created": "2026-01-01",
-                "added_at": "2026-01-01",
-                "notes": "",
-            }
-        ]
-        kb.RESOURCES_FILE.write_text(json.dumps(clean), encoding="utf-8")
-        result = kb.lint()
-        assert "No issues" in result
-
-
-# ---------------------------------------------------------------------------
-# index
-# ---------------------------------------------------------------------------
-
-class TestIndex:
-    def test_index_output(self, kb):
-        result = kb.index()
-        assert "3 resources" in result
-        assert "tool" in result
-        assert "rag" in result
-
-    def test_empty_kb(self, kb):
-        kb.RESOURCES_FILE.write_text("[]", encoding="utf-8")
-        result = kb.index()
-        assert "empty" in result.lower()
+    def test_max_results(self, kb):
+        result = kb.query_kb(question="resource", max_results=2)
+        assert result.count("**id=") <= 2
 
 
 # ---------------------------------------------------------------------------
@@ -193,65 +130,122 @@ class TestIndex:
 
 class TestGetResource:
     def test_by_id(self, kb):
-        result = kb.get_resource(id=1)
-        data = json.loads(result)
-        assert data["title"] == "Alpha Resource"
-
-    def test_by_url(self, kb):
-        result = kb.get_resource(url="https://example.com/beta")
-        data = json.loads(result)
-        assert data["id"] == 2
+        result = kb.get_resource(resource_id=1)
+        assert "Alpha Resource" in result
+        assert "url: https://example.com/alpha" in result
 
     def test_not_found(self, kb):
-        result = kb.get_resource(id=999)
+        result = kb.get_resource(resource_id=999)
         assert "not found" in result.lower()
 
+    def test_nearby_hint(self, kb):
+        result = kb.get_resource(resource_id=5)
+        assert "Nearby" in result or "not found" in result.lower()
 
-# ---------------------------------------------------------------------------
-# wiki articles
-# ---------------------------------------------------------------------------
-
-class TestWiki:
-    def test_write_and_read(self, kb):
-        kb.write_article("test-article", "# Test\nHello world")
-        result = kb.read_article("test-article")
-        assert "Hello world" in result
-
-    def test_read_nonexistent(self, kb):
-        result = kb.read_article("does-not-exist")
-        assert "not found" in result.lower()
-
-    def test_list_articles(self, kb):
-        kb.write_article("first", "---\ntitle: First\n---\nContent")
-        kb.write_article("second", "---\ntitle: Second\n---\nMore")
-        result = kb.list_articles()
-        assert "first" in result
-        assert "second" in result
-
-    def test_overwrite(self, kb):
-        kb.write_article("ow", "version 1")
-        kb.write_article("ow", "version 2")
-        result = kb.read_article("ow")
-        assert "version 2" in result
-        assert "version 1" not in result
-
-    def test_slug_sanitisation(self, kb):
-        result = kb.write_article("../../etc/passwd", "nope")
-        assert "etc-passwd" in result
+    def test_full_detail_fields(self, kb):
+        result = kb.get_resource(resource_id=1)
+        assert "title:" in result
+        assert "url:" in result
+        assert "category:" in result
+        assert "tags:" in result
+        assert "summary:" in result
 
 
 # ---------------------------------------------------------------------------
-# log
+# search_tags
 # ---------------------------------------------------------------------------
 
-class TestLog:
-    def test_log_after_actions(self, kb):
-        kb.query(text="x")
-        kb.index()
-        result = kb.log()
-        assert "query" in result
-        assert "index" in result
+class TestSearchTags:
+    def test_search_hit(self, kb):
+        result = kb.search_tags(question="rag")
+        assert "rag" in result.lower()
 
-    def test_empty_log(self, kb):
-        result = kb.log()
-        assert "No activity" in result or "empty" in result.lower()
+    def test_resource_count(self, kb):
+        result = kb.search_tags(question="agents")
+        assert "2 resources" in result
+
+    def test_no_match(self, kb):
+        result = kb.search_tags(question="nonexistent-xyz")
+        assert "No tags found" in result
+
+    def test_empty_question(self, kb):
+        result = kb.search_tags(question="")
+        assert "Error" in result
+
+    def test_bidirectional(self, kb):
+        """'vector' should match tag 'vector-db' via substring."""
+        result = kb.search_tags(question="vector")
+        assert "vector-db" in result
+
+
+# ---------------------------------------------------------------------------
+# get_tag
+# ---------------------------------------------------------------------------
+
+class TestGetTag:
+    def test_exact_tag(self, kb):
+        result = kb.get_tag(tag="rag")
+        assert "Alpha Resource" in result
+        assert "Delta Vector" in result
+
+    def test_tag_not_found(self, kb):
+        result = kb.get_tag(tag="nonexistent")
+        assert "No resources found" in result
+
+    def test_similar_hint(self, kb):
+        result = kb.get_tag(tag="agent")
+        assert "Similar tags" in result or "agents" in result.lower()
+
+    def test_empty_tag(self, kb):
+        result = kb.get_tag(tag="")
+        assert "Error" in result
+
+    def test_case_insensitive(self, kb):
+        result = kb.get_tag(tag="RAG")
+        assert "Alpha Resource" in result
+
+
+# ---------------------------------------------------------------------------
+# Read-only invariant
+# ---------------------------------------------------------------------------
+
+class TestReadOnly:
+    def test_no_write_methods(self, kb):
+        """The server should not expose any mutation tools."""
+        tool_names = {name for name in dir(kb) if not name.startswith("_")}
+        for forbidden in ["ingest", "write_article", "lint", "log",
+                          "read_article", "list_articles"]:
+            assert forbidden not in tool_names, (
+                f"Write tool '{forbidden}' should not exist"
+            )
+
+    def test_resources_unchanged_after_query(self, kb):
+        """Querying must never modify resources.json."""
+        before = kb.RESOURCES_FILE.read_text()
+        kb.query_kb(question="RAG")
+        kb.get_resource(resource_id=1)
+        kb.search_tags(question="agents")
+        kb.get_tag(tag="rag")
+        after = kb.RESOURCES_FILE.read_text()
+        assert before == after
+
+
+# ---------------------------------------------------------------------------
+# Edge cases
+# ---------------------------------------------------------------------------
+
+class TestEdgeCases:
+    def test_empty_kb(self, kb):
+        kb.RESOURCES_FILE.write_text("[]", encoding="utf-8")
+        result = kb.query_kb(question="anything")
+        assert "No resources found" in result
+
+    def test_empty_kb_tags(self, kb):
+        kb.RESOURCES_FILE.write_text("[]", encoding="utf-8")
+        result = kb.search_tags(question="anything")
+        assert "No tags" in result
+
+    def test_missing_file(self, kb):
+        kb.RESOURCES_FILE.unlink()
+        result = kb.query_kb(question="anything")
+        assert "No resources found" in result

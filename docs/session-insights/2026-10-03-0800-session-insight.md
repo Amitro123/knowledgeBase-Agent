@@ -1,75 +1,73 @@
 ---
-title: MCP server — Karpathy LLM Wiki pattern for knowledge base
+title: MCP server — read-only knowledge-base server for agents
 date: 2026-10-03
 ---
 
 ## Task / problem summary
 
-Add an MCP server to `knowledgeBase-Agent` that replicates the "Karpathy
-LLM Wiki" pattern from a reference repo (`divorce-journey-agent`), adapted
-for this project's Google Sheets → `resources.json` architecture.
+Add an MCP server to `knowledgeBase-Agent` that replicates the read-only
+knowledge-base MCP from `divorce-journey-agent`, adapted for this project's
+Google Sheets → `resources.json` architecture.
 
 ## Root cause
 
 The project had no agent-queryable surface. Resources lived only in
 `resources.json` (rebuilt from Google Sheets) with a read-only frontend.
-No programmatic query, ingest, write-back, or quality-check interface existed.
+No programmatic query interface existed for agents.
 
 ## What went well
 
 - The MCP Python SDK v2.x (`MCPServer`) worked cleanly; one import rename
   from v1 (`FastMCP`) was the only migration needed.
-- Tests were straightforward to write and all 23 passed on second attempt
-  after fixing the fixture isolation issue.
-- The tool surface maps well: `query`, `ingest`, `lint`, `index`, `log`,
-  plus wiki CRUD for the write-back layer.
+- The reference server's bidirectional substring matching for Hebrew
+  translated directly — same algorithm, different data shape.
+- The tag-search pair (`search_tags` / `get_tag`) maps naturally to the
+  reference's `search_claims` / `get_claim` pattern.
 
 ## What went poorly
 
-- Reference repo `divorce-journey-agent` was inaccessible (404 / private).
-  Had to rely on the task description's characterisation of the pattern
-  and the `divorce-kb` MCP namespace metadata.
-- First test run failed (11/23) because the test fixture set module globals
-  *before* `exec_module`, which overwrote them. Fixed by setting after.
+- First pass (before seeing the actual reference code) built a read-write
+  server with ingest, wiki, lint, log — all wrong. The reference server
+  is strictly read-only with no mutation tools.
+- Reference repo was inaccessible (private, 404). Had to be corrected
+  by the user uploading the actual `kb_server.py` and README.
 
 ## How it was solved
 
-Built a Python MCP server (`scripts/mcp_server.py`) with 9 tools and 2
-resources. The key design decision was a two-layer architecture:
-1. `resources.json` — structured data synced from the Sheet (read+append)
-2. `wiki/*.md` — free-form articles where agents write synthesised knowledge
+Rewrote the MCP server as a read-only 4-tool server matching the reference
+architecture:
 
-Ingest queues new entries in `data/inbox.jsonl` for later Sheet sync,
-preserving the Sheet as canonical source of truth.
+| Reference tool       | This repo tool  | Notes                           |
+|---------------------|-----------------|---------------------------------|
+| `query_kb(question)`| `query_kb(question)` | Same pattern; searches resources instead of wiki pages |
+| `get_page(slug)`    | `get_resource(resource_id)` | Numeric id instead of file slug |
+| `search_claims(question)` | `search_tags(question)` | Tags/categories instead of legal claims |
+| `get_claim(claim_id)` | `get_tag(tag)` | List resources by tag |
 
 ## Tradeoffs or alternatives considered
 
-- **Direct Sheet write-back via API**: rejected because it requires
-  write-scoped credentials and complicates the Sheet's role as sole editor
-  interface. The inbox queue is simpler and safer.
-- **Replacing vis-network graph**: explicitly forbidden by requirements.
-- **Single-file wiki vs. directory of markdown files**: chose directory for
-  better agent ergonomics (each article has a slug, front-matter, independent
-  lifecycle).
+- **Kept search_tags/get_tag** (analogous to search_claims/get_claim):
+  useful because the KB has 30+ distinct tags and an agent benefits from
+  discovering the tag taxonomy before drilling into resources.
+- **Dropped write-back wiki**: the reference never writes. The Sheet is
+  the only place new content enters.
+- **Dropped ingest/lint/log/index**: not in the reference. The server
+  reads the generated artifact (`resources.json`) exactly as the reference
+  reads its generated `knowledge-graph.json`.
 
 ## Tests added or updated
 
-- `scripts/test_mcp_server.py`: 23 tests covering query, ingest, lint,
-  index, get_resource, wiki CRUD, log, edge cases (dedup, empty KB, path
-  traversal in slugs).
+- `scripts/test_mcp_server.py`: 27 tests covering query_kb, get_resource,
+  search_tags, get_tag, bidirectional matching, Hebrew search, read-only
+  invariant verification, and edge cases (empty KB, missing file, stop words).
 
 ## Lessons learned
 
-- When importing a module for testing via `importlib.util`, module-level
-  constants derived from `__file__` must be overridden *after*
-  `spec.loader.exec_module()`, not before.
-- MCP v2.x renamed `FastMCP` → `MCPServer`; the error message helpfully
-  includes the migration guide URL.
+- "Karpathy LLM Wiki pattern" does not imply write-back. The actual
+  reference implementation is read-only — the wiki/graph grows via
+  separate scripts, and the MCP only reads the generated artifacts.
+- Always verify against actual code, not descriptions of code.
 
 ## Follow-up actions
 
-- When the `divorce-journey-agent` repo becomes accessible, compare the
-  actual MCP tool signatures and adjust if needed.
-- Consider adding a GitHub Action that syncs `data/inbox.jsonl` entries
-  back to the Google Sheet automatically.
-- The `lint` tool could be extended to check URL reachability (HTTP HEAD).
+- None blocking. The server is feature-complete relative to the reference.
