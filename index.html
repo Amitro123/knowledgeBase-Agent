@@ -1422,7 +1422,7 @@
     function isHubNode(id) {
       const info = graphNodeMap[id];
       if (!info) return false;
-      return info.type === 'category' || (info.type === 'tag' && (info.data.count || 0) >= 2);
+      return info.type === 'category' || (info.type === 'tag' && (info.data.count || 0) >= 5);
     }
 
     // In hubs mode the resource nodes are hidden but still take part in
@@ -1691,27 +1691,26 @@
       hideGraphDetail();
       updateGraphModeToggle();
 
-      if (mode === 'hubs') {
-        if (graphNetwork) {
-          graphNetwork.setOptions({ layout: { hierarchical: false }, physics: { enabled: true } });
-        }
-        applyHubMode();
-        showGraphHint(isMobile() ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
-      } else if (mode === 'hierarchy') {
+      if (mode === 'hierarchy') {
         applyHierarchyMode();
         showGraphHint('תצוגת היררכיה: קטגוריה → תגית → משאב');
       } else {
         if (graphNetwork) {
-          graphNetwork.setOptions({ layout: { hierarchical: false }, physics: { enabled: true } });
+          graphNetwork.destroy();
+          graphNetwork = null;
         }
-        resetHighlight();
-        showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+        initGraph();
+        if (mode === 'hubs') {
+          showGraphHint(isMobile() ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+        } else {
+          showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
+        }
       }
       updateMinimap();
     }
 
     function applyHierarchyMode() {
-      if (!graphNetwork || !graphData.nodes) return;
+      if (!graphData.nodes) return;
 
       graphData.nodes.getIds().forEach(id => {
         const info = graphNodeMap[id];
@@ -1720,30 +1719,109 @@
         if (info.type === 'category') level = 0;
         else if (info.type === 'tag') level = 1;
         else level = 2;
-        graphData.nodes.update({ id, hidden: false, opacity: 1, level });
+
+        const isResource = info.type === 'resource';
+        const isTag = info.type === 'tag';
+        const isCat = info.type === 'category';
+        const node = graphData.nodes.get(id);
+
+        graphData.nodes.update({
+          id, hidden: false, opacity: 1, level,
+          label: isResource ? (node._fullLabel || '') : node.label,
+          font: {
+            color: isResource ? '#d0d4e8' : (isCat ? '#ffffff' : '#c8d4f0'),
+            size: isCat ? 28 : (isTag ? 16 : 12),
+            face: 'Heebo, sans-serif',
+            strokeWidth: 3, strokeColor: '#0d0f17',
+            background: 'rgba(13,15,23,0.55)',
+          },
+          size: isCat ? 30 : (isTag ? 14 : 8),
+        });
       });
 
       graphData.edges.getIds().forEach(id => {
-        graphData.edges.update({ id, hidden: false, opacity: 0.6, width: 1 });
+        graphData.edges.update({ id, hidden: false, opacity: 0.5, width: 0.8 });
       });
 
-      graphNetwork.setOptions({
+      if (graphNetwork) {
+        graphNetwork.destroy();
+        graphNetwork = null;
+      }
+
+      const container = document.getElementById('graph-container');
+      const mobile = isMobile();
+
+      graphNetwork = new vis.Network(container, graphData, {
+        nodes: { borderWidth: 1.5, shadow: false },
+        edges: { smooth: { type: 'cubicBezier', roundness: 0.5 }, selectionWidth: 2 },
         layout: {
           hierarchical: {
             enabled: true,
             direction: 'UD',
             sortMethod: 'directed',
-            levelSeparation: 180,
-            nodeSpacing: 80,
-            treeSpacing: 120,
+            levelSeparation: mobile ? 140 : 200,
+            nodeSpacing: mobile ? 40 : 60,
+            treeSpacing: mobile ? 60 : 100,
             blockShifting: true,
             edgeMinimization: true,
+            parentCentralization: true,
           },
         },
         physics: { enabled: false },
+        interaction: {
+          hover: !mobile,
+          zoomView: true,
+          dragView: true,
+          multiselect: false,
+          navigationButtons: false,
+          zoomSpeed: mobile ? 0.6 : 1,
+          dragNodes: false,
+        },
       });
 
-      setTimeout(() => fitGraphView(400), 100);
+      reattachGraphEvents();
+      setTimeout(() => fitGraphView(400), 200);
+    }
+
+    function reattachGraphEvents() {
+      if (!graphNetwork) return;
+      const mobile = isMobile();
+
+      graphNetwork.on('click', function (params) {
+        if (params.nodes.length > 0) {
+          const nodeId = params.nodes[0];
+          graphSelectedNode = nodeId;
+          updateCenterBtn();
+          showGraphDetail(nodeId);
+          highlightNeighbors(nodeId);
+        } else {
+          graphSelectedNode = null;
+          updateCenterBtn();
+          hideGraphDetail();
+          if (graphViewMode === 'hierarchy') {
+            applyHierarchyMode();
+          } else if (!graphIsFiltered) {
+            resetHighlight();
+          }
+        }
+      });
+
+      graphNetwork.on('doubleClick', function (params) {
+        if (params.nodes.length > 0) {
+          const nodeId = params.nodes[0];
+          const info = graphNodeMap[nodeId];
+          if (info && info.type === 'resource' && info.data.url) {
+            window.open(info.data.url, '_blank', 'noopener');
+          }
+        }
+      });
+
+      graphNetwork.on('zoom', function (params) {
+        graphCurrentScale = params.scale;
+        updateMinimap();
+      });
+
+      graphNetwork.on('dragEnd', updateMinimap);
     }
 
     function expandHub(hubId) {
