@@ -800,17 +800,20 @@
 
         const vp = graphNetwork.getViewPosition();
         const sc = graphNetwork.getScale();
-        const gx = vp.x + (domX - rect.width / 2) / sc;
-        const gy = vp.y + (domY - rect.height / 2) / sc;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
 
+        // Hit-test in display pixel space (node sizes are screen px)
         const positions = graphNetwork.getPositions();
         let best = null, bestDist = Infinity;
         for (const id of Object.keys(positions)) {
           const nd = graphData.nodes.get(id);
           if (nd && nd.hidden) continue;
           const p = positions[id];
-          const d = Math.hypot(p.x - gx, p.y - gy);
-          const hitR = (nd?.size || 10) * 1.8;
+          const ndx = (p.x - vp.x) * sc + cx;
+          const ndy = (p.y - vp.y) * sc + cy;
+          const d = Math.hypot(domX - ndx, domY - ndy);
+          const hitR = (nd?.size || 10) * 1.6;
           if (d < hitR && d < bestDist) { best = id; bestDist = d; }
         }
 
@@ -819,7 +822,7 @@
           graphNetwork.selectNodes([best]);
           highlightNeighbors(best);
           showDetail(best);
-        } else if (!best) {
+        } else if (!best && selectedNodeId) {
           selectedNodeId = null;
           resetHighlight();
           hideDetail();
