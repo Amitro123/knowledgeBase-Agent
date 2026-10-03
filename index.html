@@ -230,11 +230,7 @@
     }
 
     #graph-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      /* Dimensions set explicitly by JS before vis-network init */
     }
 
     #graph-hint {
@@ -733,11 +729,16 @@
 
     // ── Init graph ──────────────────────────────────────────────
     function initGraph() {
+      const area = document.getElementById('graph-area');
       const container = document.getElementById('graph-container');
       if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
 
+      // Set explicit pixel dimensions so vis-network's canvas matches
+      container.style.width = area.clientWidth + 'px';
+      container.style.height = area.clientHeight + 'px';
+
       const options = {
-        autoResize: true,
+        autoResize: false,
         nodes: {
           borderWidth: 1.5,
           shadow: { enabled: true, color: 'rgba(0,0,0,.3)', size: 6, x: 0, y: 2 },
@@ -795,7 +796,15 @@
 
     // Keep vis-network canvas in sync with container size
     new ResizeObserver(() => {
-      if (graphNetwork) graphNetwork.redraw();
+      if (!graphNetwork) return;
+      const area = document.getElementById('graph-area');
+      const container = document.getElementById('graph-container');
+      const w = area.clientWidth;
+      const h = area.clientHeight;
+      container.style.width = w + 'px';
+      container.style.height = h + 'px';
+      graphNetwork.setSize(w + 'px', h + 'px');
+      graphNetwork.redraw();
     }).observe(document.getElementById('graph-area'));
 
     // ── Graph events ────────────────────────────────────────────
