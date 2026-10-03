@@ -1782,5 +1782,20 @@
     "created": "2026-05-23",
     "added_at": "2026-05-23",
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
+  },
+  {
+    "id": 118,
+    "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    "title": "TypeSafe / Diogo Almeida",
+    "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
+    "category": "news",
+    "tags": [
+      "jev",
+      "news"
+    ],
+    "source_file": "",
+    "created": "2026-10-03",
+    "added_at": "2026-10-03",
+    "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   }
 ]
