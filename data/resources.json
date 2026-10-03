@@ -1291,6 +1291,24 @@
   },
   {
     "id": 85,
+    "url": "https://github.com/getzep/graphiti",
+    "title": "Zep (Graphiti)",
+    "summary": "Graphiti is a framework for building and querying temporally-aware knowledge graphs, specifically tailored for AI agents operating in dynamic environments.",
+    "category": "tool",
+    "tags": [
+      "mcp",
+      "memory",
+      "repos-in-github",
+      "tool",
+      "tools"
+    ],
+    "source_file": "",
+    "created": "2026-10-03",
+    "added_at": "2026-10-03",
+    "notes": "31394 GitHub stars. License Apache-2.0. Language Python. Install with pip install graphiti-core. README also includes an MCP server. Zep temporal knowledge graph for agents, not a RAG guide."
+  },
+  {
+    "id": 86,
     "url": "https://leads.sh/l/mx8bwy6kiuia/amit-rosen-331732140",
     "title": "Leads.sh",
     "summary": "LinkedIn lead generation and automated outreach funnel",
@@ -1305,7 +1323,7 @@
     "notes": ""
   },
   {
-    "id": 86,
+    "id": 87,
     "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
     "title": "Airtop.ai",
     "summary": "Browser automation template to extract leads from LinkedIn post commenters",
@@ -1320,7 +1338,7 @@
     "notes": ""
   },
   {
-    "id": 87,
+    "id": 88,
     "url": "https://www.linkedin.com/company/airwallex/",
     "title": "Divyanshi Sharma",
     "summary": "Airwallex, a fintech company, is developing multiple AI agents to fully automate end-to-end financial workflows such as invoicing and treasury operations. The post also highlights its existing strengths, including a global payment network, multi-currency accounts, and AI-powered finance automation.",
@@ -1335,7 +1353,7 @@
     "notes": ""
   },
   {
-    "id": 88,
+    "id": 89,
     "url": "https://www.getagentcraft.com/",
     "title": "AgentCraft — RTS interface for agent orchestration",
     "summary": "Orchestrate your AI agents with an RTS game interface. Install with npx idosal/agentcraft.",
@@ -1350,7 +1368,7 @@
     "notes": "Self-hosted AI agent infrastructure platform"
   },
   {
-    "id": 89,
+    "id": 90,
     "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
     "title": "Google Workspace MCP Configuration",
     "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
@@ -1363,21 +1381,6 @@
     "created": "2026-05-02",
     "added_at": "2026-05-02",
     "notes": "Critical for future MCP integrations with Google Workspace."
-  },
-  {
-    "id": 90,
-    "url": "https://github.com/getzep/graphiti",
-    "title": "Zep (Graphiti)",
-    "summary": "Graphiti is a framework for building and querying temporally-aware knowledge graphs, specifically tailored for AI agents operating in dynamic environments.",
-    "category": "other",
-    "tags": [
-      "mcp",
-      "knowledge graphs / memory"
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-10-03",
-    "notes": ""
   },
   {
     "id": 91,
