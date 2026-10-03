@@ -1329,19 +1329,15 @@
 
       const noFilter = gfCategory === 'all' && gfType === 'all' && gfTag === 'all';
       if (noFilter) {
-        graphData.nodes.getIds().forEach(id => {
-          graphData.nodes.update({ id, hidden: false });
-        });
-        graphData.edges.getIds().forEach(id => {
-          graphData.edges.update({ id, hidden: false });
-        });
         document.getElementById('gf-count').textContent = '';
         if (graphViewMode === 'hubs') {
           applyHubMode();
+        } else if (graphViewMode === 'hierarchy') {
+          applyHierarchyMode();
         } else {
           resetHighlight();
+          fitGraphView(300);
         }
-        fitGraphView(300);
         return;
       }
 
@@ -1483,8 +1479,11 @@
       focusedHub = null;
       updateGraphModeToggle();
       if (graphViewMode === 'hubs') {
-        applyHubMode();
+        setTimeout(() => applyHubMode(), 50);
         showGraphHint(mobile ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+      } else if (graphViewMode === 'hierarchy') {
+        setTimeout(() => applyHierarchyMode(), 50);
+        showGraphHint('תצוגת היררכיה: קטגוריה → תגית → משאב');
       } else {
         showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
       }
@@ -2198,9 +2197,16 @@
 
     function renderGraph() {
       if (!graphNetwork) initGraph();
-      applyGraphFilter();
-      if (graphViewMode === 'hubs' && !focusedHub) {
-        applyHubMode();
+      if (graphViewMode === 'hubs') {
+        if (focusedHub) {
+          expandHub(focusedHub);
+        } else {
+          applyHubMode();
+        }
+      } else if (graphViewMode === 'hierarchy') {
+        applyHierarchyMode();
+      } else {
+        applyGraphFilter();
       }
     }
 
