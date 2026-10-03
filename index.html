@@ -621,7 +621,9 @@
       });
 
       buildGraphData();
-      initGraph();
+      // Defer graph init so the CSS Grid layout settles and vis-network
+      // measures the container correctly for hit detection.
+      requestAnimationFrame(() => requestAnimationFrame(() => initGraph()));
     }
 
     // ── Build graph data ────────────────────────────────────────
@@ -687,7 +689,7 @@
           _fullLabel: truncLabel(r.title || r.url, 28),
           group: 'resource',
           shape: 'dot',
-          size: 8,
+          size: 10,
           mass: 1,
           color: { background: '#e8a838', border: '#e8a83855', highlight: { background: '#f0be5e', border: '#ffffffcc' } },
           font: { color: '#e8a83800', size: 11, face: 'Inter, sans-serif', strokeWidth: 2, strokeColor: '#0b0e18' },
@@ -764,15 +766,30 @@
       graphNetwork = new vis.Network(container, graphData, options);
 
       graphNetwork.on('click', onGraphClick);
+      graphNetwork.on('selectNode', function (params) {
+        if (params.nodes.length > 0 && params.nodes[0] !== selectedNodeId) {
+          onGraphClick(params);
+        }
+      });
+      graphNetwork.on('deselectNode', function () {
+        if (selectedNodeId) { selectedNodeId = null; resetHighlight(); hideDetail(); }
+      });
       graphNetwork.on('hoverNode', onHoverNode);
       graphNetwork.on('blurNode', onBlurNode);
       graphNetwork.on('zoom', onZoom);
       graphNetwork.on('stabilizationIterationsDone', () => {
         graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+        // Force redraw after stabilization so canvas coordinates stay in sync
+        setTimeout(() => graphNetwork.redraw(), 100);
       });
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
     }
+
+    // Keep vis-network in sync when the window resizes
+    window.addEventListener('resize', () => {
+      if (graphNetwork) graphNetwork.redraw();
+    });
 
     // ── Graph events ────────────────────────────────────────────
     function onGraphClick(params) {
@@ -918,7 +935,7 @@
         const isTag = info.type === 'tag';
         const isCat = info.type === 'category';
 
-        const baseSize = isResource ? 8 : (isCat ? (28 + Math.min(info.data.count || 0, 30)) : (10 + Math.min(info.data.count || 0, 20) * 1.4));
+        const baseSize = isResource ? 10 : (isCat ? (28 + Math.min(info.data.count || 0, 30)) : (10 + Math.min(info.data.count || 0, 20) * 1.4));
         const baseFontSize = isResource ? 11 : (isCat ? 16 : (12 + Math.min(info.data.count || 0, 10)));
 
         return {
