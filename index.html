@@ -366,10 +366,34 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 10px 14px;
-      display: flex; flex-direction: column; gap: 6px;
-      font-size: .76rem; color: var(--text-dim);
-      pointer-events: none;
+      display: flex; flex-direction: column; gap: 4px;
+      font-size: .74rem; color: var(--text-dim);
+      pointer-events: auto;
       backdrop-filter: blur(6px);
+      max-width: 220px;
+      transition: all .2s;
+    }
+
+    .graph-legend.collapsed {
+      padding: 6px 10px;
+      max-width: 80px;
+    }
+
+    .graph-legend.collapsed .legend-section,
+    .graph-legend.collapsed .legend-title { display: none; }
+    .graph-legend.collapsed .legend-toggle { transform: rotate(180deg); }
+
+    .legend-title {
+      font-size: .72rem; font-weight: 600; color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .legend-section { display: flex; flex-direction: column; gap: 3px; }
+
+    .legend-section-label {
+      font-size: .66rem; font-weight: 600; color: var(--text-dimmer);
+      text-transform: uppercase; letter-spacing: .04em;
+      margin-top: 4px;
     }
 
     .legend-item {
@@ -386,6 +410,30 @@
       transform: rotate(45deg);
       width: 11px; height: 11px;
     }
+
+    .legend-line {
+      width: 18px; height: 2px;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+
+    .legend-line.dashed {
+      background: transparent !important;
+      border-top: 2px dashed;
+      height: 0;
+    }
+
+    .legend-toggle {
+      align-self: center;
+      background: none; border: none;
+      color: var(--text-dimmer);
+      font-size: .7rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      transition: transform .2s, color .15s;
+    }
+
+    .legend-toggle:hover { color: var(--text); }
 
     /* ── Graph hover tooltip ─────────────────────────────────────────── */
     #graph-tooltip {
@@ -441,6 +489,54 @@
       color: var(--text-dim); font-size: .78rem; margin-top: 2px;
     }
 
+    /* ── Graph filter bar ─────────────────────────────────────────────── */
+    .graph-filter-bar {
+      position: absolute; bottom: 14px; left: 12px; z-index: 6;
+      display: none; flex-wrap: wrap; gap: 6px; align-items: center;
+      background: rgba(13,15,23,.92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      backdrop-filter: blur(6px);
+      max-width: calc(100% - 180px);
+    }
+
+    .graph-filter-bar.visible { display: flex; }
+
+    .gf-label {
+      font-size: .72rem; color: var(--text-dimmer);
+      white-space: nowrap; font-weight: 600;
+    }
+
+    .gf-select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: .74rem; font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      max-width: 140px;
+    }
+
+    .gf-select:focus { border-color: var(--accent); }
+
+    .gf-count {
+      font-size: .72rem; color: var(--accent2);
+      white-space: nowrap;
+      margin-right: auto;
+    }
+
+    .gf-reset-btn {
+      background: none; border: 1px solid var(--border);
+      color: var(--text-dim); border-radius: 6px;
+      padding: 3px 10px; font-size: .72rem; font-family: inherit;
+      cursor: pointer; transition: all .15s; white-space: nowrap;
+    }
+
+    .gf-reset-btn:hover { border-color: var(--accent); color: var(--text); }
+
     /* ── Graph zoom hint ─────────────────────────────────────────────── */
     .graph-zoom-hint {
       position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
@@ -457,7 +553,7 @@
     /* ── Detail panel (graph) ────────────────────────────────────────── */
     #graph-detail {
       display: none;
-      position: absolute; top: 12px; right: 12px; z-index: 10;
+      position: absolute; top: 12px; right: 56px; z-index: 10;
       width: 340px; max-width: calc(100% - 24px);
       max-height: calc(100% - 24px);
       overflow-y: auto;
@@ -593,6 +689,56 @@
       box-shadow: 0 0 8px rgba(124,106,247,.4);
     }
 
+    /* ── Graph zoom/nav controls ─────────────────────────────────────── */
+    .graph-controls {
+      position: absolute; top: 12px; right: 12px; z-index: 6;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+
+    .graph-ctrl-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-sm);
+      background: rgba(30,34,53,.95);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all .15s;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0,0,0,.4);
+      line-height: 1;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    .graph-ctrl-btn:hover {
+      background: rgba(124,106,247,.25);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .graph-ctrl-btn:active {
+      transform: scale(.92);
+    }
+
+    .graph-ctrl-sep {
+      height: 1px;
+      background: var(--border);
+      margin: 2px 4px;
+    }
+
+    /* ── Minimap ─────────────────────────────────────────────────────── */
+    #graph-minimap {
+      position: absolute; bottom: 56px; left: 12px; z-index: 5;
+      width: 150px; height: 110px;
+      background: rgba(13,15,23,.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+      display: none;
+    }
+
     #graph-detail .detail-neighbors {
       margin-top: 12px; padding-top: 10px;
       border-top: 1px solid var(--border);
@@ -616,6 +762,18 @@
 
     #graph-detail .detail-neighbors li:hover { color: var(--accent); }
 
+    #graph-detail .detail-neighbors .neighbor-label {
+      display: block;
+    }
+
+    #graph-detail .detail-neighbors .neighbor-reason {
+      display: block;
+      font-size: .68rem;
+      color: var(--text-dimmer);
+      font-style: italic;
+      margin-top: 1px;
+    }
+
     @media (max-width: 600px) {
       .wrapper { padding: 0 12px; }
       header { padding: 28px 0 18px; }
@@ -636,13 +794,11 @@
         border: none;
       }
 
-      /* Legend: compact row layout at bottom-left */
       .graph-legend {
         top: auto; bottom: 10px; left: 10px;
-        font-size: .68rem; padding: 6px 10px;
-        flex-direction: row; flex-wrap: wrap; gap: 4px 10px;
+        font-size: .66rem; padding: 6px 10px;
         background: rgba(13,15,23,.92);
-        max-width: 220px;
+        max-width: 200px;
       }
 
       /* Desktop zoom-hint shrinks on mobile */
@@ -679,6 +835,20 @@
 
       .graph-mode-toggle { bottom: 12px; right: 10px; }
       .graph-mode-btn { padding: 4px 12px; font-size: .72rem; }
+
+      .graph-controls { top: 8px; right: 8px; }
+      .graph-ctrl-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+
+      .graph-filter-bar {
+        bottom: 48px; left: 8px;
+        max-width: calc(100% - 16px);
+        padding: 6px 10px;
+        gap: 4px;
+      }
+      .gf-select { font-size: .7rem; max-width: 100px; }
+      .gf-label { font-size: .68rem; }
+
+      #graph-minimap { display: none !important; }
 
       /* Bigger tap targets for neighbor list on mobile */
       #graph-detail .detail-neighbors li {
@@ -770,17 +940,54 @@
     <!-- Graph view -->
     <div id="graph-wrapper">
       <div id="graph-container"></div>
-      <div class="graph-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#7c6af7"></div><span>משאב</span></div>
-        <div class="legend-item"><div class="legend-dot" style="background:#5b8dee"></div><span>תגית</span></div>
-        <div class="legend-item"><div class="legend-dot diamond" style="background:#52d9a0"></div><span>קטגוריה</span></div>
+      <div class="graph-legend" id="graph-legend">
+        <div class="legend-title">מקרא</div>
+        <div class="legend-section">
+          <div class="legend-section-label">צמתים</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#7c6af7"></div><span>● משאב — גודל לפי מספר קשרים</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#5b8dee"></div><span>● תגית — גודל לפי כמות משאבים</span></div>
+          <div class="legend-item"><div class="legend-dot diamond" style="background:#52d9a0"></div><span>◆ קטגוריה</span></div>
+        </div>
+        <div class="legend-section">
+          <div class="legend-section-label">קשרים</div>
+          <div class="legend-item"><div class="legend-line" style="background:#52d9a0"></div><span>שייך לקטגוריה</span></div>
+          <div class="legend-item"><div class="legend-line dashed" style="background:#5b8dee"></div><span>תגית משותפת</span></div>
+        </div>
+        <button class="legend-toggle" id="legend-toggle" aria-label="סגור מקרא">▲</button>
+      </div>
+      <div class="graph-controls" id="graph-controls">
+        <button class="graph-ctrl-btn" id="gc-zoom-in" title="התקרב">＋</button>
+        <button class="graph-ctrl-btn" id="gc-zoom-out" title="התרחק">－</button>
+        <div class="graph-ctrl-sep"></div>
+        <button class="graph-ctrl-btn" id="gc-fit" title="התאם לתצוגה">⊡</button>
+        <button class="graph-ctrl-btn" id="gc-reset" title="אפס תצוגה">↻</button>
+        <button class="graph-ctrl-btn" id="gc-center" title="מרכז על בחירה" disabled>◎</button>
       </div>
       <div class="graph-zoom-hint" id="graph-zoom-hint">גלגל לזום · לחץ על צומת לפרטים · גרור לסובב</div>
       <div class="graph-hint" id="graph-hint"></div>
-      <div class="graph-mode-toggle" id="graph-mode-toggle">
-        <button class="graph-mode-btn" data-gmode="hubs">מרכזים</button>
-        <button class="graph-mode-btn active" data-gmode="all">הכל</button>
+      <div class="graph-filter-bar" id="graph-filter-bar">
+        <span class="gf-label">סינון:</span>
+        <select class="gf-select" id="gf-category" aria-label="סינון לפי קטגוריה">
+          <option value="all">כל הקטגוריות</option>
+        </select>
+        <select class="gf-select" id="gf-type" aria-label="סינון לפי סוג">
+          <option value="all">כל הסוגים</option>
+          <option value="resource">משאבים</option>
+          <option value="tag">תגיות</option>
+          <option value="category">קטגוריות</option>
+        </select>
+        <select class="gf-select" id="gf-tag" aria-label="סינון לפי תגית">
+          <option value="all">כל התגיות</option>
+        </select>
+        <span class="gf-count" id="gf-count"></span>
+        <button class="gf-reset-btn" id="gf-reset">איפוס</button>
       </div>
+      <div class="graph-mode-toggle" id="graph-mode-toggle">
+        <button class="graph-mode-btn active" data-gmode="hubs">אשכולות</button>
+        <button class="graph-mode-btn" data-gmode="all">רשת</button>
+        <button class="graph-mode-btn" data-gmode="hierarchy">היררכיה</button>
+      </div>
+      <canvas id="graph-minimap" width="160" height="120"></canvas>
       <div id="graph-detail">
         <div class="detail-drag-handle" aria-hidden="true"></div>
         <button class="detail-close" aria-label="סגור">✕</button>
@@ -812,7 +1019,7 @@
 
     function isMobile() { return window.innerWidth <= 600; }
 
-    let graphViewMode = 'all'; // 'hubs' or 'all'
+    let graphViewMode = 'hubs'; // 'hubs' (cluster-first default) or 'all'
     let focusedHub = null;
 
     // ── Fetch resources.json ─────────────────────────────────────────────
@@ -868,6 +1075,7 @@
       });
 
       buildGraphData();
+      populateGraphFilters();
       render();
     }
 
@@ -997,6 +1205,9 @@
 
     let graphCurrentScale = 1;
     let graphHoveredNode = null;
+    let gfCategory = 'all';
+    let gfType = 'all';
+    let gfTag = 'all';
     let graphSelectedNode = null;
     let graphIsFiltered = false;
 
@@ -1086,6 +1297,110 @@
 
       graphData.nodes = new vis.DataSet(nodes);
       graphData.edges = new vis.DataSet(edges);
+    }
+
+    function populateGraphFilters() {
+      const catSelect = document.getElementById('gf-category');
+      const tagSelect = document.getElementById('gf-tag');
+
+      catSelect.innerHTML = '<option value="all">כל הקטגוריות</option>';
+      tagSelect.innerHTML = '<option value="all">כל התגיות</option>';
+
+      const cats = [...new Set(allResources.map(r => r.category || 'other'))].sort();
+      cats.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = CATEGORY_LABELS_GRAPH[cat] || cat;
+        catSelect.appendChild(opt);
+      });
+
+      const tags = [...new Set(allResources.flatMap(r => (r.tags || []).map(t => t.toLowerCase().trim())).filter(Boolean))].sort();
+      tags.forEach(tag => {
+        const opt = document.createElement('option');
+        opt.value = tag;
+        opt.textContent = tag;
+        tagSelect.appendChild(opt);
+      });
+    }
+
+    function applyGraphLocalFilter() {
+      if (!graphData.nodes) return;
+      const totalNodes = graphData.nodes.length;
+
+      const noFilter = gfCategory === 'all' && gfType === 'all' && gfTag === 'all';
+      if (noFilter) {
+        graphData.nodes.getIds().forEach(id => {
+          graphData.nodes.update({ id, hidden: false });
+        });
+        graphData.edges.getIds().forEach(id => {
+          graphData.edges.update({ id, hidden: false });
+        });
+        document.getElementById('gf-count').textContent = '';
+        if (graphViewMode === 'hubs') {
+          applyHubMode();
+        } else {
+          resetHighlight();
+        }
+        fitGraphView(300);
+        return;
+      }
+
+      const visibleIds = new Set();
+
+      graphData.nodes.getIds().forEach(id => {
+        const info = graphNodeMap[id];
+        if (!info) return;
+
+        let show = true;
+
+        if (gfType !== 'all' && info.type !== gfType) {
+          show = false;
+        }
+
+        if (show && gfCategory !== 'all') {
+          if (info.type === 'resource') {
+            show = (info.data.category || 'other') === gfCategory;
+          } else if (info.type === 'category') {
+            show = info.data.name === gfCategory;
+          } else if (info.type === 'tag') {
+            const resources = allResources.filter(r =>
+              (r.tags || []).some(t => t.toLowerCase().trim() === info.data.name)
+            );
+            show = resources.some(r => (r.category || 'other') === gfCategory);
+          }
+        }
+
+        if (show && gfTag !== 'all') {
+          if (info.type === 'resource') {
+            show = (info.data.tags || []).some(t => t.toLowerCase().trim() === gfTag);
+          } else if (info.type === 'tag') {
+            show = info.data.name === gfTag;
+          } else if (info.type === 'category') {
+            const resources = allResources.filter(r =>
+              (r.category || 'other') === info.data.name &&
+              (r.tags || []).some(t => t.toLowerCase().trim() === gfTag)
+            );
+            show = resources.length > 0;
+          }
+        }
+
+        if (show) visibleIds.add(id);
+      });
+
+      graphData.nodes.getIds().forEach(id => {
+        graphData.nodes.update({ id, hidden: !visibleIds.has(id), opacity: 1 });
+      });
+
+      graphData.edges.getIds().forEach(id => {
+        const edge = graphData.edges.get(id);
+        const show = visibleIds.has(edge.from) && visibleIds.has(edge.to);
+        graphData.edges.update({ id, hidden: !show });
+      });
+
+      document.getElementById('gf-count').textContent =
+        `${visibleIds.size} מתוך ${totalNodes} צמתים`;
+
+      fitGraphView(300);
     }
 
     function truncLabel(s, max) {
@@ -1178,6 +1493,7 @@
         if (params.nodes.length > 0) {
           const nodeId = params.nodes[0];
           graphSelectedNode = nodeId;
+          updateCenterBtn();
           const info = graphNodeMap[nodeId];
 
           if (graphViewMode === 'hubs' && !focusedHub && info && (info.type === 'tag' || info.type === 'category')) {
@@ -1191,6 +1507,7 @@
           highlightNeighbors(nodeId);
         } else {
           graphSelectedNode = null;
+          updateCenterBtn();
           hideGraphDetail();
           if (graphViewMode === 'hubs' && focusedHub) {
             focusedHub = null;
@@ -1235,11 +1552,16 @@
         updateResourceLabelsForZoom();
         const hint = document.getElementById('graph-zoom-hint');
         if (hint) hint.style.opacity = params.scale > 0.5 ? '0' : '1';
+        updateMinimap();
       });
 
       graphNetwork.on('stabilizationIterationsDone', function () {
         fitGraphView(400);
+        setTimeout(updateMinimap, 500);
       });
+
+      graphNetwork.on('dragEnd', updateMinimap);
+      graphNetwork.on('animationFinished', updateMinimap);
 
       container.addEventListener('mousemove', function (e) {
         if (graphHoveredNode) positionTooltip(e.clientX, e.clientY);
@@ -1366,16 +1688,63 @@
       graphViewMode = mode;
       focusedHub = null;
       graphSelectedNode = null;
+      updateCenterBtn();
       hideGraphDetail();
       updateGraphModeToggle();
 
       if (mode === 'hubs') {
+        if (graphNetwork) {
+          graphNetwork.setOptions({ layout: { hierarchical: false }, physics: { enabled: true } });
+        }
         applyHubMode();
         showGraphHint(isMobile() ? 'לחץ על צומת קטגוריה/תגית לפרטים' : 'לחץ על מרכז להרחבת משאבים');
+      } else if (mode === 'hierarchy') {
+        applyHierarchyMode();
+        showGraphHint('תצוגת היררכיה: קטגוריה → תגית → משאב');
       } else {
+        if (graphNetwork) {
+          graphNetwork.setOptions({ layout: { hierarchical: false }, physics: { enabled: true } });
+        }
         resetHighlight();
         showGraphHint('גלגל לזום · לחץ על צומת לפרטים · גרר לסובב');
       }
+      updateMinimap();
+    }
+
+    function applyHierarchyMode() {
+      if (!graphNetwork || !graphData.nodes) return;
+
+      graphData.nodes.getIds().forEach(id => {
+        const info = graphNodeMap[id];
+        if (!info) return;
+        let level;
+        if (info.type === 'category') level = 0;
+        else if (info.type === 'tag') level = 1;
+        else level = 2;
+        graphData.nodes.update({ id, hidden: false, opacity: 1, level });
+      });
+
+      graphData.edges.getIds().forEach(id => {
+        graphData.edges.update({ id, hidden: false, opacity: 0.6, width: 1 });
+      });
+
+      graphNetwork.setOptions({
+        layout: {
+          hierarchical: {
+            enabled: true,
+            direction: 'UD',
+            sortMethod: 'directed',
+            levelSeparation: 180,
+            nodeSpacing: 80,
+            treeSpacing: 120,
+            blockShifting: true,
+            edgeMinimization: true,
+          },
+        },
+        physics: { enabled: false },
+      });
+
+      setTimeout(() => fitGraphView(400), 100);
     }
 
     function expandHub(hubId) {
@@ -1591,7 +1960,8 @@
         const label = nInfo.type === 'resource' ? (nInfo.data.title || nInfo.data.url) :
                       nInfo.type === 'category' ? (CATEGORY_LABELS_GRAPH[nInfo.data.name] || nInfo.data.name) :
                       nInfo.data.name || nid;
-        return `<li data-nid="${escHtml(nid)}">${escHtml(label)}</li>`;
+        const reason = getLinkReason(nodeId, nid);
+        return `<li data-nid="${escHtml(nid)}"><span class="neighbor-label">${escHtml(label)}</span>${reason ? `<span class="neighbor-reason">${escHtml(reason)}</span>` : ''}</li>`;
       }).join('');
 
       if (info.type === 'resource') {
@@ -1644,6 +2014,35 @@
           highlightNeighbors(nid);
         });
       });
+    }
+
+    function getLinkReason(fromId, toId) {
+      const fromInfo = graphNodeMap[fromId];
+      const toInfo = graphNodeMap[toId];
+      if (!fromInfo || !toInfo) return '';
+
+      if (fromInfo.type === 'resource' && toInfo.type === 'category') {
+        return 'שייך לקטגוריה';
+      }
+      if (fromInfo.type === 'category' && toInfo.type === 'resource') {
+        return 'שייך לקטגוריה';
+      }
+      if (fromInfo.type === 'resource' && toInfo.type === 'tag') {
+        return 'תגית משותפת: ' + toInfo.data.name;
+      }
+      if (fromInfo.type === 'tag' && toInfo.type === 'resource') {
+        return 'תגית משותפת: ' + fromInfo.data.name;
+      }
+      if (fromInfo.type === 'tag' && toInfo.type === 'tag') {
+        return 'תגיות קשורות';
+      }
+      if (fromInfo.type === 'category' && toInfo.type === 'tag') {
+        return 'תגית בקטגוריה';
+      }
+      if (fromInfo.type === 'tag' && toInfo.type === 'category') {
+        return 'תגית בקטגוריה';
+      }
+      return '';
     }
 
     function hideGraphDetail() {
@@ -1727,6 +2126,76 @@
       }
     }
 
+    function updateMinimap() {
+      const canvas = document.getElementById('graph-minimap');
+      if (!canvas || !graphNetwork) { canvas.style.display = 'none'; return; }
+
+      if (graphViewMode === 'hubs' && !focusedHub) {
+        canvas.style.display = 'none';
+        return;
+      }
+
+      canvas.style.display = 'block';
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const positions = graphNetwork.getPositions();
+      const ids = Object.keys(positions);
+      if (ids.length === 0) return;
+
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      ids.forEach(id => {
+        const p = positions[id];
+        const node = graphData.nodes.get(id);
+        if (node && node.hidden) return;
+        if (p.x < minX) minX = p.x;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.y > maxY) maxY = p.y;
+      });
+
+      const rangeX = (maxX - minX) || 1;
+      const rangeY = (maxY - minY) || 1;
+      const pad = 8;
+      const scaleX = (W - 2 * pad) / rangeX;
+      const scaleY = (H - 2 * pad) / rangeY;
+      const sc = Math.min(scaleX, scaleY);
+
+      ids.forEach(id => {
+        const p = positions[id];
+        const node = graphData.nodes.get(id);
+        if (node && node.hidden) return;
+        const info = graphNodeMap[id];
+        const x = pad + (p.x - minX) * sc;
+        const y = pad + (p.y - minY) * sc;
+        ctx.beginPath();
+        const r = info && info.type === 'category' ? 3 : (info && info.type === 'tag' ? 2 : 1.2);
+        const color = info && info.type === 'category'
+          ? (CATEGORY_COLORS[info.data.name] || '#52d9a0')
+          : (info && info.type === 'tag' ? '#5b8dee' : '#7c6af7');
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = node && node.opacity !== undefined ? Math.max(node.opacity, 0.15) : 0.7;
+        ctx.fill();
+      });
+
+      ctx.globalAlpha = 1;
+      const vp = graphNetwork.getViewPosition();
+      const vpScale = graphNetwork.getScale();
+      const container = document.getElementById('graph-container');
+      const cw = container.offsetWidth;
+      const ch = container.offsetHeight;
+      const vpW = (cw / vpScale) * sc;
+      const vpH = (ch / vpScale) * sc;
+      const vpX = pad + (vp.x - minX) * sc - vpW / 2;
+      const vpY = pad + (vp.y - minY) * sc - vpH / 2;
+      ctx.strokeStyle = 'rgba(124,106,247,0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(vpX, vpY, vpW, vpH);
+    }
+
     function renderGraph() {
       if (!graphNetwork) initGraph();
       applyGraphFilter();
@@ -1749,12 +2218,14 @@
         b.setAttribute('aria-selected', isActive);
       });
 
+      const filterBar = document.getElementById('graph-filter-bar');
       if (view === 'cards') {
         graphWrapper.style.display = 'none';
         cardsGrid.style.display = '';
         toolbar.style.display = '';
         toolbar.classList.remove('graph-mode');
         emptyState.style.display = '';
+        filterBar.classList.remove('visible');
         hideGraphDetail();
         renderCards();
       } else {
@@ -1763,9 +2234,10 @@
         toolbar.style.display = 'flex';
         toolbar.classList.add('graph-mode');
         graphWrapper.style.display = 'block';
+        filterBar.classList.add('visible');
 
         if (!graphNetwork) {
-          graphViewMode = isMobile() ? 'hubs' : 'all';
+          graphViewMode = 'hubs';
         }
         focusedHub = null;
         renderGraph();
@@ -1804,11 +2276,78 @@
     document.querySelector('#graph-detail .detail-close').addEventListener('click', () => {
       hideGraphDetail();
       graphSelectedNode = null;
+      updateCenterBtn();
       resetHighlight();
     });
 
     document.querySelectorAll('.graph-mode-btn').forEach(btn => {
       btn.addEventListener('click', () => setGraphViewMode(btn.dataset.gmode));
+    });
+
+    // ── Graph zoom/nav controls ──────────────────────────────────────────
+    document.getElementById('gc-zoom-in').addEventListener('click', () => {
+      if (!graphNetwork) return;
+      const s = graphNetwork.getScale();
+      graphNetwork.moveTo({ scale: s * 1.4, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+    });
+    document.getElementById('gc-zoom-out').addEventListener('click', () => {
+      if (!graphNetwork) return;
+      const s = graphNetwork.getScale();
+      graphNetwork.moveTo({ scale: s / 1.4, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+    });
+    document.getElementById('gc-fit').addEventListener('click', () => fitGraphView(400));
+    document.getElementById('gc-reset').addEventListener('click', () => {
+      if (!graphNetwork) return;
+      graphSelectedNode = null;
+      focusedHub = null;
+      hideGraphDetail();
+      updateCenterBtn();
+      if (graphViewMode === 'hubs') {
+        applyHubMode();
+      } else {
+        resetHighlight();
+        fitGraphView(400);
+      }
+    });
+    document.getElementById('gc-center').addEventListener('click', () => {
+      if (!graphNetwork || !graphSelectedNode) return;
+      const mobile = isMobile();
+      graphNetwork.focus(graphSelectedNode, {
+        scale: mobile ? 1.0 : 1.5,
+        animation: { duration: 400, easingFunction: 'easeInOutQuad' },
+      });
+    });
+
+    function updateCenterBtn() {
+      const btn = document.getElementById('gc-center');
+      if (btn) btn.disabled = !graphSelectedNode;
+    }
+
+    document.getElementById('legend-toggle').addEventListener('click', () => {
+      document.getElementById('graph-legend').classList.toggle('collapsed');
+    });
+
+    // ── Graph-local filter controls ──────────────────────────────────────
+    document.getElementById('gf-category').addEventListener('change', e => {
+      gfCategory = e.target.value;
+      applyGraphLocalFilter();
+    });
+    document.getElementById('gf-type').addEventListener('change', e => {
+      gfType = e.target.value;
+      applyGraphLocalFilter();
+    });
+    document.getElementById('gf-tag').addEventListener('change', e => {
+      gfTag = e.target.value;
+      applyGraphLocalFilter();
+    });
+    document.getElementById('gf-reset').addEventListener('click', () => {
+      gfCategory = 'all';
+      gfType = 'all';
+      gfTag = 'all';
+      document.getElementById('gf-category').value = 'all';
+      document.getElementById('gf-type').value = 'all';
+      document.getElementById('gf-tag').value = 'all';
+      applyGraphLocalFilter();
     });
 
     // ── Reinit graph on orientation / resize change ─────────────────────
@@ -1817,7 +2356,6 @@
       const mobile = isMobile();
       if (mobile !== _lastMobile && activeView === 'graph' && graphNetwork) {
         _lastMobile = mobile;
-        graphViewMode = mobile ? 'hubs' : 'all';
         graphNetwork.destroy();
         graphNetwork = null;
         renderGraph();
