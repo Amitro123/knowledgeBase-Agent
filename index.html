@@ -267,6 +267,27 @@
 
     #detail-content { display: none; }
 
+    #detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: .76rem;
+      font-family: inherit;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: border-color .15s, color .15s;
+    }
+
+    #detail-back:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
     #detail-content .detail-type {
       font-size: .66rem;
       font-weight: 700;
@@ -535,7 +556,10 @@
     <!-- Right detail panel -->
     <aside id="right-panel">
       <div id="detail-empty">Click a node to see its details here.</div>
-      <div id="detail-content"></div>
+      <div id="detail-content">
+        <button id="detail-back" aria-label="Back to full graph">← Back</button>
+        <div id="detail-body"></div>
+      </div>
     </aside>
 
   </div>
@@ -818,14 +842,14 @@
         }
 
         if (best && best !== selectedNodeId) {
+          // Freeze physics so the graph stops moving on selection
+          if (graphNetwork) graphNetwork.setOptions({ physics: false });
           selectedNodeId = best;
           graphNetwork.selectNodes([best]);
           highlightNeighbors(best);
           showDetail(best);
         } else if (!best && selectedNodeId) {
-          selectedNodeId = null;
-          resetHighlight();
-          hideDetail();
+          clearSelection();
         }
       });
 
@@ -834,6 +858,10 @@
       graphNetwork.on('zoom', onZoom);
       graphNetwork.on('stabilizationIterationsDone', () => {
         graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+        // Freeze the layout once stable so the graph stops moving
+        setTimeout(() => {
+          if (graphNetwork) graphNetwork.setOptions({ physics: false });
+        }, 500);
       });
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
@@ -1028,6 +1056,7 @@
 
       const empty = document.getElementById('detail-empty');
       const content = document.getElementById('detail-content');
+      const body = document.getElementById('detail-body');
       const panel = document.getElementById('right-panel');
 
       empty.style.display = 'none';
@@ -1044,7 +1073,7 @@
         const tags = (r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
         const domain = (() => { try { return new URL(r.url).hostname.replace('www.',''); } catch { return ''; } })();
 
-        content.innerHTML = `
+        body.innerHTML = `
           <div class="detail-type resource">Resource</div>
           <h3>${esc(r.title || r.url)}</h3>
           ${r.summary ? `<div class="detail-summary">${esc(r.summary)}</div>` : ''}
@@ -1058,7 +1087,7 @@
           ${neighborHtml}`;
       } else if (info.type === 'tag') {
         const resCount = neighbors.filter(n => graphNodeMap[n]?.type === 'resource').length;
-        content.innerHTML = `
+        body.innerHTML = `
           <div class="detail-type tag">Tag</div>
           <h3>${esc(info.data.name)}</h3>
           <div class="detail-summary">${resCount} linked resources</div>
@@ -1066,7 +1095,7 @@
           ${neighborHtml}`;
       } else if (info.type === 'category') {
         const resCount = neighbors.filter(n => graphNodeMap[n]?.type === 'resource').length;
-        content.innerHTML = `
+        body.innerHTML = `
           <div class="detail-type category">Category</div>
           <h3>${esc(CATEGORY_LABELS[info.data.name] || info.data.name)}</h3>
           <div class="detail-summary">${resCount} resources in this category</div>
@@ -1075,9 +1104,10 @@
       }
 
       // Wire up neighbor clicks
-      content.querySelectorAll('.detail-neighbors li[data-nid]').forEach(li => {
+      body.querySelectorAll('.detail-neighbors li[data-nid]').forEach(li => {
         li.addEventListener('click', () => {
           const nid = li.dataset.nid;
+          if (graphNetwork) graphNetwork.setOptions({ physics: false });
           selectedNodeId = nid;
           graphNetwork.selectNodes([nid]);
           graphNetwork.focus(nid, { scale: 1.4, animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
@@ -1122,6 +1152,13 @@
       document.getElementById('detail-empty').style.display = '';
       document.getElementById('detail-content').style.display = 'none';
       document.getElementById('right-panel').classList.remove('mobile-open');
+    }
+
+    function clearSelection() {
+      selectedNodeId = null;
+      graphNetwork.unselectAll();
+      resetHighlight();
+      hideDetail();
     }
 
     // ── Filter: node types ──────────────────────────────────────
@@ -1215,6 +1252,8 @@
     }
 
     // ── Event listeners ─────────────────────────────────────────
+    document.getElementById('detail-back').addEventListener('click', clearSelection);
+
     document.getElementById('search-input').addEventListener('input', e => {
       searchQuery = e.target.value.trim();
       applyFilters();
