@@ -1759,9 +1759,9 @@
             enabled: true,
             direction: 'UD',
             sortMethod: 'hubsize',
-            levelSeparation: mobile ? 140 : 200,
-            nodeSpacing: mobile ? 40 : 60,
-            treeSpacing: mobile ? 60 : 100,
+            levelSeparation: mobile ? 200 : 350,
+            nodeSpacing: mobile ? 30 : 50,
+            treeSpacing: mobile ? 50 : 80,
             blockShifting: true,
             edgeMinimization: true,
             parentCentralization: true,
@@ -2050,6 +2050,7 @@
           ${r.summary ? `<div class="detail-summary">${escHtml(r.summary)}</div>` : ''}
           ${r.notes ? `<div class="detail-notes">${escHtml(r.notes)}</div>` : ''}
           ${r.category ? `<div class="detail-meta">קטגוריה: ${escHtml(CATEGORY_LABELS_GRAPH[r.category] || r.category)}</div>` : ''}
+          <div class="detail-meta">חיבורים: ${neighbors.length}</div>
           ${r.added_at ? `<div class="detail-meta">נוסף: ${escHtml(r.added_at)}</div>` : ''}
           ${tags ? `<div class="detail-tags">${tags}</div>` : ''}
           ${r.url ? `<a class="detail-link" href="${escHtml(r.url)}" target="_blank" rel="noopener">פתח קישור ↗</a>` : ''}
