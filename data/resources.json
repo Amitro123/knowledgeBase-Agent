@@ -1152,6 +1152,8 @@
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
     "category": "tool",
     "tags": [
+      "finops",
+      "jev",
       "repos-in-github",
       "tool",
       "tools"
