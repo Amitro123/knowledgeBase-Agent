@@ -168,6 +168,12 @@
       flex: 1;
     }
 
+    .cb-sub {
+      display: block;
+      font-size: .66rem;
+      color: var(--text-dimmer);
+    }
+
     .cb-count {
       color: var(--text-dim);
       font-size: .72rem;
@@ -190,23 +196,28 @@
       border-top-width: 2.5px;
     }
 
-    /* legend */
-    .legend-swatch {
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-      flex-shrink: 0;
-      display: inline-block;
+    /* category chips */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
     }
 
-    .legend-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 1px 0;
-      font-size: .74rem;
+    .chip {
+      font: inherit;
+      font-size: .72rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       color: var(--text-dim);
+      cursor: pointer;
+      transition: border-color .15s, color .15s, background .15s;
     }
+
+    .chip:hover { border-color: var(--accent); color: var(--text); }
+    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .chip .chip-count { opacity: .7; margin-left: 3px; }
 
     .about-text {
       font-size: .72rem;
@@ -259,11 +270,55 @@
       font-size: .82rem;
     }
 
-    #detail-empty {
+    /* overview (nothing selected) */
+    .ov-section { margin-bottom: 18px; }
+    .ov-section h4,
+    .detail-section h4 {
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
       color: var(--text-dim);
-      font-size: .82rem;
-      padding-top: 8px;
+      margin-bottom: 8px;
     }
+
+    .ov-intro {
+      color: var(--text-dim);
+      font-size: .78rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .ov-list { list-style: none; padding: 0; }
+
+    .ov-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      font-size: .78rem;
+    }
+
+    .ov-list li:last-child { border-bottom: none; }
+    .ov-list li:hover .ov-name { color: var(--accent); }
+    .ov-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color .15s; }
+    .ov-meta { color: var(--text-dimmer); font-size: .7rem; flex-shrink: 0; }
+
+    .detail-back {
+      display: block;
+      font: inherit;
+      font-size: .72rem;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    .detail-back:hover { color: var(--accent); }
 
     #detail-content { display: none; }
 
@@ -307,32 +362,45 @@
       border-left: 3px solid var(--accent);
     }
 
-    #detail-content .detail-field {
+    .meta-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 12px;
       font-size: .78rem;
-      color: var(--text-dim);
-      margin-bottom: 4px;
+      margin: 12px 0;
     }
 
-    #detail-content .detail-field b {
-      color: var(--text);
-      font-weight: 500;
+    .meta-grid dt { color: var(--text-dimmer); }
+    .meta-grid dd { color: var(--text); min-width: 0; overflow-wrap: anywhere; }
+
+    .meta-grid a[data-nid] { color: var(--green); cursor: pointer; text-decoration: none; }
+    .meta-grid a[data-nid]:hover { text-decoration: underline; }
+
+    .detail-section {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
 
-    #detail-content .detail-tags {
+    .detail-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 4px;
       margin: 8px 0;
     }
 
-    #detail-content .detail-tags .tag {
+    .detail-tags .tag {
       font-size: .7rem;
       padding: 2px 8px;
       border-radius: 999px;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text-dim);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
     }
+
+    .detail-tags .tag:hover { border-color: var(--blue); color: var(--text); }
 
     #detail-content .detail-link {
       display: inline-block;
@@ -349,44 +417,13 @@
 
     #detail-content .detail-link:hover { opacity: .85; }
 
-    .detail-neighbors {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-    }
-
-    .detail-neighbors h4 {
-      font-size: .74rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: .03em;
-    }
-
-    .detail-neighbors ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .detail-neighbors li {
-      padding: 4px 0;
-      cursor: pointer;
-      transition: color .15s;
-      font-size: .78rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .detail-neighbors li:last-child { border-bottom: none; }
-    .detail-neighbors li:hover { color: var(--accent); }
-
     .neighbor-type-dot {
       display: inline-block;
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      margin-right: 5px;
-      vertical-align: middle;
+      flex-shrink: 0;
+      align-self: center;
     }
 
     .neighbor-type-dot.diamond {
@@ -394,14 +431,6 @@
       transform: rotate(45deg);
       width: 7px;
       height: 7px;
-    }
-
-    .neighbor-reason {
-      display: block;
-      font-size: .66rem;
-      color: var(--text-dimmer);
-      font-style: italic;
-      margin-top: 1px;
     }
 
     /* ── Responsive: collapse sidebars on narrow screens ───── */
@@ -445,7 +474,7 @@
     <span class="hdr-sep">·</span>
     <span class="hdr-stat"><b id="hdr-connections">—</b> connections</span>
     <span class="hdr-sep">·</span>
-    <span class="hdr-stat">generated <b id="hdr-date">—</b></span>
+    <span class="hdr-stat">updated <b id="hdr-date">—</b></span>
   </header>
 
   <!-- 3-column layout -->
@@ -462,7 +491,7 @@
 
       <!-- Node types -->
       <div>
-        <div class="panel-heading">Node Types</div>
+        <div class="panel-heading">Show</div>
         <label class="cb-row" data-node-type="resource">
           <input type="checkbox" checked />
           <span class="cb-swatch" style="background:var(--orange)"></span>
@@ -485,33 +514,23 @@
 
       <!-- Relations -->
       <div>
-        <div class="panel-heading">Relations</div>
+        <div class="panel-heading">Links</div>
         <label class="cb-row" data-rel-type="cat">
           <input type="checkbox" checked />
           <span class="line-sample" style="border-color:var(--green)"></span>
-          <span class="cb-label">belongs_to (resource&rarr;category)</span>
+          <span class="cb-label">In category <span class="cb-sub">resource &rarr; category</span></span>
         </label>
         <label class="cb-row" data-rel-type="tag">
           <input type="checkbox" checked />
           <span class="line-sample dashed" style="border-color:var(--blue)"></span>
-          <span class="cb-label">tagged (resource&rarr;tag)</span>
+          <span class="cb-label">Tagged <span class="cb-sub">resource &rarr; tag</span></span>
         </label>
       </div>
 
       <!-- Category filter -->
       <div>
-        <div class="panel-heading">Category Filter</div>
-        <select id="category-filter" style="width:100%;background:var(--bg-input);border:1px solid var(--border);color:var(--text);padding:5px 8px;border-radius:4px;font-size:.76rem;font-family:inherit;outline:none;cursor:pointer;">
-          <option value="all">All Categories</option>
-        </select>
-      </div>
-
-      <!-- Legend -->
-      <div>
-        <div class="panel-heading">Legend — Node Shapes</div>
-        <div class="legend-row"><span class="cb-swatch" style="background:var(--orange);width:10px;height:10px"></span> Resource (circle)</div>
-        <div class="legend-row"><span class="cb-swatch" style="background:var(--blue);width:10px;height:10px"></span> Tag (circle)</div>
-        <div class="legend-row"><span class="cb-swatch diamond" style="background:var(--green);width:10px;height:10px"></span> Category (diamond)</div>
+        <div class="panel-heading">Category</div>
+        <div id="category-chips" class="chip-row" role="group" aria-label="Category filter"></div>
       </div>
 
       <!-- About -->
@@ -534,7 +553,7 @@
 
     <!-- Right detail panel -->
     <aside id="right-panel">
-      <div id="detail-empty">Click a node to see its details here.</div>
+      <div id="overview"></div>
       <div id="detail-content"></div>
     </aside>
 
@@ -550,6 +569,7 @@
     let hoveredNodeId = null;
     let searchQuery = '';
     let currentScale = 1;
+    let activeCategory = 'all';
 
     const CATEGORY_LABELS = {
       tutorial: 'Tutorials', tool: 'Tools', research: 'Research',
@@ -597,6 +617,18 @@
         const res = await fetch('./data/resources.json?_=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         allResources = await res.json();
+        if (!Array.isArray(allResources)) allResources = [];
+        // The sheet sometimes repeats a tag on a row ("learning, learning");
+        // keep the first spelling of each case-insensitive tag.
+        allResources.forEach(r => {
+          const seen = new Set();
+          r.tags = (r.tags || []).map(t => String(t).trim()).filter(t => {
+            const k = t.toLowerCase();
+            if (!k || seen.has(k)) return false;
+            seen.add(k);
+            return true;
+          });
+        });
       } catch (err) {
         console.error('Failed to load resources.json:', err);
         allResources = [];
@@ -626,21 +658,16 @@
       document.getElementById('hdr-tags').textContent = tagSet.size;
       document.getElementById('hdr-categories').textContent = catSet.size;
       document.getElementById('hdr-connections').textContent = totalEdges;
-      document.getElementById('hdr-date').textContent = new Date().toISOString().slice(0, 10);
+      const latest = allResources.map(r => r.added_at).filter(Boolean).sort().pop();
+      document.getElementById('hdr-date').textContent = latest || '—';
 
       // Sidebar counts
       document.getElementById('cnt-resource').textContent = `(${allResources.length})`;
       document.getElementById('cnt-tag').textContent = `(${tagSet.size})`;
       document.getElementById('cnt-category').textContent = `(${catSet.size})`;
 
-      // Populate category filter
-      const catSelect = document.getElementById('category-filter');
-      [...catSet.keys()].sort().forEach(cat => {
-        const opt = document.createElement('option');
-        opt.value = cat;
-        opt.textContent = (CATEGORY_LABELS[cat] || cat) + ` (${catSet.get(cat)})`;
-        catSelect.appendChild(opt);
-      });
+      renderCategoryChips(catSet);
+      renderOverview(tagSet, catSet);
 
       buildGraphData();
       // Defer graph init so the CSS Grid layout settles and vis-network
@@ -677,6 +704,7 @@
           group: 'category',
           shape: 'diamond',
           size: 28 + Math.min(count, 30),
+          _size: 28 + Math.min(count, 30),
           mass: 4 + count * 0.2,
           color: { background: c, border: c + 'aa', highlight: { background: c, border: '#ffffffcc' } },
           font: labelFont(graphNodeMap[cid], currentScale),
@@ -694,6 +722,7 @@
           group: 'tag',
           shape: 'dot',
           size: sz,
+          _size: sz,
           mass: 1.5 + count * 0.1,
           color: { background: '#5b8dee', border: '#5b8dee88', highlight: { background: '#8db4ff', border: '#ffffffcc' } },
           font: labelFont(graphNodeMap[tid], currentScale),
@@ -712,6 +741,7 @@
           group: 'resource',
           shape: 'dot',
           size: 10,
+          _size: 10,
           mass: 1,
           color: { background: '#e8a838', border: '#e8a83855', highlight: { background: '#f0be5e', border: '#ffffffcc' } },
           font: { color: '#e8a83800', size: 11, face: 'Inter, sans-serif', strokeWidth: 2, strokeColor: '#0b0e18' },
@@ -766,6 +796,8 @@
           color: { background: c.bg, border: c.border, highlight: { background: c.highlight, border: '#ffffffcc' }, hover: { background: c.highlight, border: c.border } },
         }])),
         edges: {
+          // Otherwise edges inherit the endpoint's highlight colour (grey/white)
+          color: { inherit: false },
           smooth: { type: 'continuous', roundness: 0.2 },
           selectionWidth: 2,
           hoverWidth: 1.5,
@@ -780,7 +812,7 @@
             damping: 0.45,
             avoidOverlap: 0.4,
           },
-          stabilization: { iterations: 250, fit: true },
+          stabilization: { iterations: 600, fit: true },
           maxVelocity: 25,
         },
         interaction: {
@@ -846,27 +878,38 @@
           highlightNeighbors(best);
           showDetail(best);
         } else if (!best && selectedNodeId) {
-          selectedNodeId = null;
-          resetHighlight();
-          hideDetail();
+          clearSelection();
         }
       });
 
       graphNetwork.on('hoverNode', onHoverNode);
       graphNetwork.on('blurNode', onBlurNode);
       graphNetwork.on('zoom', onZoom);
-      graphNetwork.on('stabilizationIterationsDone', () => fitView(400));
+      graphNetwork.on('stabilizationIterationsDone', () => {
+        // forceAtlas2 never fully settles here; left running, nodes keep
+        // drifting, so focus() lands off-target and the view creeps.
+        graphNetwork.setOptions({ physics: { enabled: false } });
+        fitView(400);
+      });
+      // focus()/moveTo() don't emit 'zoom'; resync label sizes afterwards
+      graphNetwork.on('animationFinished', () => {
+        currentScale = graphNetwork.getScale();
+        updateLabels();
+      });
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
     }
 
     // fit() puts the outermost nodes on the canvas edge; zoom out a bit so
     // nodes and their labels keep a margin.
-    function fitView(duration) {
+    function fitView(duration, nodes, maxScale = Infinity) {
       if (!graphNetwork) return;
-      graphNetwork.fit({ animation: false });
-      const scale = graphNetwork.getScale() * 0.88;
+      const from = { position: graphNetwork.getViewPosition(), scale: graphNetwork.getScale() };
+      graphNetwork.fit(nodes && nodes.length ? { nodes, animation: false } : { animation: false });
+      const scale = Math.min(graphNetwork.getScale() * 0.88, maxScale);
       const position = graphNetwork.getViewPosition();
+      // Jump back so the move animates from where the user was looking
+      graphNetwork.moveTo({ ...from, animation: false });
       graphNetwork.moveTo({ position, scale, animation: { duration, easingFunction: 'easeInOutQuad' } });
       currentScale = scale;
       updateLabels();
@@ -963,12 +1006,12 @@
 
         const nc = NODE_COLORS[info?.type] || NODE_COLORS.resource;
         const label = info?.type === 'resource' ? (node._fullLabel || node.label) : node.label;
-        const fontSize = info?.type === 'resource' ? 11 : labelFont(info, currentScale).size;
+        const fontSize = info?.type === 'resource' ? Math.max(11, 11 / currentScale) : labelFont(info, currentScale).size;
 
         return {
           id,
           opacity: 1,
-          size: isSelected ? (node.size || 10) * 1.3 : node.size,
+          size: isSelected ? (node._size || 10) * 1.3 : (node._size || node.size),
           borderWidth: isSelected ? 3 : 1.5,
           label,
           color: isSelected
@@ -993,7 +1036,7 @@
           opacity: isConn ? 1 : 0.03,
           width: isConn ? 2.5 : EDGE_WIDTH[edge._type],
           color: isConn
-            ? { color: edge._type === 'cat' ? '#52d9a0bb' : '#5b8deebb' }
+            ? (c => ({ color: c, highlight: c, hover: c }))(edge._type === 'cat' ? '#52d9a0cc' : '#5b8deecc')
             : { color: edge._type === 'cat' ? '#52d9a00c' : '#5b8dee0a' },
         };
       });
@@ -1010,19 +1053,15 @@
         if (!info) return { id };
         const node = graphData.nodes.get(id);
         const nc = NODE_COLORS[info.type] || NODE_COLORS.resource;
-        const isResource = info.type === 'resource';
-        const isTag = info.type === 'tag';
         const isCat = info.type === 'category';
-
-        const baseSize = isResource ? 10 : (isCat ? (28 + Math.min(info.data.count || 0, 30)) : (10 + Math.min(info.data.count || 0, 20) * 1.4));
 
         return {
           id,
           opacity: 1,
-          size: baseSize,
+          size: node._size,
           borderWidth: 1.5,
           color: { background: nc.bg, border: nc.bg + (isCat ? 'aa' : '55'), highlight: { background: nc.highlight, border: '#ffffffcc' } },
-          label: isResource ? (node._fullLabel || '') : node.label,
+          label: info.type === 'resource' ? (node._fullLabel || '') : node.label,
           font: labelFont(info, currentScale),
         };
       });
@@ -1041,105 +1080,140 @@
       graphData.edges.update(edgeUpdates);
     }
 
+    // ── Selection ───────────────────────────────────────────────
+    function selectNode(nid) {
+      const node = graphData.nodes.get(nid);
+      if (!node || !graphNetwork) return;
+      selectedNodeId = nid;
+      graphNetwork.selectNodes([nid]);
+      if (!node.hidden) {
+        const around = [nid, ...graphNetwork.getConnectedNodes(nid)]
+          .filter(id => !graphData.nodes.get(id)?.hidden);
+        fitView(350, around, 1.2);
+      }
+      highlightNeighbors(nid);
+      showDetail(nid);
+    }
+
+    function clearSelection() {
+      selectedNodeId = null;
+      if (graphNetwork) graphNetwork.unselectAll();
+      resetHighlight();
+      hideDetail();
+    }
+
+    // ── Sidebar category chips ──────────────────────────────────
+    function renderCategoryChips(catSet) {
+      const cats = [...catSet.entries()].sort((a, b) => b[1] - a[1]);
+      const chip = (cat, label, count) =>
+        `<button type="button" class="chip${cat === activeCategory ? ' active' : ''}" data-cat="${esc(cat)}">${esc(label)}<span class="chip-count">${count}</span></button>`;
+      document.getElementById('category-chips').innerHTML =
+        chip('all', 'All', allResources.length) +
+        cats.map(([cat, n]) => chip(cat, CATEGORY_LABELS[cat] || cat, n)).join('');
+    }
+
+    // ── Right panel overview (nothing selected) ─────────────────
+    function renderOverview(tagSet, catSet) {
+      const topTags = [...tagSet.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+      const recent = allResources
+        .map((r, i) => ({ r, id: 'r_' + i }))
+        .filter(x => x.r.added_at)
+        .sort((a, b) => b.r.added_at.localeCompare(a.r.added_at))
+        .slice(0, 6);
+      const cats = [...catSet.entries()].sort((a, b) => b[1] - a[1]);
+
+      document.getElementById('overview').innerHTML = `
+        <p class="ov-intro">Click a node in the graph, or start from one of these.</p>
+        <div class="ov-section">
+          <h4>Top tags</h4>
+          <div class="detail-tags">${topTags.map(([t, n]) =>
+            `<span class="tag" data-nid="t_${esc(t)}">${esc(t)} <span class="ov-meta">${n}</span></span>`).join('')}</div>
+        </div>
+        <div class="ov-section">
+          <h4>Recently added</h4>
+          <ul class="ov-list">${recent.map(({ r, id }) => `
+            <li data-nid="${id}">
+              <span class="neighbor-type-dot" style="background:var(--orange)"></span>
+              <span class="ov-name">${esc(r.title || r.url)}</span>
+              <span class="ov-meta">${esc(r.added_at)}</span>
+            </li>`).join('')}</ul>
+        </div>
+        <div class="ov-section">
+          <h4>Categories</h4>
+          <ul class="ov-list">${cats.map(([cat, n]) => `
+            <li data-nid="c_${esc(cat)}">
+              <span class="neighbor-type-dot diamond" style="background:var(--green)"></span>
+              <span class="ov-name">${esc(CATEGORY_LABELS[cat] || cat)}</span>
+              <span class="ov-meta">${n}</span>
+            </li>`).join('')}</ul>
+        </div>`;
+    }
+
     // ── Detail panel ────────────────────────────────────────────
     function showDetail(nodeId) {
       const info = graphNodeMap[nodeId];
       if (!info) return;
 
-      const empty = document.getElementById('detail-empty');
+      const overview = document.getElementById('overview');
       const content = document.getElementById('detail-content');
       const panel = document.getElementById('right-panel');
 
-      empty.style.display = 'none';
+      overview.style.display = 'none';
       content.style.display = 'block';
+      panel.scrollTop = 0;
 
       // On mobile, show the panel
       panel.classList.add('mobile-open');
 
-      const neighbors = graphNetwork.getConnectedNodes(nodeId);
-      const neighborHtml = buildNeighborList(nodeId, neighbors);
+      const back = `<button type="button" class="detail-back">&larr; Overview</button>`;
 
       if (info.type === 'resource') {
         const r = info.data;
-        const tags = (r.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+        const cat = r.category || 'other';
+        const tags = (r.tags || []).map(t =>
+          `<span class="tag" data-nid="t_${esc(t.toLowerCase())}">${esc(t)}</span>`).join('');
         const domain = (() => { try { return new URL(r.url).hostname.replace('www.',''); } catch { return ''; } })();
 
         content.innerHTML = `
+          ${back}
           <div class="detail-type resource">Resource</div>
           <h3>${esc(r.title || r.url)}</h3>
           ${r.summary ? `<div class="detail-summary">${esc(r.summary)}</div>` : ''}
           ${r.notes ? `<div class="detail-notes">${esc(r.notes)}</div>` : ''}
-          <div class="detail-field"><b>Category:</b> ${esc(CATEGORY_LABELS[r.category] || r.category || 'other')}</div>
-          <div class="detail-field"><b>Connections:</b> ${neighbors.length}</div>
-          ${r.added_at ? `<div class="detail-field"><b>Added:</b> ${esc(r.added_at)}</div>` : ''}
-          ${domain ? `<div class="detail-field"><b>Domain:</b> ${esc(domain)}</div>` : ''}
-          ${tags ? `<div class="detail-tags">${tags}</div>` : ''}
           ${r.url ? `<a class="detail-link" href="${esc(r.url)}" target="_blank" rel="noopener">Open link ↗</a>` : ''}
-          ${neighborHtml}`;
-      } else if (info.type === 'tag') {
-        const resCount = neighbors.filter(n => graphNodeMap[n]?.type === 'resource').length;
+          <dl class="meta-grid">
+            <dt>Category</dt><dd><a data-nid="c_${esc(cat)}">${esc(CATEGORY_LABELS[cat] || cat)}</a></dd>
+            ${r.added_at ? `<dt>Added</dt><dd>${esc(r.added_at)}</dd>` : ''}
+            ${domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : ''}
+          </dl>
+          ${tags ? `<div class="detail-section"><h4>Tags</h4><div class="detail-tags">${tags}</div></div>` : ''}`;
+      } else {
+        const resources = graphNetwork.getConnectedNodes(nodeId)
+          .filter(n => graphNodeMap[n]?.type === 'resource')
+          .map(n => ({ id: n, r: graphNodeMap[n].data }))
+          .sort((a, b) => (a.r.title || a.r.url || '').localeCompare(b.r.title || b.r.url || ''));
+        const isTag = info.type === 'tag';
+        const name = isTag ? info.data.name : (CATEGORY_LABELS[info.data.name] || info.data.name);
+
         content.innerHTML = `
-          <div class="detail-type tag">Tag</div>
-          <h3>${esc(info.data.name)}</h3>
-          <div class="detail-summary">${resCount} linked resources</div>
-          <div class="detail-field"><b>Connections:</b> ${neighbors.length}</div>
-          ${neighborHtml}`;
-      } else if (info.type === 'category') {
-        const resCount = neighbors.filter(n => graphNodeMap[n]?.type === 'resource').length;
-        content.innerHTML = `
-          <div class="detail-type category">Category</div>
-          <h3>${esc(CATEGORY_LABELS[info.data.name] || info.data.name)}</h3>
-          <div class="detail-summary">${resCount} resources in this category</div>
-          <div class="detail-field"><b>Connections:</b> ${neighbors.length}</div>
-          ${neighborHtml}`;
+          ${back}
+          <div class="detail-type ${info.type}">${isTag ? 'Tag' : 'Category'}</div>
+          <h3>${esc(name)}</h3>
+          <div class="detail-summary">${resources.length} ${resources.length === 1 ? 'resource' : 'resources'}</div>
+          <div class="detail-section">
+            <h4>Resources</h4>
+            <ul class="ov-list">${resources.map(({ id, r }) => `
+              <li data-nid="${id}">
+                <span class="neighbor-type-dot" style="background:var(--orange)"></span>
+                <span class="ov-name" title="${esc(r.title || r.url)}">${esc(r.title || r.url)}</span>
+                ${r.added_at ? `<span class="ov-meta">${esc(r.added_at)}</span>` : ''}
+              </li>`).join('')}</ul>
+          </div>`;
       }
-
-      // Wire up neighbor clicks
-      content.querySelectorAll('.detail-neighbors li[data-nid]').forEach(li => {
-        li.addEventListener('click', () => {
-          const nid = li.dataset.nid;
-          selectedNodeId = nid;
-          graphNetwork.selectNodes([nid]);
-          graphNetwork.focus(nid, { scale: 1.4, animation: { duration: 350, easingFunction: 'easeInOutQuad' } });
-          highlightNeighbors(nid);
-          showDetail(nid);
-        });
-      });
-    }
-
-    function buildNeighborList(nodeId, neighbors) {
-      if (!neighbors.length) return '';
-      const items = neighbors.map(nid => {
-        const nInfo = graphNodeMap[nid];
-        if (!nInfo) return '';
-        const label = nInfo.type === 'resource' ? (nInfo.data.title || nInfo.data.url)
-                    : nInfo.type === 'category' ? (CATEGORY_LABELS[nInfo.data.name] || nInfo.data.name)
-                    : nInfo.data.name || nid;
-        const reason = getLinkReason(nodeId, nid);
-        const dotClass = nInfo.type === 'category' ? 'diamond' : '';
-        const dotColor = nInfo.type === 'resource' ? 'var(--orange)' : (nInfo.type === 'tag' ? 'var(--blue)' : 'var(--green)');
-        return `<li data-nid="${esc(nid)}">
-          <span class="neighbor-type-dot ${dotClass}" style="background:${dotColor}"></span>
-          ${esc(label)}
-          ${reason ? `<span class="neighbor-reason">${esc(reason)}</span>` : ''}
-        </li>`;
-      }).join('');
-      return `<div class="detail-neighbors"><h4>Connections (${neighbors.length})</h4><ul>${items}</ul></div>`;
-    }
-
-    function getLinkReason(fromId, toId) {
-      const a = graphNodeMap[fromId];
-      const b = graphNodeMap[toId];
-      if (!a || !b) return '';
-      if ((a.type === 'resource' && b.type === 'category') || (a.type === 'category' && b.type === 'resource'))
-        return 'belongs_to';
-      if ((a.type === 'resource' && b.type === 'tag') || (a.type === 'tag' && b.type === 'resource'))
-        return 'tagged: ' + (b.type === 'tag' ? b.data.name : a.data.name);
-      return '';
     }
 
     function hideDetail() {
-      document.getElementById('detail-empty').style.display = '';
+      document.getElementById('overview').style.display = '';
       document.getElementById('detail-content').style.display = 'none';
       document.getElementById('right-panel').classList.remove('mobile-open');
     }
@@ -1155,7 +1229,7 @@
         cat: document.querySelector('[data-rel-type="cat"] input').checked,
         tag: document.querySelector('[data-rel-type="tag"] input').checked,
       };
-      const catFilter = document.getElementById('category-filter').value;
+      const catFilter = activeCategory;
       const q = searchQuery.toLowerCase();
 
       graphData.nodes.getIds().forEach(id => {
@@ -1213,6 +1287,11 @@
       }
 
       resetHighlight();
+      if (selectedNodeId) highlightNeighbors(selectedNodeId);
+
+      // Otherwise a filter can leave every remaining node outside the view
+      const visibleIds = graphData.nodes.getIds().filter(id => !graphData.nodes.get(id).hidden);
+      if (visibleIds.length) fitView(300, visibleIds, 1.2);
     }
 
     // ── Hint ────────────────────────────────────────────────────
@@ -1244,7 +1323,21 @@
       cb.addEventListener('change', applyFilters);
     });
 
-    document.getElementById('category-filter').addEventListener('change', applyFilters);
+    document.getElementById('category-chips').addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      // Clicking the active category again clears the filter
+      activeCategory = chip.dataset.cat === activeCategory ? 'all' : chip.dataset.cat;
+      document.querySelectorAll('#category-chips .chip').forEach(c =>
+        c.classList.toggle('active', c.dataset.cat === activeCategory));
+      applyFilters();
+    });
+
+    document.getElementById('right-panel').addEventListener('click', e => {
+      if (e.target.closest('.detail-back')) { clearSelection(); return; }
+      const target = e.target.closest('[data-nid]');
+      if (target) { e.preventDefault(); selectNode(target.dataset.nid); }
+    });
 
     // ── Init ────────────────────────────────────────────────────
     loadResources();
