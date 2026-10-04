@@ -83,27 +83,29 @@ is a snapshot to help you decide.
 4. A link on two tabs gets **each tab's own Category** and the same Date,
    Name/Author, Summary and Notes in both rows.
 
-Snapshot of tabs and topics (resources per topic in brackets):
+Snapshot of tabs and topics, refreshed 2026-10-05 (resources per topic in brackets):
 
 | Tab | What goes there | Current topics |
 |---|---|---|
-| Repos in github | GitHub projects with no better subject tab | Agent Frameworks (15), Data & RAG (10), LLM Infrastructure (7), Memory & Context (5), Dev Utilities (5), Learning Material (4), Classic ML (3) |
-| Tools | Products, apps and tools that aren't mainly a GitHub repo | Developer Tools (7), AI Apps & Agents (7), Data & Knowledge (6), MLOps & Evaluation (6), Tutorials (3) |
+| Repos in github | GitHub projects with no better subject tab | Agent Frameworks (15), Data & RAG (10), LLM Infrastructure (7), Dev Utilities (5), Memory & Context (5), Learning Material (4), Classic ML (3) |
+| Tools | Products, apps and tools that aren't mainly a GitHub repo | AI Apps & Agents (7), Developer Tools (7), Data & Knowledge (6), MLOps & Evaluation (6), Tutorials (3) |
 | Learning | Articles, guides, courses, books, explainers | Agents & Context (6), LLMs & Training (5), RAG & Retrieval (4), Productivity (2) |
-| Skills | Agent skills: libraries, evaluation, security, workflows | Skill Libraries (3), Skill Quality (3), Workflows & Apps (2) |
-| Memory | Agent memory and context management | Agent Memory (4), Reference, Agent Harness |
+| Skills | Agent skills: libraries, evaluation, security, workflows | Skill Libraries (4), Skill Quality (3), Workflows & Apps (2) |
+| Memory | Agent memory and context management | Agent Memory (4), Agent Harness (1), reference (1) |
 | Claude | Claude / Claude Code specific | Claude Code (3), Cost & Models (2) |
-| MCP | MCP servers, clients, apps, setup | MCP Servers (2), MCP Apps & Clients (2), Setup & Config |
-| RAG | Retrieval-augmented generation | Guides (2), Frameworks & Tools (2), Vector Databases |
-| Automation flow | Workflow and browser automation, lead-gen flows | Automation (2), Browser Automation, Lead Generation / Automation |
-| Harness | Agent harnesses and coding-agent runtimes | Agent Harness, Agent Workflow, Skill Optimization, Tutorial |
-| Jev | The Jev model and its ecosystem | Agent Harness, Code Search, News, Postgres Extension |
-| AI Solutions-linkedin | Solution ideas from LinkedIn posts | Evaluation, LLM Architecture, AI Agents / Context |
-| Security | AI / agent security | Skill Security, AI Security / IAM, Reference |
-| Trends | News and research that's about where the field is going | Research, News |
-| FinOps | Cost of running AI | Code Search |
+| MCP | MCP servers, clients, apps, setup | MCP Apps & Clients (2), MCP Servers (2), Setup & Config (1) |
+| RAG | Retrieval-augmented generation | Frameworks & Tools (2), Guides (2), Vector Databases (1) |
+| Automation flow | Workflow and browser automation, lead-gen flows | Automation (2), Browser Automation (1), Lead Generation / Automation (1) |
+| Harness | Agent harnesses and coding-agent runtimes | Agent Harness (1), Agent Workflow (1), Skill Optimization (1), tutorial (1) |
+| Jev | The Jev model and its ecosystem | Agent Harness (1), Code Search (1), Postgres Extension (1), news (1) |
+| AI Solutions-linkedin | Solution ideas from LinkedIn posts | AI Agents / Context (1), Evaluation (1), LLM Architecture (1) |
+| Security | AI / agent security | AI Security / IAM (1), Skill Security (1), reference (1) |
+| Trends | News and research that's about where the field is going | news (1), research (1) |
+| FinOps | Cost of running AI | Code Search (1) |
 | Observability | Tracing, monitoring, logging for LLM apps (empty, ready to use) | — |
 | Infrastructure | Hosting, serving, GPUs, deployment (empty, ready to use) | — |
+
+Copy Category spellings exactly, including lowercase (reference, news, research, tutorial).
 
 If nothing fits, use the closest tab and say so in the reply. Don't create a new
 tab unless the user asks.
