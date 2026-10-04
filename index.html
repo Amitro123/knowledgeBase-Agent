@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Knowledge Base — Knowledge Graph</title>
-  <meta name="description" content="Interactive knowledge graph of AI resources, tools, research, and tutorials." />
+  <meta name="description" content="Knowledge graph of AI resources, organised by branch (sheet tab) and topic." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -23,13 +23,13 @@
       --text-dim:    #7a849e;
       --text-dimmer: #4a5168;
       --accent:      #7c6af7;
-      --orange:      #e8a838;
-      --blue:        #5b8dee;
-      --green:       #52d9a0;
-      --red:         #f97a6c;
-      --yellow:      #f7c948;
-      --sidebar-w:   220px;
-      --detail-w:    300px;
+      /* Node-type colours: categorical slots 3/1/2 of the dataviz palette,
+         validated all-pairs on --bg (CVD ΔE ≥ 9.4, normal ≥ 20.9, ≥ 3:1). */
+      --c-branch:    #199e70;
+      --c-topic:     #3987e5;
+      --c-resource:  #d95926;
+      --sidebar-w:   240px;
+      --detail-w:    320px;
       --header-h:    42px;
     }
 
@@ -40,6 +40,8 @@
       background: var(--bg);
       color: var(--text);
     }
+
+    button { font: inherit; }
 
     /* ── Header ──────────────────────────────────────────────── */
     #top-bar {
@@ -55,32 +57,11 @@
       overflow-x: auto;
     }
 
-    #top-bar .app-icon {
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    #top-bar .app-title {
-      font-weight: 700;
-      font-size: .88rem;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
-
-    .hdr-stat {
-      color: var(--text-dim);
-      flex-shrink: 0;
-    }
-
-    .hdr-stat b {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .hdr-sep {
-      color: var(--text-dimmer);
-      flex-shrink: 0;
-    }
+    #top-bar .app-icon { font-size: 1.1rem; flex-shrink: 0; }
+    #top-bar .app-title { font-weight: 700; font-size: .88rem; margin-right: 12px; flex-shrink: 0; }
+    .hdr-stat { color: var(--text-dim); flex-shrink: 0; }
+    .hdr-stat b { color: var(--text); font-weight: 600; }
+    .hdr-sep { color: var(--text-dimmer); flex-shrink: 0; }
 
     /* ── Layout ──────────────────────────────────────────────── */
     #main-layout {
@@ -101,18 +82,35 @@
       padding: 14px 12px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
       font-size: .78rem;
     }
 
     .panel-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       font-size: .68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .06em;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
+
+    .panel-heading .heading-actions { display: flex; gap: 8px; text-transform: none; letter-spacing: 0; }
+
+    .link-btn {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: .7rem;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    .link-btn:hover { color: var(--accent); }
 
     #search-input {
       width: 100%;
@@ -130,94 +128,91 @@
     #search-input::placeholder { color: var(--text-dimmer); }
     #search-input:focus { border-color: var(--accent); }
 
-    /* checkbox rows */
-    .cb-row {
+    /* branch list */
+    .branch-list { list-style: none; }
+
+    .branch-row {
       display: flex;
       align-items: center;
       gap: 6px;
+      padding: 3px 0;
+    }
+
+    .branch-row input[type="checkbox"] {
+      accent-color: var(--c-branch);
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .branch-name {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0;
+    }
+
+    .branch-name:hover { color: var(--accent); }
+    .branch-row.empty .branch-name { color: var(--text-dimmer); }
+    .branch-row.selected .branch-name { color: #fff; font-weight: 600; }
+
+    .branch-count { color: var(--text-dim); font-size: .7rem; flex-shrink: 0; }
+
+    .expand-mark {
+      color: var(--text-dimmer);
+      font-size: .62rem;
+      width: 10px;
+      flex-shrink: 0;
+    }
+
+    /* legend */
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       padding: 2px 0;
-      cursor: pointer;
-      user-select: none;
+      color: var(--text-dim);
+      font-size: .74rem;
     }
 
-    .cb-row input[type="checkbox"] {
-      accent-color: var(--accent);
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
+    .legend-row b { color: var(--text); font-weight: 500; }
 
-    .cb-swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      border: 1.5px solid rgba(255,255,255,.15);
-    }
-
-    .cb-swatch.diamond {
-      border-radius: 2px;
-      transform: rotate(45deg);
+    .swatch {
       width: 12px;
       height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    .cb-label {
-      color: var(--text);
-      flex: 1;
-    }
+    .swatch.lg { width: 16px; height: 16px; margin: 0 -2px; }
+    .swatch.sm { width: 8px; height: 8px; margin: 0 2px; }
 
-    .cb-sub {
-      display: block;
-      font-size: .66rem;
-      color: var(--text-dimmer);
-    }
-
-    .cb-count {
-      color: var(--text-dim);
-      font-size: .72rem;
-    }
-
-    /* line sample for relations */
     .line-sample {
-      width: 22px;
+      width: 26px;
       height: 0;
       flex-shrink: 0;
       border-top: 2px solid;
+      position: relative;
     }
 
-    .line-sample.dashed {
-      border-top-style: dashed;
+    .line-sample::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: -5px;
+      border: 4px solid transparent;
+      border-left: 6px solid currentColor;
     }
 
-    .line-sample.dotted {
-      border-top-style: dotted;
-      border-top-width: 2.5px;
-    }
-
-    /* category chips */
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .chip {
-      font: inherit;
-      font-size: .72rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: border-color .15s, color .15s, background .15s;
-    }
-
-    .chip:hover { border-color: var(--accent); color: var(--text); }
-    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .chip .chip-count { opacity: .7; margin-left: 3px; }
+    .line-sample.dashed { border-top-style: dashed; }
 
     .about-text {
       font-size: .72rem;
@@ -225,12 +220,9 @@
       line-height: 1.55;
     }
 
-    .about-text a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
+    .about-text a { color: var(--accent); text-decoration: none; }
     .about-text a:hover { text-decoration: underline; }
+    .about-text code { font-size: .68rem; }
 
     /* ── Graph area ──────────────────────────────────────────── */
     #graph-area {
@@ -240,9 +232,8 @@
       min-height: 0;
     }
 
-    #graph-container {
-      /* Dimensions set explicitly by JS before vis-network init */
-    }
+    #graph-container { /* Dimensions set explicitly by JS before vis-network init */ }
+    #graph-container.pointer canvas { cursor: pointer; }
 
     #graph-hint {
       position: absolute;
@@ -254,13 +245,24 @@
       border-radius: 999px;
       padding: 5px 14px;
       font-size: .72rem;
-      color: var(--text-dimmer);
+      color: var(--text-dim);
       pointer-events: none;
       transition: opacity .5s;
       white-space: nowrap;
     }
 
-    /* ── Right detail panel ──────────────────────────────────── */
+    #graph-status {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: .85rem;
+      pointer-events: none;
+    }
+
+    /* ── Right panel ─────────────────────────────────────────── */
     #right-panel {
       background: var(--bg-panel);
       border-left: 1px solid var(--border);
@@ -270,10 +272,9 @@
       font-size: .82rem;
     }
 
-    /* overview (nothing selected) */
-    .ov-section { margin-bottom: 18px; }
-    .ov-section h4,
-    .detail-section h4 {
+    .section { margin-bottom: 18px; }
+
+    .section h4 {
       font-size: .68rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -282,83 +283,96 @@
       margin-bottom: 8px;
     }
 
-    .ov-intro {
+    .intro {
       color: var(--text-dim);
       font-size: .78rem;
-      line-height: 1.5;
+      line-height: 1.55;
       margin-bottom: 16px;
     }
 
-    .ov-list { list-style: none; padding: 0; }
+    .stat-row { display: flex; gap: 16px; margin-bottom: 18px; }
+    .stat b { display: block; font-size: 1.2rem; font-weight: 600; color: var(--text); }
+    .stat span { font-size: .7rem; color: var(--text-dim); }
 
-    .ov-list li {
+    .node-list { list-style: none; }
+
+    .node-list li {
       display: flex;
       align-items: baseline;
-      gap: 6px;
+      gap: 7px;
       padding: 5px 0;
       border-bottom: 1px solid var(--border);
       cursor: pointer;
       font-size: .78rem;
     }
 
-    .ov-list li:last-child { border-bottom: none; }
-    .ov-list li:hover .ov-name { color: var(--accent); }
-    .ov-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color .15s; }
-    .ov-meta { color: var(--text-dimmer); font-size: .7rem; flex-shrink: 0; }
+    .node-list li:last-child { border-bottom: none; }
+    .node-list li:hover .nl-name { color: var(--accent); }
+    .node-list .swatch { align-self: center; }
+
+    .nl-name {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color .15s;
+    }
+
+    .nl-meta { color: var(--text-dimmer); font-size: .7rem; flex-shrink: 0; }
 
     .detail-back {
       display: block;
-      font: inherit;
-      font-size: .72rem;
       background: none;
       border: none;
       color: var(--text-dim);
       cursor: pointer;
+      font-size: .72rem;
       padding: 0;
       margin-bottom: 12px;
     }
 
     .detail-back:hover { color: var(--accent); }
 
-    #detail-content { display: none; }
-
-    #detail-content .detail-type {
-      font-size: .66rem;
+    .type-badge {
+      font-size: .64rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      letter-spacing: .05em;
       padding: 2px 8px;
       border-radius: 999px;
       display: inline-block;
       margin-bottom: 8px;
+      color: #fff;
     }
 
-    #detail-content .detail-type.resource { background: rgba(232,168,56,.18); color: var(--orange); }
-    #detail-content .detail-type.tag      { background: rgba(91,141,238,.18); color: var(--blue); }
-    #detail-content .detail-type.category { background: rgba(82,217,160,.15); color: var(--green); }
+    .type-badge.branch   { background: var(--c-branch); }
+    .type-badge.topic    { background: var(--c-topic); }
+    .type-badge.resource { background: var(--c-resource); }
 
-    #detail-content h3 {
+    .crumbs { font-size: .74rem; color: var(--text-dim); margin-bottom: 6px; line-height: 1.6; }
+    .crumbs a { color: var(--text); cursor: pointer; text-decoration: none; }
+    .crumbs a:hover { color: var(--accent); }
+    .crumbs .sep { color: var(--text-dimmer); margin: 0 4px; }
+
+    #right-panel h3 {
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: 8px;
+      overflow-wrap: anywhere;
     }
 
-    #detail-content .detail-summary {
-      font-size: .82rem;
-      color: var(--text-dim);
-      line-height: 1.55;
-      margin-bottom: 8px;
-    }
+    .summary { font-size: .82rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 10px; }
 
-    #detail-content .detail-notes {
+    .notes {
       font-size: .78rem;
       color: var(--text-dim);
       line-height: 1.5;
       background: var(--surface);
       border-radius: 4px;
       padding: 8px 10px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       border-left: 3px solid var(--accent);
     }
 
@@ -373,72 +387,37 @@
     .meta-grid dt { color: var(--text-dimmer); }
     .meta-grid dd { color: var(--text); min-width: 0; overflow-wrap: anywhere; }
 
-    .meta-grid a[data-nid] { color: var(--green); cursor: pointer; text-decoration: none; }
-    .meta-grid a[data-nid]:hover { text-decoration: underline; }
-
-    .detail-section {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+    .node-id {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .68rem;
+      color: var(--text-dimmer);
+      user-select: all;
     }
 
-    .detail-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin: 8px 0;
-    }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
 
-    .detail-tags .tag {
-      font-size: .7rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: border-color .15s, color .15s;
-    }
-
-    .detail-tags .tag:hover { border-color: var(--blue); color: var(--text); }
-
-    #detail-content .detail-link {
+    .btn {
       display: inline-block;
-      margin-top: 8px;
       padding: 6px 14px;
       border-radius: 4px;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
-      font-size: .8rem;
+      font-size: .78rem;
       font-weight: 500;
+      border: 1px solid var(--accent);
+      cursor: pointer;
       transition: opacity .15s;
     }
 
-    #detail-content .detail-link:hover { opacity: .85; }
+    .btn:hover { opacity: .85; }
+    .btn.secondary { background: transparent; color: var(--text); border-color: var(--border-hi); }
 
-    .neighbor-type-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      align-self: center;
-    }
-
-    .neighbor-type-dot.diamond {
-      border-radius: 1px;
-      transform: rotate(45deg);
-      width: 7px;
-      height: 7px;
-    }
-
-    /* ── Responsive: collapse sidebars on narrow screens ───── */
+    /* ── Narrow screens: collapse sidebars ───────────────────── */
     @media (max-width: 900px) {
-      :root {
-        --sidebar-w: 0px;
-        --detail-w: 0px;
-      }
+      /* hidden sidebars leave no grid cell, so a 3-column template would put
+         the graph in the 0px first column */
+      #main-layout { grid-template-columns: 1fr; }
 
       #left-panel { display: none; }
 
@@ -446,7 +425,7 @@
         display: none;
         position: fixed;
         bottom: 0; left: 0; right: 0;
-        max-height: 55vh;
+        max-height: 45vh;
         border-left: none;
         border-top: 1px solid var(--border);
         border-radius: 10px 10px 0 0;
@@ -455,892 +434,740 @@
       }
 
       #right-panel.mobile-open { display: block; }
-
       #graph-hint { font-size: .66rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header bar -->
   <header id="top-bar">
     <span class="app-icon">🧠</span>
-    <span class="app-title">AI Knowledge Base — Knowledge Graph</span>
+    <span class="app-title">AI Knowledge Base</span>
+    <span class="hdr-stat"><b id="hdr-branches">—</b> branches</span>
+    <span class="hdr-sep">·</span>
+    <span class="hdr-stat"><b id="hdr-topics">—</b> topics</span>
+    <span class="hdr-sep">·</span>
     <span class="hdr-stat"><b id="hdr-resources">—</b> resources</span>
-    <span class="hdr-sep">·</span>
-    <span class="hdr-stat"><b id="hdr-tags">—</b> tags</span>
-    <span class="hdr-sep">·</span>
-    <span class="hdr-stat"><b id="hdr-categories">—</b> categories</span>
-    <span class="hdr-sep">·</span>
-    <span class="hdr-stat"><b id="hdr-connections">—</b> connections</span>
     <span class="hdr-sep">·</span>
     <span class="hdr-stat">updated <b id="hdr-date">—</b></span>
   </header>
 
-  <!-- 3-column layout -->
   <div id="main-layout">
 
-    <!-- Left sidebar: filters -->
     <aside id="left-panel">
-
-      <!-- Search -->
       <div>
         <div class="panel-heading">Search</div>
-        <input type="search" id="search-input" placeholder="Search title, tag, URL…" aria-label="Search" />
+        <input type="search" id="search-input" placeholder="Title, topic, URL…" aria-label="Search" />
       </div>
 
-      <!-- Node types -->
       <div>
-        <div class="panel-heading">Show</div>
-        <label class="cb-row" data-node-type="resource">
-          <input type="checkbox" checked />
-          <span class="cb-swatch" style="background:var(--orange)"></span>
-          <span class="cb-label">Resource</span>
-          <span class="cb-count" id="cnt-resource">(—)</span>
-        </label>
-        <label class="cb-row" data-node-type="tag">
-          <input type="checkbox" checked />
-          <span class="cb-swatch" style="background:var(--blue)"></span>
-          <span class="cb-label">Tag</span>
-          <span class="cb-count" id="cnt-tag">(—)</span>
-        </label>
-        <label class="cb-row" data-node-type="category">
-          <input type="checkbox" checked />
-          <span class="cb-swatch diamond" style="background:var(--green)"></span>
-          <span class="cb-label">Category</span>
-          <span class="cb-count" id="cnt-category">(—)</span>
-        </label>
+        <div class="panel-heading">
+          Branches
+          <span class="heading-actions">
+            <button type="button" class="link-btn" id="expand-all">Expand all</button>
+            <button type="button" class="link-btn" id="collapse-all">Collapse</button>
+          </span>
+        </div>
+        <ul class="branch-list" id="branch-list"></ul>
       </div>
 
-      <!-- Relations -->
       <div>
-        <div class="panel-heading">Links</div>
-        <label class="cb-row" data-rel-type="cat">
-          <input type="checkbox" checked />
-          <span class="line-sample" style="border-color:var(--green)"></span>
-          <span class="cb-label">In category <span class="cb-sub">resource &rarr; category</span></span>
-        </label>
-        <label class="cb-row" data-rel-type="tag">
-          <input type="checkbox" checked />
-          <span class="line-sample dashed" style="border-color:var(--blue)"></span>
-          <span class="cb-label">Tagged <span class="cb-sub">resource &rarr; tag</span></span>
-        </label>
+        <div class="panel-heading">Legend</div>
+        <div class="legend-row"><span class="swatch lg" style="background:var(--c-branch)"></span><span><b>Branch</b> — a sheet tab</span></div>
+        <div class="legend-row"><span class="swatch" style="background:var(--c-topic)"></span><span><b>Topic</b> — the row's Category</span></div>
+        <div class="legend-row"><span class="swatch sm" style="background:var(--c-resource)"></span><span><b>Resource</b> — one link</span></div>
+        <div class="legend-row" style="margin-top:6px"><span class="line-sample" style="color:var(--c-branch)"></span><span>HAS_TOPIC</span></div>
+        <div class="legend-row"><span class="line-sample dashed" style="color:var(--c-topic)"></span><span>HAS_RESOURCE</span></div>
       </div>
 
-      <!-- Category filter -->
-      <div>
-        <div class="panel-heading">Category</div>
-        <div id="category-chips" class="chip-row" role="group" aria-label="Category filter"></div>
-      </div>
-
-      <!-- About -->
       <div>
         <div class="panel-heading">About</div>
         <p class="about-text">
-          Renders <code>data/resources.json</code>, synced from Google Sheets by
+          Draws <code>data/graph.json</code>, built from the Google Sheet by
           <a href="https://github.com/Amitro123/knowledgeBase-Agent" target="_blank" rel="noopener">KnowledgeBase Agent</a>.
-          Read-only — this page never writes to the sheet.
+          The MCP server reads the same graph, so node ids shown here work in agent tools.
+          Read-only.
         </p>
       </div>
-
     </aside>
 
-    <!-- Graph -->
     <div id="graph-area">
       <div id="graph-container"></div>
-      <div id="graph-hint">Scroll to zoom · Click a node for details · Drag to pan</div>
+      <div id="graph-status">Loading graph…</div>
+      <div id="graph-hint">Click a branch to open it · Scroll to zoom · Drag to pan</div>
+      <script>
+        if (matchMedia('(pointer: coarse)').matches)
+          document.getElementById('graph-hint').textContent = 'Tap a branch to open it · Pinch to zoom';
+      </script>
     </div>
 
-    <!-- Right detail panel -->
     <aside id="right-panel">
       <div id="overview"></div>
-      <div id="detail-content"></div>
+      <div id="detail" hidden></div>
     </aside>
 
   </div>
 
   <script>
-    // ── State ────────────────────────────────────────────────────
-    let allResources = [];
-    let graphNetwork = null;
-    let graphData = { nodes: null, edges: null };
-    let graphNodeMap = {};
-    let selectedNodeId = null;
-    let hoveredNodeId = null;
-    let searchQuery = '';
-    let currentScale = 1;
-    let activeCategory = 'all';
-
-    const CATEGORY_LABELS = {
-      tutorial: 'Tutorials', tool: 'Tools', research: 'Research',
-      news: 'News', reference: 'Reference', community: 'Community',
-      other: 'Other', uncategorised: 'Uncategorised',
+    // ── Constants ───────────────────────────────────────────────
+    const COLORS = { branch: '#199e70', topic: '#3987e5', resource: '#d95926' };
+    const LIGHT  = { branch: '#5fd3a8', topic: '#8ab8f2', resource: '#f0a07a' };
+    const TEXT   = { branch: '#ffffff', topic: '#cfe0fa', resource: '#f3d9cb' };
+    const EDGE = {
+      HAS_TOPIC:    { color: COLORS.branch, width: 2,   dashes: false },
+      HAS_RESOURCE: { color: COLORS.topic,  width: 1.2, dashes: [5, 4] },
+    };
+    const FONT = 'Inter, system-ui, sans-serif';
+    const DIM = 0.12;
+    // Labels are sized in screen px: vis-network drops labels under 5px, and
+    // the overview sits around 0.25 zoom. Each type shows from a zoom level.
+    const LABEL = {
+      branch:   { px: 15, from: 0 },
+      topic:    { px: 11, from: 0.45, big: 3 },   // topics with ≥3 resources always
+      resource: { px: 11, from: 0.8 },
+    };
+    const SIZE = {
+      branch:   n => 18 + Math.sqrt(n.count || 0) * 4,
+      topic:    n => 8 + Math.sqrt(n.count || 0) * 2.5,
+      resource: () => 5,
     };
 
-    const NODE_COLORS = {
-      resource: { bg: '#e8a838', border: '#c48a20', highlight: '#f0be5e' },
-      tag:      { bg: '#5b8dee', border: '#3a6dc8', highlight: '#8db4ff' },
-      category: { bg: '#52d9a0', border: '#38b07e', highlight: '#7eedc0' },
-    };
+    // ── State ───────────────────────────────────────────────────
+    // Data ids come from graph.json. On screen a resource is drawn once per
+    // branch it belongs to ("resource:12@tools"), so every branch is a
+    // self-contained cluster; selecting any copy selects the resource.
+    let graph = null;
+    const nodeById = new Map();
+    const children = new Map();    // data id -> [data id]
+    const parents  = new Map();    // data id -> [data id]
+    const views = new Map();       // view id -> { vid, did, type, branch }
+    const viewsOf = new Map();     // data id -> [view id]
+    let net = null, visNodes = null, visEdges = null;
+    const expanded = new Set();    // branch ids showing their resources
+    const hiddenBranches = new Set();
+    let selectedId = null, hoverId = null, query = '';
+    let scale = 1;
+    let visible = new Set();       // view ids
 
-    const EDGE_COLORS = {
-      cat: { color: '#52d9a066', highlight: '#52d9a0cc', hover: '#52d9a0aa' },
-      tag: { color: '#5b8dee44', highlight: '#5b8deecc', hover: '#5b8deeaa' },
-    };
-    const EDGE_WIDTH = { cat: 1.4, tag: 1 };
-
-    // vis-network skips labels smaller than 5 screen px, so at the zoomed-out
-    // overview fixed font sizes vanish. Size hub labels in screen px instead,
-    // and only label the bigger tags until the user zooms in.
-    const LABEL_PX = { category: 15, tag: 12 };
-    const TAG_LABEL_MIN_COUNT = 3;
-    const ALL_TAG_LABELS_SCALE = 0.7;
-    const RESOURCE_LABELS_SCALE = 1.2;
-
-    function labelFont(info, scale) {
-      const base = { face: 'Inter, sans-serif', strokeColor: '#0b0e18' };
-      if (info.type === 'category') {
-        return { ...base, color: '#fff', size: Math.max(16, LABEL_PX.category / scale), strokeWidth: 4, background: 'rgba(11,14,24,0.6)' };
-      }
-      if (info.type === 'tag') {
-        const show = (info.data.count || 0) >= TAG_LABEL_MIN_COUNT || scale >= ALL_TAG_LABELS_SCALE;
-        const px = LABEL_PX.tag + Math.min(info.data.count || 0, 10) * 0.3;
-        return { ...base, color: show ? '#c0ccee' : '#c0ccee00', size: Math.max(12, px / scale), strokeWidth: show ? 3 : 0, background: show ? 'rgba(11,14,24,0.45)' : 'transparent' };
-      }
-      const show = scale > RESOURCE_LABELS_SCALE;
-      return { ...base, color: show ? '#ddd8c8' : '#e8a83800', size: 11, strokeWidth: show ? 2 : 0, background: show ? 'rgba(11,14,24,0.5)' : 'transparent' };
-    }
-
-    // ── Fetch data ──────────────────────────────────────────────
-    async function loadResources() {
+    // ── Load ────────────────────────────────────────────────────
+    async function load() {
       try {
-        const res = await fetch('./data/resources.json?_=' + Date.now());
+        const res = await fetch('./data/graph.json?_=' + Date.now());
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        allResources = await res.json();
-        if (!Array.isArray(allResources)) allResources = [];
-        // The sheet sometimes repeats a tag on a row ("learning, learning");
-        // keep the first spelling of each case-insensitive tag.
-        allResources.forEach(r => {
-          const seen = new Set();
-          r.tags = (r.tags || []).map(t => String(t).trim()).filter(t => {
-            const k = t.toLowerCase();
-            if (!k || seen.has(k)) return false;
-            seen.add(k);
-            return true;
-          });
-        });
+        graph = await res.json();
       } catch (err) {
-        console.error('Failed to load resources.json:', err);
-        allResources = [];
+        console.error('Failed to load graph.json:', err);
+        document.getElementById('graph-status').textContent = 'Could not load data/graph.json.';
+        return;
       }
-      initUI();
+      indexGraph();
+      renderHeader();
+      renderBranchList();
+      renderOverview();
+      // Let the grid settle so the canvas is measured at its real size
+      requestAnimationFrame(() => requestAnimationFrame(initNetwork));
     }
 
-    // ── Build UI ────────────────────────────────────────────────
-    function initUI() {
-      const tagSet = new Map();
-      const catSet = new Map();
-      let totalEdges = 0;
-
-      allResources.forEach(r => {
-        const cat = r.category || 'other';
-        catSet.set(cat, (catSet.get(cat) || 0) + 1);
-        (r.tags || []).forEach(t => {
-          const k = t.toLowerCase().trim();
-          if (k) tagSet.set(k, (tagSet.get(k) || 0) + 1);
-        });
-        totalEdges += 1; // belongs_to edge
-        totalEdges += (r.tags || []).filter(t => t.trim()).length;
+    function indexGraph() {
+      graph.nodes.forEach(n => nodeById.set(n.id, n));
+      graph.edges.forEach(e => {
+        if (!children.has(e.source)) children.set(e.source, []);
+        if (!parents.has(e.target)) parents.set(e.target, []);
+        children.get(e.source).push(e.target);
+        parents.get(e.target).push(e.source);
       });
-
-      // Header counts
-      document.getElementById('hdr-resources').textContent = allResources.length;
-      document.getElementById('hdr-tags').textContent = tagSet.size;
-      document.getElementById('hdr-categories').textContent = catSet.size;
-      document.getElementById('hdr-connections').textContent = totalEdges;
-      const latest = allResources.map(r => r.added_at).filter(Boolean).sort().pop();
-      document.getElementById('hdr-date').textContent = latest || '—';
-
-      // Sidebar counts
-      document.getElementById('cnt-resource').textContent = `(${allResources.length})`;
-      document.getElementById('cnt-tag').textContent = `(${tagSet.size})`;
-      document.getElementById('cnt-category').textContent = `(${catSet.size})`;
-
-      renderCategoryChips(catSet);
-      renderOverview(tagSet, catSet);
-
-      buildGraphData();
-      // Defer graph init so the CSS Grid layout settles and vis-network
-      // measures the container correctly for hit detection.
-      requestAnimationFrame(() => requestAnimationFrame(() => initGraph()));
+      const addView = (vid, did, branch) => {
+        views.set(vid, { vid, did, type: nodeById.get(did).type, branch });
+        if (!viewsOf.has(did)) viewsOf.set(did, []);
+        viewsOf.get(did).push(vid);
+      };
+      graph.nodes.forEach(n => {
+        if (n.type === 'branch') addView(n.id, n.id, n.id);
+        else if (n.type === 'topic') addView(n.id, n.id, n.branch);
+        else n.branches.forEach(b => addView(`${n.id}@${b}`, n.id, 'branch:' + b));
+      });
     }
 
-    // ── Build graph data ────────────────────────────────────────
-    function buildGraphData() {
-      const nodes = [];
-      const edges = [];
-      graphNodeMap = {};
+    const ofType = t => graph.nodes.filter(n => n.type === t);
+    const kids = (id, type) => (children.get(id) || []).filter(c => !type || nodeById.get(c)?.type === type);
+    const branchSlug = bid => bid.slice('branch:'.length);
+    const branchOfData = id => {
+      const n = nodeById.get(id);
+      if (n.type === 'branch') return id;
+      if (n.type === 'topic') return n.branch;
+      return null;
+    };
+    // view id of a resource as drawn under a given parent (topic or branch)
+    const resourceView = (rid, parentId) => `${rid}@${branchSlug(branchOfData(parentId))}`;
+    const labelAbove = new Set();    // every other sibling's label goes above its dot
+    const slotArc = new Map();       // branch id -> layout units between ring slots
+    const branchesOf = did => [...new Set((viewsOf.get(did) || []).map(v => views.get(v).branch))];
 
-      const tagSet = new Map();
-      const catSet = new Map();
-
-      allResources.forEach(r => {
-        const cat = r.category || 'other';
-        catSet.set(cat, (catSet.get(cat) || 0) + 1);
-        (r.tags || []).forEach(t => {
-          const k = t.toLowerCase().trim();
-          if (k) tagSet.set(k, (tagSet.get(k) || 0) + 1);
-        });
+    // ── Layout ──────────────────────────────────────────────────
+    // Each branch is a radial cluster: topics (and topic-less resources) on an
+    // inner ring, each topic's resources on an outer ring inside the topic's
+    // slice. Clusters are packed on a spiral, biggest first. Positions never
+    // change when branches open or close, so the map stays familiar.
+    function computeLayout(viewWidth, viewHeight) {
+      // pack clusters into roughly the viewport's shape (tall on phones)
+      const aspect = Math.min(2.2, Math.max(0.6, (viewHeight || 600) / (viewWidth || 900)));
+      const pos = new Map();
+      const clusters = sortedBranches().map(b => {
+        const topics = kids(b.id, 'topic').map(t => ({ id: t, w: 1 + 0.4 * kids(t, 'resource').length }))
+          .sort((x, y) => (y.w - x.w) || x.id.localeCompare(y.id));
+        const direct = kids(b.id, 'resource').sort().map(r => ({ id: r, w: 0.55 }));
+        // spread topic-less resources evenly between the topics
+        const items = [];
+        const every = direct.length ? (topics.length + direct.length) / direct.length : Infinity;
+        let ti = 0, di = 0;
+        for (let i = 0; ti < topics.length || di < direct.length; i++) {
+          const wantDirect = di < direct.length && (ti >= topics.length || i + 1 >= (di + 1) * every);
+          items.push(wantDirect ? direct[di++] : topics[ti++]);
+        }
+        const total = items.reduce((s, i) => s + i.w, 0);
+        // ~100 units of arc per slot keeps neighbouring labels apart at the
+        // zoom a single branch is shown at
+        const r1 = Math.max(120, total * 100 / (2 * Math.PI));
+        const r2 = r1 + 150;
+        // leave room for the branch label, which is wide at overview zoom
+        const R = items.length ? r2 + 60 : 120;
+        // the label under the hub, in screen px, at overview zoom
+        const labelPx = (b.label.length + String(b.count).length + 3) * 9;
+        return { b, items, total, r1, r2, R, ring: R, labelPx };
       });
 
-      // Category nodes
-      catSet.forEach((count, cat) => {
-        const cid = 'c_' + cat;
-        const c = NODE_COLORS.category.bg;
-        graphNodeMap[cid] = { type: 'category', data: { name: cat, count } };
-        nodes.push({
-          id: cid,
-          label: CATEGORY_LABELS[cat] || cat,
-          group: 'category',
-          shape: 'diamond',
-          size: 28 + Math.min(count, 30),
-          _size: 28 + Math.min(count, 30),
-          mass: 4 + count * 0.2,
-          color: { background: c, border: c + 'aa', highlight: { background: c, border: '#ffffffcc' } },
-          font: labelFont(graphNodeMap[cid], currentScale),
+      const pack = () => {
+        const centers = [];
+        clusters.forEach(c => {
+          if (!centers.length) { c.x = 0; c.y = 0; centers.push(c); return; }
+          for (let r = 0; ; r += 30) {
+            const steps = Math.max(12, Math.floor(2 * Math.PI * r / 50));
+            for (let i = 0; i < steps; i++) {
+              const a = (i / steps) * 2 * Math.PI + r * 0.013;
+              const x = r * Math.cos(a), y = r * Math.sin(a) * aspect;
+              if (centers.every(o => Math.hypot(o.x - x, o.y - y) >= o.R + c.R + 40)) {
+                c.x = x; c.y = y; centers.push(c);
+                return;
+              }
+            }
+          }
+        });
+        const xs = clusters.flatMap(c => [c.x - c.R, c.x + c.R]);
+        const ys = clusters.flatMap(c => [c.y - c.R, c.y + c.R]);
+        return { w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) };
+      };
+
+      // Labels are screen-px, so their size in layout units depends on the
+      // overview zoom, which depends on the packing: pack, estimate the zoom,
+      // reserve room for each label, pack again.
+      const size = pack();
+      const overviewScale = 0.88 * Math.min((viewWidth || 900) / size.w, (viewHeight || 600) / size.h);
+      clusters.forEach(c => { c.R = Math.max(c.ring, (c.labelPx / 2 + 16) / overviewScale); });
+      pack();
+
+      clusters.forEach(c => {
+        pos.set(c.b.id, { x: c.x, y: c.y });
+        slotArc.set(c.b.id, c.items.length ? 2 * Math.PI * c.r1 / c.items.length : Infinity);
+        // centre the first slot at 12 o'clock, away from the label under the hub
+        let a = -Math.PI / 2 - (c.items.length ? (c.items[0].w / c.total) * Math.PI : 0);
+        let directCount = 0;
+        c.items.forEach(item => {
+          const span = (item.w / c.total) * 2 * Math.PI;
+          const mid = a + span / 2;
+          const isTopic = nodeById.get(item.id).type === 'topic';
+          const vid = isTopic ? item.id : resourceView(item.id, c.b.id);
+          pos.set(vid, { x: c.x + c.r1 * Math.cos(mid), y: c.y + c.r1 * Math.sin(mid) });
+          if (!isTopic && (directCount++ % 2)) labelAbove.add(vid);
+          if (isTopic) {
+            const res = kids(item.id, 'resource');
+            res.forEach((rid, k) => {
+              if (k % 2) labelAbove.add(resourceView(rid, item.id));
+              const t = res.length === 1 ? 0.5 : 0.1 + 0.8 * (k / (res.length - 1));
+              const ang = a + span * t;
+              pos.set(resourceView(rid, item.id), { x: c.x + c.r2 * Math.cos(ang), y: c.y + c.r2 * Math.sin(ang) });
+            });
+          }
+          a += span;
         });
       });
-
-      // Tag nodes
-      tagSet.forEach((count, tNorm) => {
-        const tid = 't_' + tNorm;
-        graphNodeMap[tid] = { type: 'tag', data: { name: tNorm, count } };
-        const sz = 10 + Math.min(count, 20) * 1.4;
-        nodes.push({
-          id: tid,
-          label: tNorm,
-          group: 'tag',
-          shape: 'dot',
-          size: sz,
-          _size: sz,
-          mass: 1.5 + count * 0.1,
-          color: { background: '#5b8dee', border: '#5b8dee88', highlight: { background: '#8db4ff', border: '#ffffffcc' } },
-          font: labelFont(graphNodeMap[tid], currentScale),
-        });
-      });
-
-      // Resource nodes
-      allResources.forEach((r, i) => {
-        const rid = 'r_' + i;
-        const cat = r.category || 'other';
-        graphNodeMap[rid] = { type: 'resource', data: r };
-        nodes.push({
-          id: rid,
-          label: truncLabel(r.title || r.url, 28),
-          _fullLabel: truncLabel(r.title || r.url, 28),
-          group: 'resource',
-          shape: 'dot',
-          size: 10,
-          _size: 10,
-          mass: 1,
-          color: { background: '#e8a838', border: '#e8a83855', highlight: { background: '#f0be5e', border: '#ffffffcc' } },
-          font: { color: '#e8a83800', size: 11, face: 'Inter, sans-serif', strokeWidth: 2, strokeColor: '#0b0e18' },
-        });
-
-        // belongs_to edge
-        edges.push({
-          from: rid, to: 'c_' + cat,
-          _type: 'cat',
-          color: EDGE_COLORS.cat,
-          width: EDGE_WIDTH.cat,
-          smooth: { type: 'continuous', roundness: 0.2 },
-        });
-
-        // tagged edges
-        (r.tags || []).forEach(t => {
-          const k = t.toLowerCase().trim();
-          if (!k) return;
-          edges.push({
-            from: rid, to: 't_' + k,
-            _type: 'tag',
-            dashes: [6, 4],
-            color: EDGE_COLORS.tag,
-            width: EDGE_WIDTH.tag,
-            smooth: { type: 'continuous', roundness: 0.15 },
-          });
-        });
-      });
-
-      graphData.nodes = new vis.DataSet(nodes);
-      graphData.edges = new vis.DataSet(edges);
+      return pos;
     }
 
-    // ── Init graph ──────────────────────────────────────────────
-    function initGraph() {
+    // ── Network ─────────────────────────────────────────────────
+    function wrap(text, width) {
+      const lines = [];
+      let line = '';
+      text.split(/\s+/).forEach(w => {
+        if (line && (line + ' ' + w).length > width) { lines.push(line); line = w; }
+        else line = line ? line + ' ' + w : w;
+      });
+      if (line) lines.push(line);
+      return lines.join('\n');
+    }
+
+    function trunc(s, max) { return s && s.length > max ? s.slice(0, max - 1) + '…' : (s || ''); }
+
+    const branchLabel = n => `<b>${esc(n.label)}</b> · ${n.count}${expanded.has(n.id) ? ' ▾' : ''}`;
+
+    function baseNode(v) {
+      const n = nodeById.get(v.did);
+      const c = COLORS[n.type], l = LIGHT[n.type];
+      return {
+        id: v.vid, shape: 'dot', size: SIZE[n.type](n),
+        color: { background: c, border: l, highlight: { background: c, border: '#ffffff' }, hover: { background: c, border: '#ffffff' } },
+        borderWidth: n.type === 'branch' ? 2.5 : 1.5,
+        label: n.type === 'branch' ? branchLabel(n) : n.type === 'topic' ? wrap(n.label, 18) : trunc(n.label, 26),
+        font: { color: TEXT[n.type], size: 12, face: FONT, strokeWidth: 4, strokeColor: '#0b0e18',
+                multi: n.type === 'branch' ? 'html' : false },
+        hidden: n.type === 'resource',
+      };
+    }
+
+    function initNetwork() {
       const area = document.getElementById('graph-area');
       const container = document.getElementById('graph-container');
-      if (graphNetwork) { graphNetwork.destroy(); graphNetwork = null; }
-
       container.style.width = area.clientWidth + 'px';
       container.style.height = area.clientHeight + 'px';
 
-      const options = {
+      const layout = computeLayout(area.clientWidth, area.clientHeight);
+      visNodes = new vis.DataSet([...views.values()].map(v => ({ ...baseNode(v), ...(layout.get(v.vid) || { x: 0, y: 0 }) })));
+      visEdges = new vis.DataSet(graph.edges.map((e, i) => {
+        const to = e.type === 'HAS_RESOURCE' ? resourceView(e.target, e.source) : e.target;
+        return {
+          id: i, from: e.source, to, _type: e.type,
+          arrows: { to: { enabled: true, scaleFactor: 0.45 } },
+          color: { color: EDGE[e.type].color + '88', inherit: false },
+          width: EDGE[e.type].width, dashes: EDGE[e.type].dashes,
+          font: { size: 10, face: FONT, color: '#9aa4c0', strokeWidth: 3, strokeColor: '#0b0e18', align: 'middle' },
+        };
+      }));
+
+      net = new vis.Network(container, { nodes: visNodes, edges: visEdges }, {
         autoResize: false,
-        nodes: {
-          borderWidth: 1.5,
-          shadow: { enabled: true, color: 'rgba(0,0,0,.3)', size: 6, x: 0, y: 2 },
-        },
-        // Without explicit groups vis-network falls back to its default
-        // palette per group whenever a node update omits `color`.
-        groups: Object.fromEntries(Object.entries(NODE_COLORS).map(([type, c]) => [type, {
-          color: { background: c.bg, border: c.border, highlight: { background: c.highlight, border: '#ffffffcc' }, hover: { background: c.highlight, border: c.border } },
-        }])),
-        edges: {
-          // Otherwise edges inherit the endpoint's highlight colour (grey/white)
-          color: { inherit: false },
-          smooth: { type: 'continuous', roundness: 0.2 },
-          selectionWidth: 2,
-          hoverWidth: 1.5,
-        },
-        physics: {
-          solver: 'forceAtlas2Based',
-          forceAtlas2Based: {
-            gravitationalConstant: -100,
-            centralGravity: 0.006,
-            springLength: 180,
-            springConstant: 0.03,
-            damping: 0.45,
-            avoidOverlap: 0.4,
-          },
-          stabilization: { iterations: 600, fit: true },
-          maxVelocity: 25,
-        },
-        interaction: {
-          hover: true,
-          tooltipDelay: 0,
-          zoomView: true,
-          dragView: true,
-          multiselect: false,
-          navigationButtons: false,
-          dragNodes: true,
-        },
+        nodes: { shadow: { enabled: true, color: 'rgba(0,0,0,.35)', size: 8, x: 0, y: 2 } },
+        edges: { smooth: false, selectionWidth: 0, hoverWidth: 0 },
+        physics: false,
+        // selection and hover go through hitTest(), which works in CSS px and
+        // so does not depend on vis's canvas resolution (see session insights)
+        interaction: { hover: false, selectable: false, dragView: true, zoomView: true, dragNodes: true },
         layout: { improvedLayout: false },
-      };
-
-      graphNetwork = new vis.Network(container, graphData, options);
-
-      // Fix vis-network canvas/display dimension mismatch by forcing
-      // pixelRatio=1 so canvas internal resolution equals display size.
-      try {
-        if (graphNetwork.canvas) {
-          graphNetwork.canvas.pixelRatio = 1;
-          graphNetwork.canvas._getPixelRatio = () => 1;
-          graphNetwork.canvas.setSize(
-            area.clientWidth + 'px',
-            area.clientHeight + 'px'
-          );
-        }
-      } catch(e) { /* fall through to DOM handler below */ }
-
-      // Fallback: DOM-level click handler that converts coordinates
-      // manually, bypassing vis-network's broken hit detection.
-      container.addEventListener('click', function clickFallback(e) {
-        if (!graphNetwork) return;
-        const visCanvas = container.querySelector('canvas');
-        if (!visCanvas) return;
-
-        const rect = visCanvas.getBoundingClientRect();
-        const domX = e.clientX - rect.left;
-        const domY = e.clientY - rect.top;
-
-        const vp = graphNetwork.getViewPosition();
-        const sc = graphNetwork.getScale();
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-
-        // Hit-test in display pixel space (node sizes are screen px)
-        const positions = graphNetwork.getPositions();
-        let best = null, bestDist = Infinity;
-        for (const id of Object.keys(positions)) {
-          const nd = graphData.nodes.get(id);
-          if (nd && nd.hidden) continue;
-          const p = positions[id];
-          const ndx = (p.x - vp.x) * sc + cx;
-          const ndy = (p.y - vp.y) * sc + cy;
-          const d = Math.hypot(domX - ndx, domY - ndy);
-          const hitR = (nd?.size || 10) * 1.6;
-          if (d < hitR && d < bestDist) { best = id; bestDist = d; }
-        }
-
-        if (best && best !== selectedNodeId) {
-          selectedNodeId = best;
-          graphNetwork.selectNodes([best]);
-          highlightNeighbors(best);
-          showDetail(best);
-        } else if (!best && selectedNodeId) {
-          clearSelection();
-        }
       });
 
-      graphNetwork.on('hoverNode', onHoverNode);
-      graphNetwork.on('blurNode', onBlurNode);
-      graphNetwork.on('zoom', onZoom);
-      graphNetwork.on('stabilizationIterationsDone', () => {
-        // forceAtlas2 never fully settles here; left running, nodes keep
-        // drifting, so focus() lands off-target and the view creeps.
-        graphNetwork.setOptions({ physics: { enabled: false } });
-        fitView(400);
+      net.on('zoom', () => { scale = net.getScale(); scheduleRender(); });
+      net.on('animationFinished', () => { scale = net.getScale(); scheduleRender(); });
+
+      container.addEventListener('click', e => {
+        const v = hitTest(e);
+        if (v) onNodeClick(views.get(v).did); else if (selectedId) clearSelection();
       });
-      // focus()/moveTo() don't emit 'zoom'; resync label sizes afterwards
-      graphNetwork.on('animationFinished', () => {
-        currentScale = graphNetwork.getScale();
-        updateLabels();
+      container.addEventListener('dblclick', e => {
+        const v = hitTest(e);
+        const n = v && nodeById.get(views.get(v).did);
+        if (n?.type === 'resource' && n.url) window.open(n.url, '_blank', 'noopener');
       });
-
-      showHint('Scroll to zoom · Click a node for details · Drag to pan');
-    }
-
-    // fit() puts the outermost nodes on the canvas edge; zoom out a bit so
-    // nodes and their labels keep a margin.
-    function fitView(duration, nodes, maxScale = Infinity) {
-      if (!graphNetwork) return;
-      const from = { position: graphNetwork.getViewPosition(), scale: graphNetwork.getScale() };
-      graphNetwork.fit(nodes && nodes.length ? { nodes, animation: false } : { animation: false });
-      const scale = Math.min(graphNetwork.getScale() * 0.88, maxScale);
-      const position = graphNetwork.getViewPosition();
-      // Jump back so the move animates from where the user was looking
-      graphNetwork.moveTo({ ...from, animation: false });
-      graphNetwork.moveTo({ position, scale, animation: { duration, easingFunction: 'easeInOutQuad' } });
-      currentScale = scale;
-      updateLabels();
-    }
-
-    // Keep vis-network canvas in sync with container size
-    new ResizeObserver(() => {
-      if (!graphNetwork) return;
-      const area = document.getElementById('graph-area');
-      const container = document.getElementById('graph-container');
-      const w = area.clientWidth;
-      const h = area.clientHeight;
-      container.style.width = w + 'px';
-      container.style.height = h + 'px';
-      graphNetwork.setSize(w + 'px', h + 'px');
-      graphNetwork.redraw();
-    }).observe(document.getElementById('graph-area'));
-
-    // ── Graph events ────────────────────────────────────────────
-
-    function onHoverNode(params) {
-      hoveredNodeId = params.node;
-      showResourceLabelOnHover(params.node, true);
-      if (!selectedNodeId) highlightNeighbors(params.node);
-    }
-
-    function onBlurNode(params) {
-      hoveredNodeId = null;
-      showResourceLabelOnHover(params.node, false);
-      if (!selectedNodeId) resetHighlight();
-    }
-
-    function onZoom(params) {
-      currentScale = params.scale;
-      updateLabels();
-      const hint = document.getElementById('graph-hint');
-      if (hint) hint.style.opacity = params.scale > 0.5 ? '0' : '1';
-    }
-
-    function showResourceLabelOnHover(nodeId, show) {
-      const node = graphData.nodes.get(nodeId);
-      if (!node || node.group !== 'resource') return;
-      if (currentScale > 1.2) return;
-      graphData.nodes.update({
-        id: nodeId,
-        font: {
-          color: show ? '#e8eaf6' : '#e8a83800',
-          size: 11, face: 'Inter, sans-serif',
-          strokeWidth: show ? 3 : 0,
-          strokeColor: '#0b0e18',
-          background: show ? 'rgba(11,14,24,0.7)' : 'transparent',
-        },
+      container.addEventListener('mousemove', e => {
+        const v = hitTest(e);
+        const did = v ? views.get(v).did : null;
+        container.classList.toggle('pointer', !!v);
+        if (did !== hoverId) { hoverId = did; scheduleRender(); }
       });
+      container.addEventListener('mouseleave', () => { if (hoverId) { hoverId = null; scheduleRender(); } });
+
+      new ResizeObserver(() => {
+        const w = area.clientWidth, h = area.clientHeight;
+        container.style.width = w + 'px';
+        container.style.height = h + 'px';
+        net.setSize(w + 'px', h + 'px');
+        net.redraw();
+      }).observe(area);
+
+      document.getElementById('graph-status')?.remove();
+      render();
+      fitTo(null, 0);
+      render();
     }
 
-    let labelFrame = 0;
-    function updateLabels() {
-      if (labelFrame) return;
-      labelFrame = requestAnimationFrame(() => {
-        labelFrame = 0;
-        const focus = selectedNodeId || hoveredNodeId;
-        if (focus) { highlightNeighbors(focus); return; }
-        const updates = [];
-        graphData.nodes.forEach(node => {
-          const info = graphNodeMap[node.id];
-          if (info) updates.push({ id: node.id, font: labelFont(info, currentScale) });
+    // Display-space hit test against the visible nodes' circles.
+    function hitTest(e) {
+      if (!net) return null;
+      const canvas = document.querySelector('#graph-container canvas');
+      if (!canvas) return null;
+      const rect = canvas.getBoundingClientRect();
+      const vp = net.getViewPosition(), sc = net.getScale();
+      const x = (e.clientX - rect.left - rect.width / 2) / sc + vp.x;
+      const y = (e.clientY - rect.top - rect.height / 2) / sc + vp.y;
+      const ids = [...visible];
+      const positions = net.getPositions(ids);
+      let best = null, bestDist = Infinity;
+      ids.forEach(vid => {
+        const p = positions[vid];
+        if (!p) return;
+        const n = nodeById.get(views.get(vid).did);
+        const r = Math.max(SIZE[n.type](n), 7 / sc) + 3 / sc;
+        const d = Math.hypot(x - p.x, y - p.y);
+        if (d <= r && d < bestDist) { best = vid; bestDist = d; }
+      });
+      return best;
+    }
+
+    // ── Visibility & styling ────────────────────────────────────
+    function textOf(n) {
+      return [n.label, n.summary, n.notes, n.url, ...(n.topics || [])].filter(Boolean).join(' ').toLowerCase();
+    }
+
+    function computeVisible() {
+      const shown = new Set();
+      const branchShown = bid => !hiddenBranches.has(bid);
+
+      if (query) {
+        const q = query.toLowerCase();
+        graph.nodes.forEach(n => {
+          if (!textOf(n).includes(q)) return;
+          if (n.type === 'branch') { if (branchShown(n.id)) shown.add(n.id); return; }
+          if (n.type === 'topic') {
+            if (branchShown(n.branch)) { shown.add(n.id); shown.add(n.branch); }
+            return;
+          }
+          // keep the path up to the branch so a match is never orphaned
+          (parents.get(n.id) || []).forEach(p => {
+            const bid = branchOfData(p);
+            if (!branchShown(bid)) return;
+            shown.add(resourceView(n.id, p));
+            shown.add(p);
+            shown.add(bid);
+          });
         });
-        if (updates.length) graphData.nodes.update(updates);
-      });
-    }
-
-    // ── Highlight neighbors ─────────────────────────────────────
-    function highlightNeighbors(nodeId) {
-      if (!graphNetwork) return;
-      const connected = new Set(graphNetwork.getConnectedNodes(nodeId));
-      connected.add(nodeId);
-      const connEdges = new Set(graphNetwork.getConnectedEdges(nodeId));
-
-      const nodeUpdates = graphData.nodes.getIds().map(id => {
-        const info = graphNodeMap[id];
-        const isHL = connected.has(id);
-        const isSelected = id === nodeId;
-        const node = graphData.nodes.get(id);
-
-        if (node.hidden) return { id };
-
-        if (!isHL) {
-          return {
-            id,
-            opacity: 0.08,
-            font: { color: 'rgba(255,255,255,0)', size: node.font?.size || 12, face: 'Inter, sans-serif', strokeWidth: 0, background: 'transparent' },
-          };
-        }
-
-        const nc = NODE_COLORS[info?.type] || NODE_COLORS.resource;
-        const label = info?.type === 'resource' ? (node._fullLabel || node.label) : node.label;
-        const fontSize = info?.type === 'resource' ? Math.max(11, 11 / currentScale) : labelFont(info, currentScale).size;
-
-        return {
-          id,
-          opacity: 1,
-          size: isSelected ? (node._size || 10) * 1.3 : (node._size || node.size),
-          borderWidth: isSelected ? 3 : 1.5,
-          label,
-          color: isSelected
-            ? { background: nc.highlight, border: '#ffffff', highlight: { background: nc.highlight, border: '#ffffff' } }
-            : undefined,
-          font: {
-            color: info?.type === 'resource' ? '#f0d898' : (info?.type === 'category' ? '#fff' : '#c0ccee'),
-            size: isSelected ? fontSize * 1.1 : fontSize,
-            face: 'Inter, sans-serif',
-            strokeWidth: 3, strokeColor: '#0b0e18',
-            background: 'rgba(11,14,24,0.55)',
-          },
-        };
-      });
-
-      const edgeUpdates = graphData.edges.getIds().map(id => {
-        const isConn = connEdges.has(id);
-        const edge = graphData.edges.get(id);
-        if (edge.hidden) return { id };
-        return {
-          id,
-          opacity: isConn ? 1 : 0.03,
-          width: isConn ? 2.5 : EDGE_WIDTH[edge._type],
-          color: isConn
-            ? (c => ({ color: c, highlight: c, hover: c }))(edge._type === 'cat' ? '#52d9a0cc' : '#5b8deecc')
-            : { color: edge._type === 'cat' ? '#52d9a00c' : '#5b8dee0a' },
-        };
-      });
-
-      graphData.nodes.update(nodeUpdates);
-      graphData.edges.update(edgeUpdates);
-    }
-
-    function resetHighlight() {
-      if (!graphData.nodes) return;
-
-      const nodeUpdates = graphData.nodes.getIds().map(id => {
-        const info = graphNodeMap[id];
-        if (!info) return { id };
-        const node = graphData.nodes.get(id);
-        const nc = NODE_COLORS[info.type] || NODE_COLORS.resource;
-        const isCat = info.type === 'category';
-
-        return {
-          id,
-          opacity: 1,
-          size: node._size,
-          borderWidth: 1.5,
-          color: { background: nc.bg, border: nc.bg + (isCat ? 'aa' : '55'), highlight: { background: nc.highlight, border: '#ffffffcc' } },
-          label: info.type === 'resource' ? (node._fullLabel || '') : node.label,
-          font: labelFont(info, currentScale),
-        };
-      });
-
-      const edgeUpdates = graphData.edges.getIds().map(id => {
-        const edge = graphData.edges.get(id);
-        return {
-          id,
-          opacity: 1,
-          width: EDGE_WIDTH[edge._type],
-          color: EDGE_COLORS[edge._type],
-        };
-      });
-
-      graphData.nodes.update(nodeUpdates);
-      graphData.edges.update(edgeUpdates);
-    }
-
-    // ── Selection ───────────────────────────────────────────────
-    function selectNode(nid) {
-      const node = graphData.nodes.get(nid);
-      if (!node || !graphNetwork) return;
-      selectedNodeId = nid;
-      graphNetwork.selectNodes([nid]);
-      if (!node.hidden) {
-        const around = [nid, ...graphNetwork.getConnectedNodes(nid)]
-          .filter(id => !graphData.nodes.get(id)?.hidden);
-        fitView(350, around, 1.2);
+        return shown;
       }
-      highlightNeighbors(nid);
-      showDetail(nid);
+
+      views.forEach(v => {
+        if (!branchShown(v.branch)) return;
+        if (v.type !== 'resource' || expanded.has(v.branch)) shown.add(v.vid);
+      });
+      return shown;
+    }
+
+    // View ids highlighted around a focused data node.
+    function focusSet(did) {
+      const n = nodeById.get(did);
+      const set = new Set();
+      const add = vid => { if (visible.has(vid)) set.add(vid); };
+      if (n.type === 'branch') {
+        add(did);
+        views.forEach(v => { if (v.branch === did) add(v.vid); });
+      } else if (n.type === 'topic') {
+        add(did); add(n.branch);
+        kids(did, 'resource').forEach(r => add(resourceView(r, did)));
+      } else {
+        (parents.get(did) || []).forEach(p => {
+          add(resourceView(did, p)); add(p); add(branchOfData(p));
+        });
+      }
+      return set;
+    }
+
+    let frame = 0;
+    function scheduleRender() {
+      if (frame) return;
+      frame = requestAnimationFrame(() => { frame = 0; render(); });
+    }
+
+    function render() {
+      if (!visNodes) return;
+      visible = computeVisible();
+      const focus = selectedId || hoverId;
+      const near = focus ? focusSet(focus) : null;
+      const focusType = focus && nodeById.get(focus).type;
+      const sc = Math.max(scale, 0.01);
+
+      visNodes.update([...views.values()].map(v => {
+        const n = nodeById.get(v.did);
+        const base = baseNode(v);
+        const dim = near && !near.has(v.vid);
+        const rule = LABEL[n.type];
+        // in a branch view, resources under a topic stay unlabelled until
+        // zoomed in; their topic label already says what they are
+        // ...and a topic only gets a label when its ring has room on screen
+        const roomy = n.type !== 'topic' || n.count >= LABEL.topic.big || slotArc.get(n.branch) * sc >= 35;
+        const nearLabel = (near && near.has(v.vid) && roomy && !(focusType === 'branch' && n.type === 'resource')) ||
+          v.did === hoverId;
+        const showLabel = !dim && (
+          sc >= rule.from ||
+          (n.type === 'topic' && n.count >= rule.big) ||
+          nearLabel ||
+          (query && n.type !== 'branch'));
+        const update = {
+          id: v.vid, hidden: !visible.has(v.vid), opacity: dim ? DIM : 1,
+          borderWidth: base.borderWidth, color: base.color,
+          font: { ...base.font, size: rule.px / sc, color: showLabel ? TEXT[n.type] : 'rgba(0,0,0,0)', strokeWidth: showLabel ? 4 : 0 },
+        };
+        if (n.type === 'resource') {
+          // dot labels sit below; lift alternate siblings above the dot
+          update.font.vadjust = labelAbove.has(v.vid) ? -(2 * SIZE.resource() + update.font.size * 1.25 + 6 / sc) : 0;
+        }
+        if (n.type === 'branch') {
+          update.font.size = (v.did === selectedId ? rule.px + 2 : rule.px) / sc;
+          update.font.bold = { color: update.font.color, size: update.font.size, face: FONT, mod: 'bold' };
+          update.label = branchLabel(n);
+          if (!n.count && !dim) update.opacity = 0.45;
+        }
+        if (v.did === selectedId) {
+          update.borderWidth = 4;
+          update.color = { ...base.color, border: '#ffffff' };
+        }
+        return update;
+      }));
+
+      const focusViews = focus ? new Set(viewsOf.get(focus)) : null;
+      visEdges.update(visEdges.get().map(e => {
+        const style = EDGE[e._type];
+        const touches = focusViews && (focusViews.has(e.from) || focusViews.has(e.to));
+        const inFocus = near && near.has(e.from) && near.has(e.to);
+        const alpha = near ? (inFocus ? 'ee' : '10') : '88';
+        return {
+          id: e.id, hidden: !visible.has(e.from) || !visible.has(e.to),
+          color: { color: style.color + alpha, inherit: false },
+          width: inFocus ? style.width + 1 : style.width,
+          label: touches ? e._type : ' ',   // vis ignores '' and null, so clear with a space
+        };
+      }));
+
+      renderBranchList();
+    }
+
+    // Fit to some view ids (or everything visible), with a margin.
+    function fitTo(vids, duration = 400, maxScale = 1.3) {
+      if (!net) return;
+      const nodes = (vids || [...visible]).filter(id => visible.has(id));
+      if (!nodes.length) return;
+      const from = { position: net.getViewPosition(), scale: net.getScale() };
+      net.fit({ nodes, animation: false });
+      const target = { position: net.getViewPosition(), scale: Math.min(net.getScale() * 0.88, maxScale) };
+      // On phones the detail sheet covers the bottom of the canvas: fit the
+      // nodes into the strip above it.
+      const sheet = document.getElementById('right-panel');
+      const canvasH = document.getElementById('graph-area').clientHeight;
+      const covered = sheet.classList.contains('mobile-open') && getComputedStyle(sheet).position === 'fixed'
+        ? Math.min(sheet.offsetHeight, canvasH * 0.7) : 0;
+      if (covered) {
+        target.scale *= (canvasH - covered) / canvasH;
+        target.position = { x: target.position.x, y: target.position.y + covered / 2 / target.scale };
+      }
+      net.moveTo({ ...from, animation: false });
+      net.moveTo({ ...target, animation: duration ? { duration, easingFunction: 'easeInOutQuad' } : false });
+      scale = target.scale;
+    }
+
+    // ── Interaction ─────────────────────────────────────────────
+    function onNodeClick(did) {
+      const n = nodeById.get(did);
+      if (n.type === 'branch' && selectedId === did) {
+        toggleBranch(did);      // second click on a selected branch opens/closes it
+        return;
+      }
+      select(did, { reveal: n.type !== 'resource' });
+    }
+
+    function select(did, { reveal = true } = {}) {
+      if (!nodeById.has(did)) return;
+      const branches = branchesOf(did);
+      branches.forEach(b => hiddenBranches.delete(b));
+      // a resource picked from a list may sit in a closed branch
+      if (reveal || !branches.some(b => expanded.has(b))) branches.forEach(b => expanded.add(b));
+      selectedId = did;
+      render();
+      showDetail(did);
+      fitTo([...focusSet(did)], 450);
     }
 
     function clearSelection() {
-      selectedNodeId = null;
-      if (graphNetwork) graphNetwork.unselectAll();
-      resetHighlight();
-      hideDetail();
+      selectedId = null;
+      render();
+      showOverview();
     }
 
-    // ── Sidebar category chips ──────────────────────────────────
-    function renderCategoryChips(catSet) {
-      const cats = [...catSet.entries()].sort((a, b) => b[1] - a[1]);
-      const chip = (cat, label, count) =>
-        `<button type="button" class="chip${cat === activeCategory ? ' active' : ''}" data-cat="${esc(cat)}">${esc(label)}<span class="chip-count">${count}</span></button>`;
-      document.getElementById('category-chips').innerHTML =
-        chip('all', 'All', allResources.length) +
-        cats.map(([cat, n]) => chip(cat, CATEGORY_LABELS[cat] || cat, n)).join('');
+    function toggleBranch(bid) {
+      if (expanded.has(bid)) expanded.delete(bid); else expanded.add(bid);
+      render();
+      if (selectedId) showDetail(selectedId);
+      fitTo([...focusSet(bid)], 450);
     }
 
-    // ── Right panel overview (nothing selected) ─────────────────
-    function renderOverview(tagSet, catSet) {
-      const topTags = [...tagSet.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
-      const recent = allResources
-        .map((r, i) => ({ r, id: 'r_' + i }))
-        .filter(x => x.r.added_at)
-        .sort((a, b) => b.r.added_at.localeCompare(a.r.added_at))
-        .slice(0, 6);
-      const cats = [...catSet.entries()].sort((a, b) => b[1] - a[1]);
+    // ── Header & sidebar ────────────────────────────────────────
+    function renderHeader() {
+      document.getElementById('hdr-branches').textContent = ofType('branch').length;
+      document.getElementById('hdr-topics').textContent = ofType('topic').length;
+      document.getElementById('hdr-resources').textContent = ofType('resource').length;
+      document.getElementById('hdr-date').textContent = (graph.generated_at || '').slice(0, 10) || '—';
+    }
 
+    function sortedBranches() {
+      return ofType('branch').sort((a, b) => (b.count - a.count) || a.label.localeCompare(b.label));
+    }
+
+    function renderBranchList() {
+      document.getElementById('branch-list').innerHTML = sortedBranches().map(b => `
+        <li class="branch-row${b.count ? '' : ' empty'}${selectedId === b.id ? ' selected' : ''}">
+          <input type="checkbox" data-toggle="${esc(b.id)}" ${hiddenBranches.has(b.id) ? '' : 'checked'} aria-label="Show ${esc(b.label)}" />
+          <span class="expand-mark">${expanded.has(b.id) ? '▾' : (b.count ? '▸' : '')}</span>
+          <button type="button" class="branch-name" data-nid="${esc(b.id)}" title="${esc(b.label)}">${esc(b.label)}</button>
+          <span class="branch-count">${b.count}</span>
+        </li>`).join('');
+    }
+
+    // ── Right panel ─────────────────────────────────────────────
+    const swatch = (type, cls = '') => `<span class="swatch ${cls}" style="background:var(--c-${type})"></span>`;
+
+    function listItem(id, meta) {
+      const n = nodeById.get(id);
+      return `<li data-nid="${esc(id)}">${swatch(n.type, n.type === 'resource' ? 'sm' : '')}<span class="nl-name" title="${esc(n.label)}">${esc(n.label)}</span>${meta != null && meta !== '' ? `<span class="nl-meta">${esc(meta)}</span>` : ''}</li>`;
+    }
+
+    function renderOverview() {
+      const branches = sortedBranches().filter(b => b.count);
+      const recent = ofType('resource').filter(r => r.added_at)
+        .sort((a, b) => b.added_at.localeCompare(a.added_at)).slice(0, 6);
       document.getElementById('overview').innerHTML = `
-        <p class="ov-intro">Click a node in the graph, or start from one of these.</p>
-        <div class="ov-section">
-          <h4>Top tags</h4>
-          <div class="detail-tags">${topTags.map(([t, n]) =>
-            `<span class="tag" data-nid="t_${esc(t)}">${esc(t)} <span class="ov-meta">${n}</span></span>`).join('')}</div>
+        <p class="intro">Each green hub is a tab in the sheet. Click one to open it: its topics (blue) and links (orange) fan out around it.</p>
+        <div class="stat-row">
+          <div class="stat"><b>${ofType('branch').length}</b><span>branches</span></div>
+          <div class="stat"><b>${ofType('topic').length}</b><span>topics</span></div>
+          <div class="stat"><b>${ofType('resource').length}</b><span>resources</span></div>
         </div>
-        <div class="ov-section">
-          <h4>Recently added</h4>
-          <ul class="ov-list">${recent.map(({ r, id }) => `
-            <li data-nid="${id}">
-              <span class="neighbor-type-dot" style="background:var(--orange)"></span>
-              <span class="ov-name">${esc(r.title || r.url)}</span>
-              <span class="ov-meta">${esc(r.added_at)}</span>
-            </li>`).join('')}</ul>
-        </div>
-        <div class="ov-section">
-          <h4>Categories</h4>
-          <ul class="ov-list">${cats.map(([cat, n]) => `
-            <li data-nid="c_${esc(cat)}">
-              <span class="neighbor-type-dot diamond" style="background:var(--green)"></span>
-              <span class="ov-name">${esc(CATEGORY_LABELS[cat] || cat)}</span>
-              <span class="ov-meta">${n}</span>
-            </li>`).join('')}</ul>
-        </div>`;
+        <div class="section"><h4>Branches</h4>
+          <ul class="node-list">${branches.map(b => listItem(b.id, `${b.count} · ${b.topic_count} topics`)).join('')}</ul></div>
+        <div class="section"><h4>Recently added</h4>
+          <ul class="node-list">${recent.map(r => listItem(r.id, r.added_at)).join('')}</ul></div>`;
     }
 
-    // ── Detail panel ────────────────────────────────────────────
-    function showDetail(nodeId) {
-      const info = graphNodeMap[nodeId];
-      if (!info) return;
-
-      const overview = document.getElementById('overview');
-      const content = document.getElementById('detail-content');
-      const panel = document.getElementById('right-panel');
-
-      overview.style.display = 'none';
-      content.style.display = 'block';
-      panel.scrollTop = 0;
-
-      // On mobile, show the panel
-      panel.classList.add('mobile-open');
-
-      const back = `<button type="button" class="detail-back">&larr; Overview</button>`;
-
-      if (info.type === 'resource') {
-        const r = info.data;
-        const cat = r.category || 'other';
-        const tags = (r.tags || []).map(t =>
-          `<span class="tag" data-nid="t_${esc(t.toLowerCase())}">${esc(t)}</span>`).join('');
-        const domain = (() => { try { return new URL(r.url).hostname.replace('www.',''); } catch { return ''; } })();
-
-        content.innerHTML = `
-          ${back}
-          <div class="detail-type resource">Resource</div>
-          <h3>${esc(r.title || r.url)}</h3>
-          ${r.summary ? `<div class="detail-summary">${esc(r.summary)}</div>` : ''}
-          ${r.notes ? `<div class="detail-notes">${esc(r.notes)}</div>` : ''}
-          ${r.url ? `<a class="detail-link" href="${esc(r.url)}" target="_blank" rel="noopener">Open link ↗</a>` : ''}
-          <dl class="meta-grid">
-            <dt>Category</dt><dd><a data-nid="c_${esc(cat)}">${esc(CATEGORY_LABELS[cat] || cat)}</a></dd>
-            ${r.added_at ? `<dt>Added</dt><dd>${esc(r.added_at)}</dd>` : ''}
-            ${domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : ''}
-          </dl>
-          ${tags ? `<div class="detail-section"><h4>Tags</h4><div class="detail-tags">${tags}</div></div>` : ''}`;
-      } else {
-        const resources = graphNetwork.getConnectedNodes(nodeId)
-          .filter(n => graphNodeMap[n]?.type === 'resource')
-          .map(n => ({ id: n, r: graphNodeMap[n].data }))
-          .sort((a, b) => (a.r.title || a.r.url || '').localeCompare(b.r.title || b.r.url || ''));
-        const isTag = info.type === 'tag';
-        const name = isTag ? info.data.name : (CATEGORY_LABELS[info.data.name] || info.data.name);
-
-        content.innerHTML = `
-          ${back}
-          <div class="detail-type ${info.type}">${isTag ? 'Tag' : 'Category'}</div>
-          <h3>${esc(name)}</h3>
-          <div class="detail-summary">${resources.length} ${resources.length === 1 ? 'resource' : 'resources'}</div>
-          <div class="detail-section">
-            <h4>Resources</h4>
-            <ul class="ov-list">${resources.map(({ id, r }) => `
-              <li data-nid="${id}">
-                <span class="neighbor-type-dot" style="background:var(--orange)"></span>
-                <span class="ov-name" title="${esc(r.title || r.url)}">${esc(r.title || r.url)}</span>
-                ${r.added_at ? `<span class="ov-meta">${esc(r.added_at)}</span>` : ''}
-              </li>`).join('')}</ul>
-          </div>`;
-      }
-    }
-
-    function hideDetail() {
-      document.getElementById('overview').style.display = '';
-      document.getElementById('detail-content').style.display = 'none';
+    function showOverview() {
+      document.getElementById('overview').hidden = false;
+      document.getElementById('detail').hidden = true;
       document.getElementById('right-panel').classList.remove('mobile-open');
     }
 
-    // ── Filter: node types ──────────────────────────────────────
-    function applyFilters() {
-      const show = {
-        resource: document.querySelector('[data-node-type="resource"] input').checked,
-        tag:      document.querySelector('[data-node-type="tag"] input').checked,
-        category: document.querySelector('[data-node-type="category"] input').checked,
-      };
-      const showRel = {
-        cat: document.querySelector('[data-rel-type="cat"] input').checked,
-        tag: document.querySelector('[data-rel-type="tag"] input').checked,
-      };
-      const catFilter = activeCategory;
-      const q = searchQuery.toLowerCase();
+    const crumb = id => `<a data-nid="${esc(id)}">${esc(nodeById.get(id)?.label || id)}</a>`;
 
-      graphData.nodes.getIds().forEach(id => {
-        const info = graphNodeMap[id];
-        if (!info) return;
-
-        let visible = show[info.type];
-
-        if (visible && catFilter !== 'all') {
-          if (info.type === 'resource') {
-            visible = (info.data.category || 'other') === catFilter;
-          } else if (info.type === 'category') {
-            visible = info.data.name === catFilter;
-          } else if (info.type === 'tag') {
-            visible = allResources.some(r =>
-              (r.category || 'other') === catFilter &&
-              (r.tags || []).some(t => t.toLowerCase().trim() === info.data.name)
-            );
-          }
-        }
-
-        if (visible && q) {
-          if (info.type === 'resource') {
-            const r = info.data;
-            visible = (r.title || '').toLowerCase().includes(q)
-              || (r.summary || '').toLowerCase().includes(q)
-              || (r.url || '').toLowerCase().includes(q)
-              || (r.tags || []).some(t => t.toLowerCase().includes(q));
-          } else if (info.type === 'tag') {
-            visible = info.data.name.toLowerCase().includes(q);
-          } else if (info.type === 'category') {
-            const label = CATEGORY_LABELS[info.data.name] || info.data.name;
-            visible = label.toLowerCase().includes(q) || info.data.name.toLowerCase().includes(q);
-          }
-        }
-
-        graphData.nodes.update({ id, hidden: !visible });
-      });
-
-      graphData.edges.getIds().forEach(id => {
-        const edge = graphData.edges.get(id);
-        const fromNode = graphData.nodes.get(edge.from);
-        const toNode = graphData.nodes.get(edge.to);
-        const typeHidden = !showRel[edge._type];
-        const endpointHidden = fromNode?.hidden || toNode?.hidden;
-        graphData.edges.update({ id, hidden: typeHidden || endpointHidden });
-      });
-
-      if (selectedNodeId) {
-        const selNode = graphData.nodes.get(selectedNodeId);
-        if (selNode?.hidden) {
-          selectedNodeId = null;
-          hideDetail();
-        }
-      }
-
-      resetHighlight();
-      if (selectedNodeId) highlightNeighbors(selectedNodeId);
-
-      // Otherwise a filter can leave every remaining node outside the view
-      const visibleIds = graphData.nodes.getIds().filter(id => !graphData.nodes.get(id).hidden);
-      if (visibleIds.length) fitView(300, visibleIds, 1.2);
+    function resourceList(ids) {
+      return ids.map(id => nodeById.get(id))
+        .sort((a, b) => a.label.localeCompare(b.label))
+        .map(r => listItem(r.id, r.added_at)).join('');
     }
 
-    // ── Hint ────────────────────────────────────────────────────
-    function showHint(text) {
-      const el = document.getElementById('graph-hint');
-      if (!el) return;
-      el.textContent = text;
-      el.style.opacity = '1';
-      clearTimeout(el._timer);
-      el._timer = setTimeout(() => { el.style.opacity = '0'; }, 5000);
+    function showDetail(did) {
+      const n = nodeById.get(did);
+      const el = document.getElementById('detail');
+      const back = `<button type="button" class="detail-back">&larr; Overview</button>`;
+      const idLine = `<div class="node-id" title="Use this id with the MCP get_node tool">${esc(n.id)}</div>`;
+      let html = '';
+
+      if (n.type === 'branch') {
+        const topics = kids(did, 'topic').map(t => nodeById.get(t))
+          .sort((a, b) => (b.count - a.count) || a.label.localeCompare(b.label));
+        const direct = kids(did, 'resource');
+        html = `${back}<span class="type-badge branch">Branch</span>
+          <h3>${esc(n.label)}</h3>
+          <div class="summary">${n.count} resources in ${topics.length} topics</div>
+          ${n.count ? `<div class="actions"><button type="button" class="btn secondary" data-action="toggle" data-id="${esc(did)}">${expanded.has(did) ? 'Hide resources in graph' : 'Show resources in graph'}</button></div>` : ''}
+          ${idLine}
+          ${topics.length ? `<div class="section" style="margin-top:14px"><h4>Topics</h4><ul class="node-list">${topics.map(t => listItem(t.id, t.count)).join('')}</ul></div>` : ''}
+          ${direct.length ? `<div class="section"><h4>No topic</h4><ul class="node-list">${resourceList(direct)}</ul></div>` : ''}
+          ${n.count ? '' : '<p class="intro" style="margin-top:12px">No rows in this tab yet.</p>'}`;
+      } else if (n.type === 'topic') {
+        const elsewhere = ofType('topic').filter(t => t.id !== did && t.label === n.label);
+        html = `${back}<div class="crumbs">${crumb(n.branch)}</div>
+          <span class="type-badge topic">Topic</span>
+          <h3>${esc(n.label)}</h3>
+          <div class="summary">${n.count} ${n.count === 1 ? 'resource' : 'resources'}</div>
+          ${idLine}
+          <div class="section" style="margin-top:14px"><h4>Resources</h4><ul class="node-list">${resourceList(kids(did, 'resource'))}</ul></div>
+          ${elsewhere.length ? `<div class="section"><h4>Same topic in other branches</h4><ul class="node-list">${elsewhere.map(t => listItem(t.id, nodeById.get(t.branch)?.label)).join('')}</ul></div>` : ''}`;
+      } else {
+        const domain = (() => { try { return new URL(n.url).hostname.replace('www.', ''); } catch { return ''; } })();
+        const paths = (parents.get(did) || []).map(p => {
+          const pn = nodeById.get(p);
+          return pn.type === 'topic' ? `${crumb(pn.branch)}<span class="sep">›</span>${crumb(p)}` : crumb(p);
+        });
+        html = `${back}<div class="crumbs">${paths.join('<br>')}</div>
+          <span class="type-badge resource">Resource</span>
+          <h3>${esc(n.label)}</h3>
+          ${n.summary ? `<div class="summary">${esc(n.summary)}</div>` : ''}
+          ${n.notes ? `<div class="notes">${esc(n.notes)}</div>` : ''}
+          ${n.url ? `<div class="actions"><a class="btn" href="${esc(n.url)}" target="_blank" rel="noopener">Open link ↗</a></div>` : ''}
+          <dl class="meta-grid">
+            ${paths.length > 1 ? `<dt>Branches</dt><dd>${paths.length}</dd>` : ''}
+            ${n.added_at ? (n.date_source === 'sheet'
+              ? `<dt>Added</dt><dd>${esc(n.added_at)}</dd>`
+              : `<dt title="The sheet row has no Date">First seen</dt><dd title="The sheet row has no Date; this is the first day the sync saw this link">${esc(n.added_at)}</dd>`) : ''}
+            ${domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : ''}
+          </dl>
+          ${idLine}`;
+      }
+
+      el.innerHTML = html;
+      el.hidden = false;
+      document.getElementById('overview').hidden = true;
+      const panel = document.getElementById('right-panel');
+      panel.scrollTop = 0;
+      panel.classList.add('mobile-open');
     }
 
     // ── Utils ───────────────────────────────────────────────────
     function esc(s) {
-      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    function truncLabel(s, max) {
-      return s && s.length > max ? s.slice(0, max - 1) + '…' : s || '';
-    }
-
-    // ── Event listeners ─────────────────────────────────────────
+    // ── Events ──────────────────────────────────────────────────
+    let searchTimer = 0;
     document.getElementById('search-input').addEventListener('input', e => {
-      searchQuery = e.target.value.trim();
-      applyFilters();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        query = e.target.value.trim();
+        render();
+        fitTo(null, 300);
+      }, 150);
     });
 
-    document.querySelectorAll('[data-node-type] input, [data-rel-type] input').forEach(cb => {
-      cb.addEventListener('change', applyFilters);
+    document.getElementById('branch-list').addEventListener('change', e => {
+      const bid = e.target.dataset.toggle;
+      if (!bid) return;
+      if (e.target.checked) hiddenBranches.delete(bid); else hiddenBranches.add(bid);
+      if (selectedId && branchesOf(selectedId).every(b => hiddenBranches.has(b))) {
+        selectedId = null;
+        showOverview();
+      }
+      render();
+      fitTo(null, 300);
     });
 
-    document.getElementById('category-chips').addEventListener('click', e => {
-      const chip = e.target.closest('.chip');
-      if (!chip) return;
-      // Clicking the active category again clears the filter
-      activeCategory = chip.dataset.cat === activeCategory ? 'all' : chip.dataset.cat;
-      document.querySelectorAll('#category-chips .chip').forEach(c =>
-        c.classList.toggle('active', c.dataset.cat === activeCategory));
-      applyFilters();
+    document.getElementById('expand-all').addEventListener('click', () => {
+      ofType('branch').forEach(b => expanded.add(b.id));
+      render();
+      fitTo(null, 400);
+      if (selectedId) showDetail(selectedId);
     });
 
-    document.getElementById('right-panel').addEventListener('click', e => {
+    document.getElementById('collapse-all').addEventListener('click', () => {
+      expanded.clear();
+      render();
+      fitTo(null, 400);
+      if (selectedId) showDetail(selectedId);
+    });
+
+    // Lists in both side panels select nodes via data-nid
+    document.querySelectorAll('#left-panel, #right-panel').forEach(panel => panel.addEventListener('click', e => {
       if (e.target.closest('.detail-back')) { clearSelection(); return; }
+      const action = e.target.closest('[data-action="toggle"]');
+      if (action) { toggleBranch(action.dataset.id); return; }
       const target = e.target.closest('[data-nid]');
-      if (target) { e.preventDefault(); selectNode(target.dataset.nid); }
+      if (target) { e.preventDefault(); select(target.dataset.nid); }
+    }));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && selectedId) clearSelection();
     });
 
-    // ── Init ────────────────────────────────────────────────────
-    loadResources();
+    load();
   </script>
 </body>
 </html>

@@ -7,6 +7,14 @@ tag on every resource that lives in that tab.  Deduplication is by normalised
 URL; when the same URL appears on multiple tabs or rows the *earliest* Date
 wins and tags are merged.
 
+Rows without a Date get `added_at` from data/first_seen.json — the day the
+sync first saw that URL — instead of today's date, which the full rebuild
+would otherwise stamp on them every run. `date_source` says which one it is.
+
+Each resource also records its `placements` — the (tab, Category text) pairs
+it came from — and the run writes data/graph.json (see build_graph.py), the
+branch/topic graph shared by the web viewer and the MCP server.
+
 Required environment:
     GOOGLE_SERVICE_ACCOUNT_JSON — the raw JSON string of a Google Cloud
                                   service-account key that has Viewer access
@@ -27,6 +35,8 @@ from urllib.parse import urldefrag, urlsplit, urlunsplit
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 
+from build_graph import write_graph
+
 # ── Config ──────────────────────────────────────────────────────────────────
 
 SPREADSHEET_ID = os.environ.get(
@@ -38,6 +48,7 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RESOURCES_FILE = REPO_ROOT / "data" / "resources.json"
+FIRST_SEEN_FILE = REPO_ROOT / "data" / "first_seen.json"
 
 EXPECTED_HEADERS = ["Date", "Link", "Name/Author", "Function/Summary",
                     "Category", "Review/Notes"]
@@ -164,7 +175,7 @@ def rows_to_entries(tab_name: str, rows: list[list[str]]) -> list[dict]:
         cat_raw = cell("Category")
         category = normalise_category(cat_raw) if cat_raw else "other"
         tags = [tag]
-        if cat_raw and cat_raw.lower() not in ("", "other"):
+        if cat_raw and cat_raw.lower() not in ("", "other", tag):
             tags.append(cat_raw.strip().lower())
 
         entries.append({
@@ -174,6 +185,7 @@ def rows_to_entries(tab_name: str, rows: list[list[str]]) -> list[dict]:
             "summary": cell("Function/Summary"),
             "category": category,
             "tags": tags,
+            "placements": [{"branch": tag, "topic": cat_raw or None}],
             "created": date_str,
             "notes": cell("Review/Notes"),
         })
@@ -188,6 +200,10 @@ def merge_entries(all_entries: list[dict]) -> list[dict]:
         if norm in by_url:
             existing = by_url[norm]
             existing["tags"] = sorted(set(existing["tags"]) | set(e["tags"]))
+            existing["placements"] = existing.get("placements", []) + [
+                p for p in e.get("placements", [])
+                if p not in existing.get("placements", [])
+            ]
             existing["created"] = earlier(existing["created"], e["created"])
             if not existing["notes"] and e["notes"]:
                 existing["notes"] = e["notes"]
@@ -198,11 +214,18 @@ def merge_entries(all_entries: list[dict]) -> list[dict]:
     return list(by_url.values())
 
 
-def build_resources(merged: list[dict]) -> list[dict]:
-    """Shape into the final JSON schema."""
-    today = datetime.date.today().isoformat()
+def build_resources(merged: list[dict], first_seen: dict[str, str] | None = None,
+                    today: str | None = None) -> list[dict]:
+    """Shape into the final JSON schema.
+
+    `first_seen` maps normalised URL -> YYYY-MM-DD and is updated in place:
+    URLs not in it yet are recorded as first seen `today`.
+    """
+    today = today or datetime.date.today().isoformat()
+    first_seen = {} if first_seen is None else first_seen
     resources = []
     for idx, e in enumerate(merged, start=1):
+        seen = first_seen.setdefault(e["_norm"], today)
         resources.append({
             "id": idx,
             "url": e["url"],
@@ -210,9 +233,11 @@ def build_resources(merged: list[dict]) -> list[dict]:
             "summary": e["summary"],
             "category": e["category"],
             "tags": e["tags"],
+            "placements": e.get("placements", []),
             "source_file": "",
             "created": e["created"],
-            "added_at": e["created"] or today,
+            "added_at": e["created"] or seen,
+            "date_source": "sheet" if e["created"] else "first_seen",
             "notes": e["notes"],
         })
     return resources
@@ -243,12 +268,21 @@ def main() -> None:
     merged = merge_entries(all_entries)
     print(f"Total after dedup: {len(merged)}")
 
-    resources = build_resources(merged)
+    first_seen = {}
+    if FIRST_SEEN_FILE.exists():
+        first_seen = json.loads(FIRST_SEEN_FILE.read_text(encoding="utf-8"))
+    resources = build_resources(merged, first_seen)
 
     RESOURCES_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(RESOURCES_FILE, "w", encoding="utf-8") as f:
         json.dump(resources, f, ensure_ascii=False, indent=2)
     print(f"Wrote {len(resources)} entries to {RESOURCES_FILE}")
+
+    with open(FIRST_SEEN_FILE, "w", encoding="utf-8") as f:
+        json.dump(dict(sorted(first_seen.items())), f, ensure_ascii=False, indent=2)
+
+    graph = write_graph(resources, branch_labels={tab_to_tag(name): name for name, _ in tabs})
+    print(f"Wrote graph.json: {len(graph['nodes'])} nodes, {len(graph['edges'])} edges")
 
 
 if __name__ == "__main__":

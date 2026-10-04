@@ -8,6 +8,13 @@ Exposes data/resources.json (generated from Google Sheets) as MCP tools:
   - get_resource(resource_id)  — return full detail of one resource by id
   - search_tags(question, max_results)  — keyword-search the tag index
   - get_tag(tag)               — list every resource carrying a given tag
+  - list_branches()            — the branches (sheet tabs) with their topics
+  - get_branch(branch)         — one branch: its topics and their resources
+  - find_topic(name)           — a topic name across every branch
+  - get_node(node_id)          — any graph node with its incoming/outgoing edges
+
+The branch tools read data/graph.json, the same graph the web viewer draws
+(built by build_graph.py), so an agent and a person navigate one structure.
 
 The server never writes to resources.json, the Sheet, or anything else.
 A restart is always safe.
@@ -23,6 +30,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 from pathlib import Path
 
 from mcp.server.mcpserver import MCPServer
@@ -31,6 +39,10 @@ from mcp.server.mcpserver import MCPServer
 
 ROOT = Path(__file__).resolve().parent.parent
 RESOURCES_FILE = ROOT / "data" / "resources.json"
+GRAPH_FILE = ROOT / "data" / "graph.json"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_graph import build_graph, slugify  # noqa: E402
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -38,6 +50,49 @@ def _load_resources() -> list[dict]:
     if not RESOURCES_FILE.exists():
         return []
     return json.loads(RESOURCES_FILE.read_text(encoding="utf-8"))
+
+
+def _load_graph() -> dict:
+    """graph.json if present, else built on the fly from resources.json."""
+    if GRAPH_FILE.exists():
+        return json.loads(GRAPH_FILE.read_text(encoding="utf-8"))
+    return build_graph(_load_resources())
+
+
+class _Graph:
+    """Index over graph.json for neighbour lookups."""
+
+    def __init__(self, graph: dict):
+        self.nodes = {n["id"]: n for n in graph.get("nodes", [])}
+        self.out: dict[str, list[dict]] = {}
+        self.inc: dict[str, list[dict]] = {}
+        for e in graph.get("edges", []):
+            self.out.setdefault(e["source"], []).append(e)
+            self.inc.setdefault(e["target"], []).append(e)
+
+    def children(self, node_id: str, rel: str) -> list[dict]:
+        return [self.nodes[e["target"]] for e in self.out.get(node_id, [])
+                if e["type"] == rel and e["target"] in self.nodes]
+
+    def of_type(self, kind: str) -> list[dict]:
+        return [n for n in self.nodes.values() if n["type"] == kind]
+
+    def find_branch(self, query: str) -> dict | None:
+        q = slugify(query)
+        branches = self.of_type("branch")
+        for b in branches:
+            if q in (b.get("slug"), slugify(b["label"]), slugify(b["id"].split(":", 1)[-1])):
+                return b
+        partial = [b for b in branches if q and (q in b["slug"] or b["slug"] in q)]
+        return partial[0] if len(partial) == 1 else None
+
+
+def _node_line(n: dict) -> str:
+    if n["type"] == "resource":
+        summary = f" | {n['summary']}" if n.get("summary") else ""
+        return f"- **{n['id']}** — {n['label']}{summary}"
+    count = f" ({n.get('count', 0)} resources)" if "count" in n else ""
+    return f"- **{n['id']}** — {n['label']}{count}"
 
 
 # Hebrew and English stop words — kept small and targeted, same idea as the
@@ -109,7 +164,8 @@ def _format_resource_full(r: dict) -> str:
         f"tags: {tags}\n"
         f"summary: {r.get('summary', '')}\n"
         f"notes: {r.get('notes', '') or '—'}\n"
-        f"added_at: {r.get('added_at', '')}\n"
+        f"added_at: {r.get('added_at', '')}"
+        f"{' (first seen by the sync; the sheet row has no Date)' if not r.get('created') else ''}\n"
         f"created: {r.get('created', '')}"
     )
 
@@ -125,6 +181,11 @@ mcp = MCPServer(
         "Use get_resource to fetch a specific resource by its numeric id. "
         "Use search_tags to discover which tags exist and how many resources each has. "
         "Use get_tag to list every resource carrying a specific tag. "
+        "The knowledge base is also a graph: branches (sheet tabs) contain topics, "
+        "topics contain resources. Start with list_branches, drill in with "
+        "get_branch, look a topic up across branches with find_topic, and walk "
+        "edges from any node with get_node. Resource node ids look like "
+        "'resource:12'; the number is the id get_resource takes. "
         "This server never writes to the knowledge base."
     ),
 )
@@ -275,6 +336,121 @@ def get_tag(tag: str) -> str:
     lines = [f"Resources tagged '{tag}' ({len(matches)}):\n"]
     for r in matches:
         lines.append(_format_resource_short(r))
+    return "\n".join(lines)
+
+
+@mcp.tool(
+    description=(
+        "List the knowledge base's branches (one per Google Sheet tab) with "
+        "resource and topic counts and their largest topics. Start here to "
+        "see how the knowledge base is organised."
+    )
+)
+def list_branches() -> str:
+    """Overview of all branches."""
+    g = _Graph(_load_graph())
+    branches = sorted(g.of_type("branch"), key=lambda b: (-b.get("count", 0), b["label"]))
+    if not branches:
+        return "No branches in knowledge base."
+    lines = [f"Branches ({len(branches)}):\n"]
+    for b in branches:
+        topics = sorted(g.children(b["id"], "HAS_TOPIC"), key=lambda t: -t.get("count", 0))
+        top = ", ".join(t["label"] for t in topics[:5])
+        lines.append(
+            f"- **{b['label']}** (`{b['slug']}`) — {b.get('count', 0)} resources, "
+            f"{len(topics)} topics{f' — top: {top}' if top else ''}"
+        )
+    return "\n".join(lines)
+
+
+@mcp.tool(
+    description=(
+        "Show one branch: every topic in it with its resources, plus resources "
+        "filed directly under the branch. Accepts the branch slug or tab title "
+        "(e.g. 'repos-in-github' or 'Repos in github')."
+    )
+)
+def get_branch(branch: str) -> str:
+    """Topics and resources of one branch."""
+    branch = branch.strip()
+    if not branch:
+        return "Error: 'branch' cannot be empty."
+    g = _Graph(_load_graph())
+    b = g.find_branch(branch)
+    if not b:
+        names = ", ".join(sorted(n["slug"] for n in g.of_type("branch")))
+        return f"Branch not found: '{branch}'. Branches: {names}"
+
+    lines = [f"## {b['label']} (`{b['id']}`) — {b.get('count', 0)} resources\n"]
+    topics = sorted(g.children(b["id"], "HAS_TOPIC"), key=lambda t: (-t.get("count", 0), t["label"]))
+    for t in topics:
+        lines.append(f"### {t['label']} (`{t['id']}`)")
+        lines.extend(_node_line(r) for r in g.children(t["id"], "HAS_RESOURCE"))
+        lines.append("")
+    direct = g.children(b["id"], "HAS_RESOURCE")
+    if direct:
+        lines.append("### (no topic)")
+        lines.extend(_node_line(r) for r in direct)
+    if not topics and not direct:
+        lines.append("This branch has no resources yet.")
+    return "\n".join(lines).rstrip()
+
+
+@mcp.tool(
+    description=(
+        "Find a topic by name across all branches (substring match). The same "
+        "topic name can exist in several branches, e.g. 'agent framework' "
+        "under both Tools and Repos in github."
+    )
+)
+def find_topic(name: str) -> str:
+    """Topics matching a name, grouped by branch."""
+    q = name.strip().lower()
+    if not q:
+        return "Error: 'name' cannot be empty."
+    g = _Graph(_load_graph())
+    hits = [t for t in g.of_type("topic") if q in t["label"] or t["label"] in q]
+    if not hits:
+        return f"No topic matching '{name}'. Try list_branches or query_kb."
+    hits.sort(key=lambda t: (-t.get("count", 0), t["id"]))
+    lines = [f"Topics matching '{name}' ({len(hits)}):\n"]
+    for t in hits:
+        branch = g.nodes.get(t.get("branch", ""), {}).get("label", "?")
+        lines.append(f"- **{t['label']}** in {branch} (`{t['id']}`) — {t.get('count', 0)} resources")
+    return "\n".join(lines)
+
+
+@mcp.tool(
+    description=(
+        "Return one graph node (branch, topic or resource) with all its "
+        "outgoing and incoming edges and the nodes on the other end. Use the "
+        "ids returned by the other branch tools, e.g. 'branch:tools', "
+        "'topic:tools/agent-framework' or 'resource:12'."
+    )
+)
+def get_node(node_id: str) -> str:
+    """A node and its neighbourhood."""
+    node_id = node_id.strip()
+    g = _Graph(_load_graph())
+    n = g.nodes.get(node_id)
+    if not n:
+        return (f"Node not found: '{node_id}'. Ids look like 'branch:<slug>', "
+                "'topic:<branch>/<topic>' or 'resource:<id>'.")
+
+    fields = {k: v for k, v in n.items() if k not in ("id", "type") and v not in ("", [], None)}
+    lines = [f"## {n['label']}", f"id: {n['id']}", f"type: {n['type']}"]
+    lines += [f"{k}: {', '.join(v) if isinstance(v, list) else v}"
+              for k, v in fields.items() if k != "label"]
+    out = g.out.get(node_id, [])
+    if out:
+        lines.append(f"\n### Outgoing ({len(out)})")
+        lines += [f"- -[{e['type']}]-> {_node_line(g.nodes[e['target']])[2:]}"
+                  for e in out if e["target"] in g.nodes]
+    inc = g.inc.get(node_id, [])
+    if inc:
+        lines.append(f"\n### Incoming ({len(inc)})")
+        lines += [f"- <-[{e['type']}]- {_node_line(g.nodes[e['source']])[2:]}"
+                  for e in inc if e["source"] in g.nodes]
     return "\n".join(lines)
 
 
