@@ -16,6 +16,10 @@ Each branch is its own cluster: topics ring the hub and their resources fan out 
 
 ![Graph overview: one cluster per sheet tab](docs/graph.png)
 
+Opening a branch (here **Tools**) fans out its topics and their links; the right panel lists the branch's contents:
+
+![Tools branch opened: topics around the hub, links around each topic](docs/graph-branch.png)
+
 ## End-to-End Flow
 
 ![Process flow: repo URL → Sheet card → sync action → site graph → MCP query](docs/flow.png)
