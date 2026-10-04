@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from build_graph import build_graph, normalise_topic, placements_of, slugify
+from build_graph import build_graph, github_repo, normalise_topic, placements_of, slugify
 from sync_sheets import build_resources, merge_entries, rows_to_entries
 
 HEADER = ["Date", "Link", "Name/Author", "Function/Summary", "Category", "Review/Notes"]
@@ -126,3 +126,27 @@ def test_sync_records_placements_across_tabs():
 def test_sync_does_not_repeat_tab_as_category_tag():
     entries = rows_to_entries("Learning", [HEADER, ["", "https://l.dev", "L", "", "Learning", ""]])
     assert entries[0]["tags"] == ["learning"]
+
+
+# ── GitHub detection ────────────────────────────────────────────────────────
+
+def test_github_repo_from_url():
+    assert github_repo("https://github.com/microsoft/rag-time") == "microsoft/rag-time"
+    assert github_repo("https://www.github.com/a/b.git") == "a/b"
+    assert github_repo("https://github.com/gravitational/teleport/blob/master/rfd/x.md") == "gravitational/teleport"
+    assert github_repo("https://github.com/x/y#readme") == "x/y"
+
+
+def test_github_repo_rejects_non_repos():
+    for url in ("https://github.com/topics/rag", "https://github.com/onlyowner",
+                "https://gist.github.com/a/b", "https://microsoft.github.io/x/y",
+                "https://example.com/a/b", "", None):
+        assert github_repo(url) is None
+
+
+def test_resource_nodes_carry_github_repo():
+    g = build_graph([{"id": 1, "url": "https://github.com/o/r", "placements": [{"branch": "tools", "topic": None}]},
+                     {"id": 2, "url": "https://o.dev", "placements": [{"branch": "tools", "topic": None}]}])
+    nodes = {n["id"]: n for n in g["nodes"]}
+    assert nodes["resource:1"]["github_repo"] == "o/r"
+    assert nodes["resource:2"]["github_repo"] is None

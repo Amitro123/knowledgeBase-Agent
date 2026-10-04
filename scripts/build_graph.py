@@ -38,6 +38,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RESOURCES_FILE = REPO_ROOT / "data" / "resources.json"
@@ -66,6 +67,32 @@ def normalise_topic(raw: str | None, branch: str) -> str | None:
     if topic in _EMPTY_TOPICS or slugify(topic) == slugify(branch):
         return None
     return topic
+
+
+# github.com/<first segment> paths that are site pages, not owners
+_GITHUB_NON_OWNERS = {
+    "about", "apps", "collections", "customer-stories", "enterprise", "events",
+    "explore", "features", "login", "marketplace", "orgs", "pricing", "search",
+    "settings", "sponsors", "topics", "trending",
+}
+
+
+def github_repo(url: str) -> str | None:
+    """'owner/repo' for a github.com repository URL (any page inside it), else None.
+
+    Whether a link is a GitHub project is derived from the URL rather than
+    from the "Repos in github" tab, which holds only some of them.
+    """
+    try:
+        parts = urlsplit((url or "").strip())
+    except ValueError:
+        return None
+    if parts.netloc.lower().removeprefix("www.") != "github.com":
+        return None
+    segs = [s for s in parts.path.split("/") if s]
+    if len(segs) < 2 or segs[0].lower() in _GITHUB_NON_OWNERS:
+        return None
+    return f"{segs[0]}/{segs[1].removesuffix('.git')}"
 
 
 def humanise(slug: str) -> str:
@@ -157,6 +184,7 @@ def build_graph(resources: list[dict],
             "type": "resource",
             "label": r.get("title") or r.get("url") or rid,
             "url": r.get("url", ""),
+            "github_repo": github_repo(r.get("url", "")),
             "summary": r.get("summary", ""),
             "notes": r.get("notes", ""),
             "added_at": r.get("added_at", ""),
