@@ -549,17 +549,7 @@
     let selectedNodeId = null;
     let hoveredNodeId = null;
     let searchQuery = '';
-
-    const CATEGORY_COLORS = {
-      tutorial:      '#52d9a0',
-      tool:          '#7c6af7',
-      research:      '#5b8dee',
-      news:          '#f7c948',
-      reference:     '#f97a6c',
-      community:     '#52d9a0',
-      other:         '#8892b0',
-      uncategorised: '#8892b0',
-    };
+    let currentScale = 1;
 
     const CATEGORY_LABELS = {
       tutorial: 'Tutorials', tool: 'Tools', research: 'Research',
@@ -572,6 +562,34 @@
       tag:      { bg: '#5b8dee', border: '#3a6dc8', highlight: '#8db4ff' },
       category: { bg: '#52d9a0', border: '#38b07e', highlight: '#7eedc0' },
     };
+
+    const EDGE_COLORS = {
+      cat: { color: '#52d9a066', highlight: '#52d9a0cc', hover: '#52d9a0aa' },
+      tag: { color: '#5b8dee44', highlight: '#5b8deecc', hover: '#5b8deeaa' },
+    };
+    const EDGE_WIDTH = { cat: 1.4, tag: 1 };
+
+    // vis-network skips labels smaller than 5 screen px, so at the zoomed-out
+    // overview fixed font sizes vanish. Size hub labels in screen px instead,
+    // and only label the bigger tags until the user zooms in.
+    const LABEL_PX = { category: 15, tag: 12 };
+    const TAG_LABEL_MIN_COUNT = 3;
+    const ALL_TAG_LABELS_SCALE = 0.7;
+    const RESOURCE_LABELS_SCALE = 1.2;
+
+    function labelFont(info, scale) {
+      const base = { face: 'Inter, sans-serif', strokeColor: '#0b0e18' };
+      if (info.type === 'category') {
+        return { ...base, color: '#fff', size: Math.max(16, LABEL_PX.category / scale), strokeWidth: 4, background: 'rgba(11,14,24,0.6)' };
+      }
+      if (info.type === 'tag') {
+        const show = (info.data.count || 0) >= TAG_LABEL_MIN_COUNT || scale >= ALL_TAG_LABELS_SCALE;
+        const px = LABEL_PX.tag + Math.min(info.data.count || 0, 10) * 0.3;
+        return { ...base, color: show ? '#c0ccee' : '#c0ccee00', size: Math.max(12, px / scale), strokeWidth: show ? 3 : 0, background: show ? 'rgba(11,14,24,0.45)' : 'transparent' };
+      }
+      const show = scale > RESOURCE_LABELS_SCALE;
+      return { ...base, color: show ? '#ddd8c8' : '#e8a83800', size: 11, strokeWidth: show ? 2 : 0, background: show ? 'rgba(11,14,24,0.5)' : 'transparent' };
+    }
 
     // ── Fetch data ──────────────────────────────────────────────
     async function loadResources() {
@@ -651,7 +669,7 @@
       // Category nodes
       catSet.forEach((count, cat) => {
         const cid = 'c_' + cat;
-        const c = CATEGORY_COLORS[cat] || '#52d9a0';
+        const c = NODE_COLORS.category.bg;
         graphNodeMap[cid] = { type: 'category', data: { name: cat, count } };
         nodes.push({
           id: cid,
@@ -661,7 +679,7 @@
           size: 28 + Math.min(count, 30),
           mass: 4 + count * 0.2,
           color: { background: c, border: c + 'aa', highlight: { background: c, border: '#ffffffcc' } },
-          font: { color: '#fff', size: 16, face: 'Inter, sans-serif', strokeWidth: 4, strokeColor: '#0b0e18' },
+          font: labelFont(graphNodeMap[cid], currentScale),
         });
       });
 
@@ -678,7 +696,7 @@
           size: sz,
           mass: 1.5 + count * 0.1,
           color: { background: '#5b8dee', border: '#5b8dee88', highlight: { background: '#8db4ff', border: '#ffffffcc' } },
-          font: { color: '#c0ccee', size: 12 + Math.min(count, 10), face: 'Inter, sans-serif', strokeWidth: 3, strokeColor: '#0b0e18' },
+          font: labelFont(graphNodeMap[tid], currentScale),
         });
       });
 
@@ -703,8 +721,8 @@
         edges.push({
           from: rid, to: 'c_' + cat,
           _type: 'cat',
-          color: { color: '#52d9a030', highlight: '#52d9a0aa', hover: '#52d9a070' },
-          width: 1.2,
+          color: EDGE_COLORS.cat,
+          width: EDGE_WIDTH.cat,
           smooth: { type: 'continuous', roundness: 0.2 },
         });
 
@@ -716,8 +734,8 @@
             from: rid, to: 't_' + k,
             _type: 'tag',
             dashes: [6, 4],
-            color: { color: '#5b8dee20', highlight: '#5b8deeaa', hover: '#5b8dee70' },
-            width: 0.8,
+            color: EDGE_COLORS.tag,
+            width: EDGE_WIDTH.tag,
             smooth: { type: 'continuous', roundness: 0.15 },
           });
         });
@@ -742,6 +760,11 @@
           borderWidth: 1.5,
           shadow: { enabled: true, color: 'rgba(0,0,0,.3)', size: 6, x: 0, y: 2 },
         },
+        // Without explicit groups vis-network falls back to its default
+        // palette per group whenever a node update omits `color`.
+        groups: Object.fromEntries(Object.entries(NODE_COLORS).map(([type, c]) => [type, {
+          color: { background: c.bg, border: c.border, highlight: { background: c.highlight, border: '#ffffffcc' }, hover: { background: c.highlight, border: c.border } },
+        }])),
         edges: {
           smooth: { type: 'continuous', roundness: 0.2 },
           selectionWidth: 2,
@@ -832,11 +855,21 @@
       graphNetwork.on('hoverNode', onHoverNode);
       graphNetwork.on('blurNode', onBlurNode);
       graphNetwork.on('zoom', onZoom);
-      graphNetwork.on('stabilizationIterationsDone', () => {
-        graphNetwork.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
-      });
+      graphNetwork.on('stabilizationIterationsDone', () => fitView(400));
 
       showHint('Scroll to zoom · Click a node for details · Drag to pan');
+    }
+
+    // fit() puts the outermost nodes on the canvas edge; zoom out a bit so
+    // nodes and their labels keep a margin.
+    function fitView(duration) {
+      if (!graphNetwork) return;
+      graphNetwork.fit({ animation: false });
+      const scale = graphNetwork.getScale() * 0.88;
+      const position = graphNetwork.getViewPosition();
+      graphNetwork.moveTo({ position, scale, animation: { duration, easingFunction: 'easeInOutQuad' } });
+      currentScale = scale;
+      updateLabels();
     }
 
     // Keep vis-network canvas in sync with container size
@@ -866,10 +899,9 @@
       if (!selectedNodeId) resetHighlight();
     }
 
-    let currentScale = 1;
     function onZoom(params) {
       currentScale = params.scale;
-      updateResourceLabels();
+      updateLabels();
       const hint = document.getElementById('graph-hint');
       if (hint) hint.style.opacity = params.scale > 0.5 ? '0' : '1';
     }
@@ -890,22 +922,20 @@
       });
     }
 
-    function updateResourceLabels() {
-      const show = currentScale > 1.2;
-      const updates = [];
-      graphData.nodes.forEach(node => {
-        if (node.group !== 'resource') return;
-        const wantColor = show ? '#ddd8c8' : '#e8a83800';
-        updates.push({
-          id: node.id,
-          font: {
-            color: wantColor, size: 11, face: 'Inter, sans-serif',
-            strokeWidth: show ? 2 : 0, strokeColor: '#0b0e18',
-            background: show ? 'rgba(11,14,24,0.5)' : 'transparent',
-          },
+    let labelFrame = 0;
+    function updateLabels() {
+      if (labelFrame) return;
+      labelFrame = requestAnimationFrame(() => {
+        labelFrame = 0;
+        const focus = selectedNodeId || hoveredNodeId;
+        if (focus) { highlightNeighbors(focus); return; }
+        const updates = [];
+        graphData.nodes.forEach(node => {
+          const info = graphNodeMap[node.id];
+          if (info) updates.push({ id: node.id, font: labelFont(info, currentScale) });
         });
+        if (updates.length) graphData.nodes.update(updates);
       });
-      if (updates.length) graphData.nodes.update(updates);
     }
 
     // ── Highlight neighbors ─────────────────────────────────────
@@ -927,12 +957,13 @@
           return {
             id,
             opacity: 0.08,
-            font: { color: 'rgba(255,255,255,0.03)', size: node.font?.size || 12, face: 'Inter, sans-serif', strokeWidth: 0, background: 'transparent' },
+            font: { color: 'rgba(255,255,255,0)', size: node.font?.size || 12, face: 'Inter, sans-serif', strokeWidth: 0, background: 'transparent' },
           };
         }
 
         const nc = NODE_COLORS[info?.type] || NODE_COLORS.resource;
         const label = info?.type === 'resource' ? (node._fullLabel || node.label) : node.label;
+        const fontSize = info?.type === 'resource' ? 11 : labelFont(info, currentScale).size;
 
         return {
           id,
@@ -945,7 +976,7 @@
             : undefined,
           font: {
             color: info?.type === 'resource' ? '#f0d898' : (info?.type === 'category' ? '#fff' : '#c0ccee'),
-            size: isSelected ? (node.font?.size || 12) * 1.1 : (node.font?.size || 12),
+            size: isSelected ? fontSize * 1.1 : fontSize,
             face: 'Inter, sans-serif',
             strokeWidth: 3, strokeColor: '#0b0e18',
             background: 'rgba(11,14,24,0.55)',
@@ -960,10 +991,10 @@
         return {
           id,
           opacity: isConn ? 1 : 0.03,
-          width: isConn ? 2.5 : edge._type === 'cat' ? 1.2 : 0.8,
+          width: isConn ? 2.5 : EDGE_WIDTH[edge._type],
           color: isConn
             ? { color: edge._type === 'cat' ? '#52d9a0bb' : '#5b8deebb' }
-            : edge.color,
+            : { color: edge._type === 'cat' ? '#52d9a00c' : '#5b8dee0a' },
         };
       });
 
@@ -973,7 +1004,6 @@
 
     function resetHighlight() {
       if (!graphData.nodes) return;
-      const showLabels = currentScale > 1.2;
 
       const nodeUpdates = graphData.nodes.getIds().map(id => {
         const info = graphNodeMap[id];
@@ -985,7 +1015,6 @@
         const isCat = info.type === 'category';
 
         const baseSize = isResource ? 10 : (isCat ? (28 + Math.min(info.data.count || 0, 30)) : (10 + Math.min(info.data.count || 0, 20) * 1.4));
-        const baseFontSize = isResource ? 11 : (isCat ? 16 : (12 + Math.min(info.data.count || 0, 10)));
 
         return {
           id,
@@ -994,14 +1023,7 @@
           borderWidth: 1.5,
           color: { background: nc.bg, border: nc.bg + (isCat ? 'aa' : '55'), highlight: { background: nc.highlight, border: '#ffffffcc' } },
           label: isResource ? (node._fullLabel || '') : node.label,
-          font: {
-            color: isResource ? (showLabels ? '#ddd8c8' : '#e8a83800') : (isCat ? '#fff' : '#c0ccee'),
-            size: baseFontSize,
-            face: 'Inter, sans-serif',
-            strokeWidth: isResource && !showLabels ? 0 : (isCat ? 4 : 3),
-            strokeColor: '#0b0e18',
-            background: isResource && !showLabels ? 'transparent' : (isCat ? 'rgba(11,14,24,0.6)' : 'rgba(11,14,24,0.45)'),
-          },
+          font: labelFont(info, currentScale),
         };
       });
 
@@ -1010,10 +1032,8 @@
         return {
           id,
           opacity: 1,
-          width: edge._type === 'cat' ? 1.2 : 0.8,
-          color: edge._type === 'cat'
-            ? { color: '#52d9a030', highlight: '#52d9a0aa', hover: '#52d9a070' }
-            : { color: '#5b8dee20', highlight: '#5b8deeaa', hover: '#5b8dee70' },
+          width: EDGE_WIDTH[edge._type],
+          color: EDGE_COLORS[edge._type],
         };
       });
 
