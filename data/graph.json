@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T21:57:59+00:00",
+  "generated_at": "2026-10-04T22:15:20+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -60,6 +60,14 @@
       "topic_count": 2
     },
     {
+      "id": "branch:harness",
+      "type": "branch",
+      "label": "Harness",
+      "slug": "harness",
+      "count": 5,
+      "topic_count": 4
+    },
+    {
       "id": "branch:mcp",
       "type": "branch",
       "label": "MCP",
@@ -82,14 +90,6 @@
       "slug": "automation-flow",
       "count": 4,
       "topic_count": 3
-    },
-    {
-      "id": "branch:harness",
-      "type": "branch",
-      "label": "Harness",
-      "slug": "harness",
-      "count": 4,
-      "topic_count": 4
     },
     {
       "id": "branch:jev",
@@ -295,6 +295,13 @@
       "count": 2
     },
     {
+      "id": "topic:harness/agent-harness",
+      "type": "topic",
+      "label": "agent harness",
+      "branch": "branch:harness",
+      "count": 2
+    },
+    {
       "id": "topic:learning/productivity",
       "type": "topic",
       "label": "productivity",
@@ -376,13 +383,6 @@
       "type": "topic",
       "label": "code search",
       "branch": "branch:finops",
-      "count": 1
-    },
-    {
-      "id": "topic:harness/agent-harness",
-      "type": "topic",
-      "label": "agent harness",
-      "branch": "branch:harness",
       "count": 1
     },
     {
@@ -1126,6 +1126,23 @@
     },
     {
       "id": "resource:131",
+      "type": "resource",
+      "label": "coldteadotai / abide",
+      "url": "https://github.com/coldteadotai/abide",
+      "github_repo": "coldteadotai/abide",
+      "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
+      "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:132",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -3731,13 +3748,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:131",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:131",
+      "target": "resource:132",
       "type": "HAS_RESOURCE"
     }
   ]

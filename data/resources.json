@@ -2954,6 +2954,28 @@
   },
   {
     "id": 131,
+    "url": "https://github.com/coldteadotai/abide",
+    "title": "coldteadotai / abide",
+    "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
+    "category": "other",
+    "tags": [
+      "harness",
+      "agent harness"
+    ],
+    "placements": [
+      {
+        "branch": "harness",
+        "topic": "Agent Harness"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-05",
+    "added_at": "2026-10-05",
+    "date_source": "sheet",
+    "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key."
+  },
+  {
+    "id": 132,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
