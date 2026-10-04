@@ -45,3 +45,6 @@ jobs:
             git commit -m "chore: sync resources.json and graph.json from Google Sheets"
             git push
           fi
+
+      - name: Check catalog links for dead URLs
+        run: python scripts/check_links.py
