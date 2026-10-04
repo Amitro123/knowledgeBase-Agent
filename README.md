@@ -2,8 +2,6 @@
 
 A personal technical-link knowledge base for AI resources — tools, research papers, tutorials, news, and references — synced automatically from a Google Sheet.
 
-**Live site:** <https://amitro123.github.io/knowledgeBase-Agent/>
-
 ## Project status
 
 This is a personal knowledge-base project and a portfolio/reference implementation.
