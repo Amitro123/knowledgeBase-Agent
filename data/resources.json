@@ -7,12 +7,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "vector databases"
+      "rag & retrieval"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Vector Databases"
+        "topic": "RAG & Retrieval"
       }
     ],
     "source_file": "",
@@ -29,12 +29,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "rag framework"
+      "rag & retrieval"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "RAG Framework"
+        "topic": "RAG & Retrieval"
       }
     ],
     "source_file": "",
@@ -51,12 +51,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "agentic rag"
+      "rag & retrieval"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Agentic RAG"
+        "topic": "RAG & Retrieval"
       }
     ],
     "source_file": "",
@@ -73,12 +73,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "context engineering"
+      "agents & context"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Context Engineering"
+        "topic": "Agents & Context"
       }
     ],
     "source_file": "",
@@ -95,12 +95,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "tool calling"
+      "agents & context"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Tool Calling"
+        "topic": "Agents & Context"
       }
     ],
     "source_file": "",
@@ -117,12 +117,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "agent architecture"
+      "agents & context"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Agent Architecture"
+        "topic": "Agents & Context"
       }
     ],
     "source_file": "",
@@ -139,12 +139,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "terminal tools"
+      "productivity"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Terminal Tools"
+        "topic": "Productivity"
       }
     ],
     "source_file": "",
@@ -161,12 +161,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "lead generation"
+      "productivity"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Lead Generation"
+        "topic": "Productivity"
       }
     ],
     "source_file": "",
@@ -183,12 +183,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "firecrawl integration"
+      "rag & retrieval"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Firecrawl Integration"
+        "topic": "RAG & Retrieval"
       }
     ],
     "source_file": "",
@@ -205,12 +205,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "llm internals"
+      "llms & training"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "LLM Internals"
+        "topic": "LLMs & Training"
       }
     ],
     "source_file": "",
@@ -227,12 +227,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "voice agents"
+      "agents & context"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Voice Agents"
+        "topic": "Agents & Context"
       }
     ],
     "source_file": "",
@@ -249,12 +249,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "model training"
+      "llms & training"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Model Training"
+        "topic": "LLMs & Training"
       }
     ],
     "source_file": "",
@@ -271,12 +271,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "agent memory"
+      "agents & context"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Agent Memory"
+        "topic": "Agents & Context"
       }
     ],
     "source_file": "",
@@ -293,12 +293,12 @@
     "category": "other",
     "tags": [
       "learning",
-      "batch processing"
+      "llms & training"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "Batch Processing"
+        "topic": "LLMs & Training"
       }
     ],
     "source_file": "",
@@ -312,16 +312,17 @@
     "url": "https://huggingface.co/spaces/FineEnvs/multi-harness-rl",
     "title": "FineEnvs / Adithya S Kolavi et al. (Hugging Face, Liquid AI)",
     "summary": "The ultimate guide to multi-harness RL: אותו מודל מתנהג אחרת בכל agent harness. המדריך מראה איך לאמן מודלים פתוחים ב-RL בתוך harnesses אמיתיים (Claude Code, Codex, OpenCode) כדי לשפר אותם בכולם.",
-    "category": "research",
+    "category": "other",
     "tags": [
       "learning",
+      "llms & training",
       "research",
       "trends"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "research"
+        "topic": "LLMs & Training"
       },
       {
         "branch": "trends",
@@ -339,8 +340,9 @@
     "url": "https://github.com/walkinglabs/learn-harness-engineering",
     "title": "Learn Harness Engineering — walkinglabs",
     "summary": "Project-based course by walkinglabs (14 lectures, 8 projects) on harness engineering: designing the environment, instructions, state, verification, scope, and session lifecycle around an AI coding agent so it produces reliable results, rather than writing better prompts.",
-    "category": "tutorial",
+    "category": "other",
     "tags": [
+      "agents & context",
       "harness",
       "learning",
       "tutorial"
@@ -348,7 +350,7 @@
     "placements": [
       {
         "branch": "learning",
-        "topic": "tutorial"
+        "topic": "Agents & Context"
       },
       {
         "branch": "harness",
@@ -366,16 +368,17 @@
     "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
     "title": "Andrej Karpathy (LLM Wiki)",
     "summary": "Idea file for a personal knowledge base: an LLM incrementally maintains a persistent, interlinked markdown wiki (summaries, entity and concept pages, index.md, and an append-only log.md) between the user and immutable raw sources, instead of re-deriving answers from retrieved chunks on every query. Operations named in the file: ingest, query (file useful answers back into the wiki), and lint. The file says it is abstract and not a specific implementation.",
-    "category": "reference",
+    "category": "other",
     "tags": [
       "learning",
+      "llms & training",
       "memory",
       "reference"
     ],
     "placements": [
       {
         "branch": "learning",
-        "topic": "reference"
+        "topic": "LLMs & Training"
       },
       {
         "branch": "memory",
@@ -459,15 +462,15 @@
     "url": "https://huggingface.co/blog/ngxson/make-your-own-rag",
     "title": "ngxson / Hugging Face",
     "summary": "learn about RAG",
-    "category": "tutorial",
+    "category": "other",
     "tags": [
       "rag",
-      "tutorial"
+      "guides"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Tutorial"
+        "topic": "Guides"
       }
     ],
     "source_file": "",
@@ -484,12 +487,12 @@
     "category": "other",
     "tags": [
       "rag",
-      "architecture"
+      "guides"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Architecture"
+        "topic": "Guides"
       }
     ],
     "source_file": "",
@@ -506,12 +509,12 @@
     "category": "other",
     "tags": [
       "rag",
-      "vector database"
+      "vector databases"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Vector Database"
+        "topic": "Vector Databases"
       }
     ],
     "source_file": "",
@@ -528,12 +531,12 @@
     "category": "other",
     "tags": [
       "rag",
-      "resources"
+      "guides"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Resources"
+        "topic": "Guides"
       }
     ],
     "source_file": "",
@@ -550,12 +553,12 @@
     "category": "other",
     "tags": [
       "rag",
-      "framework"
+      "frameworks & tools"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Framework"
+        "topic": "Frameworks & Tools"
       }
     ],
     "source_file": "",
@@ -571,18 +574,19 @@
     "summary": "Standalone open-source document parser (Rust) for fast local spatial text parsing with bounding boxes, without proprietary LLM features or cloud dependencies. GitHub description: A fast, helpful, and open-source document parser. Outputs Markdown, JSON, and text; README says Markdown is for feeding LLMs and RAG pipelines. Bindings for Rust, Node.js/TypeScript, Python, and WASM; CLI is lit.",
     "category": "other",
     "tags": [
-      "document parser",
+      "data & knowledge",
+      "frameworks & tools",
       "rag",
       "tools"
     ],
     "placements": [
       {
         "branch": "rag",
-        "topic": "Document Parser"
+        "topic": "Frameworks & Tools"
       },
       {
         "branch": "tools",
-        "topic": "Document Parser"
+        "topic": "Data & Knowledge"
       }
     ],
     "source_file": "",
@@ -599,12 +603,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "database"
+      "memory & context"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Database"
+        "topic": "Memory & Context"
       }
     ],
     "source_file": "",
@@ -621,12 +625,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "data parsing"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Data Parsing"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -643,12 +647,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -665,12 +669,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ml / tabular"
+      "classic ml"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "ML / Tabular"
+        "topic": "Classic ML"
       }
     ],
     "source_file": "",
@@ -687,12 +691,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ml / tabular"
+      "classic ml"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "ML / Tabular"
+        "topic": "Classic ML"
       }
     ],
     "source_file": "",
@@ -709,12 +713,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ml / tabular"
+      "classic ml"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "ML / Tabular"
+        "topic": "Classic ML"
       }
     ],
     "source_file": "",
@@ -730,13 +734,13 @@
     "summary": "The LLM Evaluation Framework.",
     "category": "other",
     "tags": [
-      "evaluation",
-      "repos-in-github"
+      "repos-in-github",
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Evaluation"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -753,12 +757,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "web framework"
+      "dev utilities"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Web Framework"
+        "topic": "Dev Utilities"
       }
     ],
     "source_file": "",
@@ -775,12 +779,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "vector database"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Vector Database"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -797,12 +801,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -819,12 +823,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "data ingestion"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Data Ingestion"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -841,12 +845,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "developer tools"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Developer Tools"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -863,12 +867,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -885,12 +889,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -907,12 +911,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "vector database"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Vector Database"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -929,12 +933,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "llm serving"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "LLM Serving"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -951,12 +955,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "developer tools"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Developer Tools"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -973,12 +977,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ml platform"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "ML Platform"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -995,12 +999,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "context engineering"
+      "memory & context"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Context Engineering"
+        "topic": "Memory & Context"
       }
     ],
     "source_file": "",
@@ -1017,12 +1021,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1039,12 +1043,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "data management"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Data Management"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1061,12 +1065,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent memory"
+      "memory & context"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Memory"
+        "topic": "Memory & Context"
       }
     ],
     "source_file": "",
@@ -1083,12 +1087,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "developer tools"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Developer Tools"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1105,12 +1109,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "vector database"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Vector Database"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1127,12 +1131,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "learning / book"
+      "learning material"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Learning / Book"
+        "topic": "Learning Material"
       }
     ],
     "source_file": "",
@@ -1149,12 +1153,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "llm caching"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "LLM Caching"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -1171,12 +1175,12 @@
     "category": "other",
     "tags": [
       "repos-in-github",
-      "learning / hub"
+      "learning material"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Learning / Hub"
+        "topic": "Learning Material"
       }
     ],
     "source_file": "",
@@ -1192,13 +1196,13 @@
     "summary": "A framework for building and running AI workflows.",
     "category": "other",
     "tags": [
-      "ai workflows",
-      "repos-in-github"
+      "repos-in-github",
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "AI Workflows"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1209,18 +1213,18 @@
   },
   {
     "id": 55,
-    "url": "https://github.com/microsoft/markitdown.git",
-    "title": "markitdown",
-    "summary": "Markdown for use with LLMs and related text analysis pipelines.",
+    "url": "https://github.com/mindsdb/mindsdb?tab=readme-ov-file",
+    "title": "mindsdb",
+    "summary": "The platform for you to easily use, manage and deploy generative AI.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "data parsing"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Data Parsing"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -1231,40 +1235,18 @@
   },
   {
     "id": 56,
-    "url": "https://github.com/mindsdb/mindsdb?tab=readme-ov-file",
-    "title": "mindsdb",
-    "summary": "The platform for you to easily use, manage and deploy generative AI.",
-    "category": "other",
-    "tags": [
-      "repos-in-github",
-      "genai platform"
-    ],
-    "placements": [
-      {
-        "branch": "repos-in-github",
-        "topic": "GenAI Platform"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-10-02",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 57,
     "url": "https://github.com/bitswired/kiru",
     "title": "kiru",
     "summary": "Python library for building and deploying production-ready LLM pipelines.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "llm pipelines"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "LLM Pipelines"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -1274,19 +1256,41 @@
     "notes": ""
   },
   {
-    "id": 58,
+    "id": 57,
     "url": "https://github.com/kayba-ai/agentic-context-engine?tab=readme-ov-file#-the-seahorse-emoji-challenge",
     "title": "agentic-context-engine",
     "summary": "An agentic context engine framework.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework"
+        "topic": "Agent Frameworks"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 58,
+    "url": "https://github.com/gyoridavid/ai_agents_az.git",
+    "title": "ai_agents_az",
+    "summary": "AI agents and machine learning resources.",
+    "category": "other",
+    "tags": [
+      "repos-in-github",
+      "agent frameworks"
+    ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1297,40 +1301,40 @@
   },
   {
     "id": 59,
-    "url": "https://github.com/gyoridavid/ai_agents_az.git",
-    "title": "ai_agents_az",
-    "summary": "AI agents and machine learning resources.",
-    "category": "other",
-    "tags": [
-      "repos-in-github",
-      "agent resources"
-    ],
-    "placements": [
-      {
-        "branch": "repos-in-github",
-        "topic": "Agent Resources"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-10-02",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 60,
     "url": "https://github.com/patchy631/ai-engineering-hub/tree/main/web-browsing-agent",
     "title": "web-browsing-agent",
     "summary": "Resources for a web-browsing agent.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent resources"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Resources"
+        "topic": "Agent Frameworks"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 60,
+    "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+    "title": "500-AI-Agents-Projects",
+    "summary": "Collection of AI agent projects.",
+    "category": "other",
+    "tags": [
+      "repos-in-github",
+      "agent frameworks"
+    ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1341,18 +1345,18 @@
   },
   {
     "id": 61,
-    "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
-    "title": "500-AI-Agents-Projects",
-    "summary": "Collection of AI agent projects.",
+    "url": "https://github.com/rasbt/llms-from-scratch",
+    "title": "llms-from-scratch",
+    "summary": "Implementing LLMs from scratch.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent projects"
+      "learning material"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Projects"
+        "topic": "Learning Material"
       }
     ],
     "source_file": "",
@@ -1363,18 +1367,18 @@
   },
   {
     "id": 62,
-    "url": "https://github.com/rasbt/llms-from-scratch",
-    "title": "llms-from-scratch",
-    "summary": "Implementing LLMs from scratch.",
+    "url": "https://github.com/maximhq/bifrost",
+    "title": "https://github.com/maximhq/bifrost",
+    "summary": "Bifrost הוא AI Gateway (או LLM Proxy) מהיר במיוחד שנכתב ב-Go.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "learning / book"
+      "llm infrastructure"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Learning / Book"
+        "topic": "LLM Infrastructure"
       }
     ],
     "source_file": "",
@@ -1385,18 +1389,18 @@
   },
   {
     "id": 63,
-    "url": "https://github.com/maximhq/bifrost",
-    "title": "https://github.com/maximhq/bifrost",
-    "summary": "Bifrost הוא AI Gateway (או LLM Proxy) מהיר במיוחד שנכתב ב-Go.",
+    "url": "https://github.com/coleam00/habit-tracker/tree/workshop",
+    "title": "https://github.com/coleam00/habit-tracker/tree/workshop",
+    "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ai gateway"
+      "dev utilities"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "AI Gateway"
+        "topic": "Dev Utilities"
       }
     ],
     "source_file": "",
@@ -1407,18 +1411,18 @@
   },
   {
     "id": 64,
-    "url": "https://github.com/coleam00/habit-tracker/tree/workshop",
-    "title": "https://github.com/coleam00/habit-tracker/tree/workshop",
+    "url": "https://github.com/topoteretes/cognee",
+    "title": "https://github.com/topoteretes/cognee",
     "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "app"
+      "memory & context"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "App"
+        "topic": "Memory & Context"
       }
     ],
     "source_file": "",
@@ -1429,18 +1433,18 @@
   },
   {
     "id": 65,
-    "url": "https://github.com/topoteretes/cognee",
-    "title": "https://github.com/topoteretes/cognee",
+    "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
+    "title": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
     "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent memory"
+      "learning material"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Memory"
+        "topic": "Learning Material"
       }
     ],
     "source_file": "",
@@ -1451,18 +1455,18 @@
   },
   {
     "id": 66,
-    "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
-    "title": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
-    "summary": "",
+    "url": "https://github.com/jd/tenacity",
+    "title": "https://github.com/jd/tenacity",
+    "summary": "Retrying library for Python",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "course"
+      "dev utilities"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Course"
+        "topic": "Dev Utilities"
       }
     ],
     "source_file": "",
@@ -1473,18 +1477,18 @@
   },
   {
     "id": 67,
-    "url": "https://github.com/jd/tenacity",
-    "title": "https://github.com/jd/tenacity",
-    "summary": "Retrying library for Python",
+    "url": "https://github.com/vudovn/antigravity-kit",
+    "title": "antigravity skills",
+    "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "python library"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Python Library"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1495,40 +1499,18 @@
   },
   {
     "id": 68,
-    "url": "https://github.com/vudovn/antigravity-kit",
-    "title": "antigravity skills",
-    "summary": "",
-    "category": "other",
-    "tags": [
-      "repos-in-github",
-      "agent skills"
-    ],
-    "placements": [
-      {
-        "branch": "repos-in-github",
-        "topic": "Agent Skills"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-06-13",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 69,
     "url": "https://github.com/instructkr/claw-code",
     "title": "Claw-Code",
     "summary": "A Python implementation of Claude's computer use / agentic coding capabilities, enabling LLMs to interact with environments.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ai agents / coding"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "AI Agents / Coding"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1538,19 +1520,19 @@
     "notes": "Useful for autonomous coding tasks and research into Claude-style agency."
   },
   {
-    "id": 70,
+    "id": 69,
     "url": "https://github.com/baldiga/Hebrew-writer",
     "title": "GitHub - baldiga/hebrew-writer",
     "summary": "The first Hebrew-native writing skill for Claude Code. Passes all AI detectors. Fools native Israelis. 7-layer system with 55+ pattern detection, Israeli voice injection, and voice cloning. - baldiga/hebrew-writer",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "technical tool / hebrew ui"
+      "dev utilities"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Technical Tool / Hebrew UI"
+        "topic": "Dev Utilities"
       }
     ],
     "source_file": "",
@@ -1560,19 +1542,19 @@
     "notes": "Useful for fixing RTL/LTR issues in coding projects"
   },
   {
-    "id": 71,
+    "id": 70,
     "url": "https://github.com/OpenDCAI/DataFlow",
     "title": "https://github.com/OpenDCAI/DataFlow",
     "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "data processing"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Data Processing"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1582,19 +1564,19 @@
     "notes": ""
   },
   {
-    "id": 72,
+    "id": 71,
     "url": "https://github.com/codejunkie99/agentic-stack",
     "title": "agentic-stack / codejunkie99",
     "summary": "Portable AI agent architecture, cross-platform compatibility with various AI coding tools (Claude Code, Cursor, Hermes).",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ai"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "AI"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1604,19 +1586,19 @@
     "notes": "מבנה סוכן AI נייד, תאימות בין-פלטפורמית עם מגוון כלי קידוד AI. רלוונטי לארכיטקטורות סוכנים."
   },
   {
-    "id": 73,
+    "id": 72,
     "url": "https://github.com/cocoindex-io/cocoindex",
     "title": "cocoindex / cocoindex-io",
     "summary": "Incremental engine for long horizon agents.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "ai"
+      "data & rag"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "AI"
+        "topic": "Data & RAG"
       }
     ],
     "source_file": "",
@@ -1626,19 +1608,19 @@
     "notes": "מנוע אינקרמנטלי לסוכני AI ארוכי טווח. רלוונטי לבניית מערכות AI מורכבות יותר שצריכות לשמור הקשר ולהסתגל לאורך זמן."
   },
   {
-    "id": 74,
+    "id": 73,
     "url": "https://github.com/googleworkspace/cli",
     "title": "https://github.com/googleworkspace/cli",
     "summary": "",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "cli"
+      "dev utilities"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "CLI"
+        "topic": "Dev Utilities"
       }
     ],
     "source_file": "",
@@ -1648,19 +1630,19 @@
     "notes": ""
   },
   {
-    "id": 75,
+    "id": 74,
     "url": "https://github.com/HarnessRouter/harnessrouter",
     "title": "HarnessRouter / harnessrouter",
     "summary": "שכבת תשתית self-hosted שמאחדת harnesses של סוכנים (Codex, Claude Code, Hermes, PI, DSH ועוד) תחת API אחד תואם OpenAI Responses, עם sessions, streaming, קבצים, ביטול וטיפול בכשלים. מממש את UHP.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "agent framework / infrastructure"
+      "agent frameworks"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Agent Framework / Infrastructure"
+        "topic": "Agent Frameworks"
       }
     ],
     "source_file": "",
@@ -1670,19 +1652,19 @@
     "notes": "רכיבים: Console (:3000) + Gateway (:8080, Responses API) + Runner (:8081) בקונטיינר Docker אחד; volume /data למסד, קבצים, secrets ו-workspaces. פרוטוקול: Unified Harness Protocol (UHP) + תאימות OpenAI Responses. צריך: Docker ~4GB דיסק + API key של ספק מודלים. רישיון: Apache-2.0 (Community Edition). אתר: https://harnessrouter.ai/ · שפה: Python · ~2.8k stars."
   },
   {
-    "id": 76,
+    "id": 75,
     "url": "https://github.com/aws/context-ontology-accelerator",
     "title": "Context Ontology Accelerator / AWS",
     "summary": "An open-source semantic context accelerator for AWS that combines knowledge graphs, formal ontologies, and rule-based systems to help AI agents retrieve context and make accurate, explainable decisions. It is for teams building AI agents that need governed, consistent business context.",
     "category": "other",
     "tags": [
       "repos-in-github",
-      "context ontology"
+      "memory & context"
     ],
     "placements": [
       {
         "branch": "repos-in-github",
-        "topic": "Context Ontology"
+        "topic": "Memory & Context"
       }
     ],
     "source_file": "",
@@ -1692,7 +1674,7 @@
     "notes": "894 stars; Apache License 2.0; primary language Python. README recommends using a tagged release rather than main; the repository is a read-only mirror and external dependencies have separate license terms."
   },
   {
-    "id": 77,
+    "id": 76,
     "url": "https://leads.sh/l/mx8bwy6kiuia/amit-rosen-331732140",
     "title": "Leads.sh",
     "summary": "LinkedIn lead generation and automated outreach funnel",
@@ -1714,7 +1696,7 @@
     "notes": ""
   },
   {
-    "id": 78,
+    "id": 77,
     "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
     "title": "Airtop.ai",
     "summary": "Browser automation template to extract leads from LinkedIn post commenters",
@@ -1736,7 +1718,7 @@
     "notes": ""
   },
   {
-    "id": 79,
+    "id": 78,
     "url": "https://www.linkedin.com/company/airwallex/",
     "title": "Divyanshi Sharma",
     "summary": "Airwallex, a fintech company, is developing multiple AI agents to fully automate end-to-end financial workflows such as invoicing and treasury operations. The post also highlights its existing strengths, including a global payment network, multi-currency accounts, and AI-powered finance automation.",
@@ -1758,7 +1740,7 @@
     "notes": ""
   },
   {
-    "id": 80,
+    "id": 79,
     "url": "https://www.getagentcraft.com/",
     "title": "AgentCraft — RTS interface for agent orchestration",
     "summary": "Orchestrate your AI agents with an RTS game interface. Install with npx idosal/agentcraft.",
@@ -1780,19 +1762,19 @@
     "notes": "Self-hosted AI agent infrastructure platform"
   },
   {
-    "id": 81,
+    "id": 80,
     "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
     "title": "Google Workspace MCP Configuration",
     "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
     "category": "other",
     "tags": [
       "mcp",
-      "infrastructure / tools"
+      "setup & config"
     ],
     "placements": [
       {
         "branch": "mcp",
-        "topic": "Infrastructure / Tools"
+        "topic": "Setup & Config"
       }
     ],
     "source_file": "",
@@ -1802,7 +1784,7 @@
     "notes": "Critical for future MCP integrations with Google Workspace."
   },
   {
-    "id": 82,
+    "id": 81,
     "url": "https://github.com/getzep/graphiti",
     "title": "Zep (Graphiti)",
     "summary": "Graphiti is a framework for building and querying temporally-aware knowledge graphs, specifically tailored for AI agents operating in dynamic environments.",
@@ -1810,12 +1792,13 @@
     "tags": [
       "agent memory",
       "mcp",
+      "mcp servers",
       "memory"
     ],
     "placements": [
       {
         "branch": "mcp",
-        "topic": "Agent Memory"
+        "topic": "MCP Servers"
       },
       {
         "branch": "memory",
@@ -1829,19 +1812,19 @@
     "notes": "31394 GitHub stars. License Apache-2.0. Language Python. Install with pip install graphiti-core. README also includes an MCP server. Zep temporal knowledge graph for agents, not a RAG guide."
   },
   {
-    "id": 83,
+    "id": 82,
     "url": "https://github.com/apify/mcpc",
     "title": "mcpc / apify",
     "summary": "A universal CLI client for MCP. mcpc supports persistent sessions, stdio/HTTP, OAuth 2.1, tasks, JSON output for code mode, proxy for AI sandboxes, x402, and more.",
     "category": "other",
     "tags": [
       "mcp",
-      "mcp client"
+      "mcp apps & clients"
     ],
     "placements": [
       {
         "branch": "mcp",
-        "topic": "MCP Client"
+        "topic": "MCP Apps & Clients"
       }
     ],
     "source_file": "",
@@ -1851,24 +1834,25 @@
     "notes": "כלי CLI אוניברסלי ל-MCP. תומך בסשנים מתמשכים, משימות, פלט JSON למצב קוד וסנדבוקס ל-AI."
   },
   {
-    "id": 84,
+    "id": 83,
     "url": "https://github.com/alpic-ai/skybridge",
     "title": "skybridge / alpic-ai",
     "summary": "Full-stack TypeScript and React framework for MCP Apps and ChatGPT apps. Type-safe tools-to-views, a local emulator with HMR, and one app that runs in Claude, ChatGPT, and other MCP UI clients.",
     "category": "other",
     "tags": [
       "mcp",
-      "mcp apps",
-      "skills"
+      "mcp apps & clients",
+      "skills",
+      "workflows & apps"
     ],
     "placements": [
       {
         "branch": "mcp",
-        "topic": "MCP Apps"
+        "topic": "MCP Apps & Clients"
       },
       {
         "branch": "skills",
-        "topic": "MCP Apps"
+        "topic": "Workflows & Apps"
       }
     ],
     "source_file": "",
@@ -1878,24 +1862,25 @@
     "notes": "~2.1k stars, MIT. Start with npm create skybridge@latest, or npx skills add alpic-ai/skybridge -s skybridge. Docs at https://docs.skybridge.tech. Deploy on Alpic or any Node host."
   },
   {
-    "id": 85,
+    "id": 84,
     "url": "https://github.com/oraios/serena",
     "title": "Serena / oraios",
     "summary": "Serena is an MCP toolkit that gives coding agents IDE-like semantic code retrieval, editing, refactoring, and debugging tools at the symbol level. It runs as an MCP server that clients such as Claude Code, Codex, Cursor, and JetBrains assistants can launch or connect to over HTTP.",
     "category": "other",
     "tags": [
-      "code intelligence",
+      "developer tools",
       "mcp",
+      "mcp servers",
       "tools"
     ],
     "placements": [
       {
         "branch": "mcp",
-        "topic": "Code Intelligence"
+        "topic": "MCP Servers"
       },
       {
         "branch": "tools",
-        "topic": "Code Intelligence"
+        "topic": "Developer Tools"
       }
     ],
     "source_file": "",
@@ -1905,19 +1890,41 @@
     "notes": "29,955 stars. License: GPL-3.0-or-later for the Serena application and MIT for SolidLSP (src/solidlsp); GitHub reports the repo license as Other. Language: Python. Install with uv (`uv tool install -p 3.13 serena-agent`), then connect the client to the Serena MCP server."
   },
   {
-    "id": 86,
+    "id": 85,
     "url": "https://reflex.dev/",
     "title": "Reflex",
     "summary": "Build web apps in pure Python.",
     "category": "other",
     "tags": [
       "tools",
-      "web framework"
+      "developer tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Web Framework"
+        "topic": "Developer Tools"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 86,
+    "url": "https://bhindi.io/c/new",
+    "title": "agentTool",
+    "summary": "No-code agent creation.",
+    "category": "other",
+    "tags": [
+      "tools",
+      "ai apps & agents"
+    ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -1928,40 +1935,18 @@
   },
   {
     "id": 87,
-    "url": "https://bhindi.io/c/new",
-    "title": "agentTool",
-    "summary": "No-code agent creation.",
-    "category": "other",
-    "tags": [
-      "tools",
-      "agent framework"
-    ],
-    "placements": [
-      {
-        "branch": "tools",
-        "topic": "Agent Framework"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-06-13",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 88,
     "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Monarch",
     "summary": "אימון אינטראקטיבי של מודל Llama",
     "category": "other",
     "tags": [
       "tools",
-      "model training"
+      "mlops & evaluation"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Model Training"
+        "topic": "MLOps & Evaluation"
       }
     ],
     "source_file": "",
@@ -1971,19 +1956,19 @@
     "notes": ""
   },
   {
-    "id": 89,
+    "id": 88,
     "url": "https://www.assemblyai.com/",
     "title": "assemblyai",
     "summary": "The best way to build Voice AI apps",
     "category": "other",
     "tags": [
       "tools",
-      "voice ai"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Voice AI"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -1993,19 +1978,19 @@
     "notes": ""
   },
   {
-    "id": 90,
+    "id": 89,
     "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Build your own ChatGPT from scratch",
     "summary": "Build your own ChatGPT from scratch",
-    "category": "tutorial",
+    "category": "other",
     "tags": [
       "tools",
-      "tutorial"
+      "tutorials"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Tutorial"
+        "topic": "Tutorials"
       }
     ],
     "source_file": "",
@@ -2015,19 +2000,19 @@
     "notes": ""
   },
   {
-    "id": 91,
+    "id": 90,
     "url": "https://gamma.app/",
     "title": "Gamma",
     "summary": "Create beautiful and engaging presentations and documents.",
     "category": "other",
     "tags": [
       "tools",
-      "presentation ai"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Presentation AI"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -2037,19 +2022,41 @@
     "notes": ""
   },
   {
-    "id": 92,
+    "id": 91,
     "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
     "title": "Apify (AI Agent Blog)",
     "summary": "Guide on how to build an AI agent.",
-    "category": "tutorial",
+    "category": "other",
     "tags": [
       "tools",
-      "tutorial"
+      "tutorials"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Tutorial"
+        "topic": "Tutorials"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 92,
+    "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
+    "title": "MTEB Leaderboard",
+    "summary": "Massive Text Embedding Benchmark leaderboard.",
+    "category": "other",
+    "tags": [
+      "tools",
+      "mlops & evaluation"
+    ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "MLOps & Evaluation"
       }
     ],
     "source_file": "",
@@ -2060,40 +2067,40 @@
   },
   {
     "id": 93,
-    "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
-    "title": "MTEB Leaderboard",
-    "summary": "Massive Text Embedding Benchmark leaderboard.",
-    "category": "other",
-    "tags": [
-      "tools",
-      "evaluation"
-    ],
-    "placements": [
-      {
-        "branch": "tools",
-        "topic": "Evaluation"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-10-02",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 94,
     "url": "https://www.firecrawl.dev/",
     "title": "FireCrawl",
     "summary": "extract relevant information for RAG from websites",
     "category": "other",
     "tags": [
       "tools",
-      "web scraping"
+      "data & knowledge"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Web Scraping"
+        "topic": "Data & Knowledge"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 94,
+    "url": "https://alterbase.co/",
+    "title": "Alterbase",
+    "summary": "AI-powered knowledge management.",
+    "category": "other",
+    "tags": [
+      "tools",
+      "data & knowledge"
+    ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Data & Knowledge"
       }
     ],
     "source_file": "",
@@ -2104,18 +2111,18 @@
   },
   {
     "id": 95,
-    "url": "https://alterbase.co/",
-    "title": "Alterbase",
-    "summary": "AI-powered knowledge management.",
+    "url": "https://mstone.ai/",
+    "title": "Mstone AI",
+    "summary": "LLM operations and observability platform.",
     "category": "other",
     "tags": [
       "tools",
-      "knowledge management"
+      "mlops & evaluation"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Knowledge Management"
+        "topic": "MLOps & Evaluation"
       }
     ],
     "source_file": "",
@@ -2126,40 +2133,18 @@
   },
   {
     "id": 96,
-    "url": "https://mstone.ai/",
-    "title": "Mstone AI",
-    "summary": "LLM operations and observability platform.",
-    "category": "other",
-    "tags": [
-      "tools",
-      "mlops / observability"
-    ],
-    "placements": [
-      {
-        "branch": "tools",
-        "topic": "MLOps / Observability"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-06-13",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 97,
     "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
     "title": "InceptionLabs Chat",
     "summary": "AI Chat/Agent development environment.",
     "category": "other",
     "tags": [
       "tools",
-      "agent framework"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Agent Framework"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -2169,19 +2154,41 @@
     "notes": ""
   },
   {
-    "id": 98,
+    "id": 97,
     "url": "https://sota.rival.tech/",
     "title": "Rival Tech SOTA",
     "summary": "Leaderboard for State-of-the-Art models.",
     "category": "other",
     "tags": [
       "tools",
-      "evaluation"
+      "mlops & evaluation"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Evaluation"
+        "topic": "MLOps & Evaluation"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 98,
+    "url": "https://llmlayer.ai/",
+    "title": "LLMLayer",
+    "summary": "Build and deploy LLMs with ease.",
+    "category": "other",
+    "tags": [
+      "tools",
+      "mlops & evaluation"
+    ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "MLOps & Evaluation"
       }
     ],
     "source_file": "",
@@ -2192,18 +2199,18 @@
   },
   {
     "id": 99,
-    "url": "https://llmlayer.ai/",
-    "title": "LLMLayer",
-    "summary": "Build and deploy LLMs with ease.",
+    "url": "https://blink.new/",
+    "title": "Blink (New)",
+    "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
     "category": "other",
     "tags": [
       "tools",
-      "llm deployment"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "LLM Deployment"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -2214,18 +2221,18 @@
   },
   {
     "id": 100,
-    "url": "https://blink.new/",
-    "title": "Blink (New)",
-    "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
+    "url": "https://reevo.ai/",
+    "title": "Reevo AI",
+    "summary": "Automated AI agent for specific tasks.",
     "category": "other",
     "tags": [
       "tools",
-      "video"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Video"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -2236,18 +2243,18 @@
   },
   {
     "id": 101,
-    "url": "https://reevo.ai/",
-    "title": "Reevo AI",
-    "summary": "Automated AI agent for specific tasks.",
+    "url": "https://kapso.ai",
+    "title": "Kapso",
+    "summary": "",
     "category": "other",
     "tags": [
       "tools",
-      "ai agent"
+      "developer tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "AI Agent"
+        "topic": "Developer Tools"
       }
     ],
     "source_file": "",
@@ -2258,17 +2265,18 @@
   },
   {
     "id": 102,
-    "url": "https://kapso.ai",
-    "title": "Kapso",
+    "url": "https://mlflow.org/docs/latest/genai/tracing/",
+    "title": "https://mlflow.org/docs/latest/genai/tracing/",
     "summary": "",
     "category": "other",
     "tags": [
-      "tools"
+      "tools",
+      "mlops & evaluation"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Other"
+        "topic": "MLOps & Evaluation"
       }
     ],
     "source_file": "",
@@ -2279,18 +2287,18 @@
   },
   {
     "id": 103,
-    "url": "https://mlflow.org/docs/latest/genai/tracing/",
-    "title": "https://mlflow.org/docs/latest/genai/tracing/",
+    "url": "https://github.com/omegis/Hostinger-PHP-Guide",
+    "title": "https://github.com/omegis/Hostinger-PHP-Guide",
     "summary": "",
     "category": "other",
     "tags": [
       "tools",
-      "mlops"
+      "tutorials"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "MLOps"
+        "topic": "Tutorials"
       }
     ],
     "source_file": "",
@@ -2301,18 +2309,18 @@
   },
   {
     "id": 104,
-    "url": "https://github.com/omegis/Hostinger-PHP-Guide",
-    "title": "https://github.com/omegis/Hostinger-PHP-Guide",
+    "url": "https://www.genspark.ai/",
+    "title": "https://www.genspark.ai/",
     "summary": "",
-    "category": "tutorial",
+    "category": "other",
     "tags": [
       "tools",
-      "tutorial"
+      "ai apps & agents"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Tutorial"
+        "topic": "AI Apps & Agents"
       }
     ],
     "source_file": "",
@@ -2323,40 +2331,18 @@
   },
   {
     "id": 105,
-    "url": "https://www.genspark.ai/",
-    "title": "https://www.genspark.ai/",
-    "summary": "",
-    "category": "other",
-    "tags": [
-      "tools",
-      "ai search"
-    ],
-    "placements": [
-      {
-        "branch": "tools",
-        "topic": "AI Search"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-06-13",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 106,
     "url": "https://github.com/NandhaKishorM/laya",
     "title": "Nandha Kishor / laya",
     "summary": "מנוע החלטות System 1 לא-אוטורגרסיבי: תשובות typed (choice, score, noul) ב-forward pass אחד, כ-33ms, ב-100+ שפות. Router בוחר checkpoint לפי שפה.",
     "category": "other",
     "tags": [
       "tools",
-      "decision engine"
+      "developer tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Decision Engine"
+        "topic": "Developer Tools"
       }
     ],
     "source_file": "",
@@ -2366,19 +2352,19 @@
     "notes": "pip install laya. Checkpoints: laya (אנגלית, ModernBERT), laya-multilingual (mmBERT, עד 8192), laya-typed-decisions. אקסטרות: serve (HTTP תואם Jev), mcp, langchain, onnx. אימון RLCD. Docs: https://nandhakishorm.github.io/laya/ · מודל: https://huggingface.co/convaiinnovations/laya · רישיון Apache-2.0 · Python 3.10+ וגם laya-ts."
   },
   {
-    "id": 107,
+    "id": 106,
     "url": "https://github.com/braedonsaunders/codeflow",
     "title": "Braedon Saunders / CodeFlow",
     "summary": "מפה אינטראקטיבית של ארכיטקטורת ריפו: תלויות, blast radius, בעלות לפי git, סריקת סודות, דפוסים וציון בריאות. רץ בדפדפן, בלי שרת.",
     "category": "other",
     "tags": [
       "tools",
-      "architecture map"
+      "developer tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Architecture Map"
+        "topic": "Developer Tools"
       }
     ],
     "source_file": "",
@@ -2388,24 +2374,25 @@
     "notes": "קובץ HTML אחד + vendor. אתר: https://codeflow-five.vercel.app/ · גם תיקיית markdown/Obsidian וגם ניתוח תיקייה מקומית. טוקן GitHub נשאר בזיכרון הדפדפן. רישיון MIT. הגיע מפוסט של Farid's AI Empire (23/09): https://www.facebook.com/share/p/1BynKpZ46F/"
   },
   {
-    "id": 108,
+    "id": 107,
     "url": "https://github.com/openai/codex-plugin-cc",
     "title": "OpenAI / codex-plugin-cc",
     "summary": "OpenAI's Apache-2.0 Claude Code plugin that runs Codex code reviews and delegated tasks through the local Codex CLI.",
     "category": "other",
     "tags": [
       "claude",
-      "code review",
+      "claude code",
+      "developer tools",
       "tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Code Review"
+        "topic": "Developer Tools"
       },
       {
         "branch": "claude",
-        "topic": "Code Review"
+        "topic": "Claude Code"
       }
     ],
     "source_file": "",
@@ -2415,19 +2402,19 @@
     "notes": "OpenAI. 33787 GitHub stars. Apache-2.0. JavaScript. In Claude Code: /plugin marketplace add openai/codex-plugin-cc, then /plugin install codex@openai-codex, /reload-plugins, and /codex:setup. Needs Node.js 18.18+ and a ChatGPT subscription or API key. Caveat: the optional review gate can loop Claude and Codex and drain usage limits quickly."
   },
   {
-    "id": 109,
+    "id": 108,
     "url": "https://github.com/bendlang/bend",
     "title": "Bend / bendlang",
     "summary": "Bend 2 is a parallel programming language that uses laws and proofs so the compiler can block AI mistakes, and it compiles to fast CPU and GPU executables.",
     "category": "other",
     "tags": [
       "tools",
-      "programming language"
+      "developer tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Programming Language"
+        "topic": "Developer Tools"
       }
     ],
     "source_file": "",
@@ -2437,19 +2424,19 @@
     "notes": "23291 GitHub stars. License Apache-2.0. Primary language TypeScript. Install with curl -fsSL https://bend-lang.com/install.sh | sh. README says Bend 1 programs and HVM do not carry over."
   },
   {
-    "id": 110,
+    "id": 109,
     "url": "https://github.com/FalkorDB/FalkorDB",
     "title": "FalkorDB",
     "summary": "FalkorDB is an ultra-fast, multi-tenant graph database that stores graphs as sparse adjacency matrices (GraphBLAS) and runs OpenCypher queries with linear algebra. Its stated goal is a low-latency knowledge graph for LLMs (GraphRAG).",
     "category": "other",
     "tags": [
       "tools",
-      "graph database"
+      "data & knowledge"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Graph Database"
+        "topic": "Data & Knowledge"
       }
     ],
     "source_file": "",
@@ -2459,24 +2446,25 @@
     "notes": "6,723 stars; license Server Side Public License v1; language Rust. It uses the Redis protocol (GRAPH.QUERY); the README quick start is a Docker image on ports 6379 and 3000."
   },
   {
-    "id": 111,
+    "id": 110,
     "url": "https://github.com/Graphify-Labs/graphify",
     "title": "Graphify Labs / graphify",
     "summary": "Turn any codebase (plus docs, SQL schemas, configs, and PDFs) into a queryable knowledge graph via local deterministic AST parsing—no vector store. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, with explained edges and path/query/explain tooling.",
     "category": "other",
     "tags": [
-      "knowledge graph",
+      "data & knowledge",
+      "skill libraries",
       "skills",
       "tools"
     ],
     "placements": [
       {
         "branch": "tools",
-        "topic": "Knowledge Graph"
+        "topic": "Data & Knowledge"
       },
       {
         "branch": "skills",
-        "topic": "Knowledge Graph"
+        "topic": "Skill Libraries"
       }
     ],
     "source_file": "",
@@ -2486,19 +2474,19 @@
     "notes": "123488 GitHub stars. License Apache-2.0. Language Python. Install with `uv tool install graphifyy` then `graphify install` to register the skill; code parsing stays local with tree-sitter."
   },
   {
-    "id": 112,
+    "id": 111,
     "url": "https://github.com/huggingface/skills",
     "title": "Hugging Face (skills)",
     "summary": "Agent skills and tool repository for LLMs and smolagents",
     "category": "other",
     "tags": [
       "skills",
-      "agent skills"
+      "skill libraries"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Agent Skills"
+        "topic": "Skill Libraries"
       }
     ],
     "source_file": "",
@@ -2508,19 +2496,19 @@
     "notes": ""
   },
   {
-    "id": 113,
+    "id": 112,
     "url": "https://github.com/microsoft/waza",
     "title": "Microsoft / waza",
     "summary": "CLI ב-Go להערכת Agent Skills: פיגום eval suites, הרצת benchmarks, והשוואת תוצאות בין מודלים.",
     "category": "other",
     "tags": [
       "skills",
-      "skill evaluation"
+      "skill quality"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Skill Evaluation"
+        "topic": "Skill Quality"
       }
     ],
     "source_file": "",
@@ -2530,7 +2518,7 @@
     "notes": "~1.4k stars. התקנה: curl install.sh | bash, או הרחבה של Azure Developer CLI (azd waza). פקודות: init, new skill, run, check, compare, grade, adversarial, tokens. Executor ברירת מחדל: GitHub Copilot CLI (copilot-sdk). Docs: https://microsoft.github.io/waza/. שפה: Go (החל מ-v0.4; Python ישן עד v0.3.2)."
   },
   {
-    "id": 114,
+    "id": 113,
     "url": "https://github.com/microsoft/SkillOpt",
     "title": "Microsoft Research / SkillOpt",
     "summary": "אופטימיזציה של מסמך skill כפרמטר ניתן לאימון, בלי לגעת במשקולות המודל. עריכות על best_skill.md מתקבלות רק אם הן משפרות validation.",
@@ -2538,12 +2526,13 @@
     "tags": [
       "harness",
       "skill optimization",
+      "skill quality",
       "skills"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Skill Optimization"
+        "topic": "Skill Quality"
       },
       {
         "branch": "harness",
@@ -2557,20 +2546,21 @@
     "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+."
   },
   {
-    "id": 115,
+    "id": 114,
     "url": "https://github.com/NVIDIA/SkillSpector",
     "title": "NVIDIA / SkillSpector",
     "summary": "NVIDIA's Apache-2.0 Python CLI that scans Claude Code, Codex, and MCP agent skills for vulnerabilities, prompt injection, data exfiltration, and supply-chain risk before you install them.",
     "category": "other",
     "tags": [
       "security",
+      "skill quality",
       "skill security",
       "skills"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Skill Security"
+        "topic": "Skill Quality"
       },
       {
         "branch": "security",
@@ -2584,24 +2574,25 @@
     "notes": "NVIDIA. 19156 GitHub stars. Apache-2.0. Python 3.12+. Install with uv tool install git+https://github.com/NVIDIA/skillspector.git (add the [mcp] extra for skillspector mcp) or Docker via make docker-build. Caveat: semantic analysis needs a configured LLM provider; static-only scans use --no-llm, and install pulls extra third-party open-source packages."
   },
   {
-    "id": 116,
+    "id": 115,
     "url": "https://github.com/mattpocock/skills",
     "title": "Matt Pocock / skills",
     "summary": "Matt Pocock's MIT-licensed pack of small composable coding-agent skills (grill, TDD, triage, specs) that install as a Claude Code plugin or via npx skills add mattpocock/skills.",
     "category": "other",
     "tags": [
-      "agent skills",
       "claude",
+      "claude code",
+      "skill libraries",
       "skills"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Agent Skills"
+        "topic": "Skill Libraries"
       },
       {
         "branch": "claude",
-        "topic": "Agent Skills"
+        "topic": "Claude Code"
       }
     ],
     "source_file": "",
@@ -2611,7 +2602,7 @@
     "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships."
   },
   {
-    "id": 117,
+    "id": 116,
     "url": "https://github.com/romiluz13/auto-pi",
     "title": "romiluz13 / auto-pi",
     "summary": "romiluz13's MIT-licensed workflow layer for the Pi coding agent: a Coach menu and typed workflow machine that routes work through a pinned Matt Pocock ask-matt skill.",
@@ -2619,12 +2610,13 @@
     "tags": [
       "agent workflow",
       "harness",
-      "skills"
+      "skills",
+      "workflows & apps"
     ],
     "placements": [
       {
         "branch": "skills",
-        "topic": "Agent Workflow"
+        "topic": "Workflows & Apps"
       },
       {
         "branch": "harness",
@@ -2638,7 +2630,7 @@
     "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent."
   },
   {
-    "id": 118,
+    "id": 117,
     "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
     "title": "Teleport (Gravitational) / RFD 0238",
     "summary": "Delegating Access to AI Workloads - architecture proposal for secure infrastructure access for AI agents",
@@ -2660,7 +2652,7 @@
     "notes": "Delegating Access to AI Workloads"
   },
   {
-    "id": 119,
+    "id": 118,
     "url": "https://github.com/OWASP/AISVS",
     "title": "OWASP / AISVS",
     "summary": "OWASP Artificial Intelligence Security Verification Standard (AISVS): a community-driven catalogue of testable security requirements for AI-enabled systems, modeled on the OWASP ASVS. GitHub description: a structured checklist for developers, architects, and security professionals to verify the security of AI-driven applications. Latest stable version is AISVS 1.0 (PDF and Markdown under 1.0/).",
@@ -2682,19 +2674,41 @@
     "notes": "478 GitHub stars. License CC-BY-SA-4.0. GitHub primary language: none reported (language null). Topics: aisecurity. README: not a governance framework, not a risk-management framework, and not a tool recommendation list."
   },
   {
-    "id": 120,
+    "id": 119,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
     "category": "other",
     "tags": [
       "claude",
-      "token optimization"
+      "cost & models"
     ],
     "placements": [
       {
         "branch": "claude",
-        "topic": "Token Optimization"
+        "topic": "Cost & Models"
+      }
+    ],
+    "source_file": "",
+    "created": "",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
+    "notes": ""
+  },
+  {
+    "id": 120,
+    "url": "https://github.com/tzachbon/claude-model-advisor",
+    "title": "Tzach Bonfil / claude-model-advisor",
+    "summary": "Tool to recommend the right Claude model based on requirements and budget",
+    "category": "other",
+    "tags": [
+      "claude",
+      "cost & models"
+    ],
+    "placements": [
+      {
+        "branch": "claude",
+        "topic": "Cost & Models"
       }
     ],
     "source_file": "",
@@ -2705,40 +2719,18 @@
   },
   {
     "id": 121,
-    "url": "https://github.com/tzachbon/claude-model-advisor",
-    "title": "Tzach Bonfil / claude-model-advisor",
-    "summary": "Tool to recommend the right Claude model based on requirements and budget",
-    "category": "other",
-    "tags": [
-      "claude",
-      "model selection"
-    ],
-    "placements": [
-      {
-        "branch": "claude",
-        "topic": "Model Selection"
-      }
-    ],
-    "source_file": "",
-    "created": "",
-    "added_at": "2026-06-13",
-    "date_source": "first_seen",
-    "notes": ""
-  },
-  {
-    "id": 122,
     "url": "https://github.com/onmyway133/claude-code-tips-tricks",
     "title": "Claude Code Tips (onmyway133)",
     "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
-    "category": "reference",
+    "category": "other",
     "tags": [
       "claude",
-      "reference"
+      "claude code"
     ],
     "placements": [
       {
         "branch": "claude",
-        "topic": "reference"
+        "topic": "Claude Code"
       }
     ],
     "source_file": "",
@@ -2748,7 +2740,7 @@
     "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages."
   },
   {
-    "id": 123,
+    "id": 122,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -2770,7 +2762,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 124,
+    "id": 123,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
@@ -2792,7 +2784,7 @@
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
   },
   {
-    "id": 125,
+    "id": 124,
     "url": "https://github.com/tinyhumansai/openhuman",
     "title": "OpenHuman / tinyhumansai",
     "summary": "OpenHuman is an early-beta open-source agent harness with a Rust core that ships as a desktop app, a browser UI, a terminal client, and an embeddable library. It lets you plug in your own LLM, memory, and search engines, and includes workflows, MCP, skills, and a small decision model called Jev.",
@@ -2819,7 +2811,7 @@
     "notes": "40470 GitHub stars. License: GPL-3.0 (GNU General Public License v3.0). Language: Rust. README marks it early beta and says it is under active development, so expect rough edges."
   },
   {
-    "id": 126,
+    "id": 125,
     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "title": "TypeSafe / Diogo Almeida",
     "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
@@ -2846,7 +2838,7 @@
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   },
   {
-    "id": 127,
+    "id": 126,
     "url": "https://github.com/dzhng/jevgrep",
     "title": "jevgrep / dzhng",
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
@@ -2873,7 +2865,7 @@
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
-    "id": 128,
+    "id": 127,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -2895,7 +2887,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 129,
+    "id": 128,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
