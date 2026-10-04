@@ -164,7 +164,8 @@ def _format_resource_full(r: dict) -> str:
         f"tags: {tags}\n"
         f"summary: {r.get('summary', '')}\n"
         f"notes: {r.get('notes', '') or '—'}\n"
-        f"added_at: {r.get('added_at', '')}\n"
+        f"added_at: {r.get('added_at', '')}"
+        f"{' (first seen by the sync; the sheet row has no Date)' if not r.get('created') else ''}\n"
         f"created: {r.get('created', '')}"
     )
 

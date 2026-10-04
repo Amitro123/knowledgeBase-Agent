@@ -58,7 +58,7 @@ Edges: `HAS_TOPIC` (branch → topic), `HAS_RESOURCE` (topic → resource, or br
 
 | Column           | JSON Field           | Description               |
 | ---------------- | -------------------- | ------------------------- |
-| Date             | `created` / `added_at` | Date added              |
+| Date             | `created` / `added_at` | Date added. Optional: rows without it get `added_at` = the day the sync first saw the link (`date_source: "first_seen"`, kept in `data/first_seen.json`), shown as "First seen" on the site |
 | Link             | `url`                | Link to the resource      |
 | Name/Author      | `title`              | Resource name or author   |
 | Function/Summary | `summary`            | Short description         |
@@ -74,6 +74,7 @@ The tab name (e.g. "RAG", "MCP", "Security") becomes the branch, and a tag, on e
 │   └── sync-sheets.yml            ← GitHub Action (Sheet → JSON)
 ├── data/resources.json            ← Auto-managed data file
 ├── data/graph.json                ← Auto-managed branch/topic graph
+├── data/first_seen.json           ← Auto-managed: first sync date per URL
 ├── scripts/
 │   ├── sync_sheets.py             ← Sync script (Sheet → JSON)
 │   ├── build_graph.py             ← resources.json → graph.json

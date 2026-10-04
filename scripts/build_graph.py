@@ -160,6 +160,8 @@ def build_graph(resources: list[dict],
             "summary": r.get("summary", ""),
             "notes": r.get("notes", ""),
             "added_at": r.get("added_at", ""),
+            # "sheet" = the row's Date; "first_seen" = when the sync first saw it
+            "date_source": r.get("date_source") or ("sheet" if r.get("created") else "first_seen"),
             "branches": sorted({p["branch"] for p in placements}),
             "topics": sorted({p["topic"] for p in placements if p["topic"]}),
         }

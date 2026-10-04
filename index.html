@@ -1096,7 +1096,9 @@
           ${n.url ? `<div class="actions"><a class="btn" href="${esc(n.url)}" target="_blank" rel="noopener">Open link ↗</a></div>` : ''}
           <dl class="meta-grid">
             ${paths.length > 1 ? `<dt>Branches</dt><dd>${paths.length}</dd>` : ''}
-            ${n.added_at ? `<dt>Added</dt><dd>${esc(n.added_at)}</dd>` : ''}
+            ${n.added_at ? (n.date_source === 'sheet'
+              ? `<dt>Added</dt><dd>${esc(n.added_at)}</dd>`
+              : `<dt title="The sheet row has no Date">First seen</dt><dd title="The sheet row has no Date; this is the first day the sync saw this link">${esc(n.added_at)}</dd>`) : ''}
             ${domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : ''}
           </dl>
           ${idLine}`;
