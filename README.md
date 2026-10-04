@@ -92,6 +92,7 @@ The tab name (e.g. "RAG", "MCP", "Security") becomes the branch, and a tag, on e
 │   ├── test_mcp_server.py         ← MCP server tests
 │   ├── capture.py                 ← (legacy) Obsidian enrichment script
 │   └── requirements.txt           ← (legacy) Dependencies for capture.py
+├── skills/knowledgebase-capture/  ← Agent skill: save a link to the sheet
 ├── inbox/_TEMPLATE.md             ← (legacy) Hermes note template
 └── index.html                     ← Front-end (GitHub Pages)
 ```
