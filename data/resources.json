@@ -2453,6 +2453,28 @@
   },
   {
     "id": 110,
+    "url": "https://github.com/raphaelmansuy/edgextract",
+    "title": "Raphael Mansuy / edgextract",
+    "summary": "Turns markdown into a knowledge graph using an ontology you write and a local yes/no decision model.",
+    "category": "other",
+    "tags": [
+      "tools",
+      "data & knowledge"
+    ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Data & Knowledge"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-04",
+    "added_at": "2026-10-04",
+    "date_source": "sheet",
+    "notes": "5 stars, Apache-2.0, TypeScript. Unsure links wait for a person instead of entering the graph. Uses the local tev1 model via Ollama."
+  },
+  {
+    "id": 111,
     "url": "https://github.com/huggingface/skills",
     "title": "Hugging Face (skills)",
     "summary": "Agent skills and tool repository for LLMs and smolagents",
@@ -2474,7 +2496,7 @@
     "notes": ""
   },
   {
-    "id": 111,
+    "id": 112,
     "url": "https://github.com/microsoft/waza",
     "title": "Microsoft / waza",
     "summary": "CLI ב-Go להערכת Agent Skills: פיגום eval suites, הרצת benchmarks, והשוואת תוצאות בין מודלים.",
@@ -2496,7 +2518,7 @@
     "notes": "~1.4k stars. התקנה: curl install.sh | bash, או הרחבה של Azure Developer CLI (azd waza). פקודות: init, new skill, run, check, compare, grade, adversarial, tokens. Executor ברירת מחדל: GitHub Copilot CLI (copilot-sdk). Docs: https://microsoft.github.io/waza/. שפה: Go (החל מ-v0.4; Python ישן עד v0.3.2)."
   },
   {
-    "id": 112,
+    "id": 113,
     "url": "https://github.com/microsoft/SkillOpt",
     "title": "Microsoft Research / SkillOpt",
     "summary": "אופטימיזציה של מסמך skill כפרמטר ניתן לאימון, בלי לגעת במשקולות המודל. עריכות על best_skill.md מתקבלות רק אם הן משפרות validation.",
@@ -2524,7 +2546,7 @@
     "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+."
   },
   {
-    "id": 113,
+    "id": 114,
     "url": "https://github.com/NVIDIA/SkillSpector",
     "title": "NVIDIA / SkillSpector",
     "summary": "NVIDIA's Apache-2.0 Python CLI that scans Claude Code, Codex, and MCP agent skills for vulnerabilities, prompt injection, data exfiltration, and supply-chain risk before you install them.",
@@ -2552,7 +2574,7 @@
     "notes": "NVIDIA. 19156 GitHub stars. Apache-2.0. Python 3.12+. Install with uv tool install git+https://github.com/NVIDIA/skillspector.git (add the [mcp] extra for skillspector mcp) or Docker via make docker-build. Caveat: semantic analysis needs a configured LLM provider; static-only scans use --no-llm, and install pulls extra third-party open-source packages."
   },
   {
-    "id": 114,
+    "id": 115,
     "url": "https://github.com/mattpocock/skills",
     "title": "Matt Pocock / skills",
     "summary": "Matt Pocock's MIT-licensed pack of small composable coding-agent skills (grill, TDD, triage, specs) that install as a Claude Code plugin or via npx skills add mattpocock/skills.",
@@ -2580,7 +2602,7 @@
     "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships."
   },
   {
-    "id": 115,
+    "id": 116,
     "url": "https://github.com/romiluz13/auto-pi",
     "title": "romiluz13 / auto-pi",
     "summary": "romiluz13's MIT-licensed workflow layer for the Pi coding agent: a Coach menu and typed workflow machine that routes work through a pinned Matt Pocock ask-matt skill.",
@@ -2608,7 +2630,7 @@
     "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent."
   },
   {
-    "id": 116,
+    "id": 117,
     "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
     "title": "Teleport (Gravitational) / RFD 0238",
     "summary": "Delegating Access to AI Workloads - architecture proposal for secure infrastructure access for AI agents",
@@ -2630,7 +2652,7 @@
     "notes": "Delegating Access to AI Workloads"
   },
   {
-    "id": 117,
+    "id": 118,
     "url": "https://github.com/OWASP/AISVS",
     "title": "OWASP / AISVS",
     "summary": "OWASP Artificial Intelligence Security Verification Standard (AISVS): a community-driven catalogue of testable security requirements for AI-enabled systems, modeled on the OWASP ASVS. GitHub description: a structured checklist for developers, architects, and security professionals to verify the security of AI-driven applications. Latest stable version is AISVS 1.0 (PDF and Markdown under 1.0/).",
@@ -2652,7 +2674,7 @@
     "notes": "478 GitHub stars. License CC-BY-SA-4.0. GitHub primary language: none reported (language null). Topics: aisecurity. README: not a governance framework, not a risk-management framework, and not a tool recommendation list."
   },
   {
-    "id": 118,
+    "id": 119,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
@@ -2674,7 +2696,7 @@
     "notes": ""
   },
   {
-    "id": 119,
+    "id": 120,
     "url": "https://github.com/tzachbon/claude-model-advisor",
     "title": "Tzach Bonfil / claude-model-advisor",
     "summary": "Tool to recommend the right Claude model based on requirements and budget",
@@ -2696,7 +2718,7 @@
     "notes": ""
   },
   {
-    "id": 120,
+    "id": 121,
     "url": "https://github.com/onmyway133/claude-code-tips-tricks",
     "title": "Claude Code Tips (onmyway133)",
     "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
@@ -2718,7 +2740,7 @@
     "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages."
   },
   {
-    "id": 121,
+    "id": 122,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -2740,7 +2762,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 122,
+    "id": 123,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
@@ -2762,7 +2784,7 @@
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
   },
   {
-    "id": 123,
+    "id": 124,
     "url": "https://github.com/tinyhumansai/openhuman",
     "title": "OpenHuman / tinyhumansai",
     "summary": "OpenHuman is an early-beta open-source agent harness with a Rust core that ships as a desktop app, a browser UI, a terminal client, and an embeddable library. It lets you plug in your own LLM, memory, and search engines, and includes workflows, MCP, skills, and a small decision model called Jev.",
@@ -2789,7 +2811,7 @@
     "notes": "40470 GitHub stars. License: GPL-3.0 (GNU General Public License v3.0). Language: Rust. README marks it early beta and says it is under active development, so expect rough edges."
   },
   {
-    "id": 124,
+    "id": 125,
     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "title": "TypeSafe / Diogo Almeida",
     "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
@@ -2816,7 +2838,7 @@
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   },
   {
-    "id": 125,
+    "id": 126,
     "url": "https://github.com/dzhng/jevgrep",
     "title": "jevgrep / dzhng",
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
@@ -2843,7 +2865,7 @@
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
-    "id": 126,
+    "id": 127,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -2865,7 +2887,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 127,
+    "id": 128,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
