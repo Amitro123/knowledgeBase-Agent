@@ -141,6 +141,35 @@ def test_build_resources_ids_and_shape():
     assert "_norm" not in r
 
 
+def _undated(url):
+    return {"url": url, "_norm": url, "title": "U", "summary": "", "category": "other",
+            "tags": ["t"], "created": "", "notes": ""}
+
+
+def test_build_resources_undated_row_keeps_first_seen_date():
+    first_seen = {"https://old.dev": "2026-06-13"}
+    r = build_resources([_undated("https://old.dev")], first_seen, today="2026-10-04")[0]
+    assert r["added_at"] == "2026-06-13"   # not today's date
+    assert r["date_source"] == "first_seen"
+
+
+def test_build_resources_records_new_urls_as_first_seen_today():
+    first_seen = {}
+    r = build_resources([_undated("https://new.dev")], first_seen, today="2026-10-04")[0]
+    assert r["added_at"] == "2026-10-04"
+    assert first_seen == {"https://new.dev": "2026-10-04"}
+    # the next day's sync keeps the original date
+    again = build_resources([_undated("https://new.dev")], first_seen, today="2026-10-05")[0]
+    assert again["added_at"] == "2026-10-04"
+
+
+def test_build_resources_sheet_date_wins():
+    row = dict(_undated("https://d.dev"), created="2026-05-23")
+    r = build_resources([row], {"https://d.dev": "2026-06-13"}, today="2026-10-04")[0]
+    assert r["added_at"] == "2026-05-23"
+    assert r["date_source"] == "sheet"
+
+
 if __name__ == "__main__":
     import pytest
     sys.exit(pytest.main([__file__, "-v"]))

@@ -78,6 +78,7 @@ def kb(tmp_path):
 
     mod.ROOT = tmp_path
     mod.RESOURCES_FILE = tmp_path / "data" / "resources.json"
+    mod.GRAPH_FILE = tmp_path / "data" / "graph.json"
 
     return mod
 
@@ -249,3 +250,78 @@ class TestEdgeCases:
         kb.RESOURCES_FILE.unlink()
         result = kb.query_kb(question="anything")
         assert "No resources found" in result
+
+
+# ---------------------------------------------------------------------------
+# Graph tools (branches / topics / nodes)
+# ---------------------------------------------------------------------------
+
+@pytest.fixture()
+def kb_graph(kb):
+    """kb with a graph.json written from explicit placements."""
+    resources = json.loads(kb.RESOURCES_FILE.read_text(encoding="utf-8"))
+    placements = {
+        1: [{"branch": "rag", "topic": "RAG Tutorial"}],
+        2: [{"branch": "tools", "topic": "Agent Framework"},
+            {"branch": "repos-in-github", "topic": "Agent Framework"}],
+        3: [{"branch": "mcp", "topic": None}],
+        4: [{"branch": "rag", "topic": "Vector Database"}],
+    }
+    for r in resources:
+        r["placements"] = placements[r["id"]]
+    graph = kb.build_graph(resources, {"rag": "RAG", "tools": "Tools", "mcp": "MCP",
+                                       "repos-in-github": "Repos in github",
+                                       "observability": "Observability"})
+    kb.GRAPH_FILE.write_text(json.dumps(graph), encoding="utf-8")
+    return kb
+
+
+class TestGraphTools:
+    def test_list_branches(self, kb_graph):
+        result = kb_graph.list_branches()
+        assert "Branches (5)" in result
+        assert "**RAG** (`rag`) — 2 resources, 2 topics" in result
+        assert "Observability" in result
+
+    def test_get_branch_by_title_or_slug(self, kb_graph):
+        for query in ("Repos in github", "repos-in-github"):
+            result = kb_graph.get_branch(branch=query)
+            assert "## Repos in github" in result
+            assert "Beta Agent Framework" in result
+
+    def test_get_branch_lists_topics_and_direct_resources(self, kb_graph):
+        assert "### rag tutorial" in kb_graph.get_branch(branch="rag")
+        mcp = kb_graph.get_branch(branch="mcp")
+        assert "### (no topic)" in mcp and "Gamma MCP Guide" in mcp
+
+    def test_get_branch_empty_and_unknown(self, kb_graph):
+        assert "no resources yet" in kb_graph.get_branch(branch="observability")
+        result = kb_graph.get_branch(branch="nope")
+        assert "Branch not found" in result and "tools" in result
+        assert "Error" in kb_graph.get_branch(branch=" ")
+
+    def test_find_topic_across_branches(self, kb_graph):
+        result = kb_graph.find_topic(name="agent framework")
+        assert "(2)" in result
+        assert "in Tools" in result and "in Repos in github" in result
+        assert "No topic" in kb_graph.find_topic(name="zzz")
+
+    def test_get_node_walks_edges(self, kb_graph):
+        result = kb_graph.get_node(node_id="resource:2")
+        assert "Incoming (2)" in result
+        assert "topic:tools/agent-framework" in result
+        branch = kb_graph.get_node(node_id="branch:rag")
+        assert "-[HAS_TOPIC]->" in branch
+        assert "Node not found" in kb_graph.get_node(node_id="resource:999")
+
+    def test_builds_graph_when_graph_json_missing(self, kb):
+        assert not kb.GRAPH_FILE.exists()
+        assert "Branches" in kb.list_branches()
+
+    def test_graph_tools_do_not_write(self, kb_graph):
+        before = (kb_graph.RESOURCES_FILE.read_text(), kb_graph.GRAPH_FILE.read_text())
+        kb_graph.list_branches()
+        kb_graph.get_branch(branch="rag")
+        kb_graph.find_topic(name="rag")
+        kb_graph.get_node(node_id="branch:rag")
+        assert before == (kb_graph.RESOURCES_FILE.read_text(), kb_graph.GRAPH_FILE.read_text())
