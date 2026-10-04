@@ -6,12 +6,18 @@
     "summary": "Vector Databases Explained",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -21,12 +27,18 @@
     "summary": "RAG Framework and Examples",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -36,12 +48,18 @@
     "summary": "Agentic RAG with LangGraph",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -51,12 +69,18 @@
     "summary": "Shared Document/Resource",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -66,12 +90,18 @@
     "summary": "Tool Calling Implementation",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -81,12 +111,18 @@
     "summary": "Agent Architecture Design",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -96,12 +132,18 @@
     "summary": "Shared Content/Presentation",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -111,12 +153,18 @@
     "summary": "Lead Generation Tools/Resources",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -126,12 +174,18 @@
     "summary": "FireCrawl Integration/Help",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -141,12 +195,18 @@
     "summary": "This post explains the step-by-step internal process of how large language models (LLMs) like ChatGPT generate responses, focusing on the underlying Transformer architecture. It breaks down the journey from tokenization to final output generation, demystifying the 'magic' behind instant AI answers.",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2025-12-10",
     "added_at": "2025-12-10",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -156,12 +216,18 @@
     "summary": "This post describes a four-week hands-on course on building an AI Agent Call Center from scratch, covering real-time audio pipelines, data retrieval with Superlinked and Qdrant, upgrading speech-to-text and text-to-speech systems, and deploying with Twilio integration.",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2025-12-10",
     "added_at": "2025-12-10",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -171,12 +237,18 @@
     "summary": "how to train Unsloth models",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -186,12 +258,18 @@
     "summary": "Build faster AI memory with Cognee and Redis",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -201,12 +279,18 @@
     "summary": "Building Reliable LLM Batch Processing Systems",
     "category": "other",
     "tags": [
-      "learning",
       "learning"
+    ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "Learning"
+      }
     ],
     "source_file": "",
     "created": "2026-06-20",
     "added_at": "2026-06-20",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -220,9 +304,20 @@
       "research",
       "trends"
     ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "research"
+      },
+      {
+        "branch": "trends",
+        "topic": "research"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "פורסם 1 באוקטובר 2026. פרקים: מבוא, יסודות, למה multi-harness, OpenEnv, אימון, מסקנות. כלים: GRPO, Harbor, TRL, OpenEnv. מקור: https://github.com/adithya-s-k/FineEnvs (תחת content/articles/multi-harness-rl). Space על Hugging Face, לא ריפו בפני עצמו."
   },
   {
@@ -237,9 +332,24 @@
       "repos-in-github",
       "tutorial"
     ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "tutorial"
+      },
+      {
+        "branch": "repos-in-github",
+        "topic": "tutorial"
+      },
+      {
+        "branch": "harness",
+        "topic": "tutorial"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "18273 stars; MIT license; primary language TypeScript (GitHub API). README says you need a coding agent that can edit files and run commands (Claude Code, Codex, or similar); not a zero-code or prompt-only intro. Also includes one skill (skills/harness-creator) and a shell audit script (tools/audit-harness.sh); the repo itself is the course, not a skill pack or a tool."
   },
   {
@@ -253,9 +363,20 @@
       "memory",
       "reference"
     ],
+    "placements": [
+      {
+        "branch": "learning",
+        "topic": "reference"
+      },
+      {
+        "branch": "memory",
+        "topic": "reference"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "Public GitHub gist by karpathy (id 442a6bf555914893e9891c11519de94f), not a repository. Three layers named in the file: raw sources, the wiki, and a schema (examples given: CLAUDE.md, AGENTS.md). Optional local search tool cited: qmd, which the gist says has a CLI and an MCP server. Related idea cited: Vannevar Bush's Memex (1945). The file says an index can work at moderate scale (about 100 sources and hundreds of pages) without embedding-based RAG."
   },
   {
@@ -268,9 +389,16 @@
       "ai-solutions-linkedin",
       "ai metrics / evaluation"
     ],
+    "placements": [
+      {
+        "branch": "ai-solutions-linkedin",
+        "topic": "AI Metrics / Evaluation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -283,9 +411,16 @@
       "ai-solutions-linkedin",
       "llm architecture"
     ],
+    "placements": [
+      {
+        "branch": "ai-solutions-linkedin",
+        "topic": "LLM Architecture"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -298,9 +433,16 @@
       "ai-solutions-linkedin",
       "ai agents / context"
     ],
+    "placements": [
+      {
+        "branch": "ai-solutions-linkedin",
+        "topic": "AI Agents / Context"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -313,9 +455,16 @@
       "rag",
       "rag tutorial"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "RAG Tutorial"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -328,9 +477,16 @@
       "rag",
       "rag architecture"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "RAG Architecture"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -343,9 +499,16 @@
       "rag",
       "vector database"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "Vector Database"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -358,9 +521,16 @@
       "rag",
       "rag resources"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "RAG Resources"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -373,9 +543,16 @@
       "rag",
       "rag framework"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "RAG Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -390,9 +567,24 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "rag",
+        "topic": "tool"
+      },
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "12771 GitHub stars (stargazers_count). License Apache-2.0 (Apache License 2.0). Primary language Rust. Topics: document-ocr, document-processing, ocr, ocr-recognition, pdf, pdf-parser, text-extraction. Homepage https://developers.llamaindex.ai/liteparse/."
   },
   {
@@ -405,9 +597,16 @@
       "repos-in-github",
       "database"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Database"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -420,9 +619,16 @@
       "repos-in-github",
       "data parsing"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Data Parsing"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -435,9 +641,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -450,9 +663,16 @@
       "repos-in-github",
       "ml / tabular"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "ML / Tabular"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -465,9 +685,16 @@
       "repos-in-github",
       "ml / tabular"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "ML / Tabular"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -480,9 +707,16 @@
       "repos-in-github",
       "ml / tabular"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "ML / Tabular"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -495,9 +729,16 @@
       "evaluation",
       "repos-in-github"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Evaluation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -510,9 +751,16 @@
       "repos-in-github",
       "web framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Web Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -525,9 +773,16 @@
       "repos-in-github",
       "vector database"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Vector Database"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -540,9 +795,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -555,9 +817,16 @@
       "repos-in-github",
       "data ingestion"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Data Ingestion"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -570,9 +839,16 @@
       "repos-in-github",
       "developer tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Developer Tools"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -585,9 +861,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -600,9 +883,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -615,9 +905,16 @@
       "repos-in-github",
       "vector database"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Vector Database"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -630,9 +927,16 @@
       "repos-in-github",
       "llm serving"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "LLM Serving"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -645,9 +949,16 @@
       "repos-in-github",
       "developer tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Developer Tools"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -660,9 +971,16 @@
       "repos-in-github",
       "ml platform"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "ML Platform"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -675,9 +993,16 @@
       "repos-in-github",
       "context engineering"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Context Engineering"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -690,9 +1015,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -705,9 +1037,16 @@
       "repos-in-github",
       "data management"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Data Management"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -720,9 +1059,16 @@
       "repos-in-github",
       "agent memory"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Memory"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -735,9 +1081,16 @@
       "repos-in-github",
       "developer tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Developer Tools"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -750,9 +1103,16 @@
       "repos-in-github",
       "vector database"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Vector Database"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -765,9 +1125,16 @@
       "repos-in-github",
       "learning / book"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Learning / Book"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -780,9 +1147,16 @@
       "repos-in-github",
       "llm caching"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "LLM Caching"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -795,9 +1169,16 @@
       "repos-in-github",
       "learning / hub"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Learning / Hub"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -810,9 +1191,16 @@
       "ai workflows",
       "repos-in-github"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI Workflows"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -825,9 +1213,16 @@
       "repos-in-github",
       "data parsing"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Data Parsing"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -840,9 +1235,16 @@
       "repos-in-github",
       "genai platform"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "GenAI Platform"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -855,9 +1257,16 @@
       "repos-in-github",
       "llm pipelines"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "LLM Pipelines"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -870,9 +1279,16 @@
       "repos-in-github",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -885,9 +1301,16 @@
       "repos-in-github",
       "agent resources"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Resources"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -900,9 +1323,16 @@
       "repos-in-github",
       "agent resources"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Resources"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -915,9 +1345,16 @@
       "repos-in-github",
       "agent projects"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Projects"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -930,9 +1367,16 @@
       "repos-in-github",
       "learning / book"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Learning / Book"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -945,9 +1389,16 @@
       "repos-in-github",
       "ai gateway"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI Gateway"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -960,9 +1411,16 @@
       "repos-in-github",
       "app"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "App"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -975,9 +1433,16 @@
       "repos-in-github",
       "ai memory"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI Memory"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -990,9 +1455,16 @@
       "repos-in-github",
       "course"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Course"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1005,9 +1477,16 @@
       "repos-in-github",
       "python library"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Python Library"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1020,9 +1499,16 @@
       "repos-in-github",
       "agent skills"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Skills"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1035,9 +1521,16 @@
       "repos-in-github",
       "ai agents / coding"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI Agents / Coding"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-02",
     "added_at": "2026-05-02",
+    "date_source": "sheet",
     "notes": "Useful for autonomous coding tasks and research into Claude-style agency."
   },
   {
@@ -1050,9 +1543,16 @@
       "repos-in-github",
       "technical tool / hebrew ui"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Technical Tool / Hebrew UI"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-04",
     "added_at": "2026-05-04",
+    "date_source": "sheet",
     "notes": "Useful for fixing RTL/LTR issues in coding projects"
   },
   {
@@ -1065,9 +1565,16 @@
       "repos-in-github",
       "data processing"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Data Processing"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1080,9 +1587,16 @@
       "repos-in-github",
       "ai"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-23",
     "added_at": "2026-05-23",
+    "date_source": "sheet",
     "notes": "מבנה סוכן AI נייד, תאימות בין-פלטפורמית עם מגוון כלי קידוד AI. רלוונטי לארכיטקטורות סוכנים."
   },
   {
@@ -1095,9 +1609,16 @@
       "repos-in-github",
       "ai"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "AI"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-23",
     "added_at": "2026-05-23",
+    "date_source": "sheet",
     "notes": "מנוע אינקרמנטלי לסוכני AI ארוכי טווח. רלוונטי לבניית מערכות AI מורכבות יותר שצריכות לשמור הקשר ולהסתגל לאורך זמן."
   },
   {
@@ -1110,9 +1631,16 @@
       "repos-in-github",
       "cli"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "CLI"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1125,9 +1653,16 @@
       "repos-in-github",
       "agent framework / infrastructure"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "Agent Framework / Infrastructure"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-02",
     "added_at": "2026-10-02",
+    "date_source": "sheet",
     "notes": "רכיבים: Console (:3000) + Gateway (:8080, Responses API) + Runner (:8081) בקונטיינר Docker אחד; volume /data למסד, קבצים, secrets ו-workspaces. פרוטוקול: Unified Harness Protocol (UHP) + תאימות OpenAI Responses. צריך: Docker ~4GB דיסק + API key של ספק מודלים. רישיון: Apache-2.0 (Community Edition). אתר: https://harnessrouter.ai/ · שפה: Python · ~2.8k stars."
   },
   {
@@ -1141,9 +1676,20 @@
       "skills",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "~1.4k stars. התקנה: curl install.sh | bash, או הרחבה של Azure Developer CLI (azd waza). פקודות: init, new skill, run, check, compare, grade, adversarial, tokens. Executor ברירת מחדל: GitHub Copilot CLI (copilot-sdk). Docs: https://microsoft.github.io/waza/. שפה: Go (החל מ-v0.4; Python ישן עד v0.3.2)."
   },
   {
@@ -1157,9 +1703,20 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "pip install laya. Checkpoints: laya (אנגלית, ModernBERT), laya-multilingual (mmBERT, עד 8192), laya-typed-decisions. אקסטרות: serve (HTTP תואם Jev), mcp, langchain, onnx. אימון RLCD. Docs: https://nandhakishorm.github.io/laya/ · מודל: https://huggingface.co/convaiinnovations/laya · רישיון Apache-2.0 · Python 3.10+ וגם laya-ts."
   },
   {
@@ -1174,9 +1731,24 @@
       "skills",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      },
+      {
+        "branch": "harness",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+."
   },
   {
@@ -1190,9 +1762,20 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-09-23",
     "added_at": "2026-09-23",
+    "date_source": "sheet",
     "notes": "קובץ HTML אחד + vendor. אתר: https://codeflow-five.vercel.app/ · גם תיקיית markdown/Obsidian וגם ניתוח תיקייה מקומית. טוקן GitHub נשאר בזיכרון הדפדפן. רישיון MIT. הגיע מפוסט של Farid's AI Empire (23/09): https://www.facebook.com/share/p/1BynKpZ46F/"
   },
   {
@@ -1208,9 +1791,28 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "finops",
+        "topic": "tool"
+      },
+      {
+        "branch": "jev",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
@@ -1227,9 +1829,32 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "mcp",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      },
+      {
+        "branch": "security",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-07-10",
     "added_at": "2026-07-10",
+    "date_source": "sheet",
     "notes": "NVIDIA. 19156 GitHub stars. Apache-2.0. Python 3.12+. Install with uv tool install git+https://github.com/NVIDIA/skillspector.git (add the [mcp] extra for skillspector mcp) or Docker via make docker-build. Caveat: semantic analysis needs a configured LLM provider; static-only scans use --no-llm, and install pulls extra third-party open-source packages."
   },
   {
@@ -1244,9 +1869,24 @@
       "skills",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      },
+      {
+        "branch": "claude",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-07-10",
     "added_at": "2026-07-10",
+    "date_source": "sheet",
     "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships."
   },
   {
@@ -1261,9 +1901,24 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "claude",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-07-12",
     "added_at": "2026-07-12",
+    "date_source": "sheet",
     "notes": "OpenAI. 33787 GitHub stars. Apache-2.0. JavaScript. In Claude Code: /plugin marketplace add openai/codex-plugin-cc, then /plugin install codex@openai-codex, /reload-plugins, and /codex:setup. Needs Node.js 18.18+ and a ChatGPT subscription or API key. Caveat: the optional review gate can loop Claude and Codex and drain usage limits quickly."
   },
   {
@@ -1279,9 +1934,28 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      },
+      {
+        "branch": "harness",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-07-12",
     "added_at": "2026-07-12",
+    "date_source": "sheet",
     "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent."
   },
   {
@@ -1297,9 +1971,28 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "mcp",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "~2.1k stars, MIT. Start with npm create skybridge@latest, or npx skills add alpic-ai/skybridge -s skybridge. Docs at https://docs.skybridge.tech. Deploy on Alpic or any Node host."
   },
   {
@@ -1317,9 +2010,36 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "mcp",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "memory",
+        "topic": "tool"
+      },
+      {
+        "branch": "harness",
+        "topic": "tool"
+      },
+      {
+        "branch": "jev",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "40470 GitHub stars. License: GPL-3.0 (GNU General Public License v3.0). Language: Rust. README marks it early beta and says it is under active development, so expect rough edges."
   },
   {
@@ -1335,9 +2055,28 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "mcp",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "memory",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "31394 GitHub stars. License Apache-2.0. Language Python. Install with pip install graphiti-core. README also includes an MCP server. Zep temporal knowledge graph for agents, not a RAG guide."
   },
   {
@@ -1351,9 +2090,20 @@
       "repos-in-github",
       "security"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "reference"
+      },
+      {
+        "branch": "security",
+        "topic": "reference"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "478 GitHub stars. License CC-BY-SA-4.0. GitHub primary language: none reported (language null). Topics: aisecurity. README: not a governance framework, not a risk-management framework, and not a tool recommendation list."
   },
   {
@@ -1367,9 +2117,20 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "23291 GitHub stars. License Apache-2.0. Primary language TypeScript. Install with curl -fsSL https://bend-lang.com/install.sh | sh. README says Bend 1 programs and HVM do not carry over."
   },
   {
@@ -1383,9 +2144,20 @@
       "reference",
       "repos-in-github"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "reference"
+      },
+      {
+        "branch": "claude",
+        "topic": "reference"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages."
   },
   {
@@ -1400,9 +2172,24 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "mcp",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "29,955 stars. License: GPL-3.0-or-later for the Serena application and MIT for SolidLSP (src/solidlsp); GitHub reports the repo license as Other. Language: Python. Install with uv (`uv tool install -p 3.13 serena-agent`), then connect the client to the Serena MCP server."
   },
   {
@@ -1416,9 +2203,20 @@
       "repos-in-github",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "jev",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
@@ -1432,9 +2230,20 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "6,723 stars; license Server Side Public License v1; language Rust. It uses the Redis protocol (GRAPH.QUERY); the README quick start is a Docker image on ports 6379 and 3000."
   },
   {
@@ -1449,9 +2258,24 @@
       "tool",
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "tools",
+        "topic": "tool"
+      },
+      {
+        "branch": "skills",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "123488 GitHub stars. License Apache-2.0. Language Python. Install with `uv tool install graphifyy` then `graphify install` to register the skill; code parsing stays local with tree-sitter."
   },
   {
@@ -1465,9 +2289,20 @@
       "repos-in-github",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      },
+      {
+        "branch": "harness",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
@@ -1480,9 +2315,16 @@
       "repos-in-github",
       "tool"
     ],
+    "placements": [
+      {
+        "branch": "repos-in-github",
+        "topic": "tool"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "894 stars; Apache License 2.0; primary language Python. README recommends using a tagged release rather than main; the repository is a read-only mirror and external dependencies have separate license terms."
   },
   {
@@ -1495,9 +2337,16 @@
       "automation-flow",
       "lead generation / automation"
     ],
+    "placements": [
+      {
+        "branch": "automation-flow",
+        "topic": "Lead Generation / Automation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1510,9 +2359,16 @@
       "automation-flow",
       "browser automation"
     ],
+    "placements": [
+      {
+        "branch": "automation-flow",
+        "topic": "Browser Automation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1525,9 +2381,16 @@
       "automation-flow",
       "automation"
     ],
+    "placements": [
+      {
+        "branch": "automation-flow",
+        "topic": "Automation"
+      }
+    ],
     "source_file": "",
     "created": "2025-12-10",
     "added_at": "2025-12-10",
+    "date_source": "sheet",
     "notes": ""
   },
   {
@@ -1540,9 +2403,16 @@
       "automation-flow",
       "agents/automation"
     ],
+    "placements": [
+      {
+        "branch": "automation-flow",
+        "topic": "Agents/Automation"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-04",
     "added_at": "2026-05-04",
+    "date_source": "sheet",
     "notes": "Self-hosted AI agent infrastructure platform"
   },
   {
@@ -1555,9 +2425,16 @@
       "mcp",
       "infrastucture / tools"
     ],
+    "placements": [
+      {
+        "branch": "mcp",
+        "topic": "Infrastucture / Tools"
+      }
+    ],
     "source_file": "",
     "created": "2026-05-02",
     "added_at": "2026-05-02",
+    "date_source": "sheet",
     "notes": "Critical for future MCP integrations with Google Workspace."
   },
   {
@@ -1567,12 +2444,18 @@
     "summary": "A universal CLI client for MCP. mcpc supports persistent sessions, stdio/HTTP, OAuth 2.1, tasks, JSON output for code mode, proxy for AI sandboxes, x402, and more.",
     "category": "other",
     "tags": [
-      "mcp",
       "mcp"
+    ],
+    "placements": [
+      {
+        "branch": "mcp",
+        "topic": "MCP"
+      }
     ],
     "source_file": "",
     "created": "2026-05-23",
     "added_at": "2026-05-23",
+    "date_source": "sheet",
     "notes": "כלי CLI אוניברסלי ל-MCP. תומך בסשנים מתמשכים, משימות, פלט JSON למצב קוד וסנדבוקס ל-AI."
   },
   {
@@ -1585,9 +2468,16 @@
       "tools",
       "web framework"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Web Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1600,9 +2490,16 @@
       "tools",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1615,9 +2512,16 @@
       "tools",
       "model training"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Model Training"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1630,9 +2534,16 @@
       "tools",
       "voice ai"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Voice AI"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1645,9 +2556,16 @@
       "tools",
       "tutorial"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Tutorial"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1660,9 +2578,16 @@
       "tools",
       "presentation ai"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Presentation AI"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1675,9 +2600,16 @@
       "tools",
       "tutorial"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Tutorial"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1690,9 +2622,16 @@
       "tools",
       "evaluation"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Evaluation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1705,9 +2644,16 @@
       "tools",
       "web scraping"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Web Scraping"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1720,9 +2666,16 @@
       "tools",
       "knowledge management"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Knowledge Management"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1735,9 +2688,16 @@
       "tools",
       "mlops / observability"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "MLOps / Observability"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1750,9 +2710,16 @@
       "tools",
       "agent framework"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Agent Framework"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-10-02",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1765,9 +2732,16 @@
       "tools",
       "evaluation"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Evaluation"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1780,9 +2754,16 @@
       "tools",
       "llm deployment"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "LLM Deployment"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1795,9 +2776,16 @@
       "tools",
       "video"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Video"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1810,9 +2798,16 @@
       "tools",
       "ai agent"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "AI Agent"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1824,9 +2819,16 @@
     "tags": [
       "tools"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Other"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1839,9 +2841,16 @@
       "tools",
       "mlops"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "MLOps"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1854,9 +2863,16 @@
       "tools",
       "tutorial"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "Tutorial"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1869,9 +2885,16 @@
       "tools",
       "ai search"
     ],
+    "placements": [
+      {
+        "branch": "tools",
+        "topic": "AI Search"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1884,9 +2907,16 @@
       "skills",
       "agent skills"
     ],
+    "placements": [
+      {
+        "branch": "skills",
+        "topic": "Agent Skills"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1899,9 +2929,16 @@
       "security",
       "ai security / iam"
     ],
+    "placements": [
+      {
+        "branch": "security",
+        "topic": "AI Security / IAM"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": "Delegating Access to AI Workloads"
   },
   {
@@ -1914,9 +2951,16 @@
       "claude",
       "token optimization"
     ],
+    "placements": [
+      {
+        "branch": "claude",
+        "topic": "Token Optimization"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1929,9 +2973,16 @@
       "claude",
       "model selection"
     ],
+    "placements": [
+      {
+        "branch": "claude",
+        "topic": "Model Selection"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": ""
   },
   {
@@ -1944,9 +2995,16 @@
       "memory",
       "agent memory"
     ],
+    "placements": [
+      {
+        "branch": "memory",
+        "topic": "Agent Memory"
+      }
+    ],
     "source_file": "",
     "created": "",
-    "added_at": "2026-10-04",
+    "added_at": "2026-06-13",
+    "date_source": "first_seen",
     "notes": "Memory management for Gemini agents"
   },
   {
@@ -1956,12 +3014,18 @@
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
     "category": "other",
     "tags": [
-      "memory",
       "memory"
+    ],
+    "placements": [
+      {
+        "branch": "memory",
+        "topic": "Memory"
+      }
     ],
     "source_file": "",
     "created": "2026-05-23",
     "added_at": "2026-05-23",
+    "date_source": "sheet",
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
   },
   {
@@ -1975,9 +3039,20 @@
       "news",
       "trends"
     ],
+    "placements": [
+      {
+        "branch": "trends",
+        "topic": "news"
+      },
+      {
+        "branch": "jev",
+        "topic": "news"
+      }
+    ],
     "source_file": "",
     "created": "2026-10-03",
     "added_at": "2026-10-03",
+    "date_source": "sheet",
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T06:54:39+00:00",
+  "generated_at": "2026-10-04T07:15:23+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -17,7 +17,7 @@
       "label": "Repos in github",
       "slug": "repos-in-github",
       "count": 72,
-      "topic_count": 36
+      "topic_count": 37
     },
     {
       "id": "branch:tools",
@@ -25,7 +25,7 @@
       "label": "Tools",
       "slug": "tools",
       "count": 34,
-      "topic_count": 15
+      "topic_count": 16
     },
     {
       "id": "branch:learning",
@@ -33,7 +33,7 @@
       "label": "Learning",
       "slug": "learning",
       "count": 17,
-      "topic_count": 2
+      "topic_count": 3
     },
     {
       "id": "branch:skills",
@@ -41,7 +41,7 @@
       "label": "Skills",
       "slug": "skills",
       "count": 8,
-      "topic_count": 1
+      "topic_count": 2
     },
     {
       "id": "branch:mcp",
@@ -81,7 +81,7 @@
       "label": "Memory",
       "slug": "memory",
       "count": 5,
-      "topic_count": 1
+      "topic_count": 3
     },
     {
       "id": "branch:automation-flow",
@@ -113,7 +113,7 @@
       "label": "Security",
       "slug": "security",
       "count": 3,
-      "topic_count": 1
+      "topic_count": 3
     },
     {
       "id": "branch:trends",
@@ -121,7 +121,7 @@
       "label": "Trends",
       "slug": "trends",
       "count": 2,
-      "topic_count": 0
+      "topic_count": 2
     },
     {
       "id": "branch:finops",
@@ -152,6 +152,20 @@
       "type": "topic",
       "label": "tool",
       "branch": "branch:repos-in-github",
+      "count": 20
+    },
+    {
+      "id": "topic:tools/tool",
+      "type": "topic",
+      "label": "tool",
+      "branch": "branch:tools",
+      "count": 14
+    },
+    {
+      "id": "topic:skills/tool",
+      "type": "topic",
+      "label": "tool",
+      "branch": "branch:skills",
       "count": 7
     },
     {
@@ -162,6 +176,13 @@
       "count": 6
     },
     {
+      "id": "topic:mcp/tool",
+      "type": "topic",
+      "label": "tool",
+      "branch": "branch:mcp",
+      "count": 5
+    },
+    {
       "id": "topic:harness/tool",
       "type": "topic",
       "label": "tool",
@@ -169,11 +190,11 @@
       "count": 4
     },
     {
-      "id": "topic:mcp/tool",
+      "id": "topic:jev/tool",
       "type": "topic",
       "label": "tool",
-      "branch": "branch:mcp",
-      "count": 4
+      "branch": "branch:jev",
+      "count": 3
     },
     {
       "id": "topic:repos-in-github/developer-tools",
@@ -211,6 +232,13 @@
       "count": 2
     },
     {
+      "id": "topic:memory/tool",
+      "type": "topic",
+      "label": "tool",
+      "branch": "branch:memory",
+      "count": 2
+    },
+    {
       "id": "topic:repos-in-github/agent-resources",
       "type": "topic",
       "label": "agent resources",
@@ -235,6 +263,13 @@
       "id": "topic:repos-in-github/learning-book",
       "type": "topic",
       "label": "learning / book",
+      "branch": "branch:repos-in-github",
+      "count": 2
+    },
+    {
+      "id": "topic:repos-in-github/reference",
+      "type": "topic",
+      "label": "reference",
       "branch": "branch:repos-in-github",
       "count": 2
     },
@@ -344,13 +379,6 @@
       "count": 1
     },
     {
-      "id": "topic:jev/tool",
-      "type": "topic",
-      "label": "tool",
-      "branch": "branch:jev",
-      "count": 1
-    },
-    {
       "id": "topic:learning/reference",
       "type": "topic",
       "label": "reference",
@@ -365,6 +393,13 @@
       "count": 1
     },
     {
+      "id": "topic:learning/tutorial",
+      "type": "topic",
+      "label": "tutorial",
+      "branch": "branch:learning",
+      "count": 1
+    },
+    {
       "id": "topic:mcp/infrastucture-tools",
       "type": "topic",
       "label": "infrastucture / tools",
@@ -375,6 +410,13 @@
       "id": "topic:memory/agent-memory",
       "type": "topic",
       "label": "agent memory",
+      "branch": "branch:memory",
+      "count": 1
+    },
+    {
+      "id": "topic:memory/reference",
+      "type": "topic",
+      "label": "reference",
       "branch": "branch:memory",
       "count": 1
     },
@@ -589,16 +631,16 @@
       "count": 1
     },
     {
-      "id": "topic:repos-in-github/reference",
+      "id": "topic:repos-in-github/technical-tool-hebrew-ui",
       "type": "topic",
-      "label": "reference",
+      "label": "technical tool / hebrew ui",
       "branch": "branch:repos-in-github",
       "count": 1
     },
     {
-      "id": "topic:repos-in-github/technical-tool-hebrew-ui",
+      "id": "topic:repos-in-github/tutorial",
       "type": "topic",
-      "label": "technical tool / hebrew ui",
+      "label": "tutorial",
       "branch": "branch:repos-in-github",
       "count": 1
     },
@@ -613,6 +655,20 @@
       "id": "topic:security/ai-security-iam",
       "type": "topic",
       "label": "ai security / iam",
+      "branch": "branch:security",
+      "count": 1
+    },
+    {
+      "id": "topic:security/reference",
+      "type": "topic",
+      "label": "reference",
+      "branch": "branch:security",
+      "count": 1
+    },
+    {
+      "id": "topic:security/tool",
+      "type": "topic",
+      "label": "tool",
       "branch": "branch:security",
       "count": 1
     },
@@ -705,6 +761,20 @@
       "type": "topic",
       "label": "web scraping",
       "branch": "branch:tools",
+      "count": 1
+    },
+    {
+      "id": "topic:trends/news",
+      "type": "topic",
+      "label": "news",
+      "branch": "branch:trends",
+      "count": 1
+    },
+    {
+      "id": "topic:trends/research",
+      "type": "topic",
+      "label": "research",
+      "branch": "branch:trends",
       "count": 1
     },
     {
@@ -2868,7 +2938,32 @@
     },
     {
       "source": "branch:trends",
+      "target": "topic:trends/research",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:trends/research",
       "target": "resource:15",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:learning",
+      "target": "topic:learning/tutorial",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:learning/tutorial",
+      "target": "resource:16",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:repos-in-github",
+      "target": "topic:repos-in-github/tutorial",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:repos-in-github/tutorial",
+      "target": "resource:16",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2878,16 +2973,6 @@
     },
     {
       "source": "topic:harness/tutorial",
-      "target": "resource:16",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:learning",
-      "target": "resource:16",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:repos-in-github",
       "target": "resource:16",
       "type": "HAS_RESOURCE"
     },
@@ -2903,6 +2988,11 @@
     },
     {
       "source": "branch:memory",
+      "target": "topic:memory/reference",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:memory/reference",
       "target": "resource:17",
       "type": "HAS_RESOURCE"
     },
@@ -2998,11 +3088,21 @@
     },
     {
       "source": "branch:repos-in-github",
+      "target": "topic:repos-in-github/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:repos-in-github/tool",
       "target": "resource:26",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:tools",
+      "target": "topic:tools/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:tools/tool",
       "target": "resource:26",
       "type": "HAS_RESOURCE"
     },
@@ -3422,17 +3522,17 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "topic:repos-in-github/tool",
-      "type": "HAS_TOPIC"
-    },
-    {
       "source": "topic:repos-in-github/tool",
       "target": "resource:76",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:skills",
+      "target": "topic:skills/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:skills/tool",
       "target": "resource:76",
       "type": "HAS_RESOURCE"
     },
@@ -3442,8 +3542,18 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
+      "source": "topic:tools/tool",
       "target": "resource:77",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:78",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/tool",
+      "target": "resource:78",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3457,23 +3567,23 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:78",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:skills",
-      "target": "resource:78",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "topic:repos-in-github/tool",
       "target": "resource:79",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
+      "source": "topic:tools/tool",
       "target": "resource:79",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:80",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:tools/tool",
+      "target": "resource:80",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3488,17 +3598,17 @@
     },
     {
       "source": "branch:jev",
+      "target": "topic:jev/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:jev/tool",
       "target": "resource:80",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:80",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:tools",
-      "target": "resource:80",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:81",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3512,23 +3622,33 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
+      "source": "topic:tools/tool",
+      "target": "resource:81",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/tool",
       "target": "resource:81",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:security",
+      "target": "topic:security/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:security/tool",
       "target": "resource:81",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:skills",
-      "target": "resource:81",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:82",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
-      "target": "resource:81",
+      "source": "topic:skills/tool",
+      "target": "resource:82",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3542,13 +3662,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:82",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:83",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:skills",
-      "target": "resource:82",
+      "source": "topic:tools/tool",
+      "target": "resource:83",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3557,13 +3677,18 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:83",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:84",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
-      "target": "resource:83",
+      "source": "topic:tools/tool",
+      "target": "resource:84",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/tool",
+      "target": "resource:84",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3572,18 +3697,8 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:84",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:skills",
-      "target": "resource:84",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:tools",
-      "target": "resource:84",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:85",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3592,18 +3707,38 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
+      "source": "topic:tools/tool",
       "target": "resource:85",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:skills",
+      "source": "topic:skills/tool",
       "target": "resource:85",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
-      "target": "resource:85",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:86",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:mcp/tool",
+      "target": "resource:86",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:tools/tool",
+      "target": "resource:86",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:memory",
+      "target": "topic:memory/tool",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:memory/tool",
+      "target": "resource:86",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3612,28 +3747,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:jev",
+      "source": "topic:jev/tool",
       "target": "resource:86",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:mcp",
-      "target": "resource:86",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:memory",
-      "target": "resource:86",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:repos-in-github",
-      "target": "resource:86",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:tools",
-      "target": "resource:86",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:87",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3642,17 +3762,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:memory",
+      "source": "topic:tools/tool",
       "target": "resource:87",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:87",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:tools",
+      "source": "topic:memory/tool",
       "target": "resource:87",
       "type": "HAS_RESOURCE"
     },
@@ -3668,6 +3783,11 @@
     },
     {
       "source": "branch:security",
+      "target": "topic:security/reference",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:security/reference",
       "target": "resource:88",
       "type": "HAS_RESOURCE"
     },
@@ -3677,8 +3797,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
+      "source": "topic:tools/tool",
       "target": "resource:89",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:repos-in-github/reference",
+      "target": "resource:90",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3692,8 +3817,8 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:90",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:91",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3702,19 +3827,14 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
+      "source": "topic:tools/tool",
       "target": "resource:91",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
-      "target": "resource:91",
+      "source": "topic:repos-in-github/tool",
+      "target": "resource:92",
       "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:jev",
-      "target": "topic:jev/tool",
-      "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/tool",
@@ -3722,17 +3842,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
-      "target": "resource:92",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "topic:repos-in-github/tool",
       "target": "resource:93",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
+      "source": "topic:tools/tool",
       "target": "resource:93",
       "type": "HAS_RESOURCE"
     },
@@ -3742,22 +3857,22 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:skills",
+      "source": "topic:tools/tool",
       "target": "resource:94",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:tools",
+      "source": "topic:skills/tool",
       "target": "resource:94",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:harness/tool",
+      "source": "topic:repos-in-github/tool",
       "target": "resource:95",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:repos-in-github",
+      "source": "topic:harness/tool",
       "target": "resource:95",
       "type": "HAS_RESOURCE"
     },
@@ -4052,17 +4167,22 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "branch:trends",
+      "target": "topic:trends/news",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:trends/news",
+      "target": "resource:129",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:129",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "branch:trends",
       "target": "resource:129",
       "type": "HAS_RESOURCE"
     }
