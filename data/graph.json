@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T20:19:30+00:00",
+  "generated_at": "2026-10-04T21:43:30+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -40,7 +40,7 @@
       "type": "branch",
       "label": "Skills",
       "slug": "skills",
-      "count": 8,
+      "count": 9,
       "topic_count": 3
     },
     {
@@ -246,6 +246,13 @@
       "count": 4
     },
     {
+      "id": "topic:skills/skill-libraries",
+      "type": "topic",
+      "label": "skill libraries",
+      "branch": "branch:skills",
+      "count": 4
+    },
+    {
       "id": "topic:claude/claude-code",
       "type": "topic",
       "label": "claude code",
@@ -257,13 +264,6 @@
       "type": "topic",
       "label": "classic ml",
       "branch": "branch:repos-in-github",
-      "count": 3
-    },
-    {
-      "id": "topic:skills/skill-libraries",
-      "type": "topic",
-      "label": "skill libraries",
-      "branch": "branch:skills",
       "count": 3
     },
     {
@@ -852,6 +852,23 @@
     {
       "id": "resource:117",
       "type": "resource",
+      "label": "charlie947 / social-media-skills",
+      "url": "https://github.com/charlie947/social-media-skills",
+      "github_repo": "charlie947/social-media-skills",
+      "summary": "Public toolkit of 17 markdown skills that give Codex and Claude workflows for LinkedIn writing, research, analytics, and social posts.",
+      "notes": "~3.8k stars. MIT. Python. Last commit Sep 2026. Not archived.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "skills"
+      ],
+      "topics": [
+        "skill libraries"
+      ]
+    },
+    {
+      "id": "resource:118",
+      "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
       "github_repo": "gravitational/teleport",
@@ -867,7 +884,7 @@
       ]
     },
     {
-      "id": "resource:118",
+      "id": "resource:119",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -881,23 +898,6 @@
       ],
       "topics": [
         "reference"
-      ]
-    },
-    {
-      "id": "resource:119",
-      "type": "resource",
-      "label": "alexgreensh / token-optimizer",
-      "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
-      "github_repo": "alexgreensh/token-optimizer",
-      "summary": "Library to optimize tokens and reduce LLM context costs",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "claude"
-      ],
-      "topics": [
-        "cost & models"
       ]
     },
     {
@@ -920,6 +920,23 @@
     {
       "id": "resource:120",
       "type": "resource",
+      "label": "alexgreensh / token-optimizer",
+      "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
+      "github_repo": "alexgreensh/token-optimizer",
+      "summary": "Library to optimize tokens and reduce LLM context costs",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "cost & models"
+      ]
+    },
+    {
+      "id": "resource:121",
+      "type": "resource",
       "label": "Tzach Bonfil / claude-model-advisor",
       "url": "https://github.com/tzachbon/claude-model-advisor",
       "github_repo": "tzachbon/claude-model-advisor",
@@ -935,7 +952,7 @@
       ]
     },
     {
-      "id": "resource:121",
+      "id": "resource:122",
       "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
@@ -952,7 +969,7 @@
       ]
     },
     {
-      "id": "resource:122",
+      "id": "resource:123",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -969,7 +986,7 @@
       ]
     },
     {
-      "id": "resource:123",
+      "id": "resource:124",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -986,7 +1003,7 @@
       ]
     },
     {
-      "id": "resource:124",
+      "id": "resource:125",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1004,7 +1021,7 @@
       ]
     },
     {
-      "id": "resource:125",
+      "id": "resource:126",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1021,7 +1038,7 @@
       ]
     },
     {
-      "id": "resource:126",
+      "id": "resource:127",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1039,7 +1056,7 @@
       ]
     },
     {
-      "id": "resource:127",
+      "id": "resource:128",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1057,7 +1074,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1071,23 +1088,6 @@
       ],
       "topics": [
         "agent harness"
-      ]
-    },
-    {
-      "id": "resource:129",
-      "type": "resource",
-      "label": "pg-jev / realZachi",
-      "url": "https://github.com/realZachi/pg-jev",
-      "github_repo": "realZachi/pg-jev",
-      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
-      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "jev"
-      ],
-      "topics": [
-        "postgres extension"
       ]
     },
     {
@@ -1105,6 +1105,23 @@
       ],
       "topics": [
         "agents & context"
+      ]
+    },
+    {
+      "id": "resource:130",
+      "type": "resource",
+      "label": "pg-jev / realZachi",
+      "url": "https://github.com/realZachi/pg-jev",
+      "github_repo": "realZachi/pg-jev",
+      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
+      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "postgres extension"
       ]
     },
     {
@@ -3562,13 +3579,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:117",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:security",
       "target": "topic:security/ai-security-iam",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:117",
+      "target": "resource:118",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3578,7 +3600,7 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:118",
+      "target": "resource:119",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3588,21 +3610,16 @@
     },
     {
       "source": "topic:claude/cost-&-models",
-      "target": "resource:119",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
       "target": "resource:120",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:121",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:122",
       "type": "HAS_RESOURCE"
     },
@@ -3612,13 +3629,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:124",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:124",
+      "target": "resource:125",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3628,12 +3650,12 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:124",
+      "target": "resource:125",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:memory/agent-memory",
-      "target": "resource:125",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3643,7 +3665,7 @@
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:126",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3653,7 +3675,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:126",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3663,7 +3685,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3673,7 +3695,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3683,7 +3705,7 @@
     },
     {
       "source": "topic:harness/agent-harness",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3693,7 +3715,7 @@
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     }
   ]
