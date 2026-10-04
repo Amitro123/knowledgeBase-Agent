@@ -175,12 +175,16 @@ If the user insists, add it only after they confirm that it may be public.
    graph.json" in `Amitro123/knowledgeBase-Agent` (Actions → Run workflow, on
    `main`). If you don't, tell the user it will appear after the next scheduled
    sync, or that they can run it manually.
-2. **Check that it landed** (if you can read the repo or the MCP tools), a few
-   minutes after the sync:
-   - the resource appears in `data/graph.json`, or `query_kb("<title>")` finds it;
-   - it hangs under the topic you chose (`get_branch("<tab>")`);
-   - no new topic appeared by accident (`find_topic("<category>")` shows the
-     existing one).
+2. **Check that it landed** using this repo's graph MCP tools (never call
+   `query_kb`—it belongs to a different knowledge base):
+   - `get_node("<url>")` returns the resource and its link matches what you saved;
+   - `get_branch("<tab>")` shows the resource under the topic you chose;
+   - `find_topic("<category>")` returns the existing topic, not a new spelling.
+
+   If the graph MCP is not connected, fall back to reading `data/graph.json`
+   from the repo after the sync commit lands and verify the same three things
+   manually: the node exists with the correct link, it sits under the chosen
+   topic in its branch, and no accidental new topic spelling was created.
 
 ## Reply to the user (in Hebrew)
 
