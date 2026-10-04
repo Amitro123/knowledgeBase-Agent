@@ -25,3 +25,34 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+credentials*.json
+*credential*.json
+*secret*.json
+
+# Local configuration
+config.local.*
+settings.local.*
+.local/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+build/
+coverage/

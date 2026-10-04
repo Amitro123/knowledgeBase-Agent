@@ -4,6 +4,14 @@ A personal technical-link knowledge base for AI resources — tools, research pa
 
 **Live site:** <https://amitro123.github.io/knowledgeBase-Agent/>
 
+## Project status
+
+This is a personal knowledge-base project and a portfolio/reference implementation.
+
+It is publicly viewable for learning and reference purposes.
+It is not a hosted product and does not include guaranteed support,
+production deployment guidance, or a commercial-use license.
+
 ## Graph View
 
 The site draws the knowledge base as a graph of **branches**, **topics** and **resources**:
@@ -180,3 +188,13 @@ primary data source. Google Sheets is now the source of truth.
 | `VAULT_READ_TOKEN`  | GitHub PAT for reading from obsidian-vault (private) |
 
 </details>
+
+## License
+
+Copyright © 2026 Amit Rosen. All rights reserved.
+
+This repository is shared for learning and reference purposes only.
+Commercial use, redistribution, repackaging, and derivative works
+require prior written permission.
+
+See [LICENSE.txt](LICENSE.txt) for details.
