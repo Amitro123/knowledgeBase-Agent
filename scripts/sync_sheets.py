@@ -7,6 +7,10 @@ tag on every resource that lives in that tab.  Deduplication is by normalised
 URL; when the same URL appears on multiple tabs or rows the *earliest* Date
 wins and tags are merged.
 
+Each resource also records its `placements` — the (tab, Category text) pairs
+it came from — and the run writes data/graph.json (see build_graph.py), the
+branch/topic graph shared by the web viewer and the MCP server.
+
 Required environment:
     GOOGLE_SERVICE_ACCOUNT_JSON — the raw JSON string of a Google Cloud
                                   service-account key that has Viewer access
@@ -26,6 +30,8 @@ from urllib.parse import urldefrag, urlsplit, urlunsplit
 
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
+
+from build_graph import write_graph
 
 # ── Config ──────────────────────────────────────────────────────────────────
 
@@ -164,7 +170,7 @@ def rows_to_entries(tab_name: str, rows: list[list[str]]) -> list[dict]:
         cat_raw = cell("Category")
         category = normalise_category(cat_raw) if cat_raw else "other"
         tags = [tag]
-        if cat_raw and cat_raw.lower() not in ("", "other"):
+        if cat_raw and cat_raw.lower() not in ("", "other", tag):
             tags.append(cat_raw.strip().lower())
 
         entries.append({
@@ -174,6 +180,7 @@ def rows_to_entries(tab_name: str, rows: list[list[str]]) -> list[dict]:
             "summary": cell("Function/Summary"),
             "category": category,
             "tags": tags,
+            "placements": [{"branch": tag, "topic": cat_raw or None}],
             "created": date_str,
             "notes": cell("Review/Notes"),
         })
@@ -188,6 +195,10 @@ def merge_entries(all_entries: list[dict]) -> list[dict]:
         if norm in by_url:
             existing = by_url[norm]
             existing["tags"] = sorted(set(existing["tags"]) | set(e["tags"]))
+            existing["placements"] = existing.get("placements", []) + [
+                p for p in e.get("placements", [])
+                if p not in existing.get("placements", [])
+            ]
             existing["created"] = earlier(existing["created"], e["created"])
             if not existing["notes"] and e["notes"]:
                 existing["notes"] = e["notes"]
@@ -210,6 +221,7 @@ def build_resources(merged: list[dict]) -> list[dict]:
             "summary": e["summary"],
             "category": e["category"],
             "tags": e["tags"],
+            "placements": e.get("placements", []),
             "source_file": "",
             "created": e["created"],
             "added_at": e["created"] or today,
@@ -249,6 +261,9 @@ def main() -> None:
     with open(RESOURCES_FILE, "w", encoding="utf-8") as f:
         json.dump(resources, f, ensure_ascii=False, indent=2)
     print(f"Wrote {len(resources)} entries to {RESOURCES_FILE}")
+
+    graph = write_graph(resources, branch_labels={tab_to_tag(name): name for name, _ in tabs})
+    print(f"Wrote graph.json: {len(graph['nodes'])} nodes, {len(graph['edges'])} edges")
 
 
 if __name__ == "__main__":
