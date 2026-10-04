@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T21:43:30+00:00",
+  "generated_at": "2026-10-04T21:57:59+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -48,7 +48,7 @@
       "type": "branch",
       "label": "Memory",
       "slug": "memory",
-      "count": 6,
+      "count": 7,
       "topic_count": 3
     },
     {
@@ -211,6 +211,13 @@
       "count": 5
     },
     {
+      "id": "topic:memory/agent-memory",
+      "type": "topic",
+      "label": "agent memory",
+      "branch": "branch:memory",
+      "count": 5
+    },
+    {
       "id": "topic:repos-in-github/dev-utilities",
       "type": "topic",
       "label": "dev utilities",
@@ -229,13 +236,6 @@
       "type": "topic",
       "label": "rag & retrieval",
       "branch": "branch:learning",
-      "count": 4
-    },
-    {
-      "id": "topic:memory/agent-memory",
-      "type": "topic",
-      "label": "agent memory",
-      "branch": "branch:memory",
       "count": 4
     },
     {
@@ -1040,6 +1040,23 @@
     {
       "id": "resource:127",
       "type": "resource",
+      "label": "aru-labs / lossless-memory",
+      "url": "https://github.com/aru-labs/lossless-memory",
+      "github_repo": "aru-labs/lossless-memory",
+      "summary": "Local lossless long-term memory for a personal AI: keeps every conversation line with timestamps, never summarizes, and searches by time first.",
+      "notes": "138 stars, MIT, Python. Last commit Sep 2026. Not archived.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:128",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1056,7 +1073,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1071,23 +1088,6 @@
       ],
       "topics": [
         "code search"
-      ]
-    },
-    {
-      "id": "resource:129",
-      "type": "resource",
-      "label": "Pi — earendil-works",
-      "url": "https://github.com/earendil-works/pi",
-      "github_repo": "earendil-works/pi",
-      "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
-      "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
       ]
     },
     {
@@ -1109,6 +1109,23 @@
     },
     {
       "id": "resource:130",
+      "type": "resource",
+      "label": "Pi — earendil-works",
+      "url": "https://github.com/earendil-works/pi",
+      "github_repo": "earendil-works/pi",
+      "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
+      "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:131",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -3659,13 +3676,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:127",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3675,7 +3697,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3685,7 +3707,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3695,7 +3717,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3705,7 +3727,7 @@
     },
     {
       "source": "topic:harness/agent-harness",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3715,7 +3737,7 @@
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:130",
+      "target": "resource:131",
       "type": "HAS_RESOURCE"
     }
   ]
