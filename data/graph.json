@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T08:06:17+00:00",
+  "generated_at": "2026-10-04T08:23:19+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -44,14 +44,6 @@
       "topic_count": 3
     },
     {
-      "id": "branch:rag",
-      "type": "branch",
-      "label": "RAG",
-      "slug": "rag",
-      "count": 6,
-      "topic_count": 3
-    },
-    {
       "id": "branch:claude",
       "type": "branch",
       "label": "Claude",
@@ -72,6 +64,14 @@
       "type": "branch",
       "label": "Memory",
       "slug": "memory",
+      "count": 5,
+      "topic_count": 3
+    },
+    {
+      "id": "branch:rag",
+      "type": "branch",
+      "label": "RAG",
+      "slug": "rag",
       "count": 5,
       "topic_count": 3
     },
@@ -253,13 +253,6 @@
       "count": 3
     },
     {
-      "id": "topic:rag/guides",
-      "type": "topic",
-      "label": "guides",
-      "branch": "branch:rag",
-      "count": 3
-    },
-    {
       "id": "topic:repos-in-github/classic-ml",
       "type": "topic",
       "label": "classic ml",
@@ -326,6 +319,13 @@
       "id": "topic:rag/frameworks-&-tools",
       "type": "topic",
       "label": "frameworks & tools",
+      "branch": "branch:rag",
+      "count": 2
+    },
+    {
+      "id": "topic:rag/guides",
+      "type": "topic",
+      "label": "guides",
       "branch": "branch:rag",
       "count": 2
     },
@@ -534,23 +534,6 @@
     {
       "id": "resource:100",
       "type": "resource",
-      "label": "Reevo AI",
-      "url": "https://reevo.ai/",
-      "github_repo": null,
-      "summary": "Automated AI agent for specific tasks.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "tools"
-      ],
-      "topics": [
-        "ai apps & agents"
-      ]
-    },
-    {
-      "id": "resource:101",
-      "type": "resource",
       "label": "Kapso",
       "url": "https://kapso.ai",
       "github_repo": null,
@@ -566,7 +549,7 @@
       ]
     },
     {
-      "id": "resource:102",
+      "id": "resource:101",
       "type": "resource",
       "label": "https://mlflow.org/docs/latest/genai/tracing/",
       "url": "https://mlflow.org/docs/latest/genai/tracing/",
@@ -583,7 +566,7 @@
       ]
     },
     {
-      "id": "resource:103",
+      "id": "resource:102",
       "type": "resource",
       "label": "https://github.com/omegis/Hostinger-PHP-Guide",
       "url": "https://github.com/omegis/Hostinger-PHP-Guide",
@@ -600,7 +583,7 @@
       ]
     },
     {
-      "id": "resource:104",
+      "id": "resource:103",
       "type": "resource",
       "label": "https://www.genspark.ai/",
       "url": "https://www.genspark.ai/",
@@ -617,7 +600,7 @@
       ]
     },
     {
-      "id": "resource:105",
+      "id": "resource:104",
       "type": "resource",
       "label": "Nandha Kishor / laya",
       "url": "https://github.com/NandhaKishorM/laya",
@@ -634,7 +617,7 @@
       ]
     },
     {
-      "id": "resource:106",
+      "id": "resource:105",
       "type": "resource",
       "label": "Braedon Saunders / CodeFlow",
       "url": "https://github.com/braedonsaunders/codeflow",
@@ -651,7 +634,7 @@
       ]
     },
     {
-      "id": "resource:107",
+      "id": "resource:106",
       "type": "resource",
       "label": "OpenAI / codex-plugin-cc",
       "url": "https://github.com/openai/codex-plugin-cc",
@@ -670,7 +653,7 @@
       ]
     },
     {
-      "id": "resource:108",
+      "id": "resource:107",
       "type": "resource",
       "label": "Bend / bendlang",
       "url": "https://github.com/bendlang/bend",
@@ -687,7 +670,7 @@
       ]
     },
     {
-      "id": "resource:109",
+      "id": "resource:108",
       "type": "resource",
       "label": "FalkorDB",
       "url": "https://github.com/FalkorDB/FalkorDB",
@@ -701,6 +684,25 @@
       ],
       "topics": [
         "data & knowledge"
+      ]
+    },
+    {
+      "id": "resource:109",
+      "type": "resource",
+      "label": "Graphify Labs / graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "github_repo": "Graphify-Labs/graphify",
+      "summary": "Turn any codebase (plus docs, SQL schemas, configs, and PDFs) into a queryable knowledge graph via local deterministic AST parsing—no vector store. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, with explained edges and path/query/explain tooling.",
+      "notes": "123488 GitHub stars. License Apache-2.0. Language Python. Install with `uv tool install graphifyy` then `graphify install` to register the skill; code parsing stays local with tree-sitter.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "skills",
+        "tools"
+      ],
+      "topics": [
+        "data & knowledge",
+        "skill libraries"
       ]
     },
     {
@@ -723,25 +725,6 @@
     {
       "id": "resource:110",
       "type": "resource",
-      "label": "Graphify Labs / graphify",
-      "url": "https://github.com/Graphify-Labs/graphify",
-      "github_repo": "Graphify-Labs/graphify",
-      "summary": "Turn any codebase (plus docs, SQL schemas, configs, and PDFs) into a queryable knowledge graph via local deterministic AST parsing—no vector store. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, with explained edges and path/query/explain tooling.",
-      "notes": "123488 GitHub stars. License Apache-2.0. Language Python. Install with `uv tool install graphifyy` then `graphify install` to register the skill; code parsing stays local with tree-sitter.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "skills",
-        "tools"
-      ],
-      "topics": [
-        "data & knowledge",
-        "skill libraries"
-      ]
-    },
-    {
-      "id": "resource:111",
-      "type": "resource",
       "label": "Hugging Face (skills)",
       "url": "https://github.com/huggingface/skills",
       "github_repo": "huggingface/skills",
@@ -757,7 +740,7 @@
       ]
     },
     {
-      "id": "resource:112",
+      "id": "resource:111",
       "type": "resource",
       "label": "Microsoft / waza",
       "url": "https://github.com/microsoft/waza",
@@ -774,7 +757,7 @@
       ]
     },
     {
-      "id": "resource:113",
+      "id": "resource:112",
       "type": "resource",
       "label": "Microsoft Research / SkillOpt",
       "url": "https://github.com/microsoft/SkillOpt",
@@ -793,7 +776,7 @@
       ]
     },
     {
-      "id": "resource:114",
+      "id": "resource:113",
       "type": "resource",
       "label": "NVIDIA / SkillSpector",
       "url": "https://github.com/NVIDIA/SkillSpector",
@@ -812,7 +795,7 @@
       ]
     },
     {
-      "id": "resource:115",
+      "id": "resource:114",
       "type": "resource",
       "label": "Matt Pocock / skills",
       "url": "https://github.com/mattpocock/skills",
@@ -831,7 +814,7 @@
       ]
     },
     {
-      "id": "resource:116",
+      "id": "resource:115",
       "type": "resource",
       "label": "romiluz13 / auto-pi",
       "url": "https://github.com/romiluz13/auto-pi",
@@ -850,7 +833,7 @@
       ]
     },
     {
-      "id": "resource:117",
+      "id": "resource:116",
       "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
@@ -867,7 +850,7 @@
       ]
     },
     {
-      "id": "resource:118",
+      "id": "resource:117",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -884,12 +867,29 @@
       ]
     },
     {
-      "id": "resource:119",
+      "id": "resource:118",
       "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
       "github_repo": "alexgreensh/token-optimizer",
       "summary": "Library to optimize tokens and reduce LLM context costs",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "cost & models"
+      ]
+    },
+    {
+      "id": "resource:119",
+      "type": "resource",
+      "label": "Tzach Bonfil / claude-model-advisor",
+      "url": "https://github.com/tzachbon/claude-model-advisor",
+      "github_repo": "tzachbon/claude-model-advisor",
+      "summary": "Tool to recommend the right Claude model based on requirements and budget",
       "notes": "",
       "added_at": "2026-06-13",
       "date_source": "first_seen",
@@ -920,23 +920,6 @@
     {
       "id": "resource:120",
       "type": "resource",
-      "label": "Tzach Bonfil / claude-model-advisor",
-      "url": "https://github.com/tzachbon/claude-model-advisor",
-      "github_repo": "tzachbon/claude-model-advisor",
-      "summary": "Tool to recommend the right Claude model based on requirements and budget",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "claude"
-      ],
-      "topics": [
-        "cost & models"
-      ]
-    },
-    {
-      "id": "resource:121",
-      "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
       "github_repo": "onmyway133/claude-code-tips-tricks",
@@ -952,7 +935,7 @@
       ]
     },
     {
-      "id": "resource:122",
+      "id": "resource:121",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -969,7 +952,7 @@
       ]
     },
     {
-      "id": "resource:123",
+      "id": "resource:122",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -986,7 +969,7 @@
       ]
     },
     {
-      "id": "resource:124",
+      "id": "resource:123",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1004,7 +987,7 @@
       ]
     },
     {
-      "id": "resource:125",
+      "id": "resource:124",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1022,7 +1005,7 @@
       ]
     },
     {
-      "id": "resource:126",
+      "id": "resource:125",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1040,7 +1023,7 @@
       ]
     },
     {
-      "id": "resource:127",
+      "id": "resource:126",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1057,7 +1040,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:127",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1286,23 +1269,6 @@
     {
       "id": "resource:24",
       "type": "resource",
-      "label": "Drive File (RAG Guide)",
-      "url": "https://drive.google.com/file/d/1-z9OJ_b6LCwv-U9go-o9T-GDainDafMP/view",
-      "github_repo": null,
-      "summary": "Shared guide and presentation on RAG architectures",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "rag"
-      ],
-      "topics": [
-        "guides"
-      ]
-    },
-    {
-      "id": "resource:25",
-      "type": "resource",
       "label": "LangChain",
       "url": "https://python.langchain.com/docs/tutorials/rag/",
       "github_repo": null,
@@ -1318,7 +1284,7 @@
       ]
     },
     {
-      "id": "resource:26",
+      "id": "resource:25",
       "type": "resource",
       "label": "run-llama / liteparse",
       "url": "https://github.com/run-llama/liteparse",
@@ -1337,7 +1303,7 @@
       ]
     },
     {
-      "id": "resource:27",
+      "id": "resource:26",
       "type": "resource",
       "label": "context7",
       "url": "https://github.com/upstash/context7",
@@ -1354,7 +1320,7 @@
       ]
     },
     {
-      "id": "resource:28",
+      "id": "resource:27",
       "type": "resource",
       "label": "markitdown",
       "url": "https://github.com/microsoft/markitdown",
@@ -1371,7 +1337,7 @@
       ]
     },
     {
-      "id": "resource:29",
+      "id": "resource:28",
       "type": "resource",
       "label": "tools",
       "url": "https://github.com/strands-agents/tools",
@@ -1385,6 +1351,23 @@
       ],
       "topics": [
         "agent frameworks"
+      ]
+    },
+    {
+      "id": "resource:29",
+      "type": "resource",
+      "label": "xgboost",
+      "url": "https://github.com/dmlc/xgboost",
+      "github_repo": "dmlc/xgboost",
+      "summary": "Optimized distributed gradient boosting library.",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "repos-in-github"
+      ],
+      "topics": [
+        "classic ml"
       ]
     },
     {
@@ -1407,23 +1390,6 @@
     {
       "id": "resource:30",
       "type": "resource",
-      "label": "xgboost",
-      "url": "https://github.com/dmlc/xgboost",
-      "github_repo": "dmlc/xgboost",
-      "summary": "Optimized distributed gradient boosting library.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "repos-in-github"
-      ],
-      "topics": [
-        "classic ml"
-      ]
-    },
-    {
-      "id": "resource:31",
-      "type": "resource",
       "label": "catboost",
       "url": "https://github.com/catboost/catboost",
       "github_repo": "catboost/catboost",
@@ -1439,7 +1405,7 @@
       ]
     },
     {
-      "id": "resource:32",
+      "id": "resource:31",
       "type": "resource",
       "label": "LightGBM",
       "url": "https://github.com/microsoft/LightGBM",
@@ -1456,7 +1422,7 @@
       ]
     },
     {
-      "id": "resource:33",
+      "id": "resource:32",
       "type": "resource",
       "label": "deepeval",
       "url": "https://github.com/confident-ai/deepeval",
@@ -1473,7 +1439,7 @@
       ]
     },
     {
-      "id": "resource:34",
+      "id": "resource:33",
       "type": "resource",
       "label": "FastAPIPreset",
       "url": "https://github.com/Iwlj4s/FastAPIPreset",
@@ -1490,7 +1456,7 @@
       ]
     },
     {
-      "id": "resource:35",
+      "id": "resource:34",
       "type": "resource",
       "label": "LEANN",
       "url": "https://github.com/yichuan-w/LEANN",
@@ -1507,7 +1473,7 @@
       ]
     },
     {
-      "id": "resource:36",
+      "id": "resource:35",
       "type": "resource",
       "label": "atomic-agents",
       "url": "https://github.com/BrainBlend-AI/atomic-agents",
@@ -1524,7 +1490,7 @@
       ]
     },
     {
-      "id": "resource:37",
+      "id": "resource:36",
       "type": "resource",
       "label": "tensorlake",
       "url": "https://github.com/tensorlakeai/tensorlake",
@@ -1541,7 +1507,7 @@
       ]
     },
     {
-      "id": "resource:38",
+      "id": "resource:37",
       "type": "resource",
       "label": "spec-kit",
       "url": "https://github.com/github/spec-kit",
@@ -1558,12 +1524,29 @@
       ]
     },
     {
-      "id": "resource:39",
+      "id": "resource:38",
       "type": "resource",
       "label": "deepagents",
       "url": "https://github.com/langchain-ai/deepagents.git",
       "github_repo": "langchain-ai/deepagents",
       "summary": "Deep agents and machine learning.",
+      "notes": "",
+      "added_at": "2026-10-02",
+      "date_source": "first_seen",
+      "branches": [
+        "repos-in-github"
+      ],
+      "topics": [
+        "agent frameworks"
+      ]
+    },
+    {
+      "id": "resource:39",
+      "type": "resource",
+      "label": "rogue",
+      "url": "https://github.com/qualifire-dev/rogue.git",
+      "github_repo": "qualifire-dev/rogue",
+      "summary": "A quality agent tool.",
       "notes": "",
       "added_at": "2026-10-02",
       "date_source": "first_seen",
@@ -1594,23 +1577,6 @@
     {
       "id": "resource:40",
       "type": "resource",
-      "label": "rogue",
-      "url": "https://github.com/qualifire-dev/rogue.git",
-      "github_repo": "qualifire-dev/rogue",
-      "summary": "A quality agent tool.",
-      "notes": "",
-      "added_at": "2026-10-02",
-      "date_source": "first_seen",
-      "branches": [
-        "repos-in-github"
-      ],
-      "topics": [
-        "agent frameworks"
-      ]
-    },
-    {
-      "id": "resource:41",
-      "type": "resource",
       "label": "toon",
       "url": "https://github.com/johannschopplich/toon?utm_source=tldrai",
       "github_repo": "johannschopplich/toon",
@@ -1626,7 +1592,7 @@
       ]
     },
     {
-      "id": "resource:42",
+      "id": "resource:41",
       "type": "resource",
       "label": "vllm",
       "url": "https://github.com/vllm-project/vllm",
@@ -1643,7 +1609,7 @@
       ]
     },
     {
-      "id": "resource:43",
+      "id": "resource:42",
       "type": "resource",
       "label": "xpander.ai",
       "url": "https://github.com/xpander-ai/xpander.ai",
@@ -1660,7 +1626,7 @@
       ]
     },
     {
-      "id": "resource:44",
+      "id": "resource:43",
       "type": "resource",
       "label": "pipeshub-ai",
       "url": "https://github.com/pipeshub-ai/pipeshub-ai",
@@ -1677,7 +1643,7 @@
       ]
     },
     {
-      "id": "resource:45",
+      "id": "resource:44",
       "type": "resource",
       "label": "Context-Engineering",
       "url": "https://github.com/davidkimai/Context-Engineering",
@@ -1694,7 +1660,7 @@
       ]
     },
     {
-      "id": "resource:46",
+      "id": "resource:45",
       "type": "resource",
       "label": "parlant",
       "url": "https://github.com/emcie-co/parlant",
@@ -1711,7 +1677,7 @@
       ]
     },
     {
-      "id": "resource:47",
+      "id": "resource:46",
       "type": "resource",
       "label": "pixeltable",
       "url": "https://github.com/pixeltable/pixeltable",
@@ -1728,7 +1694,7 @@
       ]
     },
     {
-      "id": "resource:48",
+      "id": "resource:47",
       "type": "resource",
       "label": "memori",
       "url": "https://github.com/GibsonAI/memori",
@@ -1745,7 +1711,7 @@
       ]
     },
     {
-      "id": "resource:49",
+      "id": "resource:48",
       "type": "resource",
       "label": "agent-api-cookiecutter",
       "url": "https://github.com/neural-maze/agent-api-cookiecutter",
@@ -1759,6 +1725,23 @@
       ],
       "topics": [
         "agent frameworks"
+      ]
+    },
+    {
+      "id": "resource:49",
+      "type": "resource",
+      "label": "milvus",
+      "url": "https://github.com/milvus-io/milvus",
+      "github_repo": "milvus-io/milvus",
+      "summary": "A vector database for massive-scale vector embedding search.",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "repos-in-github"
+      ],
+      "topics": [
+        "data & rag"
       ]
     },
     {
@@ -1781,23 +1764,6 @@
     {
       "id": "resource:50",
       "type": "resource",
-      "label": "milvus",
-      "url": "https://github.com/milvus-io/milvus",
-      "github_repo": "milvus-io/milvus",
-      "summary": "A vector database for massive-scale vector embedding search.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "repos-in-github"
-      ],
-      "topics": [
-        "data & rag"
-      ]
-    },
-    {
-      "id": "resource:51",
-      "type": "resource",
       "label": "aie-book",
       "url": "https://github.com/chiphuyen/aie-book",
       "github_repo": "chiphuyen/aie-book",
@@ -1813,7 +1779,7 @@
       ]
     },
     {
-      "id": "resource:52",
+      "id": "resource:51",
       "type": "resource",
       "label": "LMCache",
       "url": "https://github.com/LMCache/LMCache",
@@ -1830,7 +1796,7 @@
       ]
     },
     {
-      "id": "resource:53",
+      "id": "resource:52",
       "type": "resource",
       "label": "ai-engineering-hub",
       "url": "https://github.com/patchy631/ai-engineering-hub",
@@ -1847,7 +1813,7 @@
       ]
     },
     {
-      "id": "resource:54",
+      "id": "resource:53",
       "type": "resource",
       "label": "airweave",
       "url": "https://github.com/airweave-ai/airweave",
@@ -1864,7 +1830,7 @@
       ]
     },
     {
-      "id": "resource:55",
+      "id": "resource:54",
       "type": "resource",
       "label": "mindsdb",
       "url": "https://github.com/mindsdb/mindsdb?tab=readme-ov-file",
@@ -1881,7 +1847,7 @@
       ]
     },
     {
-      "id": "resource:56",
+      "id": "resource:55",
       "type": "resource",
       "label": "kiru",
       "url": "https://github.com/bitswired/kiru",
@@ -1898,7 +1864,7 @@
       ]
     },
     {
-      "id": "resource:57",
+      "id": "resource:56",
       "type": "resource",
       "label": "agentic-context-engine",
       "url": "https://github.com/kayba-ai/agentic-context-engine?tab=readme-ov-file#-the-seahorse-emoji-challenge",
@@ -1915,7 +1881,7 @@
       ]
     },
     {
-      "id": "resource:58",
+      "id": "resource:57",
       "type": "resource",
       "label": "ai_agents_az",
       "url": "https://github.com/gyoridavid/ai_agents_az.git",
@@ -1932,12 +1898,29 @@
       ]
     },
     {
-      "id": "resource:59",
+      "id": "resource:58",
       "type": "resource",
       "label": "web-browsing-agent",
       "url": "https://github.com/patchy631/ai-engineering-hub/tree/main/web-browsing-agent",
       "github_repo": "patchy631/ai-engineering-hub",
       "summary": "Resources for a web-browsing agent.",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "repos-in-github"
+      ],
+      "topics": [
+        "agent frameworks"
+      ]
+    },
+    {
+      "id": "resource:59",
+      "type": "resource",
+      "label": "500-AI-Agents-Projects",
+      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "github_repo": "ashishpatel26/500-AI-Agents-Projects",
+      "summary": "Collection of AI agent projects.",
       "notes": "",
       "added_at": "2026-06-13",
       "date_source": "first_seen",
@@ -1968,23 +1951,6 @@
     {
       "id": "resource:60",
       "type": "resource",
-      "label": "500-AI-Agents-Projects",
-      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
-      "github_repo": "ashishpatel26/500-AI-Agents-Projects",
-      "summary": "Collection of AI agent projects.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "repos-in-github"
-      ],
-      "topics": [
-        "agent frameworks"
-      ]
-    },
-    {
-      "id": "resource:61",
-      "type": "resource",
       "label": "llms-from-scratch",
       "url": "https://github.com/rasbt/llms-from-scratch",
       "github_repo": "rasbt/llms-from-scratch",
@@ -2000,7 +1966,7 @@
       ]
     },
     {
-      "id": "resource:62",
+      "id": "resource:61",
       "type": "resource",
       "label": "https://github.com/maximhq/bifrost",
       "url": "https://github.com/maximhq/bifrost",
@@ -2017,7 +1983,7 @@
       ]
     },
     {
-      "id": "resource:63",
+      "id": "resource:62",
       "type": "resource",
       "label": "https://github.com/coleam00/habit-tracker/tree/workshop",
       "url": "https://github.com/coleam00/habit-tracker/tree/workshop",
@@ -2034,7 +2000,7 @@
       ]
     },
     {
-      "id": "resource:64",
+      "id": "resource:63",
       "type": "resource",
       "label": "https://github.com/topoteretes/cognee",
       "url": "https://github.com/topoteretes/cognee",
@@ -2051,7 +2017,7 @@
       ]
     },
     {
-      "id": "resource:65",
+      "id": "resource:64",
       "type": "resource",
       "label": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
       "url": "https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/agentic_ai_crash_course",
@@ -2068,7 +2034,7 @@
       ]
     },
     {
-      "id": "resource:66",
+      "id": "resource:65",
       "type": "resource",
       "label": "https://github.com/jd/tenacity",
       "url": "https://github.com/jd/tenacity",
@@ -2085,7 +2051,7 @@
       ]
     },
     {
-      "id": "resource:67",
+      "id": "resource:66",
       "type": "resource",
       "label": "antigravity skills",
       "url": "https://github.com/vudovn/antigravity-kit",
@@ -2102,7 +2068,7 @@
       ]
     },
     {
-      "id": "resource:68",
+      "id": "resource:67",
       "type": "resource",
       "label": "Claw-Code",
       "url": "https://github.com/instructkr/claw-code",
@@ -2119,7 +2085,7 @@
       ]
     },
     {
-      "id": "resource:69",
+      "id": "resource:68",
       "type": "resource",
       "label": "GitHub - baldiga/hebrew-writer",
       "url": "https://github.com/baldiga/Hebrew-writer",
@@ -2133,6 +2099,23 @@
       ],
       "topics": [
         "dev utilities"
+      ]
+    },
+    {
+      "id": "resource:69",
+      "type": "resource",
+      "label": "https://github.com/OpenDCAI/DataFlow",
+      "url": "https://github.com/OpenDCAI/DataFlow",
+      "github_repo": "OpenDCAI/DataFlow",
+      "summary": "",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "repos-in-github"
+      ],
+      "topics": [
+        "data & rag"
       ]
     },
     {
@@ -2155,23 +2138,6 @@
     {
       "id": "resource:70",
       "type": "resource",
-      "label": "https://github.com/OpenDCAI/DataFlow",
-      "url": "https://github.com/OpenDCAI/DataFlow",
-      "github_repo": "OpenDCAI/DataFlow",
-      "summary": "",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "repos-in-github"
-      ],
-      "topics": [
-        "data & rag"
-      ]
-    },
-    {
-      "id": "resource:71",
-      "type": "resource",
       "label": "agentic-stack / codejunkie99",
       "url": "https://github.com/codejunkie99/agentic-stack",
       "github_repo": "codejunkie99/agentic-stack",
@@ -2187,7 +2153,7 @@
       ]
     },
     {
-      "id": "resource:72",
+      "id": "resource:71",
       "type": "resource",
       "label": "cocoindex / cocoindex-io",
       "url": "https://github.com/cocoindex-io/cocoindex",
@@ -2204,7 +2170,7 @@
       ]
     },
     {
-      "id": "resource:73",
+      "id": "resource:72",
       "type": "resource",
       "label": "https://github.com/googleworkspace/cli",
       "url": "https://github.com/googleworkspace/cli",
@@ -2221,7 +2187,7 @@
       ]
     },
     {
-      "id": "resource:74",
+      "id": "resource:73",
       "type": "resource",
       "label": "HarnessRouter / harnessrouter",
       "url": "https://github.com/HarnessRouter/harnessrouter",
@@ -2238,7 +2204,7 @@
       ]
     },
     {
-      "id": "resource:75",
+      "id": "resource:74",
       "type": "resource",
       "label": "Context Ontology Accelerator / AWS",
       "url": "https://github.com/aws/context-ontology-accelerator",
@@ -2255,7 +2221,7 @@
       ]
     },
     {
-      "id": "resource:76",
+      "id": "resource:75",
       "type": "resource",
       "label": "Leads.sh",
       "url": "https://leads.sh/l/mx8bwy6kiuia/amit-rosen-331732140",
@@ -2272,7 +2238,7 @@
       ]
     },
     {
-      "id": "resource:77",
+      "id": "resource:76",
       "type": "resource",
       "label": "Airtop.ai",
       "url": "https://www.airtop.ai/templates/linkedin-lead-generation-from-post-commenters",
@@ -2289,7 +2255,7 @@
       ]
     },
     {
-      "id": "resource:78",
+      "id": "resource:77",
       "type": "resource",
       "label": "Divyanshi Sharma",
       "url": "https://www.linkedin.com/company/airwallex/",
@@ -2306,7 +2272,7 @@
       ]
     },
     {
-      "id": "resource:79",
+      "id": "resource:78",
       "type": "resource",
       "label": "AgentCraft — RTS interface for agent orchestration",
       "url": "https://www.getagentcraft.com/",
@@ -2320,6 +2286,23 @@
       ],
       "topics": [
         "automation"
+      ]
+    },
+    {
+      "id": "resource:79",
+      "type": "resource",
+      "label": "Google Workspace MCP Configuration",
+      "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+      "github_repo": null,
+      "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
+      "notes": "Critical for future MCP integrations with Google Workspace.",
+      "added_at": "2026-05-02",
+      "date_source": "sheet",
+      "branches": [
+        "mcp"
+      ],
+      "topics": [
+        "setup & config"
       ]
     },
     {
@@ -2342,23 +2325,6 @@
     {
       "id": "resource:80",
       "type": "resource",
-      "label": "Google Workspace MCP Configuration",
-      "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
-      "github_repo": null,
-      "summary": "Official Google guide for configuring Model Context Protocol (MCP) servers for Workspace integrations.",
-      "notes": "Critical for future MCP integrations with Google Workspace.",
-      "added_at": "2026-05-02",
-      "date_source": "sheet",
-      "branches": [
-        "mcp"
-      ],
-      "topics": [
-        "setup & config"
-      ]
-    },
-    {
-      "id": "resource:81",
-      "type": "resource",
       "label": "Zep (Graphiti)",
       "url": "https://github.com/getzep/graphiti",
       "github_repo": "getzep/graphiti",
@@ -2376,7 +2342,7 @@
       ]
     },
     {
-      "id": "resource:82",
+      "id": "resource:81",
       "type": "resource",
       "label": "mcpc / apify",
       "url": "https://github.com/apify/mcpc",
@@ -2393,7 +2359,7 @@
       ]
     },
     {
-      "id": "resource:83",
+      "id": "resource:82",
       "type": "resource",
       "label": "skybridge / alpic-ai",
       "url": "https://github.com/alpic-ai/skybridge",
@@ -2412,7 +2378,7 @@
       ]
     },
     {
-      "id": "resource:84",
+      "id": "resource:83",
       "type": "resource",
       "label": "Serena / oraios",
       "url": "https://github.com/oraios/serena",
@@ -2431,7 +2397,7 @@
       ]
     },
     {
-      "id": "resource:85",
+      "id": "resource:84",
       "type": "resource",
       "label": "Reflex",
       "url": "https://reflex.dev/",
@@ -2448,7 +2414,7 @@
       ]
     },
     {
-      "id": "resource:86",
+      "id": "resource:85",
       "type": "resource",
       "label": "agentTool",
       "url": "https://bhindi.io/c/new",
@@ -2465,7 +2431,7 @@
       ]
     },
     {
-      "id": "resource:87",
+      "id": "resource:86",
       "type": "resource",
       "label": "Monarch",
       "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
@@ -2482,7 +2448,7 @@
       ]
     },
     {
-      "id": "resource:88",
+      "id": "resource:87",
       "type": "resource",
       "label": "assemblyai",
       "url": "https://www.assemblyai.com/",
@@ -2499,7 +2465,7 @@
       ]
     },
     {
-      "id": "resource:89",
+      "id": "resource:88",
       "type": "resource",
       "label": "Build your own ChatGPT from scratch",
       "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
@@ -2513,6 +2479,23 @@
       ],
       "topics": [
         "tutorials"
+      ]
+    },
+    {
+      "id": "resource:89",
+      "type": "resource",
+      "label": "Gamma",
+      "url": "https://gamma.app/",
+      "github_repo": null,
+      "summary": "Create beautiful and engaging presentations and documents.",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "ai apps & agents"
       ]
     },
     {
@@ -2535,23 +2518,6 @@
     {
       "id": "resource:90",
       "type": "resource",
-      "label": "Gamma",
-      "url": "https://gamma.app/",
-      "github_repo": null,
-      "summary": "Create beautiful and engaging presentations and documents.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "tools"
-      ],
-      "topics": [
-        "ai apps & agents"
-      ]
-    },
-    {
-      "id": "resource:91",
-      "type": "resource",
       "label": "Apify (AI Agent Blog)",
       "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
       "github_repo": null,
@@ -2567,7 +2533,7 @@
       ]
     },
     {
-      "id": "resource:92",
+      "id": "resource:91",
       "type": "resource",
       "label": "MTEB Leaderboard",
       "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
@@ -2584,7 +2550,7 @@
       ]
     },
     {
-      "id": "resource:93",
+      "id": "resource:92",
       "type": "resource",
       "label": "FireCrawl",
       "url": "https://www.firecrawl.dev/",
@@ -2601,7 +2567,7 @@
       ]
     },
     {
-      "id": "resource:94",
+      "id": "resource:93",
       "type": "resource",
       "label": "Alterbase",
       "url": "https://alterbase.co/",
@@ -2618,7 +2584,7 @@
       ]
     },
     {
-      "id": "resource:95",
+      "id": "resource:94",
       "type": "resource",
       "label": "Mstone AI",
       "url": "https://mstone.ai/",
@@ -2635,7 +2601,7 @@
       ]
     },
     {
-      "id": "resource:96",
+      "id": "resource:95",
       "type": "resource",
       "label": "InceptionLabs Chat",
       "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
@@ -2652,7 +2618,7 @@
       ]
     },
     {
-      "id": "resource:97",
+      "id": "resource:96",
       "type": "resource",
       "label": "Rival Tech SOTA",
       "url": "https://sota.rival.tech/",
@@ -2669,7 +2635,7 @@
       ]
     },
     {
-      "id": "resource:98",
+      "id": "resource:97",
       "type": "resource",
       "label": "LLMLayer",
       "url": "https://llmlayer.ai/",
@@ -2686,12 +2652,29 @@
       ]
     },
     {
-      "id": "resource:99",
+      "id": "resource:98",
       "type": "resource",
       "label": "Blink (New)",
       "url": "https://blink.new/",
       "github_repo": null,
       "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "ai apps & agents"
+      ]
+    },
+    {
+      "id": "resource:99",
+      "type": "resource",
+      "label": "Reevo AI",
+      "url": "https://reevo.ai/",
+      "github_repo": null,
+      "summary": "Automated AI agent for specific tasks.",
       "notes": "",
       "added_at": "2026-06-13",
       "date_source": "first_seen",
@@ -2895,23 +2878,18 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:rag/guides",
-      "target": "resource:24",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "branch:rag",
       "target": "topic:rag/frameworks-&-tools",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:rag/frameworks-&-tools",
-      "target": "resource:25",
+      "target": "resource:24",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:rag/frameworks-&-tools",
-      "target": "resource:26",
+      "target": "resource:25",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2921,7 +2899,7 @@
     },
     {
       "source": "topic:tools/data-&-knowledge",
-      "target": "resource:26",
+      "target": "resource:25",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2931,7 +2909,7 @@
     },
     {
       "source": "topic:repos-in-github/memory-&-context",
-      "target": "resource:27",
+      "target": "resource:26",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2941,7 +2919,7 @@
     },
     {
       "source": "topic:repos-in-github/data-&-rag",
-      "target": "resource:28",
+      "target": "resource:27",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2951,13 +2929,18 @@
     },
     {
       "source": "topic:repos-in-github/agent-frameworks",
-      "target": "resource:29",
+      "target": "resource:28",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:repos-in-github",
       "target": "topic:repos-in-github/classic-ml",
       "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:repos-in-github/classic-ml",
+      "target": "resource:29",
+      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:repos-in-github/classic-ml",
@@ -2970,18 +2953,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/classic-ml",
-      "target": "resource:32",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "branch:repos-in-github",
       "target": "topic:repos-in-github/llm-infrastructure",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:repos-in-github/llm-infrastructure",
-      "target": "resource:33",
+      "target": "resource:32",
       "type": "HAS_RESOURCE"
     },
     {
@@ -2991,21 +2969,26 @@
     },
     {
       "source": "topic:repos-in-github/dev-utilities",
+      "target": "resource:33",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:repos-in-github/data-&-rag",
       "target": "resource:34",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/data-&-rag",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:35",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/data-&-rag",
       "target": "resource:36",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/data-&-rag",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:37",
       "type": "HAS_RESOURCE"
     },
@@ -3020,58 +3003,53 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/data-&-rag",
       "target": "resource:40",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/data-&-rag",
+      "source": "topic:repos-in-github/llm-infrastructure",
       "target": "resource:41",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/llm-infrastructure",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:42",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/llm-infrastructure",
       "target": "resource:43",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/llm-infrastructure",
+      "source": "topic:repos-in-github/memory-&-context",
       "target": "resource:44",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/memory-&-context",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:45",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/data-&-rag",
       "target": "resource:46",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/data-&-rag",
+      "source": "topic:repos-in-github/memory-&-context",
       "target": "resource:47",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/memory-&-context",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:48",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
-      "target": "resource:49",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "topic:repos-in-github/data-&-rag",
-      "target": "resource:50",
+      "target": "resource:49",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3081,21 +3059,26 @@
     },
     {
       "source": "topic:repos-in-github/learning-material",
-      "target": "resource:51",
+      "target": "resource:50",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:repos-in-github/llm-infrastructure",
-      "target": "resource:52",
+      "target": "resource:51",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:repos-in-github/learning-material",
-      "target": "resource:53",
+      "target": "resource:52",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:repos-in-github/data-&-rag",
+      "target": "resource:53",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:repos-in-github/llm-infrastructure",
       "target": "resource:54",
       "type": "HAS_RESOURCE"
     },
@@ -3105,7 +3088,7 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/llm-infrastructure",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:56",
       "type": "HAS_RESOURCE"
     },
@@ -3125,37 +3108,37 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/learning-material",
       "target": "resource:60",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/learning-material",
+      "source": "topic:repos-in-github/llm-infrastructure",
       "target": "resource:61",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/llm-infrastructure",
+      "source": "topic:repos-in-github/dev-utilities",
       "target": "resource:62",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/dev-utilities",
+      "source": "topic:repos-in-github/memory-&-context",
       "target": "resource:63",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/memory-&-context",
+      "source": "topic:repos-in-github/learning-material",
       "target": "resource:64",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/learning-material",
+      "source": "topic:repos-in-github/dev-utilities",
       "target": "resource:65",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/dev-utilities",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:66",
       "type": "HAS_RESOURCE"
     },
@@ -3165,12 +3148,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
+      "source": "topic:repos-in-github/dev-utilities",
       "target": "resource:68",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/dev-utilities",
+      "source": "topic:repos-in-github/data-&-rag",
       "target": "resource:69",
       "type": "HAS_RESOURCE"
     },
@@ -3185,23 +3168,18 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/data-&-rag",
+      "source": "topic:repos-in-github/dev-utilities",
       "target": "resource:72",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/dev-utilities",
+      "source": "topic:repos-in-github/agent-frameworks",
       "target": "resource:73",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:repos-in-github/agent-frameworks",
-      "target": "resource:74",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "topic:repos-in-github/memory-&-context",
-      "target": "resource:75",
+      "target": "resource:74",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3211,7 +3189,7 @@
     },
     {
       "source": "topic:automation-flow/lead-generation-automation",
-      "target": "resource:76",
+      "target": "resource:75",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3221,7 +3199,7 @@
     },
     {
       "source": "topic:automation-flow/browser-automation",
-      "target": "resource:77",
+      "target": "resource:76",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3231,12 +3209,12 @@
     },
     {
       "source": "topic:automation-flow/automation",
-      "target": "resource:78",
+      "target": "resource:77",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:automation-flow/automation",
-      "target": "resource:79",
+      "target": "resource:78",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3246,7 +3224,7 @@
     },
     {
       "source": "topic:mcp/setup-&-config",
-      "target": "resource:80",
+      "target": "resource:79",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3256,7 +3234,7 @@
     },
     {
       "source": "topic:mcp/mcp-servers",
-      "target": "resource:81",
+      "target": "resource:80",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3266,7 +3244,7 @@
     },
     {
       "source": "topic:memory/agent-memory",
-      "target": "resource:81",
+      "target": "resource:80",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3276,12 +3254,12 @@
     },
     {
       "source": "topic:mcp/mcp-apps-&-clients",
-      "target": "resource:82",
+      "target": "resource:81",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:mcp/mcp-apps-&-clients",
-      "target": "resource:83",
+      "target": "resource:82",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3291,12 +3269,12 @@
     },
     {
       "source": "topic:skills/workflows-&-apps",
-      "target": "resource:83",
+      "target": "resource:82",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:mcp/mcp-servers",
-      "target": "resource:84",
+      "target": "resource:83",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3306,12 +3284,12 @@
     },
     {
       "source": "topic:tools/developer-tools",
-      "target": "resource:84",
+      "target": "resource:83",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/developer-tools",
-      "target": "resource:85",
+      "target": "resource:84",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3321,7 +3299,7 @@
     },
     {
       "source": "topic:tools/ai-apps-&-agents",
-      "target": "resource:86",
+      "target": "resource:85",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3331,12 +3309,12 @@
     },
     {
       "source": "topic:tools/mlops-&-evaluation",
-      "target": "resource:87",
+      "target": "resource:86",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/ai-apps-&-agents",
-      "target": "resource:88",
+      "target": "resource:87",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3346,21 +3324,26 @@
     },
     {
       "source": "topic:tools/tutorials",
-      "target": "resource:89",
+      "target": "resource:88",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/ai-apps-&-agents",
-      "target": "resource:90",
+      "target": "resource:89",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/tutorials",
-      "target": "resource:91",
+      "target": "resource:90",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/mlops-&-evaluation",
+      "target": "resource:91",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:92",
       "type": "HAS_RESOURCE"
     },
@@ -3370,17 +3353,17 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/data-&-knowledge",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:94",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:95",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:96",
       "type": "HAS_RESOURCE"
     },
@@ -3390,7 +3373,7 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:98",
       "type": "HAS_RESOURCE"
     },
@@ -3400,27 +3383,27 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/developer-tools",
       "target": "resource:100",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/developer-tools",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:101",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/tutorials",
       "target": "resource:102",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/tutorials",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:103",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/developer-tools",
       "target": "resource:104",
       "type": "HAS_RESOURCE"
     },
@@ -3435,22 +3418,22 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/developer-tools",
-      "target": "resource:107",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "branch:claude",
       "target": "topic:claude/claude-code",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:107",
+      "target": "resource:106",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/developer-tools",
+      "target": "resource:107",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:108",
       "type": "HAS_RESOURCE"
     },
@@ -3460,23 +3443,18 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/data-&-knowledge",
-      "target": "resource:110",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "branch:skills",
       "target": "topic:skills/skill-libraries",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:110",
+      "target": "resource:109",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:111",
+      "target": "resource:110",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3486,12 +3464,12 @@
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:112",
+      "target": "resource:111",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:113",
+      "target": "resource:112",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3501,12 +3479,12 @@
     },
     {
       "source": "topic:harness/skill-optimization",
-      "target": "resource:113",
+      "target": "resource:112",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:114",
+      "target": "resource:113",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3516,22 +3494,22 @@
     },
     {
       "source": "topic:security/skill-security",
-      "target": "resource:114",
+      "target": "resource:113",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:115",
+      "target": "resource:114",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:115",
+      "target": "resource:114",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/workflows-&-apps",
-      "target": "resource:116",
+      "target": "resource:115",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3541,7 +3519,7 @@
     },
     {
       "source": "topic:harness/agent-workflow",
-      "target": "resource:116",
+      "target": "resource:115",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3551,7 +3529,7 @@
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:117",
+      "target": "resource:116",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3561,7 +3539,7 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:118",
+      "target": "resource:117",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3571,16 +3549,21 @@
     },
     {
       "source": "topic:claude/cost-&-models",
-      "target": "resource:119",
+      "target": "resource:118",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/cost-&-models",
-      "target": "resource:120",
+      "target": "resource:119",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/claude-code",
+      "target": "resource:120",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:memory/agent-memory",
       "target": "resource:121",
       "type": "HAS_RESOURCE"
     },
@@ -3590,18 +3573,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
-      "target": "resource:123",
-      "type": "HAS_RESOURCE"
-    },
-    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:124",
+      "target": "resource:123",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3611,7 +3589,7 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:124",
+      "target": "resource:123",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3621,7 +3599,7 @@
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:125",
+      "target": "resource:124",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3631,7 +3609,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:125",
+      "target": "resource:124",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3641,7 +3619,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:126",
+      "target": "resource:125",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3651,7 +3629,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:126",
+      "target": "resource:125",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3661,7 +3639,7 @@
     },
     {
       "source": "topic:harness/agent-harness",
-      "target": "resource:127",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3671,7 +3649,7 @@
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:128",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     }
   ]
