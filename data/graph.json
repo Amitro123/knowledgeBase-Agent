@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T12:42:38+00:00",
+  "generated_at": "2026-10-04T14:56:33+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -44,6 +44,14 @@
       "topic_count": 3
     },
     {
+      "id": "branch:memory",
+      "type": "branch",
+      "label": "Memory",
+      "slug": "memory",
+      "count": 6,
+      "topic_count": 3
+    },
+    {
       "id": "branch:claude",
       "type": "branch",
       "label": "Claude",
@@ -56,14 +64,6 @@
       "type": "branch",
       "label": "MCP",
       "slug": "mcp",
-      "count": 5,
-      "topic_count": 3
-    },
-    {
-      "id": "branch:memory",
-      "type": "branch",
-      "label": "Memory",
-      "slug": "memory",
       "count": 5,
       "topic_count": 3
     },
@@ -232,6 +232,13 @@
       "count": 4
     },
     {
+      "id": "topic:memory/agent-memory",
+      "type": "topic",
+      "label": "agent memory",
+      "branch": "branch:memory",
+      "count": 4
+    },
+    {
       "id": "topic:repos-in-github/learning-material",
       "type": "topic",
       "label": "learning material",
@@ -243,13 +250,6 @@
       "type": "topic",
       "label": "claude code",
       "branch": "branch:claude",
-      "count": 3
-    },
-    {
-      "id": "topic:memory/agent-memory",
-      "type": "topic",
-      "label": "agent memory",
-      "branch": "branch:memory",
       "count": 3
     },
     {
@@ -1006,6 +1006,23 @@
     {
       "id": "resource:125",
       "type": "resource",
+      "label": "Coding Dev Tools / engraphis",
+      "url": "https://github.com/Coding-Dev-Tools/engraphis",
+      "github_repo": "Coding-Dev-Tools/engraphis",
+      "summary": "Local-first memory for coding agents, with code-aware recall, history, MCP, and a self-hosted graph UI.",
+      "notes": "174 stars, Apache-2.0, Python. The free repo is the local engine, dashboard, and MCP server. Hosted sync and team features are not in this repo.",
+      "added_at": "2026-10-04",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:126",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1022,7 +1039,7 @@
       ]
     },
     {
-      "id": "resource:126",
+      "id": "resource:127",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1040,7 +1057,7 @@
       ]
     },
     {
-      "id": "resource:127",
+      "id": "resource:128",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1057,7 +1074,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -3615,13 +3632,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:125",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:125",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3631,7 +3653,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:125",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3641,7 +3663,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:126",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3651,7 +3673,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:126",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3661,7 +3683,7 @@
     },
     {
       "source": "topic:harness/agent-harness",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3671,7 +3693,7 @@
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     }
   ]

@@ -2812,6 +2812,28 @@
   },
   {
     "id": 125,
+    "url": "https://github.com/Coding-Dev-Tools/engraphis",
+    "title": "Coding Dev Tools / engraphis",
+    "summary": "Local-first memory for coding agents, with code-aware recall, history, MCP, and a self-hosted graph UI.",
+    "category": "other",
+    "tags": [
+      "memory",
+      "agent memory"
+    ],
+    "placements": [
+      {
+        "branch": "memory",
+        "topic": "Agent Memory"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-04",
+    "added_at": "2026-10-04",
+    "date_source": "sheet",
+    "notes": "174 stars, Apache-2.0, Python. The free repo is the local engine, dashboard, and MCP server. Hosted sync and team features are not in this repo."
+  },
+  {
+    "id": 126,
     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "title": "TypeSafe / Diogo Almeida",
     "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
@@ -2838,7 +2860,7 @@
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   },
   {
-    "id": 126,
+    "id": 127,
     "url": "https://github.com/dzhng/jevgrep",
     "title": "jevgrep / dzhng",
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
@@ -2865,7 +2887,7 @@
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
-    "id": 127,
+    "id": 128,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -2887,7 +2909,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 128,
+    "id": 129,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
