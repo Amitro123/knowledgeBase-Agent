@@ -128,6 +128,18 @@
     #search-input::placeholder { color: var(--text-dimmer); }
     #search-input:focus { border-color: var(--accent); }
 
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .filter-row input { accent-color: var(--accent); width: 13px; height: 13px; cursor: pointer; }
+    .filter-row span:nth-child(2) { flex: 1; }
+
     /* branch list */
     .branch-list { list-style: none; }
 
@@ -458,6 +470,11 @@
       <div>
         <div class="panel-heading">Search</div>
         <input type="search" id="search-input" placeholder="Title, topic, URL…" aria-label="Search" />
+        <label class="filter-row">
+          <input type="checkbox" id="github-only" />
+          <span>GitHub repos only</span>
+          <span class="branch-count" id="github-count"></span>
+        </label>
       </div>
 
       <div>
@@ -546,6 +563,7 @@
     const expanded = new Set();    // branch ids showing their resources
     const hiddenBranches = new Set();
     let selectedId = null, hoverId = null, query = '';
+    let githubOnly = false;        // derived from the URL, not the "Repos in github" tab
     let scale = 1;
     let visible = new Set();       // view ids
 
@@ -562,6 +580,7 @@
       }
       indexGraph();
       renderHeader();
+      document.getElementById('github-count').textContent = ofType('resource').filter(r => r.github_repo).length;
       renderBranchList();
       renderOverview();
       // Let the grid settle so the canvas is measured at its real size
@@ -819,10 +838,11 @@
       const shown = new Set();
       const branchShown = bid => !hiddenBranches.has(bid);
 
-      if (query) {
+      if (query || githubOnly) {
         const q = query.toLowerCase();
         graph.nodes.forEach(n => {
-          if (!textOf(n).includes(q)) return;
+          if (githubOnly && !n.github_repo) return;   // branches/topics have none: only repos match
+          if (q && !textOf(n).includes(q)) return;
           if (n.type === 'branch') { if (branchShown(n.id)) shown.add(n.id); return; }
           if (n.type === 'topic') {
             if (branchShown(n.branch)) { shown.add(n.id); shown.add(n.branch); }
@@ -879,6 +899,9 @@
       const near = focus ? focusSet(focus) : null;
       const focusType = focus && nodeById.get(focus).type;
       const sc = Math.max(scale, 0.01);
+      // filtered views label their matches, unless there are too many to read
+      const filtered = !!query || githubOnly;
+      const matchLabels = filtered && [...visible].filter(v => views.get(v).type === 'resource').length <= 30;
 
       visNodes.update([...views.values()].map(v => {
         const n = nodeById.get(v.did);
@@ -895,7 +918,7 @@
           sc >= rule.from ||
           (n.type === 'topic' && n.count >= rule.big) ||
           nearLabel ||
-          (query && n.type !== 'branch'));
+          (matchLabels && n.type !== 'branch'));
         const update = {
           id: v.vid, hidden: !visible.has(v.vid), opacity: dim ? DIM : 1,
           borderWidth: base.borderWidth, color: base.color,
@@ -1099,7 +1122,7 @@
             ${n.added_at ? (n.date_source === 'sheet'
               ? `<dt>Added</dt><dd>${esc(n.added_at)}</dd>`
               : `<dt title="The sheet row has no Date">First seen</dt><dd title="The sheet row has no Date; this is the first day the sync saw this link">${esc(n.added_at)}</dd>`) : ''}
-            ${domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : ''}
+            ${n.github_repo ? `<dt>GitHub</dt><dd>${esc(n.github_repo)}</dd>` : (domain ? `<dt>Domain</dt><dd>${esc(domain)}</dd>` : '')}
           </dl>
           ${idLine}`;
       }
@@ -1126,6 +1149,13 @@
         render();
         fitTo(null, 300);
       }, 150);
+    });
+
+    document.getElementById('github-only').addEventListener('change', e => {
+      githubOnly = e.target.checked;
+      if (selectedId && githubOnly && nodeById.get(selectedId).type === 'resource' && !nodeById.get(selectedId).github_repo) clearSelection();
+      render();
+      fitTo(null, 300);
     });
 
     document.getElementById('branch-list').addEventListener('change', e => {

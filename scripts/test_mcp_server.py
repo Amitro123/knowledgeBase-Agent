@@ -318,10 +318,27 @@ class TestGraphTools:
         assert not kb.GRAPH_FILE.exists()
         assert "Branches" in kb.list_branches()
 
+    def test_list_github_repos(self, kb):
+        resources = json.loads(kb.RESOURCES_FILE.read_text(encoding="utf-8"))
+        resources[0]["url"] = "https://github.com/acme/alpha"
+        resources[1]["url"] = "https://github.com/acme/beta/tree/main"
+        for r in resources:
+            r["placements"] = [{"branch": "tools" if r["id"] == 1 else "rag", "topic": "Agent Framework" if r["id"] == 1 else None}]
+        kb.GRAPH_FILE.write_text(json.dumps(kb.build_graph(resources, {"tools": "Tools", "rag": "RAG"})), encoding="utf-8")
+        result = kb.list_github_repos()
+        assert "GitHub repositories (2)" in result
+        assert "acme/alpha" in result and "Tools › agent framework" in result
+        assert "acme/beta" in result
+        assert "example.com" not in result
+        scoped = kb.list_github_repos(branch="RAG")
+        assert "(1) in RAG" in scoped and "acme/beta" in scoped and "acme/alpha" not in scoped
+        assert "Branch not found" in kb.list_github_repos(branch="nope")
+
     def test_graph_tools_do_not_write(self, kb_graph):
         before = (kb_graph.RESOURCES_FILE.read_text(), kb_graph.GRAPH_FILE.read_text())
         kb_graph.list_branches()
         kb_graph.get_branch(branch="rag")
         kb_graph.find_topic(name="rag")
         kb_graph.get_node(node_id="branch:rag")
+        kb_graph.list_github_repos()
         assert before == (kb_graph.RESOURCES_FILE.read_text(), kb_graph.GRAPH_FILE.read_text())

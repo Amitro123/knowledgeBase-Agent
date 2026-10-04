@@ -12,7 +12,7 @@ The site draws the knowledge base as a graph of **branches**, **topics** and **r
 - **Topic** (blue) — the row's Category text, inside its branch, e.g. Tools › agent framework.
 - **Resource** (orange) — one link.
 
-Each branch is its own cluster: topics ring the hub and their resources fan out around them. The overview shows branches and topics; click a branch to open its resources. A resource that sits on several tabs appears in each of those branches. Search, per-branch visibility and "Expand all" are in the left sidebar; the right panel lists the selected node's contents and its id (the same id the MCP tools use).
+Each branch is its own cluster: topics ring the hub and their resources fan out around them. The overview shows branches and topics; click a branch to open its resources. A resource that sits on several tabs appears in each of those branches. Search, a **GitHub repos only** filter, per-branch visibility and "Expand all" are in the left sidebar; the right panel lists the selected node's contents and its id (the same id the MCP tools use).
 
 ![Graph overview: one cluster per sheet tab](docs/graph.png)
 
@@ -50,9 +50,9 @@ index.html (Pages)        scripts/mcp_server.py (agent tools)
 | --- | --- | --- |
 | Branch | `branch:<tab-slug>` | a sheet tab (empty tabs included) |
 | Topic | `topic:<tab-slug>/<topic-slug>` | the Category text of rows in that tab |
-| Resource | `resource:<id>` | a URL (deduplicated across tabs) |
+| Resource | `resource:<id>` | a URL (deduplicated across tabs); `github_repo` = `owner/repo` when the link is a GitHub project |
 
-Edges: `HAS_TOPIC` (branch → topic), `HAS_RESOURCE` (topic → resource, or branch → resource for rows without a Category). Topics are scoped to their branch on purpose: generic values like "tool" appear on many tabs, and merging them would tie every branch to every other. Rebuild offline with `python scripts/build_graph.py`.
+Edges: `HAS_TOPIC` (branch → topic), `HAS_RESOURCE` (topic → resource, or branch → resource for rows without a Category). Topics are scoped to their branch on purpose: generic values like "tool" appear on many tabs, and merging them would tie every branch to every other. Whether a resource is a GitHub project comes from its URL, not from the "Repos in github" tab, so the GitHub filter and `list_github_repos` cover repos filed on any tab. Rebuild offline with `python scripts/build_graph.py`.
 
 ## Sheet Structure
 
@@ -102,6 +102,7 @@ A read-only MCP server (`scripts/mcp_server.py`, needs `mcp>=2.0`) exposes the k
 - `get_branch(branch)` — a branch's topics and their resources (slug or tab title)
 - `find_topic(name)` — a topic name across all branches
 - `get_node(node_id)` — any graph node with its incoming/outgoing edges
+- `list_github_repos(branch)` — every GitHub project, optionally within one branch
 
 The branch tools read `data/graph.json`, so the agent navigates the same structure the page draws, and node ids shown on the page work as `get_node` arguments.
 

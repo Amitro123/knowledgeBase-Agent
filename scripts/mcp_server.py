@@ -12,6 +12,7 @@ Exposes data/resources.json (generated from Google Sheets) as MCP tools:
   - get_branch(branch)         — one branch: its topics and their resources
   - find_topic(name)           — a topic name across every branch
   - get_node(node_id)          — any graph node with its incoming/outgoing edges
+  - list_github_repos(branch)  — every GitHub project (detected from the URL)
 
 The branch tools read data/graph.json, the same graph the web viewer draws
 (built by build_graph.py), so an agent and a person navigate one structure.
@@ -42,7 +43,7 @@ RESOURCES_FILE = ROOT / "data" / "resources.json"
 GRAPH_FILE = ROOT / "data" / "graph.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_graph import build_graph, slugify  # noqa: E402
+from build_graph import build_graph, github_repo, slugify  # noqa: E402
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -184,7 +185,8 @@ mcp = MCPServer(
         "The knowledge base is also a graph: branches (sheet tabs) contain topics, "
         "topics contain resources. Start with list_branches, drill in with "
         "get_branch, look a topic up across branches with find_topic, and walk "
-        "edges from any node with get_node. Resource node ids look like "
+        "edges from any node with get_node. list_github_repos lists every GitHub "
+        "project, wherever it is filed. Resource node ids look like "
         "'resource:12'; the number is the id get_resource takes. "
         "This server never writes to the knowledge base."
     ),
@@ -451,6 +453,56 @@ def get_node(node_id: str) -> str:
         lines.append(f"\n### Incoming ({len(inc)})")
         lines += [f"- <-[{e['type']}]- {_node_line(g.nodes[e['source']])[2:]}"
                   for e in inc if e["source"] in g.nodes]
+    return "\n".join(lines)
+
+
+@mcp.tool(
+    description=(
+        "List every GitHub repository in the knowledge base (owner/repo, title, "
+        "and the branch › topic it is filed under). Detected from the link, so "
+        "it covers repos on any tab, not only 'Repos in github'. Optionally "
+        "narrow to one branch (slug or tab title)."
+    )
+)
+def list_github_repos(branch: str = "") -> str:
+    """GitHub projects, optionally within one branch."""
+    g = _Graph(_load_graph())
+    scope = None
+    if branch.strip():
+        b = g.find_branch(branch)
+        if not b:
+            names = ", ".join(sorted(n["slug"] for n in g.of_type("branch")))
+            return f"Branch not found: '{branch}'. Branches: {names}"
+        scope = b["id"]
+
+    def placements(rid: str) -> list[str]:
+        out = []
+        for e in g.inc.get(rid, []):
+            parent = g.nodes.get(e["source"])
+            if not parent:
+                continue
+            if parent["type"] == "topic":
+                bid = parent["branch"]
+                text = f"{g.nodes[bid]['label']} › {parent['label']}"
+            else:
+                bid, text = parent["id"], parent["label"]
+            if scope is None or bid == scope:
+                out.append(text)
+        return out
+
+    repos = []
+    for n in g.of_type("resource"):
+        repo = n.get("github_repo") or github_repo(n.get("url", ""))
+        where = placements(n["id"]) if repo else []
+        if repo and where:
+            repos.append((repo.lower(), repo, n, where))
+    if not repos:
+        return "No GitHub repositories" + (f" in '{branch}'." if scope else ".")
+    repos.sort(key=lambda t: (t[0], t[2]["id"]))
+    where_label = f" in {g.nodes[scope]['label']}" if scope else ""
+    lines = [f"GitHub repositories ({len(repos)}){where_label}:\n"]
+    for _, repo, n, where in repos:
+        lines.append(f"- **{repo}** — {n['label']} (`{n['id']}`) — {'; '.join(sorted(set(where)))}")
     return "\n".join(lines)
 
 
