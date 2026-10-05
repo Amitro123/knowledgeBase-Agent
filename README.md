@@ -90,6 +90,8 @@ The tab name (e.g. "RAG", "MCP", "Security") becomes the branch, and a tag, on e
 │   ├── mcp_server.py              ← Read-only MCP server (optional)
 │   ├── requirements-mcp.txt       ← Dependencies for MCP server
 │   ├── test_mcp_server.py         ← MCP server tests
+│   ├── check_link.py              ← Pre-flight link check for the capture skill
+│   ├── test_check_link.py         ← Link check tests
 │   ├── capture.py                 ← (legacy) Obsidian enrichment script
 │   └── requirements.txt           ← (legacy) Dependencies for capture.py
 ├── skills/knowledgebase-capture/  ← Agent skill: save a link to the sheet

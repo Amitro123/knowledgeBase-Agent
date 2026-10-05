@@ -30,22 +30,56 @@ below: English Summary and Category, and Notes in Hebrew or English.
 
 ## Workflow (do these in order)
 
-1. **Resolve and clean the link** (see "Link rules").
-2. **Check it's reachable and public** (see "Validation" and "Privacy").
-3. **Look for a duplicate** in *every* tab, by the cleaned link.
-   - Found: don't add a row. Fill in any empty fields of the existing row if
-     you have better data, and tell the user where it already lives.
-4. **Extract** the facts for its type (see "Extraction by link type").
-5. **Pick the tab, then the Category** (see "Choosing tab and Category").
-6. **Write one row** in that tab with all six columns (see "Row format").
-7. **Publish**: run the sync (see "After writing").
-8. **Reply** with a short confirmation (see "Reply to the user").
+1. **Run the pre-flight check** on all the links at once (see "Pre-flight
+   check"). It cleans each link, finds duplicates in every tab, flags privacy
+   problems and lists each tab's topics. Don't read the whole sheet for this.
+   - Duplicate found: don't add a row. Fill in any empty fields of the existing
+     row if you have better data, and tell the user where it already lives.
+   - A warning: handle it per "Privacy" before going on.
+2. **Check it's reachable** and **extract** the facts for its type (see
+   "Validation" and "Extraction by link type"). For GitHub repos use the
+   GitHub API, not the web page.
+3. **Pick the tab, then the Category** from the check's `topics_by_tab`
+   (see "Choosing tab and Category").
+4. **Write the rows**: all new rows in one write, each with all six columns
+   (see "Row format").
+5. **Start the sync and don't wait for it** (see "After writing").
+6. **Reply** in Hebrew right away (see "Reply to the user").
 
 Before step 1, send one short Hebrew line so the user knows you started, e.g.
 `מוסיף את <name> לגיליון. קודם אבדוק מה הוא עושה.`
 
-When the user sends several links, process each one separately. Reply once at
-the end with a block per link.
+When the user sends several links, check them in one call, write them in one
+batch, start one sync, and reply once with a block per link.
+
+## Pre-flight check
+
+From a fresh checkout of `Amitro123/knowledgeBase-Agent` (`git pull` first, so
+the snapshot is current), run:
+
+```
+python scripts/check_link.py <url> [<url> ...]
+```
+
+It needs no credentials, writes nothing, and reads only the repo snapshot
+(`data/resources.json` and `data/graph.json`), which is as fresh as the last
+sync (`snapshot_generated_at`). It prints JSON:
+
+- `results[].clean_url`: the link to write in the sheet (short link resolved,
+  tracking parameters removed, GitHub repo root, arXiv abstract page).
+- `results[].duplicate`: every existing row with the same link, as
+  `{tab, category, title, date}`. Empty means new.
+- `results[].warnings`: privacy or validity problems (`google-drive-link`,
+  `secret-param`, `internal-host`, `personal-link`, `short-link` that didn't
+  resolve).
+- `results[].github_repo`: `owner/repo` when it's a GitHub repository.
+- `topics_by_tab`: each tab's existing topics, most used first, including
+  empty tabs.
+
+Rows added since the last sync are not in the snapshot. If the sync ran more
+than a few minutes ago, read the **Link and Category columns of the target tab
+only** through the Sheets connector, save them as a JSON list of
+`{"tab", "link", "category"}`, and add `--rows <file>`. Never read all the tabs.
 
 ## Row format
 
@@ -64,9 +98,8 @@ Never rename, reorder or add columns.
 
 ## Choosing tab and Category
 
-**Before choosing, read the current tab names and each tab's existing Category
-values from the sheet.** That live list is the source of truth. The table below
-is a snapshot to help you decide.
+Use the check's `topics_by_tab` for the existing Category values; it is
+current as of the last sync. The table below says what each tab is for.
 
 1. **Tab:** put the link on the **single tab that best describes what it is
    about**. Add a second tab only if it clearly belongs to both. Never use 3 or
@@ -76,7 +109,8 @@ is a snapshot to help you decide.
    do **not** also copy it to `Repos in github`. The site detects GitHub repos
    from the URL on its own.
 3. **Category:** reuse one of that tab's existing Category values whenever one
-   fits. Copy the spelling exactly; spelling variants become separate topics.
+   fits, with the spelling `topics_by_tab` shows. Case doesn't matter (the
+   graph lower-cases topics), but other variants become separate topics.
    Create a new Category only if none fits *and* the tab will likely get 2 or
    more links on it. Big tabs keep 3–7 broad topics; small and new tabs may
    start more specific.
@@ -105,8 +139,6 @@ Snapshot of tabs and topics, refreshed 2026-10-05 (resources per topic in bracke
 | Observability | Tracing, monitoring, logging for LLM apps (empty, ready to use) | — |
 | Infrastructure | Hosting, serving, GPUs, deployment (empty, ready to use) | — |
 
-Copy Category spellings exactly, including lowercase (reference, news, research, tutorial).
-
 If nothing fits, use the closest tab and say so in the reply. Don't create a new
 tab unless the user asks.
 
@@ -116,6 +148,10 @@ The sync de-duplicates on the URL with only light normalisation: lower-case
 scheme and host, no `#fragment`, no trailing `/`. **The query string is kept**,
 so the same article with different tracking parameters becomes a duplicate.
 Clean the link before saving:
+
+`check_link.py` applies these rules; use its `clean_url`. They are here so you
+can fix a link by hand when the script can't (e.g. a short link it couldn't
+resolve).
 
 - **Resolve short links** to their final URL: `lnkd.in`, `t.co`, `bit.ly`,
   `share.google`, `goo.gl`, `buff.ly` and similar.
@@ -172,21 +208,18 @@ If the user insists, add it only after they confirm that it may be public.
 
 ## After writing
 
-1. **Run the sync.** GitHub often delays the 30-minute schedule by hours. If you
-   have GitHub access, run the workflow "Sync Google Sheets → resources.json +
-   graph.json" in `Amitro123/knowledgeBase-Agent` (Actions → Run workflow, on
-   `main`). If you don't, tell the user it will appear after the next scheduled
-   sync, or that they can run it manually.
-2. **Check that it landed** using this repo's graph MCP tools (never call
-   `query_kb`—it belongs to a different knowledge base):
-   - `get_node("<url>")` returns the resource and its link matches what you saved;
-   - `get_branch("<tab>")` shows the resource under the topic you chose;
-   - `find_topic("<category>")` returns the existing topic, not a new spelling.
-
-   If the graph MCP is not connected, fall back to reading `data/graph.json`
-   from the repo after the sync commit lands and verify the same three things
-   manually: the node exists with the correct link, it sits under the chosen
-   topic in its branch, and no accidental new topic spelling was created.
+1. **Start the sync and don't wait for it.** GitHub often delays the 30-minute
+   schedule by hours. If you have GitHub access, trigger the workflow
+   "Sync Google Sheets → resources.json + graph.json" in
+   `Amitro123/knowledgeBase-Agent` (workflow_dispatch on `main`), then reply to
+   the user straight away. The sync takes a few minutes and the row is already
+   saved. If you can't trigger it, say it will appear after the next scheduled
+   sync.
+2. **Verify only if asked**, or before the next capture: `git pull` and run
+   `check_link.py` on the same link. Its `duplicate` should list the tab and
+   Category you wrote. With the graph MCP connected, `get_branch("<tab>")`
+   shows the same. Don't use `query_kb` (another knowledge base) or `get_node`
+   with a URL (it takes node ids like `resource:12`).
 
 ## Reply to the user (in Hebrew)
 
@@ -197,7 +230,7 @@ are. Example:
 
 > engraphis נוסף ללשונית **Memory**, בנושא **Agent Memory**.
 > זה זיכרון מקומי לסוכני קוד, שמממש גרף MCP שרץ אצלך.
-> הסנכרון כבר רץ, והוא יופיע בגרף בעוד כמה דקות.
+> הפעלתי את הסנכרון, והוא יופיע בגרף בעוד כמה דקות.
 
 Add a line only when it matters:
 
