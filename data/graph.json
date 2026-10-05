@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-05T04:47:47+00:00",
+  "generated_at": "2026-10-05T04:51:34+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -52,20 +52,20 @@
       "topic_count": 3
     },
     {
+      "id": "branch:harness",
+      "type": "branch",
+      "label": "Harness",
+      "slug": "harness",
+      "count": 6,
+      "topic_count": 4
+    },
+    {
       "id": "branch:claude",
       "type": "branch",
       "label": "Claude",
       "slug": "claude",
       "count": 5,
       "topic_count": 2
-    },
-    {
-      "id": "branch:harness",
-      "type": "branch",
-      "label": "Harness",
-      "slug": "harness",
-      "count": 5,
-      "topic_count": 4
     },
     {
       "id": "branch:mcp",
@@ -267,6 +267,13 @@
       "count": 3
     },
     {
+      "id": "topic:harness/agent-harness",
+      "type": "topic",
+      "label": "agent harness",
+      "branch": "branch:harness",
+      "count": 3
+    },
+    {
       "id": "topic:repos-in-github/classic-ml",
       "type": "topic",
       "label": "classic ml",
@@ -292,13 +299,6 @@
       "type": "topic",
       "label": "cost & models",
       "branch": "branch:claude",
-      "count": 2
-    },
-    {
-      "id": "topic:harness/agent-harness",
-      "type": "topic",
-      "label": "agent harness",
-      "branch": "branch:harness",
       "count": 2
     },
     {
@@ -1177,6 +1177,23 @@
     },
     {
       "id": "resource:134",
+      "type": "resource",
+      "label": "Clearailhc / clearai-dsh",
+      "url": "https://github.com/Clearailhc/clearai-dsh",
+      "github_repo": "Clearailhc/clearai-dsh",
+      "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
+      "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:135",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -3797,13 +3814,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:134",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:134",
+      "target": "resource:135",
       "type": "HAS_RESOURCE"
     }
   ]

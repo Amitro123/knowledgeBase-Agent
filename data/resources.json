@@ -3020,6 +3020,28 @@
   },
   {
     "id": 134,
+    "url": "https://github.com/Clearailhc/clearai-dsh",
+    "title": "Clearailhc / clearai-dsh",
+    "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
+    "category": "other",
+    "tags": [
+      "harness",
+      "agent harness"
+    ],
+    "placements": [
+      {
+        "branch": "harness",
+        "topic": "Agent Harness"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-05",
+    "added_at": "2026-10-05",
+    "date_source": "sheet",
+    "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh."
+  },
+  {
+    "id": 135,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
