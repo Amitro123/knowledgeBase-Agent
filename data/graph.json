@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-06T07:09:19+00:00",
+  "generated_at": "2026-10-06T10:12:02+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -68,6 +68,14 @@
       "topic_count": 2
     },
     {
+      "id": "branch:jev",
+      "type": "branch",
+      "label": "Jev",
+      "slug": "jev",
+      "count": 5,
+      "topic_count": 5
+    },
+    {
       "id": "branch:mcp",
       "type": "branch",
       "label": "MCP",
@@ -90,14 +98,6 @@
       "slug": "automation-flow",
       "count": 4,
       "topic_count": 3
-    },
-    {
-      "id": "branch:jev",
-      "type": "branch",
-      "label": "Jev",
-      "slug": "jev",
-      "count": 4,
-      "topic_count": 4
     },
     {
       "id": "branch:ai-solutions-linkedin",
@@ -417,6 +417,13 @@
       "id": "topic:jev/code-search",
       "type": "topic",
       "label": "code search",
+      "branch": "branch:jev",
+      "count": 1
+    },
+    {
+      "id": "topic:jev/document-library",
+      "type": "topic",
+      "label": "document library",
       "branch": "branch:jev",
       "count": 1
     },
@@ -1241,6 +1248,23 @@
       ],
       "topics": [
         "postgres extension"
+      ]
+    },
+    {
+      "id": "resource:138",
+      "type": "resource",
+      "label": "extend-hq / jevbox",
+      "url": "https://github.com/extend-hq/jevbox",
+      "github_repo": "extend-hq/jevbox",
+      "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
+      "notes": "640 stars. TypeScript. Last commit Oct 2026. Local stack: Node, pnpm, Postgres, SpiceDB. License field is NOASSERTION.",
+      "added_at": "2026-10-06",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "document library"
       ]
     },
     {
@@ -3870,6 +3894,16 @@
     {
       "source": "topic:jev/postgres-extension",
       "target": "resource:137",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:jev",
+      "target": "topic:jev/document-library",
+      "type": "HAS_TOPIC"
+    },
+    {
+      "source": "topic:jev/document-library",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     }
   ]

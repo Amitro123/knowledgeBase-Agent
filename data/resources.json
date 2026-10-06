@@ -3105,5 +3105,27 @@
     "added_at": "2026-10-03",
     "date_source": "sheet",
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
+  },
+  {
+    "id": 138,
+    "url": "https://github.com/extend-hq/jevbox",
+    "title": "extend-hq / jevbox",
+    "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
+    "category": "other",
+    "tags": [
+      "jev",
+      "document library"
+    ],
+    "placements": [
+      {
+        "branch": "jev",
+        "topic": "Document Library"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-06",
+    "added_at": "2026-10-06",
+    "date_source": "sheet",
+    "notes": "640 stars. TypeScript. Last commit Oct 2026. Local stack: Node, pnpm, Postgres, SpiceDB. License field is NOASSERTION."
   }
 ]
