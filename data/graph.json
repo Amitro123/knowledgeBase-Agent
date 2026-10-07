@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T11:14:23+00:00",
+  "generated_at": "2026-10-07T12:33:50+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -48,7 +48,7 @@
       "type": "branch",
       "label": "Memory",
       "slug": "memory",
-      "count": 7,
+      "count": 8,
       "topic_count": 3
     },
     {
@@ -190,6 +190,13 @@
       "count": 6
     },
     {
+      "id": "topic:memory/agent-memory",
+      "type": "topic",
+      "label": "agent memory",
+      "branch": "branch:memory",
+      "count": 6
+    },
+    {
       "id": "topic:repos-in-github/dev-utilities",
       "type": "topic",
       "label": "dev utilities",
@@ -215,13 +222,6 @@
       "type": "topic",
       "label": "llms & training",
       "branch": "branch:learning",
-      "count": 5
-    },
-    {
-      "id": "topic:memory/agent-memory",
-      "type": "topic",
-      "label": "agent memory",
-      "branch": "branch:memory",
       "count": 5
     },
     {
@@ -1156,6 +1156,23 @@
     {
       "id": "resource:132",
       "type": "resource",
+      "label": "deeplethe / utopia",
+      "url": "https://github.com/deeplethe/utopia",
+      "github_repo": "deeplethe/utopia",
+      "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
+      "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
+      "added_at": "2026-10-07",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:133",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1172,7 +1189,7 @@
       ]
     },
     {
-      "id": "resource:133",
+      "id": "resource:134",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1190,7 +1207,7 @@
       ]
     },
     {
-      "id": "resource:134",
+      "id": "resource:135",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1207,7 +1224,7 @@
       ]
     },
     {
-      "id": "resource:135",
+      "id": "resource:136",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1224,7 +1241,7 @@
       ]
     },
     {
-      "id": "resource:136",
+      "id": "resource:137",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1241,7 +1258,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1258,7 +1275,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1272,23 +1289,6 @@
       ],
       "topics": [
         "postgres extension"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "extend-hq / jevbox",
-      "url": "https://github.com/extend-hq/jevbox",
-      "github_repo": "extend-hq/jevbox",
-      "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
-      "notes": "640 stars. TypeScript. Last commit Oct 2026. Local stack: Node, pnpm, Postgres, SpiceDB. License field is NOASSERTION.",
-      "added_at": "2026-10-06",
-      "date_source": "sheet",
-      "branches": [
-        "jev"
-      ],
-      "topics": [
-        "document library"
       ]
     },
     {
@@ -1306,6 +1306,23 @@
       ],
       "topics": [
         "llms & training"
+      ]
+    },
+    {
+      "id": "resource:140",
+      "type": "resource",
+      "label": "extend-hq / jevbox",
+      "url": "https://github.com/extend-hq/jevbox",
+      "github_repo": "extend-hq/jevbox",
+      "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
+      "notes": "640 stars. TypeScript. Last commit Oct 2026. Local stack: Node, pnpm, Postgres, SpiceDB. License field is NOASSERTION.",
+      "added_at": "2026-10-06",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "document library"
       ]
     },
     {
@@ -3851,13 +3868,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:132",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:132",
+      "target": "resource:133",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3867,7 +3889,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:132",
+      "target": "resource:133",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3877,7 +3899,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:133",
+      "target": "resource:134",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3887,7 +3909,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:133",
+      "target": "resource:134",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3897,18 +3919,13 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:134",
+      "target": "resource:135",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:135",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -3921,13 +3938,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:138",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:138",
+      "target": "resource:139",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3937,7 +3959,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:139",
+      "target": "resource:140",
       "type": "HAS_RESOURCE"
     }
   ]
