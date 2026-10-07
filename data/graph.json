@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T04:10:09+00:00",
+  "generated_at": "2026-10-07T06:31:50+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -132,18 +132,18 @@
       "topic_count": 1
     },
     {
-      "id": "branch:infrastructure",
-      "type": "branch",
-      "label": "Infrastructure",
-      "slug": "infrastructure",
-      "count": 0,
-      "topic_count": 0
-    },
-    {
       "id": "branch:observability",
       "type": "branch",
       "label": "Observability",
       "slug": "observability",
+      "count": 1,
+      "topic_count": 1
+    },
+    {
+      "id": "branch:infrastructure",
+      "type": "branch",
+      "label": "Infrastructure",
+      "slug": "infrastructure",
       "count": 0,
       "topic_count": 0
     },
@@ -460,6 +460,13 @@
       "type": "topic",
       "label": "reference",
       "branch": "branch:memory",
+      "count": 1
+    },
+    {
+      "id": "topic:observability/ai-sre",
+      "type": "topic",
+      "label": "ai sre",
+      "branch": "branch:observability",
       "count": 1
     },
     {
@@ -1185,6 +1192,23 @@
     {
       "id": "resource:134",
       "type": "resource",
+      "label": "Tracer-Cloud / opensre",
+      "url": "https://github.com/Tracer-Cloud/opensre",
+      "github_repo": "Tracer-Cloud/opensre",
+      "summary": "Open-source framework for AI SRE agents that connect to existing observability tools and run production incident workflows.",
+      "notes": "~11.5k stars. Apache-2.0. Python. Last commit Oct 2026. Public alpha.",
+      "added_at": "2026-10-07",
+      "date_source": "sheet",
+      "branches": [
+        "observability"
+      ],
+      "topics": [
+        "ai sre"
+      ]
+    },
+    {
+      "id": "resource:135",
+      "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
       "github_repo": "earendil-works/pi",
@@ -1200,7 +1224,7 @@
       ]
     },
     {
-      "id": "resource:135",
+      "id": "resource:136",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1217,7 +1241,7 @@
       ]
     },
     {
-      "id": "resource:136",
+      "id": "resource:137",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1234,7 +1258,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1251,7 +1275,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -3867,14 +3891,19 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:harness",
-      "target": "topic:harness/agent-harness",
+      "source": "branch:observability",
+      "target": "topic:observability/ai-sre",
       "type": "HAS_TOPIC"
     },
     {
-      "source": "topic:harness/agent-harness",
+      "source": "topic:observability/ai-sre",
       "target": "resource:134",
       "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:harness",
+      "target": "topic:harness/agent-harness",
+      "type": "HAS_TOPIC"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -3887,13 +3916,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:137",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:137",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3903,7 +3937,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:138",
+      "target": "resource:139",
       "type": "HAS_RESOURCE"
     }
   ]

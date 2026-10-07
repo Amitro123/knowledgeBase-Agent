@@ -3020,6 +3020,28 @@
   },
   {
     "id": 134,
+    "url": "https://github.com/Tracer-Cloud/opensre",
+    "title": "Tracer-Cloud / opensre",
+    "summary": "Open-source framework for AI SRE agents that connect to existing observability tools and run production incident workflows.",
+    "category": "other",
+    "tags": [
+      "observability",
+      "ai sre"
+    ],
+    "placements": [
+      {
+        "branch": "observability",
+        "topic": "AI SRE"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-07",
+    "added_at": "2026-10-07",
+    "date_source": "sheet",
+    "notes": "~11.5k stars. Apache-2.0. Python. Last commit Oct 2026. Public alpha."
+  },
+  {
+    "id": 135,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -3041,7 +3063,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 135,
+    "id": 136,
     "url": "https://github.com/coldteadotai/abide",
     "title": "coldteadotai / abide",
     "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
@@ -3063,7 +3085,7 @@
     "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key."
   },
   {
-    "id": 136,
+    "id": 137,
     "url": "https://github.com/Clearailhc/clearai-dsh",
     "title": "Clearailhc / clearai-dsh",
     "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
@@ -3085,7 +3107,7 @@
     "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh."
   },
   {
-    "id": 137,
+    "id": 138,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -3107,7 +3129,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 138,
+    "id": 139,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
