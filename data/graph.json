@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T09:22:28+00:00",
+  "generated_at": "2026-10-08T15:58:15+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -56,7 +56,7 @@
       "type": "branch",
       "label": "Harness",
       "slug": "harness",
-      "count": 6,
+      "count": 7,
       "topic_count": 4
     },
     {
@@ -239,6 +239,13 @@
       "count": 5
     },
     {
+      "id": "topic:harness/agent-harness",
+      "type": "topic",
+      "label": "agent harness",
+      "branch": "branch:harness",
+      "count": 4
+    },
+    {
       "id": "topic:learning/rag-&-retrieval",
       "type": "topic",
       "label": "rag & retrieval",
@@ -264,13 +271,6 @@
       "type": "topic",
       "label": "claude code",
       "branch": "branch:claude",
-      "count": 3
-    },
-    {
-      "id": "topic:harness/agent-harness",
-      "type": "topic",
-      "label": "agent harness",
-      "branch": "branch:harness",
       "count": 3
     },
     {
@@ -1328,6 +1328,23 @@
     {
       "id": "resource:141",
       "type": "resource",
+      "label": "mvschwarz / openrig",
+      "url": "https://github.com/mvschwarz/openrig",
+      "github_repo": "mvschwarz/openrig",
+      "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
+      "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)",
+      "added_at": "2026-10-08",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:142",
+      "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
       "github_repo": "realZachi/pg-jev",
@@ -1343,7 +1360,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -3987,13 +4004,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:141",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:141",
+      "target": "resource:142",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4003,7 +4025,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:142",
+      "target": "resource:143",
       "type": "HAS_RESOURCE"
     }
   ]

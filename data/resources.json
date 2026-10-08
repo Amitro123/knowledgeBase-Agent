@@ -3174,6 +3174,28 @@
   },
   {
     "id": 141,
+    "url": "https://github.com/mvschwarz/openrig",
+    "title": "mvschwarz / openrig",
+    "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
+    "category": "other",
+    "tags": [
+      "harness",
+      "agent harness"
+    ],
+    "placements": [
+      {
+        "branch": "harness",
+        "topic": "Agent Harness"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-08",
+    "added_at": "2026-10-08",
+    "date_source": "sheet",
+    "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)"
+  },
+  {
+    "id": 142,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -3195,7 +3217,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 142,
+    "id": 143,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
