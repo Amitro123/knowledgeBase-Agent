@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T15:58:15+00:00",
+  "generated_at": "2026-10-08T15:58:56+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -60,6 +60,14 @@
       "topic_count": 4
     },
     {
+      "id": "branch:mcp",
+      "type": "branch",
+      "label": "MCP",
+      "slug": "mcp",
+      "count": 6,
+      "topic_count": 3
+    },
+    {
       "id": "branch:automation-flow",
       "type": "branch",
       "label": "Automation flow",
@@ -82,14 +90,6 @@
       "slug": "jev",
       "count": 5,
       "topic_count": 5
-    },
-    {
-      "id": "branch:mcp",
-      "type": "branch",
-      "label": "MCP",
-      "slug": "mcp",
-      "count": 5,
-      "topic_count": 3
     },
     {
       "id": "branch:rag",
@@ -274,6 +274,13 @@
       "count": 3
     },
     {
+      "id": "topic:mcp/mcp-servers",
+      "type": "topic",
+      "label": "mcp servers",
+      "branch": "branch:mcp",
+      "count": 3
+    },
+    {
       "id": "topic:repos-in-github/classic-ml",
       "type": "topic",
       "label": "classic ml",
@@ -319,13 +326,6 @@
       "id": "topic:mcp/mcp-apps-&-clients",
       "type": "topic",
       "label": "mcp apps & clients",
-      "branch": "branch:mcp",
-      "count": 2
-    },
-    {
-      "id": "topic:mcp/mcp-servers",
-      "type": "topic",
-      "label": "mcp servers",
       "branch": "branch:mcp",
       "count": 2
     },
@@ -548,6 +548,23 @@
     {
       "id": "resource:100",
       "type": "resource",
+      "label": "Rival Tech SOTA",
+      "url": "https://sota.rival.tech/",
+      "github_repo": null,
+      "summary": "Leaderboard for State-of-the-Art models.",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "mlops & evaluation"
+      ]
+    },
+    {
+      "id": "resource:101",
+      "type": "resource",
       "label": "LLMLayer",
       "url": "https://llmlayer.ai/",
       "github_repo": null,
@@ -563,7 +580,7 @@
       ]
     },
     {
-      "id": "resource:101",
+      "id": "resource:102",
       "type": "resource",
       "label": "Blink (New)",
       "url": "https://blink.new/",
@@ -580,7 +597,7 @@
       ]
     },
     {
-      "id": "resource:102",
+      "id": "resource:103",
       "type": "resource",
       "label": "Reevo AI",
       "url": "https://reevo.ai/",
@@ -597,7 +614,7 @@
       ]
     },
     {
-      "id": "resource:103",
+      "id": "resource:104",
       "type": "resource",
       "label": "Kapso",
       "url": "https://kapso.ai",
@@ -614,7 +631,7 @@
       ]
     },
     {
-      "id": "resource:104",
+      "id": "resource:105",
       "type": "resource",
       "label": "https://mlflow.org/docs/latest/genai/tracing/",
       "url": "https://mlflow.org/docs/latest/genai/tracing/",
@@ -631,7 +648,7 @@
       ]
     },
     {
-      "id": "resource:105",
+      "id": "resource:106",
       "type": "resource",
       "label": "https://github.com/omegis/Hostinger-PHP-Guide",
       "url": "https://github.com/omegis/Hostinger-PHP-Guide",
@@ -648,7 +665,7 @@
       ]
     },
     {
-      "id": "resource:106",
+      "id": "resource:107",
       "type": "resource",
       "label": "https://www.genspark.ai/",
       "url": "https://www.genspark.ai/",
@@ -665,7 +682,7 @@
       ]
     },
     {
-      "id": "resource:107",
+      "id": "resource:108",
       "type": "resource",
       "label": "Nandha Kishor / laya",
       "url": "https://github.com/NandhaKishorM/laya",
@@ -682,7 +699,7 @@
       ]
     },
     {
-      "id": "resource:108",
+      "id": "resource:109",
       "type": "resource",
       "label": "Braedon Saunders / CodeFlow",
       "url": "https://github.com/braedonsaunders/codeflow",
@@ -695,25 +712,6 @@
         "tools"
       ],
       "topics": [
-        "developer tools"
-      ]
-    },
-    {
-      "id": "resource:109",
-      "type": "resource",
-      "label": "OpenAI / codex-plugin-cc",
-      "url": "https://github.com/openai/codex-plugin-cc",
-      "github_repo": "openai/codex-plugin-cc",
-      "summary": "OpenAI's Apache-2.0 Claude Code plugin that runs Codex code reviews and delegated tasks through the local Codex CLI.",
-      "notes": "OpenAI. 33787 GitHub stars. Apache-2.0. JavaScript. In Claude Code: /plugin marketplace add openai/codex-plugin-cc, then /plugin install codex@openai-codex, /reload-plugins, and /codex:setup. Needs Node.js 18.18+ and a ChatGPT subscription or API key. Caveat: the optional review gate can loop Claude and Codex and drain usage limits quickly.",
-      "added_at": "2026-07-12",
-      "date_source": "sheet",
-      "branches": [
-        "claude",
-        "tools"
-      ],
-      "topics": [
-        "claude code",
         "developer tools"
       ]
     },
@@ -737,6 +735,25 @@
     {
       "id": "resource:110",
       "type": "resource",
+      "label": "OpenAI / codex-plugin-cc",
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "github_repo": "openai/codex-plugin-cc",
+      "summary": "OpenAI's Apache-2.0 Claude Code plugin that runs Codex code reviews and delegated tasks through the local Codex CLI.",
+      "notes": "OpenAI. 33787 GitHub stars. Apache-2.0. JavaScript. In Claude Code: /plugin marketplace add openai/codex-plugin-cc, then /plugin install codex@openai-codex, /reload-plugins, and /codex:setup. Needs Node.js 18.18+ and a ChatGPT subscription or API key. Caveat: the optional review gate can loop Claude and Codex and drain usage limits quickly.",
+      "added_at": "2026-07-12",
+      "date_source": "sheet",
+      "branches": [
+        "claude",
+        "tools"
+      ],
+      "topics": [
+        "claude code",
+        "developer tools"
+      ]
+    },
+    {
+      "id": "resource:111",
+      "type": "resource",
       "label": "Bend / bendlang",
       "url": "https://github.com/bendlang/bend",
       "github_repo": "bendlang/bend",
@@ -752,7 +769,7 @@
       ]
     },
     {
-      "id": "resource:111",
+      "id": "resource:112",
       "type": "resource",
       "label": "FalkorDB",
       "url": "https://github.com/FalkorDB/FalkorDB",
@@ -769,7 +786,7 @@
       ]
     },
     {
-      "id": "resource:112",
+      "id": "resource:113",
       "type": "resource",
       "label": "Graphify Labs / graphify",
       "url": "https://github.com/Graphify-Labs/graphify",
@@ -788,7 +805,7 @@
       ]
     },
     {
-      "id": "resource:113",
+      "id": "resource:114",
       "type": "resource",
       "label": "Raphael Mansuy / edgextract",
       "url": "https://github.com/raphaelmansuy/edgextract",
@@ -805,7 +822,7 @@
       ]
     },
     {
-      "id": "resource:114",
+      "id": "resource:115",
       "type": "resource",
       "label": "Hugging Face (skills)",
       "url": "https://github.com/huggingface/skills",
@@ -822,7 +839,7 @@
       ]
     },
     {
-      "id": "resource:115",
+      "id": "resource:116",
       "type": "resource",
       "label": "Microsoft / waza",
       "url": "https://github.com/microsoft/waza",
@@ -839,7 +856,7 @@
       ]
     },
     {
-      "id": "resource:116",
+      "id": "resource:117",
       "type": "resource",
       "label": "Microsoft Research / SkillOpt",
       "url": "https://github.com/microsoft/SkillOpt",
@@ -858,7 +875,7 @@
       ]
     },
     {
-      "id": "resource:117",
+      "id": "resource:118",
       "type": "resource",
       "label": "NVIDIA / SkillSpector",
       "url": "https://github.com/NVIDIA/SkillSpector",
@@ -877,7 +894,7 @@
       ]
     },
     {
-      "id": "resource:118",
+      "id": "resource:119",
       "type": "resource",
       "label": "Matt Pocock / skills",
       "url": "https://github.com/mattpocock/skills",
@@ -893,25 +910,6 @@
       "topics": [
         "claude code",
         "skill libraries"
-      ]
-    },
-    {
-      "id": "resource:119",
-      "type": "resource",
-      "label": "romiluz13 / auto-pi",
-      "url": "https://github.com/romiluz13/auto-pi",
-      "github_repo": "romiluz13/auto-pi",
-      "summary": "romiluz13's MIT-licensed workflow layer for the Pi coding agent: a Coach menu and typed workflow machine that routes work through a pinned Matt Pocock ask-matt skill.",
-      "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent.",
-      "added_at": "2026-07-12",
-      "date_source": "sheet",
-      "branches": [
-        "harness",
-        "skills"
-      ],
-      "topics": [
-        "agent workflow",
-        "workflows & apps"
       ]
     },
     {
@@ -934,6 +932,25 @@
     {
       "id": "resource:120",
       "type": "resource",
+      "label": "romiluz13 / auto-pi",
+      "url": "https://github.com/romiluz13/auto-pi",
+      "github_repo": "romiluz13/auto-pi",
+      "summary": "romiluz13's MIT-licensed workflow layer for the Pi coding agent: a Coach menu and typed workflow machine that routes work through a pinned Matt Pocock ask-matt skill.",
+      "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent.",
+      "added_at": "2026-07-12",
+      "date_source": "sheet",
+      "branches": [
+        "harness",
+        "skills"
+      ],
+      "topics": [
+        "agent workflow",
+        "workflows & apps"
+      ]
+    },
+    {
+      "id": "resource:121",
+      "type": "resource",
       "label": "charlie947 / social-media-skills",
       "url": "https://github.com/charlie947/social-media-skills",
       "github_repo": "charlie947/social-media-skills",
@@ -949,7 +966,7 @@
       ]
     },
     {
-      "id": "resource:121",
+      "id": "resource:122",
       "type": "resource",
       "label": "Prompt Audit — anthropics/skills",
       "url": "https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/prompt-audit.md",
@@ -966,7 +983,7 @@
       ]
     },
     {
-      "id": "resource:122",
+      "id": "resource:123",
       "type": "resource",
       "label": "virgiliojr94 / book-to-skill",
       "url": "https://github.com/virgiliojr94/book-to-skill",
@@ -983,7 +1000,7 @@
       ]
     },
     {
-      "id": "resource:123",
+      "id": "resource:124",
       "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
@@ -1000,7 +1017,7 @@
       ]
     },
     {
-      "id": "resource:124",
+      "id": "resource:125",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -1017,7 +1034,7 @@
       ]
     },
     {
-      "id": "resource:125",
+      "id": "resource:126",
       "type": "resource",
       "label": "Uber / ADR",
       "url": "https://github.com/uber/ADR",
@@ -1034,7 +1051,7 @@
       ]
     },
     {
-      "id": "resource:126",
+      "id": "resource:127",
       "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
@@ -1051,7 +1068,7 @@
       ]
     },
     {
-      "id": "resource:127",
+      "id": "resource:128",
       "type": "resource",
       "label": "Tzach Bonfil / claude-model-advisor",
       "url": "https://github.com/tzachbon/claude-model-advisor",
@@ -1068,7 +1085,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
@@ -1082,23 +1099,6 @@
       ],
       "topics": [
         "claude code"
-      ]
-    },
-    {
-      "id": "resource:129",
-      "type": "resource",
-      "label": "Google Cloud Platform (always-on-memory-agent)",
-      "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
-      "github_repo": "GoogleCloudPlatform/generative-ai",
-      "summary": "Persistent always-on memory agent architecture for Gemini agents",
-      "notes": "Memory management for Gemini agents",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
       ]
     },
     {
@@ -1121,6 +1121,23 @@
     {
       "id": "resource:130",
       "type": "resource",
+      "label": "Google Cloud Platform (always-on-memory-agent)",
+      "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
+      "github_repo": "GoogleCloudPlatform/generative-ai",
+      "summary": "Persistent always-on memory agent architecture for Gemini agents",
+      "notes": "Memory management for Gemini agents",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:131",
+      "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
       "github_repo": "yvgude/lean-ctx",
@@ -1136,7 +1153,7 @@
       ]
     },
     {
-      "id": "resource:131",
+      "id": "resource:132",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1154,7 +1171,7 @@
       ]
     },
     {
-      "id": "resource:132",
+      "id": "resource:133",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1171,7 +1188,7 @@
       ]
     },
     {
-      "id": "resource:133",
+      "id": "resource:134",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1188,7 +1205,7 @@
       ]
     },
     {
-      "id": "resource:134",
+      "id": "resource:135",
       "type": "resource",
       "label": "deeplethe / utopia",
       "url": "https://github.com/deeplethe/utopia",
@@ -1205,7 +1222,7 @@
       ]
     },
     {
-      "id": "resource:135",
+      "id": "resource:136",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1223,7 +1240,7 @@
       ]
     },
     {
-      "id": "resource:136",
+      "id": "resource:137",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1241,7 +1258,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1258,7 +1275,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1266,23 +1283,6 @@
       "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
       "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
       "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "coldteadotai / abide",
-      "url": "https://github.com/coldteadotai/abide",
-      "github_repo": "coldteadotai/abide",
-      "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
-      "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
-      "added_at": "2026-10-05",
       "date_source": "sheet",
       "branches": [
         "harness"
@@ -1311,6 +1311,23 @@
     {
       "id": "resource:140",
       "type": "resource",
+      "label": "coldteadotai / abide",
+      "url": "https://github.com/coldteadotai/abide",
+      "github_repo": "coldteadotai/abide",
+      "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
+      "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:141",
+      "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
       "github_repo": "Clearailhc/clearai-dsh",
@@ -1326,7 +1343,7 @@
       ]
     },
     {
-      "id": "resource:141",
+      "id": "resource:142",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1343,7 +1360,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1360,7 +1377,7 @@
       ]
     },
     {
-      "id": "resource:143",
+      "id": "resource:144",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -2736,6 +2753,23 @@
     {
       "id": "resource:87",
       "type": "resource",
+      "label": "morluto / rea",
+      "url": "https://github.com/morluto/rea",
+      "github_repo": "morluto/rea",
+      "summary": "MCP server and CLI letting coding agents reverse engineer native binaries, JS/Electron apps, .NET assemblies and websites locally, using Hopper or Ghidra.",
+      "notes": "~20.6k★, MIT, TypeScript; npx rea-agents setup; supports Claude Code, Codex, Cursor, Gemini CLI",
+      "added_at": "2026-10-08",
+      "date_source": "sheet",
+      "branches": [
+        "mcp"
+      ],
+      "topics": [
+        "mcp servers"
+      ]
+    },
+    {
+      "id": "resource:88",
+      "type": "resource",
       "label": "Reflex",
       "url": "https://reflex.dev/",
       "github_repo": null,
@@ -2751,7 +2785,7 @@
       ]
     },
     {
-      "id": "resource:88",
+      "id": "resource:89",
       "type": "resource",
       "label": "agentTool",
       "url": "https://bhindi.io/c/new",
@@ -2765,23 +2799,6 @@
       ],
       "topics": [
         "ai apps & agents"
-      ]
-    },
-    {
-      "id": "resource:89",
-      "type": "resource",
-      "label": "Monarch",
-      "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
-      "github_repo": null,
-      "summary": "אימון אינטראקטיבי של מודל Llama",
-      "notes": "",
-      "added_at": "2026-10-02",
-      "date_source": "first_seen",
-      "branches": [
-        "tools"
-      ],
-      "topics": [
-        "mlops & evaluation"
       ]
     },
     {
@@ -2804,6 +2821,23 @@
     {
       "id": "resource:90",
       "type": "resource",
+      "label": "Monarch",
+      "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
+      "github_repo": null,
+      "summary": "אימון אינטראקטיבי של מודל Llama",
+      "notes": "",
+      "added_at": "2026-10-02",
+      "date_source": "first_seen",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "mlops & evaluation"
+      ]
+    },
+    {
+      "id": "resource:91",
+      "type": "resource",
       "label": "assemblyai",
       "url": "https://www.assemblyai.com/",
       "github_repo": null,
@@ -2819,7 +2853,7 @@
       ]
     },
     {
-      "id": "resource:91",
+      "id": "resource:92",
       "type": "resource",
       "label": "Build your own ChatGPT from scratch",
       "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
@@ -2836,7 +2870,7 @@
       ]
     },
     {
-      "id": "resource:92",
+      "id": "resource:93",
       "type": "resource",
       "label": "Gamma",
       "url": "https://gamma.app/",
@@ -2853,7 +2887,7 @@
       ]
     },
     {
-      "id": "resource:93",
+      "id": "resource:94",
       "type": "resource",
       "label": "Apify (AI Agent Blog)",
       "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
@@ -2870,7 +2904,7 @@
       ]
     },
     {
-      "id": "resource:94",
+      "id": "resource:95",
       "type": "resource",
       "label": "MTEB Leaderboard",
       "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
@@ -2887,7 +2921,7 @@
       ]
     },
     {
-      "id": "resource:95",
+      "id": "resource:96",
       "type": "resource",
       "label": "FireCrawl",
       "url": "https://www.firecrawl.dev/",
@@ -2904,7 +2938,7 @@
       ]
     },
     {
-      "id": "resource:96",
+      "id": "resource:97",
       "type": "resource",
       "label": "Alterbase",
       "url": "https://alterbase.co/",
@@ -2921,7 +2955,7 @@
       ]
     },
     {
-      "id": "resource:97",
+      "id": "resource:98",
       "type": "resource",
       "label": "Mstone AI",
       "url": "https://mstone.ai/",
@@ -2938,7 +2972,7 @@
       ]
     },
     {
-      "id": "resource:98",
+      "id": "resource:99",
       "type": "resource",
       "label": "InceptionLabs Chat",
       "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
@@ -2952,23 +2986,6 @@
       ],
       "topics": [
         "ai apps & agents"
-      ]
-    },
-    {
-      "id": "resource:99",
-      "type": "resource",
-      "label": "Rival Tech SOTA",
-      "url": "https://sota.rival.tech/",
-      "github_repo": null,
-      "summary": "Leaderboard for State-of-the-Art models.",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "tools"
-      ],
-      "topics": [
-        "mlops & evaluation"
       ]
     }
   ],
@@ -3589,8 +3606,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/developer-tools",
+      "source": "topic:mcp/mcp-servers",
       "target": "resource:87",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:tools/developer-tools",
+      "target": "resource:88",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3600,7 +3622,7 @@
     },
     {
       "source": "topic:tools/ai-apps-&-agents",
-      "target": "resource:88",
+      "target": "resource:89",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3610,12 +3632,12 @@
     },
     {
       "source": "topic:tools/mlops-&-evaluation",
-      "target": "resource:89",
+      "target": "resource:90",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:tools/ai-apps-&-agents",
-      "target": "resource:90",
+      "target": "resource:91",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3625,26 +3647,21 @@
     },
     {
       "source": "topic:tools/tutorials",
-      "target": "resource:91",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:92",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/tutorials",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:93",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/tutorials",
       "target": "resource:94",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/data-&-knowledge",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:95",
       "type": "HAS_RESOURCE"
     },
@@ -3654,17 +3671,17 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:97",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:98",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:99",
       "type": "HAS_RESOURCE"
     },
@@ -3674,7 +3691,7 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:101",
       "type": "HAS_RESOURCE"
     },
@@ -3684,27 +3701,27 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/developer-tools",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:103",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/mlops-&-evaluation",
+      "source": "topic:tools/developer-tools",
       "target": "resource:104",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/tutorials",
+      "source": "topic:tools/mlops-&-evaluation",
       "target": "resource:105",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/ai-apps-&-agents",
+      "source": "topic:tools/tutorials",
       "target": "resource:106",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/developer-tools",
+      "source": "topic:tools/ai-apps-&-agents",
       "target": "resource:107",
       "type": "HAS_RESOURCE"
     },
@@ -3719,22 +3736,22 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:tools/developer-tools",
+      "target": "resource:110",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:claude",
       "target": "topic:claude/claude-code",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:109",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:tools/developer-tools",
       "target": "resource:110",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:tools/data-&-knowledge",
+      "source": "topic:tools/developer-tools",
       "target": "resource:111",
       "type": "HAS_RESOURCE"
     },
@@ -3744,23 +3761,28 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:tools/data-&-knowledge",
+      "target": "resource:113",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:skills",
       "target": "topic:skills/skill-libraries",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:112",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:tools/data-&-knowledge",
       "target": "resource:113",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:114",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:115",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3770,12 +3792,12 @@
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:115",
+      "target": "resource:116",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:116",
+      "target": "resource:117",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3785,12 +3807,12 @@
     },
     {
       "source": "topic:harness/skill-optimization",
-      "target": "resource:116",
+      "target": "resource:117",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:117",
+      "target": "resource:118",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3800,22 +3822,22 @@
     },
     {
       "source": "topic:security/skill-security",
-      "target": "resource:117",
+      "target": "resource:118",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:118",
+      "target": "resource:119",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:118",
+      "target": "resource:119",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/workflows-&-apps",
-      "target": "resource:119",
+      "target": "resource:120",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3825,22 +3847,22 @@
     },
     {
       "source": "topic:harness/agent-workflow",
-      "target": "resource:119",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:skills/skill-libraries",
       "target": "resource:120",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-quality",
+      "source": "topic:skills/skill-libraries",
       "target": "resource:121",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:skills/skill-quality",
       "target": "resource:122",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:123",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3850,7 +3872,7 @@
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:123",
+      "target": "resource:124",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3860,12 +3882,12 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:124",
+      "target": "resource:125",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:125",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3875,21 +3897,16 @@
     },
     {
       "source": "topic:claude/cost-&-models",
-      "target": "resource:126",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
       "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
@@ -3899,13 +3916,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:131",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:131",
+      "target": "resource:132",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3915,11 +3937,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:131",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:132",
       "type": "HAS_RESOURCE"
     },
@@ -3934,13 +3951,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:135",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:135",
+      "target": "resource:136",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3950,7 +3972,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:135",
+      "target": "resource:136",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3960,7 +3982,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:136",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3970,7 +3992,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:136",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3980,18 +4002,13 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:137",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:138",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4009,13 +4026,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:142",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:142",
+      "target": "resource:143",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4025,7 +4047,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:143",
+      "target": "resource:144",
       "type": "HAS_RESOURCE"
     }
   ]
