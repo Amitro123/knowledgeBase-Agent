@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T01:43:26+00:00",
+  "generated_at": "2026-10-09T04:13:04+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -48,7 +48,7 @@
       "type": "branch",
       "label": "Memory",
       "slug": "memory",
-      "count": 8,
+      "count": 9,
       "topic_count": 3
     },
     {
@@ -162,6 +162,13 @@
       "count": 11
     },
     {
+      "id": "topic:memory/agent-memory",
+      "type": "topic",
+      "label": "agent memory",
+      "branch": "branch:memory",
+      "count": 7
+    },
+    {
       "id": "topic:repos-in-github/llm-infrastructure",
       "type": "topic",
       "label": "llm infrastructure",
@@ -187,13 +194,6 @@
       "type": "topic",
       "label": "agents & context",
       "branch": "branch:learning",
-      "count": 6
-    },
-    {
-      "id": "topic:memory/agent-memory",
-      "type": "topic",
-      "label": "agent memory",
-      "branch": "branch:memory",
       "count": 6
     },
     {
@@ -1224,6 +1224,23 @@
     {
       "id": "resource:136",
       "type": "resource",
+      "label": "mksglu / context-mode",
+      "url": "https://github.com/mksglu/context-mode",
+      "github_repo": "mksglu/context-mode",
+      "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
+      "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms",
+      "added_at": "2026-10-09",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:137",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1240,7 +1257,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1258,7 +1275,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1272,23 +1289,6 @@
       ],
       "topics": [
         "ai sre"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "Pi — earendil-works",
-      "url": "https://github.com/earendil-works/pi",
-      "github_repo": "earendil-works/pi",
-      "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
-      "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
       ]
     },
     {
@@ -1311,6 +1311,23 @@
     {
       "id": "resource:140",
       "type": "resource",
+      "label": "Pi — earendil-works",
+      "url": "https://github.com/earendil-works/pi",
+      "github_repo": "earendil-works/pi",
+      "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
+      "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:141",
+      "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
       "github_repo": "coldteadotai/abide",
@@ -1326,7 +1343,7 @@
       ]
     },
     {
-      "id": "resource:141",
+      "id": "resource:142",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1343,7 +1360,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1360,7 +1377,7 @@
       ]
     },
     {
-      "id": "resource:143",
+      "id": "resource:144",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1377,7 +1394,7 @@
       ]
     },
     {
-      "id": "resource:144",
+      "id": "resource:145",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -3956,13 +3973,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:136",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:136",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3972,7 +3994,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:136",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3982,7 +4004,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:137",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
     {
@@ -3992,7 +4014,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:137",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4002,18 +4024,13 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:138",
+      "target": "resource:139",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:139",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4031,13 +4048,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:143",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:143",
+      "target": "resource:144",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4047,7 +4069,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:144",
+      "target": "resource:145",
       "type": "HAS_RESOURCE"
     }
   ]
