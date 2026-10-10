@@ -1979,6 +1979,28 @@
   },
   {
     "id": 89,
+    "url": "https://github.com/dosco/graphjin",
+    "title": "dosco / graphjin",
+    "summary": "GraphQL-to-database compiler and MCP server giving AI agents governed, auditable access to databases, warehouses, files and code.",
+    "category": "other",
+    "tags": [
+      "mcp",
+      "mcp servers"
+    ],
+    "placements": [
+      {
+        "branch": "mcp",
+        "topic": "MCP Servers"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-10",
+    "added_at": "2026-10-10",
+    "date_source": "sheet",
+    "notes": "~3.2k★, Apache-2.0, Go; npm i -g graphjin / brew / Docker; Postgres, MySQL, MongoDB, Snowflake, BigQuery and more"
+  },
+  {
+    "id": 90,
     "url": "https://reflex.dev/",
     "title": "Reflex",
     "summary": "Build web apps in pure Python.",
@@ -2000,7 +2022,7 @@
     "notes": ""
   },
   {
-    "id": 90,
+    "id": 91,
     "url": "https://bhindi.io/c/new",
     "title": "agentTool",
     "summary": "No-code agent creation.",
@@ -2022,7 +2044,7 @@
     "notes": ""
   },
   {
-    "id": 91,
+    "id": 92,
     "url": "https://lightning.ai/meta-ai/environments/large-scale-interactive-training-with-monarch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Monarch",
     "summary": "אימון אינטראקטיבי של מודל Llama",
@@ -2044,7 +2066,7 @@
     "notes": ""
   },
   {
-    "id": 92,
+    "id": 93,
     "url": "https://www.assemblyai.com/",
     "title": "assemblyai",
     "summary": "The best way to build Voice AI apps",
@@ -2066,7 +2088,7 @@
     "notes": ""
   },
   {
-    "id": 93,
+    "id": 94,
     "url": "https://lightning.ai/lightning-purchase-test/environments/build-your-own-chatgpt-from-scratch?utm_campaign=akshay&utm_medium=newsletter",
     "title": "Build your own ChatGPT from scratch",
     "summary": "Build your own ChatGPT from scratch",
@@ -2088,7 +2110,7 @@
     "notes": ""
   },
   {
-    "id": 94,
+    "id": 95,
     "url": "https://gamma.app/",
     "title": "Gamma",
     "summary": "Create beautiful and engaging presentations and documents.",
@@ -2110,7 +2132,7 @@
     "notes": ""
   },
   {
-    "id": 95,
+    "id": 96,
     "url": "https://blog.apify.com/how-to-build-an-ai-agent/?utm_source=reddit&utm_content=ai_agents",
     "title": "Apify (AI Agent Blog)",
     "summary": "Guide on how to build an AI agent.",
@@ -2132,7 +2154,7 @@
     "notes": ""
   },
   {
-    "id": 96,
+    "id": 97,
     "url": "https://huggingface.co/spaces/mteb/leaderboard?benchmark_name=RTEB%28beta%29&utm_source=fnf&utm_medium=newsletter&utm_term=daily-dose-data-science&utm_content=embedding-leaderboard-rteb%28beta%29",
     "title": "MTEB Leaderboard",
     "summary": "Massive Text Embedding Benchmark leaderboard.",
@@ -2154,7 +2176,7 @@
     "notes": ""
   },
   {
-    "id": 97,
+    "id": 98,
     "url": "https://www.firecrawl.dev/",
     "title": "FireCrawl",
     "summary": "extract relevant information for RAG from websites",
@@ -2176,7 +2198,7 @@
     "notes": ""
   },
   {
-    "id": 98,
+    "id": 99,
     "url": "https://alterbase.co/",
     "title": "Alterbase",
     "summary": "AI-powered knowledge management.",
@@ -2198,7 +2220,7 @@
     "notes": ""
   },
   {
-    "id": 99,
+    "id": 100,
     "url": "https://mstone.ai/",
     "title": "Mstone AI",
     "summary": "LLM operations and observability platform.",
@@ -2220,7 +2242,7 @@
     "notes": ""
   },
   {
-    "id": 100,
+    "id": 101,
     "url": "https://chat.inceptionlabs.ai/c/f06c8d8a-986d-47d4-8ad6-71cce8876746",
     "title": "InceptionLabs Chat",
     "summary": "AI Chat/Agent development environment.",
@@ -2242,7 +2264,7 @@
     "notes": ""
   },
   {
-    "id": 101,
+    "id": 102,
     "url": "https://sota.rival.tech/",
     "title": "Rival Tech SOTA",
     "summary": "Leaderboard for State-of-the-Art models.",
@@ -2264,7 +2286,7 @@
     "notes": ""
   },
   {
-    "id": 102,
+    "id": 103,
     "url": "https://llmlayer.ai/",
     "title": "LLMLayer",
     "summary": "Build and deploy LLMs with ease.",
@@ -2286,7 +2308,7 @@
     "notes": ""
   },
   {
-    "id": 103,
+    "id": 104,
     "url": "https://blink.new/",
     "title": "Blink (New)",
     "summary": "https://www.youtube.com/watch?v=Dov9mREvnYk",
@@ -2308,7 +2330,7 @@
     "notes": ""
   },
   {
-    "id": 104,
+    "id": 105,
     "url": "https://reevo.ai/",
     "title": "Reevo AI",
     "summary": "Automated AI agent for specific tasks.",
@@ -2330,7 +2352,7 @@
     "notes": ""
   },
   {
-    "id": 105,
+    "id": 106,
     "url": "https://kapso.ai",
     "title": "Kapso",
     "summary": "",
@@ -2352,7 +2374,7 @@
     "notes": ""
   },
   {
-    "id": 106,
+    "id": 107,
     "url": "https://mlflow.org/docs/latest/genai/tracing/",
     "title": "https://mlflow.org/docs/latest/genai/tracing/",
     "summary": "",
@@ -2374,7 +2396,7 @@
     "notes": ""
   },
   {
-    "id": 107,
+    "id": 108,
     "url": "https://github.com/omegis/Hostinger-PHP-Guide",
     "title": "https://github.com/omegis/Hostinger-PHP-Guide",
     "summary": "",
@@ -2396,7 +2418,7 @@
     "notes": ""
   },
   {
-    "id": 108,
+    "id": 109,
     "url": "https://www.genspark.ai/",
     "title": "https://www.genspark.ai/",
     "summary": "",
@@ -2418,7 +2440,7 @@
     "notes": ""
   },
   {
-    "id": 109,
+    "id": 110,
     "url": "https://github.com/NandhaKishorM/laya",
     "title": "Nandha Kishor / laya",
     "summary": "מנוע החלטות System 1 לא-אוטורגרסיבי: תשובות typed (choice, score, noul) ב-forward pass אחד, כ-33ms, ב-100+ שפות. Router בוחר checkpoint לפי שפה.",
@@ -2440,7 +2462,7 @@
     "notes": "pip install laya. Checkpoints: laya (אנגלית, ModernBERT), laya-multilingual (mmBERT, עד 8192), laya-typed-decisions. אקסטרות: serve (HTTP תואם Jev), mcp, langchain, onnx. אימון RLCD. Docs: https://nandhakishorm.github.io/laya/ · מודל: https://huggingface.co/convaiinnovations/laya · רישיון Apache-2.0 · Python 3.10+ וגם laya-ts."
   },
   {
-    "id": 110,
+    "id": 111,
     "url": "https://github.com/braedonsaunders/codeflow",
     "title": "Braedon Saunders / CodeFlow",
     "summary": "מפה אינטראקטיבית של ארכיטקטורת ריפו: תלויות, blast radius, בעלות לפי git, סריקת סודות, דפוסים וציון בריאות. רץ בדפדפן, בלי שרת.",
@@ -2462,7 +2484,7 @@
     "notes": "קובץ HTML אחד + vendor. אתר: https://codeflow-five.vercel.app/ · גם תיקיית markdown/Obsidian וגם ניתוח תיקייה מקומית. טוקן GitHub נשאר בזיכרון הדפדפן. רישיון MIT. הגיע מפוסט של Farid's AI Empire (23/09): https://www.facebook.com/share/p/1BynKpZ46F/"
   },
   {
-    "id": 111,
+    "id": 112,
     "url": "https://github.com/openai/codex-plugin-cc",
     "title": "OpenAI / codex-plugin-cc",
     "summary": "OpenAI's Apache-2.0 Claude Code plugin that runs Codex code reviews and delegated tasks through the local Codex CLI.",
@@ -2490,7 +2512,7 @@
     "notes": "OpenAI. 33787 GitHub stars. Apache-2.0. JavaScript. In Claude Code: /plugin marketplace add openai/codex-plugin-cc, then /plugin install codex@openai-codex, /reload-plugins, and /codex:setup. Needs Node.js 18.18+ and a ChatGPT subscription or API key. Caveat: the optional review gate can loop Claude and Codex and drain usage limits quickly."
   },
   {
-    "id": 112,
+    "id": 113,
     "url": "https://github.com/bendlang/bend",
     "title": "Bend / bendlang",
     "summary": "Bend 2 is a parallel programming language that uses laws and proofs so the compiler can block AI mistakes, and it compiles to fast CPU and GPU executables.",
@@ -2512,7 +2534,7 @@
     "notes": "23291 GitHub stars. License Apache-2.0. Primary language TypeScript. Install with curl -fsSL https://bend-lang.com/install.sh | sh. README says Bend 1 programs and HVM do not carry over."
   },
   {
-    "id": 113,
+    "id": 114,
     "url": "https://github.com/FalkorDB/FalkorDB",
     "title": "FalkorDB",
     "summary": "FalkorDB is an ultra-fast, multi-tenant graph database that stores graphs as sparse adjacency matrices (GraphBLAS) and runs OpenCypher queries with linear algebra. Its stated goal is a low-latency knowledge graph for LLMs (GraphRAG).",
@@ -2534,7 +2556,7 @@
     "notes": "6,723 stars; license Server Side Public License v1; language Rust. It uses the Redis protocol (GRAPH.QUERY); the README quick start is a Docker image on ports 6379 and 3000."
   },
   {
-    "id": 114,
+    "id": 115,
     "url": "https://github.com/Graphify-Labs/graphify",
     "title": "Graphify Labs / graphify",
     "summary": "Turn any codebase (plus docs, SQL schemas, configs, and PDFs) into a queryable knowledge graph via local deterministic AST parsing—no vector store. Ships as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, with explained edges and path/query/explain tooling.",
@@ -2562,7 +2584,7 @@
     "notes": "123488 GitHub stars. License Apache-2.0. Language Python. Install with `uv tool install graphifyy` then `graphify install` to register the skill; code parsing stays local with tree-sitter."
   },
   {
-    "id": 115,
+    "id": 116,
     "url": "https://github.com/raphaelmansuy/edgextract",
     "title": "Raphael Mansuy / edgextract",
     "summary": "Turns markdown into a knowledge graph using an ontology you write and a local yes/no decision model.",
@@ -2584,7 +2606,7 @@
     "notes": "5 stars, Apache-2.0, TypeScript. Unsure links wait for a person instead of entering the graph. Uses the local tev1 model via Ollama."
   },
   {
-    "id": 116,
+    "id": 117,
     "url": "https://github.com/huggingface/skills",
     "title": "Hugging Face (skills)",
     "summary": "Agent skills and tool repository for LLMs and smolagents",
@@ -2606,7 +2628,7 @@
     "notes": ""
   },
   {
-    "id": 117,
+    "id": 118,
     "url": "https://github.com/microsoft/waza",
     "title": "Microsoft / waza",
     "summary": "CLI ב-Go להערכת Agent Skills: פיגום eval suites, הרצת benchmarks, והשוואת תוצאות בין מודלים.",
@@ -2628,7 +2650,7 @@
     "notes": "~1.4k stars. התקנה: curl install.sh | bash, או הרחבה של Azure Developer CLI (azd waza). פקודות: init, new skill, run, check, compare, grade, adversarial, tokens. Executor ברירת מחדל: GitHub Copilot CLI (copilot-sdk). Docs: https://microsoft.github.io/waza/. שפה: Go (החל מ-v0.4; Python ישן עד v0.3.2)."
   },
   {
-    "id": 118,
+    "id": 119,
     "url": "https://github.com/microsoft/SkillOpt",
     "title": "Microsoft Research / SkillOpt",
     "summary": "אופטימיזציה של מסמך skill כפרמטר ניתן לאימון, בלי לגעת במשקולות המודל. עריכות על best_skill.md מתקבלות רק אם הן משפרות validation.",
@@ -2656,7 +2678,7 @@
     "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+."
   },
   {
-    "id": 119,
+    "id": 120,
     "url": "https://github.com/NVIDIA/SkillSpector",
     "title": "NVIDIA / SkillSpector",
     "summary": "NVIDIA's Apache-2.0 Python CLI that scans Claude Code, Codex, and MCP agent skills for vulnerabilities, prompt injection, data exfiltration, and supply-chain risk before you install them.",
@@ -2684,7 +2706,7 @@
     "notes": "NVIDIA. 19156 GitHub stars. Apache-2.0. Python 3.12+. Install with uv tool install git+https://github.com/NVIDIA/skillspector.git (add the [mcp] extra for skillspector mcp) or Docker via make docker-build. Caveat: semantic analysis needs a configured LLM provider; static-only scans use --no-llm, and install pulls extra third-party open-source packages."
   },
   {
-    "id": 120,
+    "id": 121,
     "url": "https://github.com/mattpocock/skills",
     "title": "Matt Pocock / skills",
     "summary": "Matt Pocock's MIT-licensed pack of small composable coding-agent skills (grill, TDD, triage, specs) that install as a Claude Code plugin or via npx skills add mattpocock/skills.",
@@ -2712,7 +2734,7 @@
     "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships."
   },
   {
-    "id": 121,
+    "id": 122,
     "url": "https://github.com/romiluz13/auto-pi",
     "title": "romiluz13 / auto-pi",
     "summary": "romiluz13's MIT-licensed workflow layer for the Pi coding agent: a Coach menu and typed workflow machine that routes work through a pinned Matt Pocock ask-matt skill.",
@@ -2740,7 +2762,7 @@
     "notes": "romiluz13. 10 GitHub stars. MIT. TypeScript. Clone the repo and run ./scripts/install.sh. Needs Pi 0.84.1+, pi-prompt-template-model 0.12.0, Node via mise, npm, git, jq, and gitleaks. Caveat: the GitHub description still says 10 packages and 59 skills, while the README lists 12 npm packages and a catalog of 88+ skills; it is a Pi config, not a standalone agent."
   },
   {
-    "id": 122,
+    "id": 123,
     "url": "https://github.com/charlie947/social-media-skills",
     "title": "charlie947 / social-media-skills",
     "summary": "Public toolkit of 17 markdown skills that give Codex and Claude workflows for LinkedIn writing, research, analytics, and social posts.",
@@ -2762,7 +2784,7 @@
     "notes": "~3.8k stars. MIT. Python. Last commit Sep 2026. Not archived."
   },
   {
-    "id": 123,
+    "id": 124,
     "url": "https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/prompt-audit.md",
     "title": "Prompt Audit — anthropics/skills",
     "summary": "Agent skill that audits prompts and Claude configs for outdated instructions, then proposes a report and a diff.",
@@ -2784,7 +2806,7 @@
     "notes": "Specific skill file in anthropics/skills (~180k stars), not the whole repo. Claude API and Claude Code configs. Last parent push Oct 2026."
   },
   {
-    "id": 124,
+    "id": 125,
     "url": "https://github.com/virgiliojr94/book-to-skill",
     "title": "virgiliojr94 / book-to-skill",
     "summary": "Turns a technical book or document set into one agent skill for Claude Code, Copilot CLI, and similar coding agents.",
@@ -2806,7 +2828,7 @@
     "notes": "~33.7k stars. MIT. Python. Last commit Sep 2026. Supports PDF, EPUB, DOCX, MD, and more."
   },
   {
-    "id": 125,
+    "id": 126,
     "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
     "title": "Teleport (Gravitational) / RFD 0238",
     "summary": "Delegating Access to AI Workloads - architecture proposal for secure infrastructure access for AI agents",
@@ -2828,7 +2850,7 @@
     "notes": "Delegating Access to AI Workloads"
   },
   {
-    "id": 126,
+    "id": 127,
     "url": "https://github.com/OWASP/AISVS",
     "title": "OWASP / AISVS",
     "summary": "OWASP Artificial Intelligence Security Verification Standard (AISVS): a community-driven catalogue of testable security requirements for AI-enabled systems, modeled on the OWASP ASVS. GitHub description: a structured checklist for developers, architects, and security professionals to verify the security of AI-driven applications. Latest stable version is AISVS 1.0 (PDF and Markdown under 1.0/).",
@@ -2850,7 +2872,7 @@
     "notes": "478 GitHub stars. License CC-BY-SA-4.0. GitHub primary language: none reported (language null). Topics: aisecurity. README: not a governance framework, not a risk-management framework, and not a tool recommendation list."
   },
   {
-    "id": 127,
+    "id": 128,
     "url": "https://github.com/uber/ADR",
     "title": "Uber / ADR",
     "summary": "Enterprise security system for AI agents: discovery, observability, benchmarking, and threat detection for coding agents; deployed at Uber.",
@@ -2872,7 +2894,7 @@
     "notes": "~1.9k★, Apache-2.0, Python; uv sync in Detection/; paper MLSys 2026"
   },
   {
-    "id": 128,
+    "id": 129,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
@@ -2894,7 +2916,7 @@
     "notes": ""
   },
   {
-    "id": 129,
+    "id": 130,
     "url": "https://github.com/tzachbon/claude-model-advisor",
     "title": "Tzach Bonfil / claude-model-advisor",
     "summary": "Tool to recommend the right Claude model based on requirements and budget",
@@ -2916,7 +2938,7 @@
     "notes": ""
   },
   {
-    "id": 130,
+    "id": 131,
     "url": "https://github.com/onmyway133/claude-code-tips-tricks",
     "title": "Claude Code Tips (onmyway133)",
     "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
@@ -2938,7 +2960,7 @@
     "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages."
   },
   {
-    "id": 131,
+    "id": 132,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -2960,7 +2982,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 132,
+    "id": 133,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
@@ -2982,7 +3004,7 @@
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
   },
   {
-    "id": 133,
+    "id": 134,
     "url": "https://github.com/tinyhumansai/openhuman",
     "title": "OpenHuman / tinyhumansai",
     "summary": "OpenHuman is an early-beta open-source agent harness with a Rust core that ships as a desktop app, a browser UI, a terminal client, and an embeddable library. It lets you plug in your own LLM, memory, and search engines, and includes workflows, MCP, skills, and a small decision model called Jev.",
@@ -3009,7 +3031,7 @@
     "notes": "40470 GitHub stars. License: GPL-3.0 (GNU General Public License v3.0). Language: Rust. README marks it early beta and says it is under active development, so expect rough edges."
   },
   {
-    "id": 134,
+    "id": 135,
     "url": "https://github.com/Coding-Dev-Tools/engraphis",
     "title": "Coding Dev Tools / engraphis",
     "summary": "Local-first memory for coding agents, with code-aware recall, history, MCP, and a self-hosted graph UI.",
@@ -3031,7 +3053,7 @@
     "notes": "174 stars, Apache-2.0, Python. The free repo is the local engine, dashboard, and MCP server. Hosted sync and team features are not in this repo."
   },
   {
-    "id": 135,
+    "id": 136,
     "url": "https://github.com/aru-labs/lossless-memory",
     "title": "aru-labs / lossless-memory",
     "summary": "Local lossless long-term memory for a personal AI: keeps every conversation line with timestamps, never summarizes, and searches by time first.",
@@ -3053,7 +3075,7 @@
     "notes": "138 stars, MIT, Python. Last commit Sep 2026. Not archived."
   },
   {
-    "id": 136,
+    "id": 137,
     "url": "https://github.com/deeplethe/utopia",
     "title": "deeplethe / utopia",
     "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
@@ -3075,7 +3097,7 @@
     "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph."
   },
   {
-    "id": 137,
+    "id": 138,
     "url": "https://github.com/mksglu/context-mode",
     "title": "mksglu / context-mode",
     "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
@@ -3097,7 +3119,7 @@
     "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms"
   },
   {
-    "id": 138,
+    "id": 139,
     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "title": "TypeSafe / Diogo Almeida",
     "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
@@ -3124,7 +3146,7 @@
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   },
   {
-    "id": 139,
+    "id": 140,
     "url": "https://github.com/dzhng/jevgrep",
     "title": "jevgrep / dzhng",
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
@@ -3151,7 +3173,7 @@
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
-    "id": 140,
+    "id": 141,
     "url": "https://github.com/Tracer-Cloud/opensre",
     "title": "Tracer-Cloud / opensre",
     "summary": "Open-source framework for AI SRE agents that connect to existing observability tools and run production incident workflows.",
@@ -3173,7 +3195,7 @@
     "notes": "~11.5k stars. Apache-2.0. Python. Last commit Oct 2026. Public alpha."
   },
   {
-    "id": 141,
+    "id": 142,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -3195,7 +3217,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 142,
+    "id": 143,
     "url": "https://github.com/coldteadotai/abide",
     "title": "coldteadotai / abide",
     "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
@@ -3217,7 +3239,7 @@
     "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key."
   },
   {
-    "id": 143,
+    "id": 144,
     "url": "https://github.com/Clearailhc/clearai-dsh",
     "title": "Clearailhc / clearai-dsh",
     "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
@@ -3239,7 +3261,7 @@
     "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh."
   },
   {
-    "id": 144,
+    "id": 145,
     "url": "https://github.com/mvschwarz/openrig",
     "title": "mvschwarz / openrig",
     "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
@@ -3261,7 +3283,7 @@
     "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)"
   },
   {
-    "id": 145,
+    "id": 146,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -3283,7 +3305,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 146,
+    "id": 147,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
