@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T20:09:53+00:00",
+  "generated_at": "2026-10-24T21:24:13+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -132,20 +132,20 @@
       "topic_count": 1
     },
     {
+      "id": "branch:infrastructure",
+      "type": "branch",
+      "label": "Infrastructure",
+      "slug": "infrastructure",
+      "count": 1,
+      "topic_count": 1
+    },
+    {
       "id": "branch:observability",
       "type": "branch",
       "label": "Observability",
       "slug": "observability",
       "count": 1,
       "topic_count": 1
-    },
-    {
-      "id": "branch:infrastructure",
-      "type": "branch",
-      "label": "Infrastructure",
-      "slug": "infrastructure",
-      "count": 0,
-      "topic_count": 0
     },
     {
       "id": "topic:repos-in-github/agent-frameworks",
@@ -411,6 +411,13 @@
       "type": "topic",
       "label": "tutorial",
       "branch": "branch:harness",
+      "count": 1
+    },
+    {
+      "id": "topic:infrastructure/llm-gateways",
+      "type": "topic",
+      "label": "llm gateways",
+      "branch": "branch:infrastructure",
       "count": 1
     },
     {
@@ -1447,29 +1454,29 @@
     {
       "id": "resource:148",
       "type": "resource",
+      "label": "respanai / respan-gateway",
+      "url": "https://github.com/respanai/respan-gateway",
+      "github_repo": "respanai/respan-gateway",
+      "summary": "Single Rust binary LLM gateway: one endpoint translating OpenAI, Anthropic and Gemini APIs to any model, with fallback, MCP tools and request logging.",
+      "notes": "~240★ (236), Apache-2.0 (README: MIT OR Apache-2.0), Rust; pip install respan-gateway or cargo install; per-call cost/latency/token log; plugin API",
+      "added_at": "2026-10-25",
+      "date_source": "sheet",
+      "branches": [
+        "infrastructure"
+      ],
+      "topics": [
+        "llm gateways"
+      ]
+    },
+    {
+      "id": "resource:149",
+      "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
       "github_repo": "earendil-works/pi",
       "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
       "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it.",
       "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
-      ]
-    },
-    {
-      "id": "resource:149",
-      "type": "resource",
-      "label": "coldteadotai / abide",
-      "url": "https://github.com/coldteadotai/abide",
-      "github_repo": "coldteadotai/abide",
-      "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
-      "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
-      "added_at": "2026-10-05",
       "date_source": "sheet",
       "branches": [
         "harness"
@@ -1500,6 +1507,23 @@
     {
       "id": "resource:150",
       "type": "resource",
+      "label": "coldteadotai / abide",
+      "url": "https://github.com/coldteadotai/abide",
+      "github_repo": "coldteadotai/abide",
+      "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
+      "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:151",
+      "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
       "github_repo": "Clearailhc/clearai-dsh",
@@ -1515,7 +1539,7 @@
       ]
     },
     {
-      "id": "resource:151",
+      "id": "resource:152",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1532,7 +1556,7 @@
       ]
     },
     {
-      "id": "resource:152",
+      "id": "resource:153",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1549,7 +1573,7 @@
       ]
     },
     {
-      "id": "resource:153",
+      "id": "resource:154",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4204,14 +4228,19 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "branch:harness",
-      "target": "topic:harness/agent-harness",
+      "source": "branch:infrastructure",
+      "target": "topic:infrastructure/llm-gateways",
       "type": "HAS_TOPIC"
     },
     {
-      "source": "topic:harness/agent-harness",
+      "source": "topic:infrastructure/llm-gateways",
       "target": "resource:148",
       "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "branch:harness",
+      "target": "topic:harness/agent-harness",
+      "type": "HAS_TOPIC"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4229,13 +4258,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:152",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4245,7 +4279,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:153",
+      "target": "resource:154",
       "type": "HAS_RESOURCE"
     }
   ]
