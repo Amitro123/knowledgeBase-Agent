@@ -3049,6 +3049,28 @@
   },
   {
     "id": 136,
+    "url": "https://github.com/Cygnux-Labs/Tracekit",
+    "title": "Cygnux-Labs / Tracekit",
+    "summary": "Tamper-evident flight recorder for AI agents: policy-checks each tool call before it runs and signs calls into a hash-chained, offline-verifiable log.",
+    "category": "other",
+    "tags": [
+      "security",
+      "ai security / iam"
+    ],
+    "placements": [
+      {
+        "branch": "security",
+        "topic": "AI Security / IAM"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-10-25",
+    "added_at": "2026-10-25",
+    "date_source": "sheet",
+    "notes": "~170★ (172), MIT, Python (TS verifier too); try: uvx --from tracekit-ai tracekit demo --server (PyPI package is tracekit-ai, not tracekit); claims 25 agents/frameworks supported, <1 ms per call"
+  },
+  {
+    "id": 137,
     "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
     "title": "alexgreensh / token-optimizer",
     "summary": "Library to optimize tokens and reduce LLM context costs",
@@ -3070,7 +3092,7 @@
     "notes": ""
   },
   {
-    "id": 137,
+    "id": 138,
     "url": "https://github.com/tzachbon/claude-model-advisor",
     "title": "Tzach Bonfil / claude-model-advisor",
     "summary": "Tool to recommend the right Claude model based on requirements and budget",
@@ -3092,7 +3114,7 @@
     "notes": ""
   },
   {
-    "id": 138,
+    "id": 139,
     "url": "https://github.com/onmyway133/claude-code-tips-tricks",
     "title": "Claude Code Tips (onmyway133)",
     "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
@@ -3114,7 +3136,7 @@
     "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages."
   },
   {
-    "id": 139,
+    "id": 140,
     "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
     "title": "Google Cloud Platform (always-on-memory-agent)",
     "summary": "Persistent always-on memory agent architecture for Gemini agents",
@@ -3136,7 +3158,7 @@
     "notes": "Memory management for Gemini agents"
   },
   {
-    "id": 140,
+    "id": 141,
     "url": "https://github.com/yvgude/lean-ctx",
     "title": "lean-ctx / yvgude",
     "summary": "Lightweight, agentic context manager for LLMs optimized for managing token windows over long tasks without losing context structure.",
@@ -3158,7 +3180,7 @@
     "notes": "כלי קליל לניהול זיכרון (Context Management) לסוכני AI מבוססי פייתון ו-CLI. רלוונטי לניהול משימות ארוכות כדי לא לדרוס חלונות טוקנים."
   },
   {
-    "id": 141,
+    "id": 142,
     "url": "https://github.com/tinyhumansai/openhuman",
     "title": "OpenHuman / tinyhumansai",
     "summary": "OpenHuman is an early-beta open-source agent harness with a Rust core that ships as a desktop app, a browser UI, a terminal client, and an embeddable library. It lets you plug in your own LLM, memory, and search engines, and includes workflows, MCP, skills, and a small decision model called Jev.",
@@ -3185,7 +3207,7 @@
     "notes": "40470 GitHub stars. License: GPL-3.0 (GNU General Public License v3.0). Language: Rust. README marks it early beta and says it is under active development, so expect rough edges."
   },
   {
-    "id": 142,
+    "id": 143,
     "url": "https://github.com/Coding-Dev-Tools/engraphis",
     "title": "Coding Dev Tools / engraphis",
     "summary": "Local-first memory for coding agents, with code-aware recall, history, MCP, and a self-hosted graph UI.",
@@ -3207,7 +3229,7 @@
     "notes": "174 stars, Apache-2.0, Python. The free repo is the local engine, dashboard, and MCP server. Hosted sync and team features are not in this repo."
   },
   {
-    "id": 143,
+    "id": 144,
     "url": "https://github.com/aru-labs/lossless-memory",
     "title": "aru-labs / lossless-memory",
     "summary": "Local lossless long-term memory for a personal AI: keeps every conversation line with timestamps, never summarizes, and searches by time first.",
@@ -3229,7 +3251,7 @@
     "notes": "138 stars, MIT, Python. Last commit Sep 2026. Not archived."
   },
   {
-    "id": 144,
+    "id": 145,
     "url": "https://github.com/deeplethe/utopia",
     "title": "deeplethe / utopia",
     "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
@@ -3251,7 +3273,7 @@
     "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph."
   },
   {
-    "id": 145,
+    "id": 146,
     "url": "https://github.com/mksglu/context-mode",
     "title": "mksglu / context-mode",
     "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
@@ -3273,7 +3295,7 @@
     "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms"
   },
   {
-    "id": 146,
+    "id": 147,
     "url": "https://github.com/liliang-cn/cortexdb",
     "title": "liliang-cn / cortexdb",
     "summary": "Embedded pure-Go agent memory and knowledge graph in one SQLite file, with vectors, RAG, SPARQL/Cypher and MCP tools; no embedding model required.",
@@ -3295,7 +3317,7 @@
     "notes": "~300★ (304), MIT, Go; go get github.com/liliang-cn/cortexdb/v2 or Claude Code/Codex plugin; optional gRPC shared-brain server"
   },
   {
-    "id": 147,
+    "id": 148,
     "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "title": "TypeSafe / Diogo Almeida",
     "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
@@ -3322,7 +3344,7 @@
     "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product."
   },
   {
-    "id": 148,
+    "id": 149,
     "url": "https://github.com/dzhng/jevgrep",
     "title": "jevgrep / dzhng",
     "summary": "CLI for coding agents: ask what code does and get relevant files plus verbatim excerpts, judged by Vercel Jev. Install with npm i -g @dzhng/jevgrep, then jg skill so Claude Code, Codex, or OpenCode actually use it.",
@@ -3349,7 +3371,7 @@
     "notes": "~2.1k stars, MIT, Node 22+. Needs a key for Vercel AI Gateway, TypeSafe, OpenRouter, or OpenCode Zen. On a 10-task SWE-bench comparison the README reports the same 8/10 solves at lower agent cost (~29% Sol-only, ~26% including Jev). Not a replacement for rg when you already know the symbol."
   },
   {
-    "id": 149,
+    "id": 150,
     "url": "https://github.com/Tracer-Cloud/opensre",
     "title": "Tracer-Cloud / opensre",
     "summary": "Open-source framework for AI SRE agents that connect to existing observability tools and run production incident workflows.",
@@ -3371,7 +3393,7 @@
     "notes": "~11.5k stars. Apache-2.0. Python. Last commit Oct 2026. Public alpha."
   },
   {
-    "id": 150,
+    "id": 151,
     "url": "https://github.com/respanai/respan-gateway",
     "title": "respanai / respan-gateway",
     "summary": "Single Rust binary LLM gateway: one endpoint translating OpenAI, Anthropic and Gemini APIs to any model, with fallback, MCP tools and request logging.",
@@ -3393,7 +3415,7 @@
     "notes": "~240★ (236), Apache-2.0 (README: MIT OR Apache-2.0), Rust; pip install respan-gateway or cargo install; per-call cost/latency/token log; plugin API"
   },
   {
-    "id": 151,
+    "id": 152,
     "url": "https://github.com/earendil-works/pi",
     "title": "Pi — earendil-works",
     "summary": "Pi is a minimal, extensible agent harness that you can customize with extensions, skills, prompt templates, and themes. It ships a unified multi-provider LLM API, an agent runtime, a terminal UI, and an interactive coding-agent CLI.",
@@ -3415,7 +3437,7 @@
     "notes": "112062 GitHub stars. License: MIT. Language: TypeScript. README says Pi requires Node.js 22.19 or newer and does not include a built-in permission system, so it runs with the permissions of the user and process that launched it."
   },
   {
-    "id": 152,
+    "id": 153,
     "url": "https://github.com/coldteadotai/abide",
     "title": "coldteadotai / abide",
     "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
@@ -3437,7 +3459,7 @@
     "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key."
   },
   {
-    "id": 153,
+    "id": 154,
     "url": "https://github.com/Clearailhc/clearai-dsh",
     "title": "Clearailhc / clearai-dsh",
     "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
@@ -3459,7 +3481,7 @@
     "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh."
   },
   {
-    "id": 154,
+    "id": 155,
     "url": "https://github.com/mvschwarz/openrig",
     "title": "mvschwarz / openrig",
     "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
@@ -3481,7 +3503,7 @@
     "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)"
   },
   {
-    "id": 155,
+    "id": 156,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -3503,7 +3525,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 156,
+    "id": 157,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
