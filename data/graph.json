@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-27T09:44:20+00:00",
+  "generated_at": "2026-10-27T09:59:33+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -40,7 +40,7 @@
       "type": "branch",
       "label": "Skills",
       "slug": "skills",
-      "count": 11,
+      "count": 12,
       "topic_count": 3
     },
     {
@@ -316,6 +316,13 @@
       "count": 3
     },
     {
+      "id": "topic:skills/workflows-&-apps",
+      "type": "topic",
+      "label": "workflows & apps",
+      "branch": "branch:skills",
+      "count": 3
+    },
+    {
       "id": "topic:tools/tutorials",
       "type": "topic",
       "label": "tutorials",
@@ -348,13 +355,6 @@
       "type": "topic",
       "label": "guides",
       "branch": "branch:rag",
-      "count": 2
-    },
-    {
-      "id": "topic:skills/workflows-&-apps",
-      "type": "topic",
-      "label": "workflows & apps",
-      "branch": "branch:skills",
       "count": 2
     },
     {
@@ -1230,6 +1230,23 @@
     {
       "id": "resource:136",
       "type": "resource",
+      "label": "Microsoft / skill-recorder",
+      "url": "https://github.com/microsoft/skill-recorder",
+      "github_repo": "microsoft/skill-recorder",
+      "summary": "Desktop app that records an on-screen work session, reconstructs intent and steps via GitHub Copilot CLI, then exports a reusable SKILL.md or scheduled Automation.",
+      "notes": "~5.3k★ (5268), MIT, TypeScript/Electron; macOS primary, Windows 11 too; install from latest release commit-pinned command; needs GitHub Copilot access; targets Scout, Copilot Cowork, Copilot Studio",
+      "added_at": "2026-10-27",
+      "date_source": "sheet",
+      "branches": [
+        "skills"
+      ],
+      "topics": [
+        "workflows & apps"
+      ]
+    },
+    {
+      "id": "resource:137",
+      "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
       "github_repo": "gravitational/teleport",
@@ -1245,7 +1262,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -1262,7 +1279,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "Uber / ADR",
       "url": "https://github.com/uber/ADR",
@@ -1270,23 +1287,6 @@
       "summary": "Enterprise security system for AI agents: discovery, observability, benchmarking, and threat detection for coding agents; deployed at Uber.",
       "notes": "~1.9k★, Apache-2.0, Python; uv sync in Detection/; paper MLSys 2026",
       "added_at": "2026-10-07",
-      "date_source": "sheet",
-      "branches": [
-        "security"
-      ],
-      "topics": [
-        "ai security / iam"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "Cygnux-Labs / Tracekit",
-      "url": "https://github.com/Cygnux-Labs/Tracekit",
-      "github_repo": "Cygnux-Labs/Tracekit",
-      "summary": "Tamper-evident flight recorder for AI agents: policy-checks each tool call before it runs and signs calls into a hash-chained, offline-verifiable log.",
-      "notes": "~170★ (172), MIT, Python (TS verifier too); try: uvx --from tracekit-ai tracekit demo --server (PyPI package is tracekit-ai, not tracekit); claims 25 agents/frameworks supported, <1 ms per call",
-      "added_at": "2026-10-25",
       "date_source": "sheet",
       "branches": [
         "security"
@@ -1315,6 +1315,23 @@
     {
       "id": "resource:140",
       "type": "resource",
+      "label": "Cygnux-Labs / Tracekit",
+      "url": "https://github.com/Cygnux-Labs/Tracekit",
+      "github_repo": "Cygnux-Labs/Tracekit",
+      "summary": "Tamper-evident flight recorder for AI agents: policy-checks each tool call before it runs and signs calls into a hash-chained, offline-verifiable log.",
+      "notes": "~170★ (172), MIT, Python (TS verifier too); try: uvx --from tracekit-ai tracekit demo --server (PyPI package is tracekit-ai, not tracekit); claims 25 agents/frameworks supported, <1 ms per call",
+      "added_at": "2026-10-25",
+      "date_source": "sheet",
+      "branches": [
+        "security"
+      ],
+      "topics": [
+        "ai security / iam"
+      ]
+    },
+    {
+      "id": "resource:141",
+      "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
       "github_repo": "alexgreensh/token-optimizer",
@@ -1330,7 +1347,7 @@
       ]
     },
     {
-      "id": "resource:141",
+      "id": "resource:142",
       "type": "resource",
       "label": "Tzach Bonfil / claude-model-advisor",
       "url": "https://github.com/tzachbon/claude-model-advisor",
@@ -1347,7 +1364,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
@@ -1364,7 +1381,7 @@
       ]
     },
     {
-      "id": "resource:143",
+      "id": "resource:144",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -1381,7 +1398,7 @@
       ]
     },
     {
-      "id": "resource:144",
+      "id": "resource:145",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1398,7 +1415,7 @@
       ]
     },
     {
-      "id": "resource:145",
+      "id": "resource:146",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1416,7 +1433,7 @@
       ]
     },
     {
-      "id": "resource:146",
+      "id": "resource:147",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1433,7 +1450,7 @@
       ]
     },
     {
-      "id": "resource:147",
+      "id": "resource:148",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1450,7 +1467,7 @@
       ]
     },
     {
-      "id": "resource:148",
+      "id": "resource:149",
       "type": "resource",
       "label": "deeplethe / utopia",
       "url": "https://github.com/deeplethe/utopia",
@@ -1458,23 +1475,6 @@
       "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
       "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
       "added_at": "2026-10-07",
-      "date_source": "sheet",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
-      ]
-    },
-    {
-      "id": "resource:149",
-      "type": "resource",
-      "label": "mksglu / context-mode",
-      "url": "https://github.com/mksglu/context-mode",
-      "github_repo": "mksglu/context-mode",
-      "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
-      "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms",
-      "added_at": "2026-10-09",
       "date_source": "sheet",
       "branches": [
         "memory"
@@ -1505,6 +1505,23 @@
     {
       "id": "resource:150",
       "type": "resource",
+      "label": "mksglu / context-mode",
+      "url": "https://github.com/mksglu/context-mode",
+      "github_repo": "mksglu/context-mode",
+      "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
+      "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms",
+      "added_at": "2026-10-09",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:151",
+      "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
       "github_repo": "liliang-cn/cortexdb",
@@ -1520,7 +1537,7 @@
       ]
     },
     {
-      "id": "resource:151",
+      "id": "resource:152",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1538,7 +1555,7 @@
       ]
     },
     {
-      "id": "resource:152",
+      "id": "resource:153",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1556,7 +1573,7 @@
       ]
     },
     {
-      "id": "resource:153",
+      "id": "resource:154",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1573,7 +1590,7 @@
       ]
     },
     {
-      "id": "resource:154",
+      "id": "resource:155",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1590,7 +1607,7 @@
       ]
     },
     {
-      "id": "resource:155",
+      "id": "resource:156",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1607,7 +1624,7 @@
       ]
     },
     {
-      "id": "resource:156",
+      "id": "resource:157",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1624,7 +1641,7 @@
       ]
     },
     {
-      "id": "resource:157",
+      "id": "resource:158",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1641,7 +1658,7 @@
       ]
     },
     {
-      "id": "resource:158",
+      "id": "resource:159",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1655,23 +1672,6 @@
       ],
       "topics": [
         "agent harness"
-      ]
-    },
-    {
-      "id": "resource:159",
-      "type": "resource",
-      "label": "pg-jev / realZachi",
-      "url": "https://github.com/realZachi/pg-jev",
-      "github_repo": "realZachi/pg-jev",
-      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
-      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "jev"
-      ],
-      "topics": [
-        "postgres extension"
       ]
     },
     {
@@ -1695,6 +1695,23 @@
     },
     {
       "id": "resource:160",
+      "type": "resource",
+      "label": "pg-jev / realZachi",
+      "url": "https://github.com/realZachi/pg-jev",
+      "github_repo": "realZachi/pg-jev",
+      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
+      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "postgres extension"
+      ]
+    },
+    {
+      "id": "resource:161",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4205,13 +4222,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:skills/workflows-&-apps",
+      "target": "resource:136",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:security",
       "target": "topic:security/ai-security-iam",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:136",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4221,11 +4243,6 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:137",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:security/ai-security-iam",
       "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
@@ -4235,14 +4252,14 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:security/ai-security-iam",
+      "target": "resource:140",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:claude",
       "target": "topic:claude/cost-&-models",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
-      "target": "resource:140",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/cost-&-models",
@@ -4250,12 +4267,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:142",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:143",
       "type": "HAS_RESOURCE"
     },
@@ -4265,13 +4282,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:145",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:145",
+      "target": "resource:146",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4281,11 +4303,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:145",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:146",
       "type": "HAS_RESOURCE"
     },
@@ -4310,13 +4327,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:151",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:151",
+      "target": "resource:152",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4326,7 +4348,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:151",
+      "target": "resource:152",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4336,7 +4358,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4346,7 +4368,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4356,7 +4378,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:153",
+      "target": "resource:154",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4366,18 +4388,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:154",
+      "target": "resource:155",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:155",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4395,13 +4412,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:159",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:159",
+      "target": "resource:160",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4411,7 +4433,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:160",
+      "target": "resource:161",
       "type": "HAS_RESOURCE"
     }
   ]
