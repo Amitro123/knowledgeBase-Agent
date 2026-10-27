@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-27T03:36:12+00:00",
+  "generated_at": "2026-10-27T08:43:52+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -24,7 +24,7 @@
       "type": "branch",
       "label": "Tools",
       "slug": "tools",
-      "count": 29,
+      "count": 30,
       "topic_count": 5
     },
     {
@@ -190,6 +190,13 @@
       "count": 7
     },
     {
+      "id": "topic:tools/data-&-knowledge",
+      "type": "topic",
+      "label": "data & knowledge",
+      "branch": "branch:tools",
+      "count": 7
+    },
+    {
       "id": "topic:tools/developer-tools",
       "type": "topic",
       "label": "developer tools",
@@ -208,13 +215,6 @@
       "type": "topic",
       "label": "dev utilities",
       "branch": "branch:repos-in-github",
-      "count": 6
-    },
-    {
-      "id": "topic:tools/data-&-knowledge",
-      "type": "topic",
-      "label": "data & knowledge",
-      "branch": "branch:tools",
       "count": 6
     },
     {
@@ -1018,6 +1018,23 @@
     {
       "id": "resource:125",
       "type": "resource",
+      "label": "OpenLakeForge",
+      "url": "https://openlakeforge.dev",
+      "github_repo": null,
+      "summary": "Self-hosted open-source lakehouse for small data teams: one olf CLI deploys dlt, Iceberg, dbt, Trino, Dagster and more on local Kubernetes, AWS or Azure.",
+      "notes": "Site openlakeforge.dev; repo github.com/OpenLakeForge/openlakeforge (~46★, Apache-2.0, Python, alpha v0.5.0-alpha.1). Install: uv tool install openlakeforge. Assembles dlt/Floe/Iceberg/Polaris/dbt/Trino/Dagster/OpenMetadata/Superset. Batch-first, not streaming; not a managed SaaS.",
+      "added_at": "2026-10-27",
+      "date_source": "sheet",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "data & knowledge"
+      ]
+    },
+    {
+      "id": "resource:126",
+      "type": "resource",
       "label": "Hugging Face (skills)",
       "url": "https://github.com/huggingface/skills",
       "github_repo": "huggingface/skills",
@@ -1033,7 +1050,7 @@
       ]
     },
     {
-      "id": "resource:126",
+      "id": "resource:127",
       "type": "resource",
       "label": "Microsoft / waza",
       "url": "https://github.com/microsoft/waza",
@@ -1050,7 +1067,7 @@
       ]
     },
     {
-      "id": "resource:127",
+      "id": "resource:128",
       "type": "resource",
       "label": "Microsoft Research / SkillOpt",
       "url": "https://github.com/microsoft/SkillOpt",
@@ -1069,7 +1086,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "NVIDIA / SkillSpector",
       "url": "https://github.com/NVIDIA/SkillSpector",
@@ -1085,25 +1102,6 @@
       "topics": [
         "skill quality",
         "skill security"
-      ]
-    },
-    {
-      "id": "resource:129",
-      "type": "resource",
-      "label": "Matt Pocock / skills",
-      "url": "https://github.com/mattpocock/skills",
-      "github_repo": "mattpocock/skills",
-      "summary": "Matt Pocock's MIT-licensed pack of small composable coding-agent skills (grill, TDD, triage, specs) that install as a Claude Code plugin or via npx skills add mattpocock/skills.",
-      "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships.",
-      "added_at": "2026-07-10",
-      "date_source": "sheet",
-      "branches": [
-        "claude",
-        "skills"
-      ],
-      "topics": [
-        "claude code",
-        "skill libraries"
       ]
     },
     {
@@ -1126,6 +1124,25 @@
     {
       "id": "resource:130",
       "type": "resource",
+      "label": "Matt Pocock / skills",
+      "url": "https://github.com/mattpocock/skills",
+      "github_repo": "mattpocock/skills",
+      "summary": "Matt Pocock's MIT-licensed pack of small composable coding-agent skills (grill, TDD, triage, specs) that install as a Claude Code plugin or via npx skills add mattpocock/skills.",
+      "notes": "Matt Pocock. 274864 GitHub stars. MIT. Shell. Install with claude plugins install mattpocock-skills, or copy editable files with npx skills@latest add mattpocock/skills, then run /setup-matt-pocock-skills once per repo. Caveat: installing both the plugin and skills.sh duplicates every skill; the plugin bundle is read-only and updates when the author ships.",
+      "added_at": "2026-07-10",
+      "date_source": "sheet",
+      "branches": [
+        "claude",
+        "skills"
+      ],
+      "topics": [
+        "claude code",
+        "skill libraries"
+      ]
+    },
+    {
+      "id": "resource:131",
+      "type": "resource",
       "label": "romiluz13 / auto-pi",
       "url": "https://github.com/romiluz13/auto-pi",
       "github_repo": "romiluz13/auto-pi",
@@ -1143,7 +1160,7 @@
       ]
     },
     {
-      "id": "resource:131",
+      "id": "resource:132",
       "type": "resource",
       "label": "charlie947 / social-media-skills",
       "url": "https://github.com/charlie947/social-media-skills",
@@ -1160,7 +1177,7 @@
       ]
     },
     {
-      "id": "resource:132",
+      "id": "resource:133",
       "type": "resource",
       "label": "Prompt Audit — anthropics/skills",
       "url": "https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/prompt-audit.md",
@@ -1177,7 +1194,7 @@
       ]
     },
     {
-      "id": "resource:133",
+      "id": "resource:134",
       "type": "resource",
       "label": "virgiliojr94 / book-to-skill",
       "url": "https://github.com/virgiliojr94/book-to-skill",
@@ -1194,7 +1211,7 @@
       ]
     },
     {
-      "id": "resource:134",
+      "id": "resource:135",
       "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
@@ -1211,7 +1228,7 @@
       ]
     },
     {
-      "id": "resource:135",
+      "id": "resource:136",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -1228,7 +1245,7 @@
       ]
     },
     {
-      "id": "resource:136",
+      "id": "resource:137",
       "type": "resource",
       "label": "Uber / ADR",
       "url": "https://github.com/uber/ADR",
@@ -1245,7 +1262,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "Cygnux-Labs / Tracekit",
       "url": "https://github.com/Cygnux-Labs/Tracekit",
@@ -1262,29 +1279,12 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
       "github_repo": "alexgreensh/token-optimizer",
       "summary": "Library to optimize tokens and reduce LLM context costs",
-      "notes": "",
-      "added_at": "2026-06-13",
-      "date_source": "first_seen",
-      "branches": [
-        "claude"
-      ],
-      "topics": [
-        "cost & models"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "Tzach Bonfil / claude-model-advisor",
-      "url": "https://github.com/tzachbon/claude-model-advisor",
-      "github_repo": "tzachbon/claude-model-advisor",
-      "summary": "Tool to recommend the right Claude model based on requirements and budget",
       "notes": "",
       "added_at": "2026-06-13",
       "date_source": "first_seen",
@@ -1315,6 +1315,23 @@
     {
       "id": "resource:140",
       "type": "resource",
+      "label": "Tzach Bonfil / claude-model-advisor",
+      "url": "https://github.com/tzachbon/claude-model-advisor",
+      "github_repo": "tzachbon/claude-model-advisor",
+      "summary": "Tool to recommend the right Claude model based on requirements and budget",
+      "notes": "",
+      "added_at": "2026-06-13",
+      "date_source": "first_seen",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "cost & models"
+      ]
+    },
+    {
+      "id": "resource:141",
+      "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
       "github_repo": "onmyway133/claude-code-tips-tricks",
@@ -1330,7 +1347,7 @@
       ]
     },
     {
-      "id": "resource:141",
+      "id": "resource:142",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -1347,7 +1364,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1364,7 +1381,7 @@
       ]
     },
     {
-      "id": "resource:143",
+      "id": "resource:144",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1382,7 +1399,7 @@
       ]
     },
     {
-      "id": "resource:144",
+      "id": "resource:145",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1399,7 +1416,7 @@
       ]
     },
     {
-      "id": "resource:145",
+      "id": "resource:146",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1416,7 +1433,7 @@
       ]
     },
     {
-      "id": "resource:146",
+      "id": "resource:147",
       "type": "resource",
       "label": "deeplethe / utopia",
       "url": "https://github.com/deeplethe/utopia",
@@ -1433,7 +1450,7 @@
       ]
     },
     {
-      "id": "resource:147",
+      "id": "resource:148",
       "type": "resource",
       "label": "mksglu / context-mode",
       "url": "https://github.com/mksglu/context-mode",
@@ -1450,7 +1467,7 @@
       ]
     },
     {
-      "id": "resource:148",
+      "id": "resource:149",
       "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
@@ -1464,24 +1481,6 @@
       ],
       "topics": [
         "agent memory"
-      ]
-    },
-    {
-      "id": "resource:149",
-      "type": "resource",
-      "label": "TypeSafe / Diogo Almeida",
-      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
-      "github_repo": null,
-      "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
-      "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "jev",
-        "trends"
-      ],
-      "topics": [
-        "news"
       ]
     },
     {
@@ -1506,6 +1505,24 @@
     {
       "id": "resource:150",
       "type": "resource",
+      "label": "TypeSafe / Diogo Almeida",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "github_repo": null,
+      "summary": "TypeSafe company-news post announcing Jev, its first public System One Model, in early access. System One models are a class of frontier models built to make fast, structured decisions that software can use directly, trained with Reinforcement Learning for Calibrated Decisions (RLCD). The page calls Jev a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out. It gives up string generation, is optimized for structured outputs, and can't hallucinate. The class name draws on Kahneman's fast System 1 thinking; Jev is named after William Stanley Jevons.",
+      "notes": "Company News by Diogo Almeida, founder of TypeSafe, dated Sep 15, 2026. This Jev is TypeSafe's decision model, not a Vercel product.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "jev",
+        "trends"
+      ],
+      "topics": [
+        "news"
+      ]
+    },
+    {
+      "id": "resource:151",
+      "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
       "github_repo": "dzhng/jevgrep",
@@ -1522,7 +1539,7 @@
       ]
     },
     {
-      "id": "resource:151",
+      "id": "resource:152",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1539,7 +1556,7 @@
       ]
     },
     {
-      "id": "resource:152",
+      "id": "resource:153",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1556,7 +1573,7 @@
       ]
     },
     {
-      "id": "resource:153",
+      "id": "resource:154",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1573,7 +1590,7 @@
       ]
     },
     {
-      "id": "resource:154",
+      "id": "resource:155",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1590,7 +1607,7 @@
       ]
     },
     {
-      "id": "resource:155",
+      "id": "resource:156",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1607,7 +1624,7 @@
       ]
     },
     {
-      "id": "resource:156",
+      "id": "resource:157",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1624,7 +1641,7 @@
       ]
     },
     {
-      "id": "resource:157",
+      "id": "resource:158",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1641,7 +1658,7 @@
       ]
     },
     {
-      "id": "resource:158",
+      "id": "resource:159",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4076,8 +4093,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:125",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:126",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4087,12 +4109,12 @@
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:126",
+      "target": "resource:127",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4102,12 +4124,12 @@
     },
     {
       "source": "topic:harness/skill-optimization",
-      "target": "resource:127",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4117,22 +4139,22 @@
     },
     {
       "source": "topic:security/skill-security",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/workflows-&-apps",
-      "target": "resource:130",
+      "target": "resource:131",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4142,22 +4164,22 @@
     },
     {
       "source": "topic:harness/agent-workflow",
-      "target": "resource:130",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:skills/skill-libraries",
       "target": "resource:131",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-quality",
+      "source": "topic:skills/skill-libraries",
       "target": "resource:132",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:skills/skill-quality",
       "target": "resource:133",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:134",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4167,7 +4189,7 @@
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:134",
+      "target": "resource:135",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4177,11 +4199,6 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:135",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:security/ai-security-iam",
       "target": "resource:136",
       "type": "HAS_RESOURCE"
     },
@@ -4191,14 +4208,14 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:security/ai-security-iam",
+      "target": "resource:138",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:claude",
       "target": "topic:claude/cost-&-models",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
-      "target": "resource:138",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/cost-&-models",
@@ -4206,12 +4223,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:140",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:141",
       "type": "HAS_RESOURCE"
     },
@@ -4221,13 +4238,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:143",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:143",
+      "target": "resource:144",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4237,11 +4259,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:143",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:144",
       "type": "HAS_RESOURCE"
     },
@@ -4266,13 +4283,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:149",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:149",
+      "target": "resource:150",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4282,7 +4304,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:149",
+      "target": "resource:150",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4292,7 +4314,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:150",
+      "target": "resource:151",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4302,7 +4324,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:150",
+      "target": "resource:151",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4312,7 +4334,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:151",
+      "target": "resource:152",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4322,18 +4344,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:153",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4351,13 +4368,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:157",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:157",
+      "target": "resource:158",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4367,7 +4389,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:158",
+      "target": "resource:159",
       "type": "HAS_RESOURCE"
     }
   ]
