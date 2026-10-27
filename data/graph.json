@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-27T15:42:11+00:00",
+  "generated_at": "2026-10-27T17:45:50+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -24,7 +24,7 @@
       "type": "branch",
       "label": "Tools",
       "slug": "tools",
-      "count": 31,
+      "count": 32,
       "topic_count": 5
     },
     {
@@ -183,17 +183,17 @@
       "count": 8
     },
     {
-      "id": "topic:repos-in-github/llm-infrastructure",
-      "type": "topic",
-      "label": "llm infrastructure",
-      "branch": "branch:repos-in-github",
-      "count": 7
-    },
-    {
       "id": "topic:tools/data-&-knowledge",
       "type": "topic",
       "label": "data & knowledge",
       "branch": "branch:tools",
+      "count": 8
+    },
+    {
+      "id": "topic:repos-in-github/llm-infrastructure",
+      "type": "topic",
+      "label": "llm infrastructure",
+      "branch": "branch:repos-in-github",
       "count": 7
     },
     {
@@ -1052,6 +1052,23 @@
     {
       "id": "resource:127",
       "type": "resource",
+      "label": "NVIDIA / auto-ontology",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "github_repo": "NVIDIA/auto-ontology",
+      "summary": "Python framework that builds an ontology/semantic catalog from enterprise metadata and exposes it to agents via MCP, CLI and API for grounded NL-to-SQL and provenance.",
+      "notes": "~270★ (271), Apache-2.0, Python; Helm or Docker Compose; Postgres+pgvector; uses NVIDIA NIM for LLM/embed/rerank; not accepting external contributions; related: open-ontologies, Bharath ontology post, AWS context-ontology-accelerator",
+      "added_at": "2026-10-27",
+      "date_source": "sheet",
+      "branches": [
+        "tools"
+      ],
+      "topics": [
+        "data & knowledge"
+      ]
+    },
+    {
+      "id": "resource:128",
+      "type": "resource",
       "label": "Hugging Face (skills)",
       "url": "https://github.com/huggingface/skills",
       "github_repo": "huggingface/skills",
@@ -1067,7 +1084,7 @@
       ]
     },
     {
-      "id": "resource:128",
+      "id": "resource:129",
       "type": "resource",
       "label": "Microsoft / waza",
       "url": "https://github.com/microsoft/waza",
@@ -1080,25 +1097,6 @@
         "skills"
       ],
       "topics": [
-        "skill quality"
-      ]
-    },
-    {
-      "id": "resource:129",
-      "type": "resource",
-      "label": "Microsoft Research / SkillOpt",
-      "url": "https://github.com/microsoft/SkillOpt",
-      "github_repo": "microsoft/SkillOpt",
-      "summary": "אופטימיזציה של מסמך skill כפרמטר ניתן לאימון, בלי לגעת במשקולות המודל. עריכות על best_skill.md מתקבלות רק אם הן משפרות validation.",
-      "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "harness",
-        "skills"
-      ],
-      "topics": [
-        "skill optimization",
         "skill quality"
       ]
     },
@@ -1122,6 +1120,25 @@
     {
       "id": "resource:130",
       "type": "resource",
+      "label": "Microsoft Research / SkillOpt",
+      "url": "https://github.com/microsoft/SkillOpt",
+      "github_repo": "microsoft/SkillOpt",
+      "summary": "אופטימיזציה של מסמך skill כפרמטר ניתן לאימון, בלי לגעת במשקולות המודל. עריכות על best_skill.md מתקבלות רק אם הן משפרות validation.",
+      "notes": "~18k stars. מאמר: https://arxiv.org/abs/2605.23904 · עמוד: https://microsoft.github.io/SkillOpt/ · pip install skillopt. עובד מול chat, Codex CLI ו-Claude Code. v0.2 כולל SkillOpt-Sleep (אבולוציה לילית). רישיון MIT. Python 3.10+.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "harness",
+        "skills"
+      ],
+      "topics": [
+        "skill optimization",
+        "skill quality"
+      ]
+    },
+    {
+      "id": "resource:131",
+      "type": "resource",
       "label": "NVIDIA / SkillSpector",
       "url": "https://github.com/NVIDIA/SkillSpector",
       "github_repo": "NVIDIA/SkillSpector",
@@ -1139,7 +1156,7 @@
       ]
     },
     {
-      "id": "resource:131",
+      "id": "resource:132",
       "type": "resource",
       "label": "Matt Pocock / skills",
       "url": "https://github.com/mattpocock/skills",
@@ -1158,7 +1175,7 @@
       ]
     },
     {
-      "id": "resource:132",
+      "id": "resource:133",
       "type": "resource",
       "label": "romiluz13 / auto-pi",
       "url": "https://github.com/romiluz13/auto-pi",
@@ -1177,7 +1194,7 @@
       ]
     },
     {
-      "id": "resource:133",
+      "id": "resource:134",
       "type": "resource",
       "label": "charlie947 / social-media-skills",
       "url": "https://github.com/charlie947/social-media-skills",
@@ -1194,7 +1211,7 @@
       ]
     },
     {
-      "id": "resource:134",
+      "id": "resource:135",
       "type": "resource",
       "label": "Prompt Audit — anthropics/skills",
       "url": "https://github.com/anthropics/skills/blob/main/skills/claude-api/shared/prompt-audit.md",
@@ -1211,7 +1228,7 @@
       ]
     },
     {
-      "id": "resource:135",
+      "id": "resource:136",
       "type": "resource",
       "label": "virgiliojr94 / book-to-skill",
       "url": "https://github.com/virgiliojr94/book-to-skill",
@@ -1228,7 +1245,7 @@
       ]
     },
     {
-      "id": "resource:136",
+      "id": "resource:137",
       "type": "resource",
       "label": "Microsoft / skill-recorder",
       "url": "https://github.com/microsoft/skill-recorder",
@@ -1245,7 +1262,7 @@
       ]
     },
     {
-      "id": "resource:137",
+      "id": "resource:138",
       "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
@@ -1262,7 +1279,7 @@
       ]
     },
     {
-      "id": "resource:138",
+      "id": "resource:139",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -1276,23 +1293,6 @@
       ],
       "topics": [
         "reference"
-      ]
-    },
-    {
-      "id": "resource:139",
-      "type": "resource",
-      "label": "Uber / ADR",
-      "url": "https://github.com/uber/ADR",
-      "github_repo": "uber/ADR",
-      "summary": "Enterprise security system for AI agents: discovery, observability, benchmarking, and threat detection for coding agents; deployed at Uber.",
-      "notes": "~1.9k★, Apache-2.0, Python; uv sync in Detection/; paper MLSys 2026",
-      "added_at": "2026-10-07",
-      "date_source": "sheet",
-      "branches": [
-        "security"
-      ],
-      "topics": [
-        "ai security / iam"
       ]
     },
     {
@@ -1315,6 +1315,23 @@
     {
       "id": "resource:140",
       "type": "resource",
+      "label": "Uber / ADR",
+      "url": "https://github.com/uber/ADR",
+      "github_repo": "uber/ADR",
+      "summary": "Enterprise security system for AI agents: discovery, observability, benchmarking, and threat detection for coding agents; deployed at Uber.",
+      "notes": "~1.9k★, Apache-2.0, Python; uv sync in Detection/; paper MLSys 2026",
+      "added_at": "2026-10-07",
+      "date_source": "sheet",
+      "branches": [
+        "security"
+      ],
+      "topics": [
+        "ai security / iam"
+      ]
+    },
+    {
+      "id": "resource:141",
+      "type": "resource",
       "label": "Cygnux-Labs / Tracekit",
       "url": "https://github.com/Cygnux-Labs/Tracekit",
       "github_repo": "Cygnux-Labs/Tracekit",
@@ -1330,7 +1347,7 @@
       ]
     },
     {
-      "id": "resource:141",
+      "id": "resource:142",
       "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
@@ -1347,7 +1364,7 @@
       ]
     },
     {
-      "id": "resource:142",
+      "id": "resource:143",
       "type": "resource",
       "label": "Tzach Bonfil / claude-model-advisor",
       "url": "https://github.com/tzachbon/claude-model-advisor",
@@ -1364,7 +1381,7 @@
       ]
     },
     {
-      "id": "resource:143",
+      "id": "resource:144",
       "type": "resource",
       "label": "Claude Code Tips (onmyway133)",
       "url": "https://github.com/onmyway133/claude-code-tips-tricks",
@@ -1381,7 +1398,7 @@
       ]
     },
     {
-      "id": "resource:144",
+      "id": "resource:145",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -1398,7 +1415,7 @@
       ]
     },
     {
-      "id": "resource:145",
+      "id": "resource:146",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1415,7 +1432,7 @@
       ]
     },
     {
-      "id": "resource:146",
+      "id": "resource:147",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1433,7 +1450,7 @@
       ]
     },
     {
-      "id": "resource:147",
+      "id": "resource:148",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1450,7 +1467,7 @@
       ]
     },
     {
-      "id": "resource:148",
+      "id": "resource:149",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1458,23 +1475,6 @@
       "summary": "Local lossless long-term memory for a personal AI: keeps every conversation line with timestamps, never summarizes, and searches by time first.",
       "notes": "138 stars, MIT, Python. Last commit Sep 2026. Not archived.",
       "added_at": "2026-10-05",
-      "date_source": "sheet",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
-      ]
-    },
-    {
-      "id": "resource:149",
-      "type": "resource",
-      "label": "deeplethe / utopia",
-      "url": "https://github.com/deeplethe/utopia",
-      "github_repo": "deeplethe/utopia",
-      "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
-      "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
-      "added_at": "2026-10-07",
       "date_source": "sheet",
       "branches": [
         "memory"
@@ -1505,6 +1505,23 @@
     {
       "id": "resource:150",
       "type": "resource",
+      "label": "deeplethe / utopia",
+      "url": "https://github.com/deeplethe/utopia",
+      "github_repo": "deeplethe/utopia",
+      "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
+      "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
+      "added_at": "2026-10-07",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:151",
+      "type": "resource",
       "label": "mksglu / context-mode",
       "url": "https://github.com/mksglu/context-mode",
       "github_repo": "mksglu/context-mode",
@@ -1520,7 +1537,7 @@
       ]
     },
     {
-      "id": "resource:151",
+      "id": "resource:152",
       "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
@@ -1537,7 +1554,7 @@
       ]
     },
     {
-      "id": "resource:152",
+      "id": "resource:153",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1555,7 +1572,7 @@
       ]
     },
     {
-      "id": "resource:153",
+      "id": "resource:154",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1573,7 +1590,7 @@
       ]
     },
     {
-      "id": "resource:154",
+      "id": "resource:155",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1590,7 +1607,7 @@
       ]
     },
     {
-      "id": "resource:155",
+      "id": "resource:156",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1607,7 +1624,7 @@
       ]
     },
     {
-      "id": "resource:156",
+      "id": "resource:157",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1624,7 +1641,7 @@
       ]
     },
     {
-      "id": "resource:157",
+      "id": "resource:158",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1641,7 +1658,7 @@
       ]
     },
     {
-      "id": "resource:158",
+      "id": "resource:159",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1649,23 +1666,6 @@
       "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
       "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh.",
       "added_at": "2026-10-05",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
-      ]
-    },
-    {
-      "id": "resource:159",
-      "type": "resource",
-      "label": "mvschwarz / openrig",
-      "url": "https://github.com/mvschwarz/openrig",
-      "github_repo": "mvschwarz/openrig",
-      "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
-      "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)",
-      "added_at": "2026-10-08",
       "date_source": "sheet",
       "branches": [
         "harness"
@@ -1696,6 +1696,23 @@
     {
       "id": "resource:160",
       "type": "resource",
+      "label": "mvschwarz / openrig",
+      "url": "https://github.com/mvschwarz/openrig",
+      "github_repo": "mvschwarz/openrig",
+      "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
+      "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)",
+      "added_at": "2026-10-08",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:161",
+      "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
       "github_repo": "realZachi/pg-jev",
@@ -1711,7 +1728,7 @@
       ]
     },
     {
-      "id": "resource:161",
+      "id": "resource:162",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4137,8 +4154,13 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:tools/data-&-knowledge",
       "target": "resource:127",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:128",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4148,12 +4170,12 @@
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:128",
+      "target": "resource:129",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4163,12 +4185,12 @@
     },
     {
       "source": "topic:harness/skill-optimization",
-      "target": "resource:129",
+      "target": "resource:130",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-quality",
-      "target": "resource:130",
+      "target": "resource:131",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4178,22 +4200,22 @@
     },
     {
       "source": "topic:security/skill-security",
-      "target": "resource:130",
+      "target": "resource:131",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/skill-libraries",
-      "target": "resource:131",
+      "target": "resource:132",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/claude-code",
-      "target": "resource:131",
+      "target": "resource:132",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:skills/workflows-&-apps",
-      "target": "resource:132",
+      "target": "resource:133",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4203,27 +4225,27 @@
     },
     {
       "source": "topic:harness/agent-workflow",
-      "target": "resource:132",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:skills/skill-libraries",
       "target": "resource:133",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-quality",
+      "source": "topic:skills/skill-libraries",
       "target": "resource:134",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/skill-libraries",
+      "source": "topic:skills/skill-quality",
       "target": "resource:135",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:skills/workflows-&-apps",
+      "source": "topic:skills/skill-libraries",
       "target": "resource:136",
+      "type": "HAS_RESOURCE"
+    },
+    {
+      "source": "topic:skills/workflows-&-apps",
+      "target": "resource:137",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4233,7 +4255,7 @@
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:137",
+      "target": "resource:138",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4243,11 +4265,6 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:138",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:security/ai-security-iam",
       "target": "resource:139",
       "type": "HAS_RESOURCE"
     },
@@ -4257,14 +4274,14 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:security/ai-security-iam",
+      "target": "resource:141",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:claude",
       "target": "topic:claude/cost-&-models",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
-      "target": "resource:141",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/cost-&-models",
@@ -4272,12 +4289,12 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:143",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:144",
       "type": "HAS_RESOURCE"
     },
@@ -4287,13 +4304,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:146",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:146",
+      "target": "resource:147",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4303,11 +4325,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:146",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:147",
       "type": "HAS_RESOURCE"
     },
@@ -4332,13 +4349,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:152",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4348,7 +4370,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:152",
+      "target": "resource:153",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4358,7 +4380,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:153",
+      "target": "resource:154",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4368,7 +4390,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:153",
+      "target": "resource:154",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4378,7 +4400,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:154",
+      "target": "resource:155",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4388,18 +4410,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:155",
+      "target": "resource:156",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:156",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4417,13 +4434,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:160",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:160",
+      "target": "resource:161",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4433,7 +4455,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:161",
+      "target": "resource:162",
       "type": "HAS_RESOURCE"
     }
   ]
