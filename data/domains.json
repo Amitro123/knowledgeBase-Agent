@@ -1,0 +1,45 @@
+{
+  "_comment": "Cross-branch domain groupings. Each domain maps keywords (matched against topic labels, resource summaries, notes, and labels) to cluster resources from any branch. Edit freely; the viewer applies these at load time.",
+  "domains": {
+    "Knowledge Graphs & RAG": {
+      "keywords": ["knowledge graph", "rag", "retrieval", "vector", "embedding", "semantic search", "data & rag", "data & knowledge", "vector database", "ontology", "graphrag", "knowledge base"],
+      "color": "#e07cc3"
+    },
+    "Agent Frameworks": {
+      "keywords": ["agent framework", "agent harness", "agent workflow", "langgraph", "langchain", "autogen", "crewai", "openai agent", "multi-agent", "agentic"],
+      "color": "#59a8e0"
+    },
+    "LLM Infrastructure": {
+      "keywords": ["llm infrastructure", "llm architecture", "llm gateway", "model serving", "vllm", "ollama", "inference", "llms & training", "fine-tun", "training"],
+      "color": "#e0c645"
+    },
+    "Developer Tools": {
+      "keywords": ["developer tool", "dev utilit", "code search", "cursor", "copilot", "ide", "cli", "sdk", "debugging", "linting"],
+      "color": "#6dd97a"
+    },
+    "MLOps & Evaluation": {
+      "keywords": ["mlops", "evaluation", "eval", "benchmark", "monitoring", "observability", "tracing", "logging", "classic ml", "experiment"],
+      "color": "#d9a156"
+    },
+    "Memory & Context": {
+      "keywords": ["memory", "context", "agent memory", "memory & context", "long-term memory", "conversation history", "state management"],
+      "color": "#9b7ae0"
+    },
+    "MCP & Protocols": {
+      "keywords": ["mcp", "model context protocol", "mcp server", "mcp client", "mcp app", "protocol", "tool calling"],
+      "color": "#4ec4b8"
+    },
+    "Security & Compliance": {
+      "keywords": ["security", "iam", "auth", "guardrail", "safety", "compliance", "vulnerability", "skill security", "ai security"],
+      "color": "#e05555"
+    },
+    "Automation & Workflows": {
+      "keywords": ["automation", "browser automation", "workflow", "n8n", "zapier", "make.com", "rpa", "scraping", "lead generation"],
+      "color": "#e0884d"
+    },
+    "Learning & Tutorials": {
+      "keywords": ["learning", "tutorial", "course", "guide", "material", "training data", "education", "learning material", "document library", "research"],
+      "color": "#7dc4e0"
+    }
+  }
+}

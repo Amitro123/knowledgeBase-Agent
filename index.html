@@ -448,6 +448,187 @@
       #right-panel.mobile-open { display: block; }
       #graph-hint { font-size: .66rem; }
     }
+
+    /* ── Search highlight bar ────────────────────────────────── */
+    #search-results-bar {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 2px 0 0;
+      font-size: .72rem;
+      color: var(--text-dim);
+    }
+
+    #search-results-bar.active { display: flex; }
+    #search-results-bar b { color: var(--text); font-weight: 600; }
+
+    #search-clear {
+      background: none;
+      border: 1px solid var(--border-hi);
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: .66rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: auto;
+    }
+    #search-clear:hover { color: var(--accent); border-color: var(--accent); }
+
+    .search-match-list {
+      list-style: none;
+      max-height: 180px;
+      overflow-y: auto;
+      margin-top: 4px;
+    }
+    .search-match-list li {
+      padding: 3px 0;
+      cursor: pointer;
+      font-size: .74rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .search-match-list li:hover { color: var(--accent); }
+
+    /* ── Tour overlay ────────────────────────────────────────── */
+    #tour-overlay {
+      display: none;
+      position: absolute;
+      bottom: 56px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-panel);
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      padding: 14px 18px;
+      max-width: 420px;
+      width: 90%;
+      z-index: 40;
+      box-shadow: 0 4px 20px rgba(0,0,0,.5);
+    }
+
+    #tour-overlay.active { display: block; }
+
+    #tour-step-counter {
+      font-size: .66rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 4px;
+    }
+
+    #tour-caption {
+      font-size: .82rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 10px;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    #tour-caption .tour-node-name {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tour-nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .tour-nav button {
+      padding: 5px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hi);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: .76rem;
+    }
+
+    .tour-nav button:hover { border-color: var(--accent); color: var(--accent); }
+    .tour-nav button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .tour-nav button.primary:hover { opacity: .85; }
+    .tour-nav .tour-spacer { flex: 1; }
+
+    .tour-progress {
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .tour-progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width .3s;
+    }
+
+    /* ── Domain view toggle ──────────────────────────────────── */
+    .view-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border-hi);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .view-toggle button {
+      padding: 3px 10px;
+      font-size: .72rem;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      border-right: 1px solid var(--border-hi);
+    }
+
+    .view-toggle button:last-child { border-right: none; }
+    .view-toggle button:hover { color: var(--text); }
+    .view-toggle button.active { background: var(--accent); color: #fff; }
+
+    /* ── Tour start button in sidebar ────────────────────────── */
+    .tour-start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: 1px solid var(--border-hi);
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: .68rem;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-top: 6px;
+    }
+    .tour-start-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Domain legend (right panel in domain mode) ──────────── */
+    .domain-legend { list-style: none; }
+    .domain-legend li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      font-size: .78rem;
+      cursor: pointer;
+    }
+    .domain-legend li:hover { color: var(--accent); }
+    .domain-legend .domain-swatch {
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .domain-legend .domain-count {
+      color: var(--text-dimmer);
+      font-size: .7rem;
+      margin-left: auto;
+    }
   </style>
 </head>
 <body>
@@ -462,6 +643,11 @@
     <span class="hdr-stat"><b id="hdr-resources">—</b> resources</span>
     <span class="hdr-sep">·</span>
     <span class="hdr-stat">updated <b id="hdr-date">—</b></span>
+    <span class="hdr-sep">·</span>
+    <span class="view-toggle" id="view-toggle">
+      <button type="button" class="active" data-view="branch">Branches</button>
+      <button type="button" data-view="domain">Domains</button>
+    </span>
   </header>
 
   <div id="main-layout">
@@ -470,6 +656,11 @@
       <div>
         <div class="panel-heading">Search</div>
         <input type="search" id="search-input" placeholder="Title, topic, URL…" aria-label="Search" />
+        <div id="search-results-bar">
+          <span><b id="search-match-count">0</b> matches</span>
+          <button type="button" id="search-clear">Clear</button>
+        </div>
+        <ul class="search-match-list" id="search-match-list"></ul>
         <label class="filter-row">
           <input type="checkbox" id="github-only" />
           <span>GitHub repos only</span>
@@ -512,6 +703,17 @@
       <div id="graph-container"></div>
       <div id="graph-status">Loading graph…</div>
       <div id="graph-hint">Click a branch to open it · Scroll to zoom · Drag to pan</div>
+      <div id="tour-overlay">
+        <div class="tour-progress"><div class="tour-progress-bar" id="tour-progress-bar"></div></div>
+        <div id="tour-step-counter">Step 1 / 5</div>
+        <div id="tour-caption"></div>
+        <div class="tour-nav">
+          <button type="button" id="tour-prev">← Prev</button>
+          <span class="tour-spacer"></span>
+          <button type="button" id="tour-exit">Exit</button>
+          <button type="button" id="tour-next" class="primary">Next →</button>
+        </div>
+      </div>
       <script>
         if (matchMedia('(pointer: coarse)').matches)
           document.getElementById('graph-hint').textContent = 'Tap a branch to open it · Pinch to zoom';
@@ -1227,9 +1429,374 @@
     }));
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && selectedId) clearSelection();
+      if (e.key === 'Escape') {
+        if (tourActive) { exitTour(); return; }
+        if (selectedId) clearSelection();
+      }
+      if (tourActive) {
+        if (e.key === 'ArrowRight') tourNext();
+        else if (e.key === 'ArrowLeft') tourPrev();
+      }
     });
 
+    // ── Search highlight ────────────────────────────────────────
+    // Enhances the existing search: when a query is typed, matching nodes are
+    // highlighted and the rest dimmed, with a count bar and click-to-focus list.
+    const searchBar = document.getElementById('search-results-bar');
+    const searchCount = document.getElementById('search-match-count');
+    const searchMatchList = document.getElementById('search-match-list');
+
+    function updateSearchHighlight() {
+      const q = query;
+      if (!q) {
+        searchBar.classList.remove('active');
+        searchMatchList.innerHTML = '';
+        return;
+      }
+      searchBar.classList.add('active');
+      const matches = graph.nodes.filter(n => {
+        if (n.type === 'branch') return false;
+        return textOf(n).includes(q.toLowerCase());
+      });
+      searchCount.textContent = matches.length;
+      const top = matches.slice(0, 40);
+      searchMatchList.innerHTML = top.map(n =>
+        `<li data-nid="${esc(n.id)}" title="${esc(n.label)}">${swatch(n.type, n.type === 'resource' ? 'sm' : '')} ${esc(trunc(n.label, 32))}</li>`
+      ).join('') + (matches.length > 40 ? `<li style="color:var(--text-dimmer)">…${matches.length - 40} more</li>` : '');
+    }
+
+    searchMatchList.addEventListener('click', e => {
+      const li = e.target.closest('[data-nid]');
+      if (li) select(li.dataset.nid);
+    });
+
+    document.getElementById('search-clear').addEventListener('click', () => {
+      document.getElementById('search-input').value = '';
+      query = '';
+      render();
+      updateSearchHighlight();
+      fitTo(null, 300);
+    });
+
+    // Patch into existing search handler
+    const origSearchHandler = document.getElementById('search-input').oninput;
+
+    // ── Guided tours ────────────────────────────────────────────
+    let tourActive = false;
+    let tourSteps = [];
+    let tourIndex = 0;
+    let tourData = null;  // hand-written overrides loaded from data/tours.json
+
+    async function loadTourOverrides() {
+      try {
+        const res = await fetch('./data/tours.json?_=' + Date.now());
+        if (res.ok) tourData = await res.json();
+      } catch (_) { /* no overrides */ }
+    }
+
+    function generateTour(branchId) {
+      if (tourData && tourData[branchId]) return tourData[branchId];
+      const branch = nodeById.get(branchId);
+      if (!branch || branch.type !== 'branch') return null;
+      const steps = [];
+      steps.push({
+        nodeId: branchId,
+        caption: `Welcome to <span class="tour-node-name">${esc(branch.label)}</span> — ${branch.count} resources across ${branch.topic_count} topics. Let's walk through the key areas.`
+      });
+      const topics = kids(branchId, 'topic')
+        .map(tid => nodeById.get(tid))
+        .sort((a, b) => (b.count - a.count) || a.label.localeCompare(b.label));
+      for (const topic of topics.slice(0, 6)) {
+        const topResources = kids(topic.id, 'resource')
+          .map(rid => nodeById.get(rid))
+          .sort((a, b) => (b.added_at || '').localeCompare(a.added_at || '') || a.label.localeCompare(b.label));
+        steps.push({
+          nodeId: topic.id,
+          caption: `<span class="tour-node-name">${esc(topic.label)}</span> — ${topic.count} resources. ${topResources.length ? 'Top pick: ' + esc(trunc(topResources[0].label, 40)) + (topResources[0].summary ? ' — ' + esc(trunc(topResources[0].summary, 60)) : '') : ''}`
+        });
+        if (topResources.length > 0) {
+          const r = topResources[0];
+          steps.push({
+            nodeId: r.id,
+            caption: `<span class="tour-node-name">${esc(trunc(r.label, 40))}</span>${r.summary ? ': ' + esc(trunc(r.summary, 100)) : ''}${r.url ? ' <a href="' + esc(r.url) + '" target="_blank" rel="noopener" style="color:var(--accent)">[open ↗]</a>' : ''}`
+          });
+        }
+      }
+      steps.push({
+        nodeId: branchId,
+        caption: `End of the <span class="tour-node-name">${esc(branch.label)}</span> tour. Click any node to explore further!`
+      });
+      return steps;
+    }
+
+    function startTour(branchId) {
+      const steps = generateTour(branchId);
+      if (!steps || !steps.length) return;
+      expanded.add(branchId);
+      hiddenBranches.forEach(b => { if (b !== branchId) return; hiddenBranches.delete(b); });
+      tourSteps = steps;
+      tourIndex = 0;
+      tourActive = true;
+      render();
+      showTourStep();
+    }
+
+    function showTourStep() {
+      const overlay = document.getElementById('tour-overlay');
+      overlay.classList.add('active');
+      const step = tourSteps[tourIndex];
+      document.getElementById('tour-step-counter').textContent = `Step ${tourIndex + 1} / ${tourSteps.length}`;
+      document.getElementById('tour-caption').innerHTML = step.caption;
+      document.getElementById('tour-progress-bar').style.width = `${((tourIndex + 1) / tourSteps.length) * 100}%`;
+      document.getElementById('tour-prev').disabled = tourIndex === 0;
+      document.getElementById('tour-next').textContent = tourIndex === tourSteps.length - 1 ? 'Finish' : 'Next →';
+      // Focus graph on the step's node
+      const did = step.nodeId;
+      selectedId = did;
+      const branches = branchesOf(did);
+      branches.forEach(b => { expanded.add(b); hiddenBranches.delete(b); });
+      render();
+      showDetail(did);
+      fitTo([...focusSet(did)], 450);
+    }
+
+    function tourNext() {
+      if (tourIndex < tourSteps.length - 1) {
+        tourIndex++;
+        showTourStep();
+      } else {
+        exitTour();
+      }
+    }
+
+    function tourPrev() {
+      if (tourIndex > 0) {
+        tourIndex--;
+        showTourStep();
+      }
+    }
+
+    function exitTour() {
+      tourActive = false;
+      tourSteps = [];
+      tourIndex = 0;
+      document.getElementById('tour-overlay').classList.remove('active');
+    }
+
+    document.getElementById('tour-next').addEventListener('click', tourNext);
+    document.getElementById('tour-prev').addEventListener('click', tourPrev);
+    document.getElementById('tour-exit').addEventListener('click', exitTour);
+
+    // ── Domain view ─────────────────────────────────────────────
+    let viewMode = 'branch';   // 'branch' or 'domain'
+    let domainsConfig = null;
+    let domainAssignments = new Map();  // resource id -> domain name
+
+    async function loadDomains() {
+      try {
+        const res = await fetch('./data/domains.json?_=' + Date.now());
+        if (res.ok) domainsConfig = await res.json();
+      } catch (_) { /* no domains config */ }
+    }
+
+    function assignDomains() {
+      domainAssignments.clear();
+      if (!domainsConfig?.domains || !graph) return;
+      const domains = domainsConfig.domains;
+      graph.nodes.forEach(n => {
+        if (n.type !== 'resource') return;
+        const text = textOf(n);
+        let bestDomain = null;
+        let bestScore = 0;
+        for (const [name, cfg] of Object.entries(domains)) {
+          const score = (cfg.keywords || []).reduce((s, kw) => s + (text.includes(kw.toLowerCase()) ? 1 : 0), 0);
+          if (score > bestScore) { bestScore = score; bestDomain = name; }
+        }
+        if (bestDomain) domainAssignments.set(n.id, bestDomain);
+      });
+    }
+
+    function getDomainColor(domainName) {
+      return domainsConfig?.domains?.[domainName]?.color || '#888';
+    }
+
+    function computeVisibleDomainView() {
+      const shown = new Set();
+      if (!domainsConfig?.domains) return computeVisible();
+      const q = query ? query.toLowerCase() : '';
+      graph.nodes.forEach(n => {
+        if (n.type !== 'resource') return;
+        if (!domainAssignments.has(n.id)) return;
+        if (githubOnly && !n.github_repo) return;
+        if (q && !textOf(n).includes(q)) return;
+        (viewsOf.get(n.id) || []).forEach(vid => shown.add(vid));
+      });
+      return shown;
+    }
+
+    function renderDomainOverview() {
+      if (!domainsConfig?.domains) return;
+      const counts = {};
+      for (const [rid, domain] of domainAssignments) {
+        counts[domain] = (counts[domain] || 0) + 1;
+      }
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      document.getElementById('overview').innerHTML = `
+        <p class="intro">Domain view clusters resources by subject across all branches.</p>
+        <div class="stat-row">
+          <div class="stat"><b>${sorted.length}</b><span>domains</span></div>
+          <div class="stat"><b>${domainAssignments.size}</b><span>classified</span></div>
+        </div>
+        <div class="section"><h4>Domains</h4>
+          <ul class="domain-legend">${sorted.map(([name, count]) =>
+            `<li data-domain="${esc(name)}"><span class="domain-swatch" style="background:${esc(getDomainColor(name))}"></span><span>${esc(name)}</span><span class="domain-count">${count}</span></li>`
+          ).join('')}</ul></div>`;
+      document.getElementById('overview').hidden = false;
+      document.getElementById('detail').hidden = true;
+    }
+
+    function renderDomainMode() {
+      if (!domainsConfig?.domains) return;
+      visible = computeVisibleDomainView();
+      const focus = selectedId || hoverId;
+      const near = focus ? focusSet(focus) : null;
+      visNodes.update([...views.values()].map(v => {
+        const n = nodeById.get(v.did);
+        const base = baseNode(v);
+        const isResource = n.type === 'resource';
+        const domain = isResource ? domainAssignments.get(n.id) : null;
+        const dim = near && !near.has(v.vid);
+        const show = visible.has(v.vid);
+        const rule = LABEL[n.type];
+        const showLabel = show && !dim && (isResource || n.type === 'topic');
+        const domColor = domain ? getDomainColor(domain) : COLORS[n.type];
+        return {
+          id: v.vid,
+          hidden: !show,
+          opacity: dim ? DIM : (isResource ? 1 : 0.3),
+          borderWidth: v.did === selectedId ? 4 : base.borderWidth,
+          color: isResource ? {
+            background: domColor, border: domColor,
+            highlight: { background: domColor, border: '#fff' },
+            hover: { background: domColor, border: '#fff' },
+          } : { ...base.color, border: dim ? base.color.border : '#ffffff22' },
+          font: {
+            ...base.font,
+            size: rule.px / Math.max(scale, 0.01),
+            color: showLabel ? '#fff' : 'rgba(0,0,0,0)',
+            strokeWidth: showLabel ? 4 : 0,
+          },
+          size: isResource ? 7 : SIZE[n.type](n) * 0.5,
+        };
+      }));
+      visEdges.update(visEdges.get().map(e => ({
+        id: e.id,
+        hidden: !visible.has(e.from) || !visible.has(e.to),
+        color: { color: '#ffffff10', inherit: false },
+        width: 0.5,
+      })));
+    }
+
+    function setView(mode) {
+      if (mode === viewMode) return;
+      viewMode = mode;
+      document.querySelectorAll('.view-toggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.view === mode);
+      });
+      const branchSection = document.querySelector('#left-panel > div:nth-child(2)');
+      if (branchSection) branchSection.style.display = mode === 'domain' ? 'none' : '';
+      if (mode === 'domain') {
+        assignDomains();
+        renderDomainOverview();
+        renderDomainMode();
+      } else {
+        clearSelection();
+        render();
+        renderOverview();
+        fitTo(null, 400);
+      }
+    }
+
+    document.getElementById('view-toggle').addEventListener('click', e => {
+      const btn = e.target.closest('[data-view]');
+      if (btn) setView(btn.dataset.view);
+    });
+
+    // Handle domain legend clicks
+    document.getElementById('overview').addEventListener('click', e => {
+      const li = e.target.closest('[data-domain]');
+      if (!li || viewMode !== 'domain') return;
+      const domName = li.dataset.domain;
+      // Find resources in this domain and show them
+      const rids = [...domainAssignments.entries()]
+        .filter(([_, d]) => d === domName)
+        .map(([rid]) => rid);
+      if (!rids.length) return;
+      // Show a detail panel listing resources in this domain
+      const el = document.getElementById('detail');
+      const resources = rids.map(rid => nodeById.get(rid)).filter(Boolean)
+        .sort((a, b) => a.label.localeCompare(b.label));
+      el.innerHTML = `
+        <button type="button" class="detail-back">&larr; Domains</button>
+        <span class="type-badge" style="background:${esc(getDomainColor(domName))}">Domain</span>
+        <h3>${esc(domName)}</h3>
+        <div class="summary">${resources.length} resources from ${new Set(resources.flatMap(r => r.branches || [])).size} branches</div>
+        <div class="section" style="margin-top:14px"><h4>Resources</h4>
+          <ul class="node-list">${resources.map(r => listItem(r.id, (r.branches || []).join(', '))).join('')}</ul></div>`;
+      el.hidden = false;
+      document.getElementById('overview').hidden = true;
+      document.getElementById('right-panel').classList.add('mobile-open');
+    });
+
+    // Override render for domain mode
+    const origRender = render;
+    render = function() {
+      if (viewMode === 'domain') {
+        renderDomainMode();
+        renderBranchList();
+        return;
+      }
+      origRender();
+      updateSearchHighlight();
+    };
+
+    // Add tour buttons in branch detail view — patch showDetail
+    const origShowDetail = showDetail;
+    showDetail = function(did) {
+      origShowDetail(did);
+      const n = nodeById.get(did);
+      if (n?.type === 'branch' && n.count > 0) {
+        const el = document.getElementById('detail');
+        const actionsDiv = el.querySelector('.actions');
+        if (actionsDiv) {
+          const tourBtn = document.createElement('button');
+          tourBtn.type = 'button';
+          tourBtn.className = 'btn secondary';
+          tourBtn.textContent = '▶ Guided tour';
+          tourBtn.addEventListener('click', () => startTour(did));
+          actionsDiv.appendChild(tourBtn);
+        }
+      }
+    };
+
+    // Override back button in domain mode
+    document.getElementById('right-panel').addEventListener('click', e => {
+      if (e.target.closest('.detail-back') && viewMode === 'domain') {
+        e.stopPropagation();
+        renderDomainOverview();
+      }
+    }, true);
+
+    // Ensure search triggers highlight update
+    document.getElementById('search-input').addEventListener('input', () => {
+      setTimeout(updateSearchHighlight, 160);
+    });
+
+    async function loadExtras() {
+      await Promise.all([loadTourOverrides(), loadDomains()]);
+    }
+
+    loadExtras();
     load();
   </script>
 </body>
