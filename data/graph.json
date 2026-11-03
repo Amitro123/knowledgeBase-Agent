@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-03T22:18:40+00:00",
+  "generated_at": "2026-11-03T22:19:25+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -1158,7 +1158,7 @@
       "url": "https://github.com/withmarbleapp/os-taxonomy",
       "github_repo": "withmarbleapp/os-taxonomy",
       "summary": "Open JSON dataset mapping what primary-school children learn as 1,861 micro-topics linked by 4,003 prerequisite edges and aligned to curriculum standards.",
-      "notes": "~7.6k stars, ODbL-1.0 (open data license), JavaScript. v1: 9 subjects (Math 581, Science 576, English 339...), DAG edges tagged hard/soft with a reason, mastery evidence per topic, alignment to NGSS, Common Core, UK National Curriculum, Ontario, Australian v9; 1,049 teaching-research records (partial). JSON Schemas in schema/. Interactive 3D view: withmarble.com/curriculum. A dataset, not software. Close call: Learning / Learning Material-type tabs.",
+      "notes": "~7.6k stars, ODbL-1.0 (open data license), JavaScript. v1: 9 subjects (Math 581, Science 576, English 339...), DAG edges tagged hard/soft with a reason, mastery evidence per topic, alignment to NGSS, Common Core, UK National Curriculum, Ontario, Australian v9; 1,049 teaching-research records (partial). JSON Schemas in schema/. Interactive 3D view: withmarble.com/curriculum. A dataset, not software. Close calls: Learning tab (holds articles/guides, not datasets); Repos in github / Learning Material.",
       "added_at": "2026-11-04",
       "date_source": "sheet",
       "branches": [

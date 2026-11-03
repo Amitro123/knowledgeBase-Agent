@@ -2955,7 +2955,7 @@
     "created": "2026-11-04",
     "added_at": "2026-11-04",
     "date_source": "sheet",
-    "notes": "~7.6k stars, ODbL-1.0 (open data license), JavaScript. v1: 9 subjects (Math 581, Science 576, English 339...), DAG edges tagged hard/soft with a reason, mastery evidence per topic, alignment to NGSS, Common Core, UK National Curriculum, Ontario, Australian v9; 1,049 teaching-research records (partial). JSON Schemas in schema/. Interactive 3D view: withmarble.com/curriculum. A dataset, not software. Close call: Learning / Learning Material-type tabs."
+    "notes": "~7.6k stars, ODbL-1.0 (open data license), JavaScript. v1: 9 subjects (Math 581, Science 576, English 339...), DAG edges tagged hard/soft with a reason, mastery evidence per topic, alignment to NGSS, Common Core, UK National Curriculum, Ontario, Australian v9; 1,049 teaching-research records (partial). JSON Schemas in schema/. Interactive 3D view: withmarble.com/curriculum. A dataset, not software. Close calls: Learning tab (holds articles/guides, not datasets); Repos in github / Learning Material."
   },
   {
     "id": 133,
