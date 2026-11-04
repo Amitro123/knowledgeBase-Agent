@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T12:53:29+00:00",
+  "generated_at": "2026-11-04T19:17:44+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -48,7 +48,7 @@
       "type": "branch",
       "label": "Memory",
       "slug": "memory",
-      "count": 10,
+      "count": 11,
       "topic_count": 3
     },
     {
@@ -169,17 +169,17 @@
       "count": 11
     },
     {
-      "id": "topic:learning/agents-&-context",
-      "type": "topic",
-      "label": "agents & context",
-      "branch": "branch:learning",
-      "count": 8
-    },
-    {
       "id": "topic:memory/agent-memory",
       "type": "topic",
       "label": "agent memory",
       "branch": "branch:memory",
+      "count": 9
+    },
+    {
+      "id": "topic:learning/agents-&-context",
+      "type": "topic",
+      "label": "agents & context",
+      "branch": "branch:learning",
       "count": 8
     },
     {
@@ -1711,6 +1711,23 @@
     {
       "id": "resource:161",
       "type": "resource",
+      "label": "EXXETA / exxperts",
+      "url": "https://github.com/EXXETA/exxperts",
+      "github_repo": "EXXETA/exxperts",
+      "summary": "Open-source desktop AI assistant that shows a draft of what it would remember and lets you edit or discard it before saving to a local memory file.",
+      "notes": "430 stars, Apache-2.0, TypeScript (Electron). Mac/Windows/Linux. One 'room' per project/topic, each with its own plain-file memory; sign in with ChatGPT, Claude or GitHub Copilot, or API key / company gateway. Human-in-the-loop memory. Close calls: Tools / AI Apps & Agents (it is a desktop app).",
+      "added_at": "2026-11-04",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:162",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1727,7 +1744,7 @@
       ]
     },
     {
-      "id": "resource:162",
+      "id": "resource:163",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1745,7 +1762,7 @@
       ]
     },
     {
-      "id": "resource:163",
+      "id": "resource:164",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1762,7 +1779,7 @@
       ]
     },
     {
-      "id": "resource:164",
+      "id": "resource:165",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1779,7 +1796,7 @@
       ]
     },
     {
-      "id": "resource:165",
+      "id": "resource:166",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1796,7 +1813,7 @@
       ]
     },
     {
-      "id": "resource:166",
+      "id": "resource:167",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1813,7 +1830,7 @@
       ]
     },
     {
-      "id": "resource:167",
+      "id": "resource:168",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -1830,7 +1847,7 @@
       ]
     },
     {
-      "id": "resource:168",
+      "id": "resource:169",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -1844,23 +1861,6 @@
       ],
       "topics": [
         "agent harness"
-      ]
-    },
-    {
-      "id": "resource:169",
-      "type": "resource",
-      "label": "pg-jev / realZachi",
-      "url": "https://github.com/realZachi/pg-jev",
-      "github_repo": "realZachi/pg-jev",
-      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
-      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "jev"
-      ],
-      "topics": [
-        "postgres extension"
       ]
     },
     {
@@ -1884,6 +1884,23 @@
     },
     {
       "id": "resource:170",
+      "type": "resource",
+      "label": "pg-jev / realZachi",
+      "url": "https://github.com/realZachi/pg-jev",
+      "github_repo": "realZachi/pg-jev",
+      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
+      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "postgres extension"
+      ]
+    },
+    {
+      "id": "resource:171",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4530,13 +4547,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:161",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:161",
+      "target": "resource:162",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4546,7 +4568,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:161",
+      "target": "resource:162",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4556,7 +4578,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:162",
+      "target": "resource:163",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4566,7 +4588,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:162",
+      "target": "resource:163",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4576,7 +4598,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:163",
+      "target": "resource:164",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4586,18 +4608,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:164",
+      "target": "resource:165",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:165",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4615,13 +4632,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:169",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:169",
+      "target": "resource:170",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4631,7 +4653,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:170",
+      "target": "resource:171",
       "type": "HAS_RESOURCE"
     }
   ]
