@@ -3812,6 +3812,28 @@
   },
   {
     "id": 170,
+    "url": "https://github.com/swe-agent/mini-swe-agent",
+    "title": "SWE-agent / mini-swe-agent",
+    "summary": "Minimal ~100-line Python coding agent that solves GitHub issues or works in the CLI; bash-only tools, linear history, scores >74% on SWE-bench verified.",
+    "category": "other",
+    "tags": [
+      "harness",
+      "agent harness"
+    ],
+    "placements": [
+      {
+        "branch": "harness",
+        "topic": "Agent Harness"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-11-05",
+    "added_at": "2026-11-05",
+    "date_source": "sheet",
+    "notes": "~9.1k stars, MIT, Python. From the Princeton/Stanford SWE-bench & SWE-agent team. v2 (migration guide). Deploy: local, docker/podman, singularity, bubblewrap. Models via litellm/openrouter/portkey. PyPI: mini-swe-agent. Docs: mini-swe-agent.com. Close calls: Tools / AI Apps & Agents; Repos / Agent Frameworks."
+  },
+  {
+    "id": 171,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -3833,7 +3855,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 171,
+    "id": 172,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",

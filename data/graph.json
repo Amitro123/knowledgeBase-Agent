@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T16:05:41+00:00",
+  "generated_at": "2026-11-05T18:41:26+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -60,20 +60,20 @@
       "topic_count": 3
     },
     {
+      "id": "branch:harness",
+      "type": "branch",
+      "label": "Harness",
+      "slug": "harness",
+      "count": 8,
+      "topic_count": 4
+    },
+    {
       "id": "branch:mcp",
       "type": "branch",
       "label": "MCP",
       "slug": "mcp",
       "count": 8,
       "topic_count": 3
-    },
-    {
-      "id": "branch:harness",
-      "type": "branch",
-      "label": "Harness",
-      "slug": "harness",
-      "count": 7,
-      "topic_count": 4
     },
     {
       "id": "branch:rag",
@@ -232,6 +232,13 @@
       "count": 6
     },
     {
+      "id": "topic:harness/agent-harness",
+      "type": "topic",
+      "label": "agent harness",
+      "branch": "branch:harness",
+      "count": 5
+    },
+    {
       "id": "topic:learning/llms-&-training",
       "type": "topic",
       "label": "llms & training",
@@ -257,13 +264,6 @@
       "type": "topic",
       "label": "automation",
       "branch": "branch:automation-flow",
-      "count": 4
-    },
-    {
-      "id": "topic:harness/agent-harness",
-      "type": "topic",
-      "label": "agent harness",
-      "branch": "branch:harness",
       "count": 4
     },
     {
@@ -1885,6 +1885,23 @@
     {
       "id": "resource:170",
       "type": "resource",
+      "label": "SWE-agent / mini-swe-agent",
+      "url": "https://github.com/swe-agent/mini-swe-agent",
+      "github_repo": "swe-agent/mini-swe-agent",
+      "summary": "Minimal ~100-line Python coding agent that solves GitHub issues or works in the CLI; bash-only tools, linear history, scores >74% on SWE-bench verified.",
+      "notes": "~9.1k stars, MIT, Python. From the Princeton/Stanford SWE-bench & SWE-agent team. v2 (migration guide). Deploy: local, docker/podman, singularity, bubblewrap. Models via litellm/openrouter/portkey. PyPI: mini-swe-agent. Docs: mini-swe-agent.com. Close calls: Tools / AI Apps & Agents; Repos / Agent Frameworks.",
+      "added_at": "2026-11-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:171",
+      "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
       "github_repo": "realZachi/pg-jev",
@@ -1900,7 +1917,7 @@
       ]
     },
     {
-      "id": "resource:171",
+      "id": "resource:172",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4637,13 +4654,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:170",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:170",
+      "target": "resource:171",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4653,7 +4675,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:171",
+      "target": "resource:172",
       "type": "HAS_RESOURCE"
     }
   ]
