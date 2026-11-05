@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T22:10:25+00:00",
+  "generated_at": "2026-11-05T22:25:32+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -76,20 +76,20 @@
       "topic_count": 3
     },
     {
+      "id": "branch:claude",
+      "type": "branch",
+      "label": "Claude",
+      "slug": "claude",
+      "count": 6,
+      "topic_count": 2
+    },
+    {
       "id": "branch:rag",
       "type": "branch",
       "label": "RAG",
       "slug": "rag",
       "count": 6,
       "topic_count": 3
-    },
-    {
-      "id": "branch:claude",
-      "type": "branch",
-      "label": "Claude",
-      "slug": "claude",
-      "count": 5,
-      "topic_count": 2
     },
     {
       "id": "branch:jev",
@@ -302,6 +302,13 @@
       "count": 3
     },
     {
+      "id": "topic:claude/cost-&-models",
+      "type": "topic",
+      "label": "cost & models",
+      "branch": "branch:claude",
+      "count": 3
+    },
+    {
       "id": "topic:rag/frameworks-&-tools",
       "type": "topic",
       "label": "frameworks & tools",
@@ -328,13 +335,6 @@
       "label": "tutorials",
       "branch": "branch:tools",
       "count": 3
-    },
-    {
-      "id": "topic:claude/cost-&-models",
-      "type": "topic",
-      "label": "cost & models",
-      "branch": "branch:claude",
-      "count": 2
     },
     {
       "id": "topic:learning/productivity",
@@ -1572,6 +1572,23 @@
     {
       "id": "resource:154",
       "type": "resource",
+      "label": "rsaryev / tokendoctor",
+      "url": "https://github.com/rsaryev/tokendoctor",
+      "github_repo": "rsaryev/tokendoctor",
+      "summary": "Claude Code plugin that shows where tokens go, audits settings against the docs, and applies approved diffs so the same work costs less.",
+      "notes": "44 stars, MIT, TypeScript. Local-only; install: claude plugin marketplace add rsaryev/tokendoctor && claude plugin install tokendoctor@tokendoctor. Commands: /tokendoctor:sessions (replay savings), :optimize (31 checks + diffs), :audit, :dashboard, slide on (tool-output slide instead of summarize), undo. Author claims up to −38% on their use. Site: tokendoctor.dev. Close calls: FinOps (wrong existing topic Code Search); Skills / Workflows & Apps; Claude Code topic.",
+      "added_at": "2026-11-06",
+      "date_source": "sheet",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "cost & models"
+      ]
+    },
+    {
+      "id": "resource:155",
+      "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
       "github_repo": "GoogleCloudPlatform/generative-ai",
@@ -1587,7 +1604,7 @@
       ]
     },
     {
-      "id": "resource:155",
+      "id": "resource:156",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1604,7 +1621,7 @@
       ]
     },
     {
-      "id": "resource:156",
+      "id": "resource:157",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1622,7 +1639,7 @@
       ]
     },
     {
-      "id": "resource:157",
+      "id": "resource:158",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1639,7 +1656,7 @@
       ]
     },
     {
-      "id": "resource:158",
+      "id": "resource:159",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1647,23 +1664,6 @@
       "summary": "Local lossless long-term memory for a personal AI: keeps every conversation line with timestamps, never summarizes, and searches by time first.",
       "notes": "138 stars, MIT, Python. Last commit Sep 2026. Not archived.",
       "added_at": "2026-10-05",
-      "date_source": "sheet",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
-      ]
-    },
-    {
-      "id": "resource:159",
-      "type": "resource",
-      "label": "deeplethe / utopia",
-      "url": "https://github.com/deeplethe/utopia",
-      "github_repo": "deeplethe/utopia",
-      "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
-      "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
-      "added_at": "2026-10-07",
       "date_source": "sheet",
       "branches": [
         "memory"
@@ -1694,6 +1694,23 @@
     {
       "id": "resource:160",
       "type": "resource",
+      "label": "deeplethe / utopia",
+      "url": "https://github.com/deeplethe/utopia",
+      "github_repo": "deeplethe/utopia",
+      "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
+      "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
+      "added_at": "2026-10-07",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:161",
+      "type": "resource",
       "label": "mksglu / context-mode",
       "url": "https://github.com/mksglu/context-mode",
       "github_repo": "mksglu/context-mode",
@@ -1709,7 +1726,7 @@
       ]
     },
     {
-      "id": "resource:161",
+      "id": "resource:162",
       "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
@@ -1726,7 +1743,7 @@
       ]
     },
     {
-      "id": "resource:162",
+      "id": "resource:163",
       "type": "resource",
       "label": "EXXETA / exxperts",
       "url": "https://github.com/EXXETA/exxperts",
@@ -1743,7 +1760,7 @@
       ]
     },
     {
-      "id": "resource:163",
+      "id": "resource:164",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1761,7 +1778,7 @@
       ]
     },
     {
-      "id": "resource:164",
+      "id": "resource:165",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1779,7 +1796,7 @@
       ]
     },
     {
-      "id": "resource:165",
+      "id": "resource:166",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1796,7 +1813,7 @@
       ]
     },
     {
-      "id": "resource:166",
+      "id": "resource:167",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1813,7 +1830,7 @@
       ]
     },
     {
-      "id": "resource:167",
+      "id": "resource:168",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1830,30 +1847,13 @@
       ]
     },
     {
-      "id": "resource:168",
+      "id": "resource:169",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
       "github_repo": "coldteadotai/abide",
       "summary": "Abide hooks Claude Code, Codex, OpenCode, and Pi, and uses TypeSafe's Jev to check each edit against project rules so the agent can repair breaks.",
       "notes": "539 stars. MIT. TypeScript. Last commit October 2026 (v0.0.8). Not archived. Changed lines go to TypeSafe under your API key.",
-      "added_at": "2026-10-05",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
-      ]
-    },
-    {
-      "id": "resource:169",
-      "type": "resource",
-      "label": "Clearailhc / clearai-dsh",
-      "url": "https://github.com/Clearailhc/clearai-dsh",
-      "github_repo": "Clearailhc/clearai-dsh",
-      "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
-      "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh.",
       "added_at": "2026-10-05",
       "date_source": "sheet",
       "branches": [
@@ -1885,6 +1885,23 @@
     {
       "id": "resource:170",
       "type": "resource",
+      "label": "Clearailhc / clearai-dsh",
+      "url": "https://github.com/Clearailhc/clearai-dsh",
+      "github_repo": "Clearailhc/clearai-dsh",
+      "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
+      "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh.",
+      "added_at": "2026-10-05",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:171",
+      "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
       "github_repo": "mvschwarz/openrig",
@@ -1900,7 +1917,7 @@
       ]
     },
     {
-      "id": "resource:171",
+      "id": "resource:172",
       "type": "resource",
       "label": "SWE-agent / mini-swe-agent",
       "url": "https://github.com/swe-agent/mini-swe-agent",
@@ -1917,7 +1934,7 @@
       ]
     },
     {
-      "id": "resource:172",
+      "id": "resource:173",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -1934,7 +1951,7 @@
       ]
     },
     {
-      "id": "resource:173",
+      "id": "resource:174",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4531,7 +4548,7 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:154",
       "type": "HAS_RESOURCE"
     },
@@ -4541,13 +4558,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:156",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:156",
+      "target": "resource:157",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4557,11 +4579,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:156",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:157",
       "type": "HAS_RESOURCE"
     },
@@ -4591,13 +4608,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:163",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:163",
+      "target": "resource:164",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4607,7 +4629,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:163",
+      "target": "resource:164",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4617,7 +4639,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:164",
+      "target": "resource:165",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4627,7 +4649,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:164",
+      "target": "resource:165",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4637,7 +4659,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:165",
+      "target": "resource:166",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4647,18 +4669,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:166",
+      "target": "resource:167",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:167",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4681,13 +4698,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:172",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:172",
+      "target": "resource:173",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4697,7 +4719,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:173",
+      "target": "resource:174",
       "type": "HAS_RESOURCE"
     }
   ]
