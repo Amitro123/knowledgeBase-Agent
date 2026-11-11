@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T17:40:57+00:00",
+  "generated_at": "2026-11-11T21:47:59+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -76,20 +76,20 @@
       "topic_count": 4
     },
     {
+      "id": "branch:claude",
+      "type": "branch",
+      "label": "Claude",
+      "slug": "claude",
+      "count": 7,
+      "topic_count": 2
+    },
+    {
       "id": "branch:rag",
       "type": "branch",
       "label": "RAG",
       "slug": "rag",
       "count": 7,
       "topic_count": 3
-    },
-    {
-      "id": "branch:claude",
-      "type": "branch",
-      "label": "Claude",
-      "slug": "claude",
-      "count": 6,
-      "topic_count": 2
     },
     {
       "id": "branch:jev",
@@ -274,6 +274,13 @@
       "count": 4
     },
     {
+      "id": "topic:claude/claude-code",
+      "type": "topic",
+      "label": "claude code",
+      "branch": "branch:claude",
+      "count": 4
+    },
+    {
       "id": "topic:rag/frameworks-&-tools",
       "type": "topic",
       "label": "frameworks & tools",
@@ -299,13 +306,6 @@
       "type": "topic",
       "label": "browser automation",
       "branch": "branch:automation-flow",
-      "count": 3
-    },
-    {
-      "id": "topic:claude/claude-code",
-      "type": "topic",
-      "label": "claude code",
-      "branch": "branch:claude",
       "count": 3
     },
     {
@@ -1744,6 +1744,23 @@
     {
       "id": "resource:163",
       "type": "resource",
+      "label": "alexeyw / lot-map",
+      "url": "https://github.com/alexeyw/lot-map",
+      "github_repo": "alexeyw/lot-map",
+      "summary": "Claude Code plugin that draws a local live map beside the chat, lighting up tool calls, model steps, hooks, skills and subagents as they happen.",
+      "notes": "360 stars; MIT; TypeScript. Install: claude plugin install lot-map --marketplace alexeyw/lot-map (or /plugin in a session). Local only: no network requests, no file reads, no model calls; labels show names not content. Languages: en, ru, es, fr, de, it. Tested on Claude Code 2.1.321 on macOS; users report Windows works too. Not a fork or archived; last push Nov 2026. Close calls: Observability (live activity map, but that tab's only topic is AI SRE); Tools / Developer Tools. Claude Code chosen because it is a Claude Code-only plugin. Different from floorplan, which maps a codebase rather than a live session. Not installed or run.",
+      "added_at": "2026-11-11",
+      "date_source": "sheet",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "claude code"
+      ]
+    },
+    {
+      "id": "resource:164",
+      "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
       "github_repo": "GoogleCloudPlatform/generative-ai",
@@ -1759,7 +1776,7 @@
       ]
     },
     {
-      "id": "resource:164",
+      "id": "resource:165",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1776,7 +1793,7 @@
       ]
     },
     {
-      "id": "resource:165",
+      "id": "resource:166",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1794,7 +1811,7 @@
       ]
     },
     {
-      "id": "resource:166",
+      "id": "resource:167",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1811,7 +1828,7 @@
       ]
     },
     {
-      "id": "resource:167",
+      "id": "resource:168",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1828,7 +1845,7 @@
       ]
     },
     {
-      "id": "resource:168",
+      "id": "resource:169",
       "type": "resource",
       "label": "deeplethe / utopia",
       "url": "https://github.com/deeplethe/utopia",
@@ -1836,23 +1853,6 @@
       "summary": "Self-hosted enterprise world model: a bitemporal knowledge graph with ontology, GraphRAG, and agent memory on PostgreSQL.",
       "notes": "~8.1k stars. Apache-2.0. Rust. Last commit Oct 2026. Topics: agent-memory, graphrag, temporal knowledge graph.",
       "added_at": "2026-10-07",
-      "date_source": "sheet",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
-      ]
-    },
-    {
-      "id": "resource:169",
-      "type": "resource",
-      "label": "mksglu / context-mode",
-      "url": "https://github.com/mksglu/context-mode",
-      "github_repo": "mksglu/context-mode",
-      "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
-      "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms",
-      "added_at": "2026-10-09",
       "date_source": "sheet",
       "branches": [
         "memory"
@@ -1883,6 +1883,23 @@
     {
       "id": "resource:170",
       "type": "resource",
+      "label": "mksglu / context-mode",
+      "url": "https://github.com/mksglu/context-mode",
+      "github_repo": "mksglu/context-mode",
+      "summary": "MCP server and hooks that keep raw tool output out of coding agents' context and restore session state after compaction via SQLite FTS5 search.",
+      "notes": "~25.8k★, Elastic License 2.0 (ELv2), TypeScript; Claude Code: /plugin marketplace add mksglu/context-mode; supports 17 platforms",
+      "added_at": "2026-10-09",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:171",
+      "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
       "github_repo": "liliang-cn/cortexdb",
@@ -1898,7 +1915,7 @@
       ]
     },
     {
-      "id": "resource:171",
+      "id": "resource:172",
       "type": "resource",
       "label": "EXXETA / exxperts",
       "url": "https://github.com/EXXETA/exxperts",
@@ -1915,7 +1932,7 @@
       ]
     },
     {
-      "id": "resource:172",
+      "id": "resource:173",
       "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
@@ -1933,7 +1950,7 @@
       ]
     },
     {
-      "id": "resource:173",
+      "id": "resource:174",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1951,7 +1968,7 @@
       ]
     },
     {
-      "id": "resource:174",
+      "id": "resource:175",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1968,7 +1985,7 @@
       ]
     },
     {
-      "id": "resource:175",
+      "id": "resource:176",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1985,7 +2002,7 @@
       ]
     },
     {
-      "id": "resource:176",
+      "id": "resource:177",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -2002,7 +2019,7 @@
       ]
     },
     {
-      "id": "resource:177",
+      "id": "resource:178",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -2019,7 +2036,7 @@
       ]
     },
     {
-      "id": "resource:178",
+      "id": "resource:179",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -2027,23 +2044,6 @@
       "summary": "DeepSeek Harness plugin that grows a domain ontology through an epistemic loop of question, test, evidence, and conclusion.",
       "notes": "~1.3k stars. Apache-2.0. JavaScript. Last commit Oct 2026. Install: dsh plugin add clearai-dsh.",
       "added_at": "2026-10-05",
-      "date_source": "sheet",
-      "branches": [
-        "harness"
-      ],
-      "topics": [
-        "agent harness"
-      ]
-    },
-    {
-      "id": "resource:179",
-      "type": "resource",
-      "label": "mvschwarz / openrig",
-      "url": "https://github.com/mvschwarz/openrig",
-      "github_repo": "mvschwarz/openrig",
-      "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
-      "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)",
-      "added_at": "2026-10-08",
       "date_source": "sheet",
       "branches": [
         "harness"
@@ -2072,6 +2072,23 @@
     {
       "id": "resource:180",
       "type": "resource",
+      "label": "mvschwarz / openrig",
+      "url": "https://github.com/mvschwarz/openrig",
+      "github_repo": "mvschwarz/openrig",
+      "summary": "CLI for defining persistent multi-agent teams of Claude Code and Codex in YAML, run in tmux with roles, shared context and a lead agent.",
+      "notes": "~6k★, Apache-2.0, TypeScript; npm i -g @openrig/cli; needs Node 22/24 + tmux (macOS/Linux/WSL2)",
+      "added_at": "2026-10-08",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:181",
+      "type": "resource",
       "label": "SWE-agent / mini-swe-agent",
       "url": "https://github.com/swe-agent/mini-swe-agent",
       "github_repo": "swe-agent/mini-swe-agent",
@@ -2087,7 +2104,7 @@
       ]
     },
     {
-      "id": "resource:181",
+      "id": "resource:182",
       "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
@@ -2104,7 +2121,7 @@
       ]
     },
     {
-      "id": "resource:182",
+      "id": "resource:183",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4729,7 +4746,7 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/claude-code",
       "target": "resource:163",
       "type": "HAS_RESOURCE"
     },
@@ -4739,13 +4756,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:165",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:165",
+      "target": "resource:166",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4755,11 +4777,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:165",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:166",
       "type": "HAS_RESOURCE"
     },
@@ -4789,13 +4806,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:172",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:172",
+      "target": "resource:173",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4805,7 +4827,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:172",
+      "target": "resource:173",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4815,7 +4837,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:173",
+      "target": "resource:174",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4825,7 +4847,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:173",
+      "target": "resource:174",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4835,7 +4857,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:174",
+      "target": "resource:175",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4845,18 +4867,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:175",
+      "target": "resource:176",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:176",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4879,13 +4896,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:181",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:181",
+      "target": "resource:182",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4895,7 +4917,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:182",
+      "target": "resource:183",
       "type": "HAS_RESOURCE"
     }
   ]
