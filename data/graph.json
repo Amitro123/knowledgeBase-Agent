@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T02:07:03+00:00",
+  "generated_at": "2026-11-11T07:03:42+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -40,7 +40,7 @@
       "type": "branch",
       "label": "Skills",
       "slug": "skills",
-      "count": 16,
+      "count": 17,
       "topic_count": 3
     },
     {
@@ -197,17 +197,17 @@
       "count": 8
     },
     {
-      "id": "topic:repos-in-github/llm-infrastructure",
-      "type": "topic",
-      "label": "llm infrastructure",
-      "branch": "branch:repos-in-github",
-      "count": 7
-    },
-    {
       "id": "topic:skills/skill-libraries",
       "type": "topic",
       "label": "skill libraries",
       "branch": "branch:skills",
+      "count": 8
+    },
+    {
+      "id": "topic:repos-in-github/llm-infrastructure",
+      "type": "topic",
+      "label": "llm infrastructure",
+      "branch": "branch:repos-in-github",
       "count": 7
     },
     {
@@ -1555,6 +1555,23 @@
     {
       "id": "resource:153",
       "type": "resource",
+      "label": "caldoai / untangle-codebase skill",
+      "url": "https://github.com/caldoai/skills/blob/main/skills/untangle-codebase/SKILL.md",
+      "github_repo": "caldoai/skills",
+      "summary": "Coding-agent skill that thoroughly refactors a codebase in one pass to reduce hidden coupling, so later agent changes read less and break less.",
+      "notes": "Parent repo caldoai/skills: 1,107 stars (~1.1k), MIT, no language detected (markdown skills pack). Not a fork or archived; last push Nov 2026. File kept as this SKILL.md URL because the user sent this specific skill, not the whole pack; check_link.py did not collapse it, and neither the file URL nor https://github.com/caldoai/skills was already in the sheet. Frontmatter: name untangle-codebase, disable-model-invocation true. Workflow: list hidden/needless links and surplus, redesign from first principles, then fix everything; optional comment and test cleanup. Skill was not run. Close call: Workflows & Apps (it is an end-to-end refactor process); Skill Libraries chosen because it is an installable agent skill, like ub-mode and security-audit-skill.",
+      "added_at": "2026-11-11",
+      "date_source": "sheet",
+      "branches": [
+        "skills"
+      ],
+      "topics": [
+        "skill libraries"
+      ]
+    },
+    {
+      "id": "resource:154",
+      "type": "resource",
       "label": "Teleport (Gravitational) / RFD 0238",
       "url": "https://github.com/gravitational/teleport/blob/master/rfd/0238-delegating-access-to-ai-workloads.md",
       "github_repo": "gravitational/teleport",
@@ -1570,7 +1587,7 @@
       ]
     },
     {
-      "id": "resource:154",
+      "id": "resource:155",
       "type": "resource",
       "label": "OWASP / AISVS",
       "url": "https://github.com/OWASP/AISVS",
@@ -1587,7 +1604,7 @@
       ]
     },
     {
-      "id": "resource:155",
+      "id": "resource:156",
       "type": "resource",
       "label": "Uber / ADR",
       "url": "https://github.com/uber/ADR",
@@ -1604,7 +1621,7 @@
       ]
     },
     {
-      "id": "resource:156",
+      "id": "resource:157",
       "type": "resource",
       "label": "Cygnux-Labs / Tracekit",
       "url": "https://github.com/Cygnux-Labs/Tracekit",
@@ -1621,7 +1638,7 @@
       ]
     },
     {
-      "id": "resource:157",
+      "id": "resource:158",
       "type": "resource",
       "label": "alexgreensh / token-optimizer",
       "url": "https://github.com/alexgreensh/token-optimizer#how-it-compares",
@@ -1638,7 +1655,7 @@
       ]
     },
     {
-      "id": "resource:158",
+      "id": "resource:159",
       "type": "resource",
       "label": "Tzach Bonfil / claude-model-advisor",
       "url": "https://github.com/tzachbon/claude-model-advisor",
@@ -1652,23 +1669,6 @@
       ],
       "topics": [
         "cost & models"
-      ]
-    },
-    {
-      "id": "resource:159",
-      "type": "resource",
-      "label": "Claude Code Tips (onmyway133)",
-      "url": "https://github.com/onmyway133/claude-code-tips-tricks",
-      "github_repo": "onmyway133/claude-code-tips-tricks",
-      "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
-      "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "claude"
-      ],
-      "topics": [
-        "claude code"
       ]
     },
     {
@@ -1693,6 +1693,23 @@
     {
       "id": "resource:160",
       "type": "resource",
+      "label": "Claude Code Tips (onmyway133)",
+      "url": "https://github.com/onmyway133/claude-code-tips-tricks",
+      "github_repo": "onmyway133/claude-code-tips-tricks",
+      "summary": "Collection of onmyway133's favorite Claude Code tips, grouped into short notes on sessions, commands, agents, skills, MCP, prompts, hooks, workflow, and context. It is a curated tip list with examples and reference links, not a step-by-step course.",
+      "notes": "102 GitHub stars. No license file. No primary language (Markdown and images only). Practical note: the tree is README, CONTRIBUTING, images, and a few tip markdown files; it discusses skills and MCP but does not ship agent skill packages.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "claude"
+      ],
+      "topics": [
+        "claude code"
+      ]
+    },
+    {
+      "id": "resource:161",
+      "type": "resource",
       "label": "rsaryev / tokendoctor",
       "url": "https://github.com/rsaryev/tokendoctor",
       "github_repo": "rsaryev/tokendoctor",
@@ -1708,7 +1725,7 @@
       ]
     },
     {
-      "id": "resource:161",
+      "id": "resource:162",
       "type": "resource",
       "label": "Google Cloud Platform (always-on-memory-agent)",
       "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
@@ -1725,7 +1742,7 @@
       ]
     },
     {
-      "id": "resource:162",
+      "id": "resource:163",
       "type": "resource",
       "label": "lean-ctx / yvgude",
       "url": "https://github.com/yvgude/lean-ctx",
@@ -1742,7 +1759,7 @@
       ]
     },
     {
-      "id": "resource:163",
+      "id": "resource:164",
       "type": "resource",
       "label": "OpenHuman / tinyhumansai",
       "url": "https://github.com/tinyhumansai/openhuman",
@@ -1760,7 +1777,7 @@
       ]
     },
     {
-      "id": "resource:164",
+      "id": "resource:165",
       "type": "resource",
       "label": "Coding Dev Tools / engraphis",
       "url": "https://github.com/Coding-Dev-Tools/engraphis",
@@ -1777,7 +1794,7 @@
       ]
     },
     {
-      "id": "resource:165",
+      "id": "resource:166",
       "type": "resource",
       "label": "aru-labs / lossless-memory",
       "url": "https://github.com/aru-labs/lossless-memory",
@@ -1794,7 +1811,7 @@
       ]
     },
     {
-      "id": "resource:166",
+      "id": "resource:167",
       "type": "resource",
       "label": "deeplethe / utopia",
       "url": "https://github.com/deeplethe/utopia",
@@ -1811,7 +1828,7 @@
       ]
     },
     {
-      "id": "resource:167",
+      "id": "resource:168",
       "type": "resource",
       "label": "mksglu / context-mode",
       "url": "https://github.com/mksglu/context-mode",
@@ -1828,7 +1845,7 @@
       ]
     },
     {
-      "id": "resource:168",
+      "id": "resource:169",
       "type": "resource",
       "label": "liliang-cn / cortexdb",
       "url": "https://github.com/liliang-cn/cortexdb",
@@ -1836,23 +1853,6 @@
       "summary": "Embedded pure-Go agent memory and knowledge graph in one SQLite file, with vectors, RAG, SPARQL/Cypher and MCP tools; no embedding model required.",
       "notes": "~300★ (304), MIT, Go; go get github.com/liliang-cn/cortexdb/v2 or Claude Code/Codex plugin; optional gRPC shared-brain server",
       "added_at": "2026-10-13",
-      "date_source": "sheet",
-      "branches": [
-        "memory"
-      ],
-      "topics": [
-        "agent memory"
-      ]
-    },
-    {
-      "id": "resource:169",
-      "type": "resource",
-      "label": "EXXETA / exxperts",
-      "url": "https://github.com/EXXETA/exxperts",
-      "github_repo": "EXXETA/exxperts",
-      "summary": "Open-source desktop AI assistant that shows a draft of what it would remember and lets you edit or discard it before saving to a local memory file.",
-      "notes": "430 stars, Apache-2.0, TypeScript (Electron). Mac/Windows/Linux. One 'room' per project/topic, each with its own plain-file memory; sign in with ChatGPT, Claude or GitHub Copilot, or API key / company gateway. Human-in-the-loop memory. Close calls: Tools / AI Apps & Agents (it is a desktop app).",
-      "added_at": "2026-11-04",
       "date_source": "sheet",
       "branches": [
         "memory"
@@ -1883,6 +1883,23 @@
     {
       "id": "resource:170",
       "type": "resource",
+      "label": "EXXETA / exxperts",
+      "url": "https://github.com/EXXETA/exxperts",
+      "github_repo": "EXXETA/exxperts",
+      "summary": "Open-source desktop AI assistant that shows a draft of what it would remember and lets you edit or discard it before saving to a local memory file.",
+      "notes": "430 stars, Apache-2.0, TypeScript (Electron). Mac/Windows/Linux. One 'room' per project/topic, each with its own plain-file memory; sign in with ChatGPT, Claude or GitHub Copilot, or API key / company gateway. Human-in-the-loop memory. Close calls: Tools / AI Apps & Agents (it is a desktop app).",
+      "added_at": "2026-11-04",
+      "date_source": "sheet",
+      "branches": [
+        "memory"
+      ],
+      "topics": [
+        "agent memory"
+      ]
+    },
+    {
+      "id": "resource:171",
+      "type": "resource",
       "label": "TypeSafe / Diogo Almeida",
       "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
       "github_repo": null,
@@ -1899,7 +1916,7 @@
       ]
     },
     {
-      "id": "resource:171",
+      "id": "resource:172",
       "type": "resource",
       "label": "jevgrep / dzhng",
       "url": "https://github.com/dzhng/jevgrep",
@@ -1917,7 +1934,7 @@
       ]
     },
     {
-      "id": "resource:172",
+      "id": "resource:173",
       "type": "resource",
       "label": "Tracer-Cloud / opensre",
       "url": "https://github.com/Tracer-Cloud/opensre",
@@ -1934,7 +1951,7 @@
       ]
     },
     {
-      "id": "resource:173",
+      "id": "resource:174",
       "type": "resource",
       "label": "respanai / respan-gateway",
       "url": "https://github.com/respanai/respan-gateway",
@@ -1951,7 +1968,7 @@
       ]
     },
     {
-      "id": "resource:174",
+      "id": "resource:175",
       "type": "resource",
       "label": "Pi — earendil-works",
       "url": "https://github.com/earendil-works/pi",
@@ -1968,7 +1985,7 @@
       ]
     },
     {
-      "id": "resource:175",
+      "id": "resource:176",
       "type": "resource",
       "label": "coldteadotai / abide",
       "url": "https://github.com/coldteadotai/abide",
@@ -1985,7 +2002,7 @@
       ]
     },
     {
-      "id": "resource:176",
+      "id": "resource:177",
       "type": "resource",
       "label": "Clearailhc / clearai-dsh",
       "url": "https://github.com/Clearailhc/clearai-dsh",
@@ -2002,7 +2019,7 @@
       ]
     },
     {
-      "id": "resource:177",
+      "id": "resource:178",
       "type": "resource",
       "label": "mvschwarz / openrig",
       "url": "https://github.com/mvschwarz/openrig",
@@ -2019,7 +2036,7 @@
       ]
     },
     {
-      "id": "resource:178",
+      "id": "resource:179",
       "type": "resource",
       "label": "SWE-agent / mini-swe-agent",
       "url": "https://github.com/swe-agent/mini-swe-agent",
@@ -2033,23 +2050,6 @@
       ],
       "topics": [
         "agent harness"
-      ]
-    },
-    {
-      "id": "resource:179",
-      "type": "resource",
-      "label": "pg-jev / realZachi",
-      "url": "https://github.com/realZachi/pg-jev",
-      "github_repo": "realZachi/pg-jev",
-      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
-      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
-      "added_at": "2026-10-03",
-      "date_source": "sheet",
-      "branches": [
-        "jev"
-      ],
-      "topics": [
-        "postgres extension"
       ]
     },
     {
@@ -2071,6 +2071,23 @@
     },
     {
       "id": "resource:180",
+      "type": "resource",
+      "label": "pg-jev / realZachi",
+      "url": "https://github.com/realZachi/pg-jev",
+      "github_repo": "realZachi/pg-jev",
+      "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
+      "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API.",
+      "added_at": "2026-10-03",
+      "date_source": "sheet",
+      "branches": [
+        "jev"
+      ],
+      "topics": [
+        "postgres extension"
+      ]
+    },
+    {
+      "id": "resource:181",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4630,13 +4647,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:skills/skill-libraries",
+      "target": "resource:153",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:security",
       "target": "topic:security/ai-security-iam",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:security/ai-security-iam",
-      "target": "resource:153",
+      "target": "resource:154",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4646,11 +4668,6 @@
     },
     {
       "source": "topic:security/reference",
-      "target": "resource:154",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:security/ai-security-iam",
       "target": "resource:155",
       "type": "HAS_RESOURCE"
     },
@@ -4660,14 +4677,14 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:security/ai-security-iam",
+      "target": "resource:157",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:claude",
       "target": "topic:claude/cost-&-models",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:claude/cost-&-models",
-      "target": "resource:157",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:claude/cost-&-models",
@@ -4675,17 +4692,17 @@
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/claude-code",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:159",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:claude/cost-&-models",
+      "source": "topic:claude/claude-code",
       "target": "resource:160",
       "type": "HAS_RESOURCE"
     },
     {
-      "source": "topic:memory/agent-memory",
+      "source": "topic:claude/cost-&-models",
       "target": "resource:161",
       "type": "HAS_RESOURCE"
     },
@@ -4695,13 +4712,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:163",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:memory",
       "target": "topic:memory/agent-harness",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:memory/agent-harness",
-      "target": "resource:163",
+      "target": "resource:164",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4711,11 +4733,6 @@
     },
     {
       "source": "topic:jev/agent-harness",
-      "target": "resource:163",
-      "type": "HAS_RESOURCE"
-    },
-    {
-      "source": "topic:memory/agent-memory",
       "target": "resource:164",
       "type": "HAS_RESOURCE"
     },
@@ -4745,13 +4762,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:memory/agent-memory",
+      "target": "resource:170",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:trends",
       "target": "topic:trends/news",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:trends/news",
-      "target": "resource:170",
+      "target": "resource:171",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4761,7 +4783,7 @@
     },
     {
       "source": "topic:jev/news",
-      "target": "resource:170",
+      "target": "resource:171",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4771,7 +4793,7 @@
     },
     {
       "source": "topic:finops/code-search",
-      "target": "resource:171",
+      "target": "resource:172",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4781,7 +4803,7 @@
     },
     {
       "source": "topic:jev/code-search",
-      "target": "resource:171",
+      "target": "resource:172",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4791,7 +4813,7 @@
     },
     {
       "source": "topic:observability/ai-sre",
-      "target": "resource:172",
+      "target": "resource:173",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4801,18 +4823,13 @@
     },
     {
       "source": "topic:infrastructure/llm-gateways",
-      "target": "resource:173",
+      "target": "resource:174",
       "type": "HAS_RESOURCE"
     },
     {
       "source": "branch:harness",
       "target": "topic:harness/agent-harness",
       "type": "HAS_TOPIC"
-    },
-    {
-      "source": "topic:harness/agent-harness",
-      "target": "resource:174",
-      "type": "HAS_RESOURCE"
     },
     {
       "source": "topic:harness/agent-harness",
@@ -4835,13 +4852,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:179",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:179",
+      "target": "resource:180",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4851,7 +4873,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:180",
+      "target": "resource:181",
       "type": "HAS_RESOURCE"
     }
   ]
