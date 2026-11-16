@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T17:53:25+00:00",
+  "generated_at": "2026-11-16T21:19:01+00:00",
   "node_types": [
     "branch",
     "topic",
@@ -52,6 +52,14 @@
       "topic_count": 3
     },
     {
+      "id": "branch:harness",
+      "type": "branch",
+      "label": "Harness",
+      "slug": "harness",
+      "count": 9,
+      "topic_count": 4
+    },
+    {
       "id": "branch:mcp",
       "type": "branch",
       "label": "MCP",
@@ -66,14 +74,6 @@
       "slug": "automation-flow",
       "count": 8,
       "topic_count": 3
-    },
-    {
-      "id": "branch:harness",
-      "type": "branch",
-      "label": "Harness",
-      "slug": "harness",
-      "count": 8,
-      "topic_count": 4
     },
     {
       "id": "branch:claude",
@@ -211,6 +211,13 @@
       "count": 7
     },
     {
+      "id": "topic:harness/agent-harness",
+      "type": "topic",
+      "label": "agent harness",
+      "branch": "branch:harness",
+      "count": 6
+    },
+    {
       "id": "topic:learning/llms-&-training",
       "type": "topic",
       "label": "llms & training",
@@ -244,13 +251,6 @@
       "label": "mlops & evaluation",
       "branch": "branch:tools",
       "count": 6
-    },
-    {
-      "id": "topic:harness/agent-harness",
-      "type": "topic",
-      "label": "agent harness",
-      "branch": "branch:harness",
-      "count": 5
     },
     {
       "id": "topic:repos-in-github/memory-&-context",
@@ -2123,6 +2123,23 @@
     {
       "id": "resource:183",
       "type": "resource",
+      "label": "Picrew / awesome-agent-harness",
+      "url": "https://github.com/Picrew/awesome-agent-harness",
+      "github_repo": "Picrew/awesome-agent-harness",
+      "summary": "Curated list of agent-harness engineering resources: GitHub projects, tools, benchmarks and practical guides.",
+      "notes": "1,933 stars; no license on the repository; GitHub language Python (README is generated from data/projects.yaml). Not a fork or archived. Last push Nov 4, 2026. README (as of last verified 2026-10-08) lists 375 entries, 341 of them GitHub. Site: picrew.github.io/LLM-Harness/. Close call: Harness / tutorial (the walkinglabs course is already there); Agent Harness chosen because this is a catalog of harness engineering, next to Pi and mini-swe-agent.",
+      "added_at": "2026-11-16",
+      "date_source": "sheet",
+      "branches": [
+        "harness"
+      ],
+      "topics": [
+        "agent harness"
+      ]
+    },
+    {
+      "id": "resource:184",
+      "type": "resource",
       "label": "pg-jev / realZachi",
       "url": "https://github.com/realZachi/pg-jev",
       "github_repo": "realZachi/pg-jev",
@@ -2138,7 +2155,7 @@
       ]
     },
     {
-      "id": "resource:184",
+      "id": "resource:185",
       "type": "resource",
       "label": "extend-hq / jevbox",
       "url": "https://github.com/extend-hq/jevbox",
@@ -4923,13 +4940,18 @@
       "type": "HAS_RESOURCE"
     },
     {
+      "source": "topic:harness/agent-harness",
+      "target": "resource:183",
+      "type": "HAS_RESOURCE"
+    },
+    {
       "source": "branch:jev",
       "target": "topic:jev/postgres-extension",
       "type": "HAS_TOPIC"
     },
     {
       "source": "topic:jev/postgres-extension",
-      "target": "resource:183",
+      "target": "resource:184",
       "type": "HAS_RESOURCE"
     },
     {
@@ -4939,7 +4961,7 @@
     },
     {
       "source": "topic:jev/document-library",
-      "target": "resource:184",
+      "target": "resource:185",
       "type": "HAS_RESOURCE"
     }
   ]

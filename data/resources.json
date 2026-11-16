@@ -4098,6 +4098,28 @@
   },
   {
     "id": 183,
+    "url": "https://github.com/Picrew/awesome-agent-harness",
+    "title": "Picrew / awesome-agent-harness",
+    "summary": "Curated list of agent-harness engineering resources: GitHub projects, tools, benchmarks and practical guides.",
+    "category": "other",
+    "tags": [
+      "harness",
+      "agent harness"
+    ],
+    "placements": [
+      {
+        "branch": "harness",
+        "topic": "Agent Harness"
+      }
+    ],
+    "source_file": "",
+    "created": "2026-11-16",
+    "added_at": "2026-11-16",
+    "date_source": "sheet",
+    "notes": "1,933 stars; no license on the repository; GitHub language Python (README is generated from data/projects.yaml). Not a fork or archived. Last push Nov 4, 2026. README (as of last verified 2026-10-08) lists 375 entries, 341 of them GitHub. Site: picrew.github.io/LLM-Harness/. Close call: Harness / tutorial (the walkinglabs course is already there); Agent Harness chosen because this is a catalog of harness engineering, next to Pi and mini-swe-agent."
+  },
+  {
+    "id": 184,
     "url": "https://github.com/realZachi/pg-jev",
     "title": "pg-jev / realZachi",
     "summary": "PostgreSQL extension that lets you filter, rank, and classify rows with plain-language conditions. Each row is judged by TypeSafe's Jev, a System One model that returns calibrated probabilities instead of generated text, with no index, embeddings, or vector column.",
@@ -4119,7 +4141,7 @@
     "notes": "472 GitHub stars. License: PostgreSQL License. Language: Shell. Needs PostgreSQL 14–17 with plpython3u, a superuser, and a TypeSafe API key; row contents are sent to the TypeSafe API."
   },
   {
-    "id": 184,
+    "id": 185,
     "url": "https://github.com/extend-hq/jevbox",
     "title": "extend-hq / jevbox",
     "summary": "Permission-aware document library that searches with JEV and answers source-grounded questions through an AI chat.",
